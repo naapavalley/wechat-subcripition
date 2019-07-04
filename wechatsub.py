@@ -11,7 +11,7 @@ user="2869928788@qq.com"
 # 公众号密码
 password="anton826"
 # 设置要爬取的公众号列表
-gzlist=['nkwangshuyi']
+gzlist=['CFLeasing']
 
 # 登录微信公众号，获取登录之后的cookies信息，并保存到本地文本中
 
