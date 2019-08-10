@@ -1,5 +1,6 @@
 import webbrowser
 import time
+import os
 
 # 设置要爬取的公众号
 wechatsubname = input("设置微信公众号中文名：")
@@ -31,7 +32,8 @@ def clearBlankLine():
 
 # 读取txt文件
 def read():
-    with open(filename + '.txt', encoding='utf-8') as f:
+    filepath = './spider/'+ filename + '.txt'
+    with open(filepath, encoding='utf-8') as f:
         content = f.readlines()
     return content
 
@@ -50,7 +52,7 @@ def gentbody():
 # 拼接html全文
 def genhtml():
     runtime = time.strftime('%Y-%m-%d', time.localtime())
-    thead = "<th>微信公众号：%s&emsp;&emsp;&emsp;&emsp;微信号：%s&emsp;&emsp;&emsp;&emsp;更新日期：%s&emsp;&emsp;&emsp;&emsp;标签：%s</th>" % (wechatsubname, filename, runtime,tag)
+    thead = "<th>微信公众号：%s&emsp;&emsp;&emsp;&emsp;微信号：%s&emsp;&emsp;&emsp;&emsp;更新日期：%s&emsp;&emsp;&emsp;&emsp;<br>标签：%s</th>" % (wechatsubname, filename, runtime,tag)
     tbody = gentbody()
     # 命名生成的html
     GEN_HTML = "%s-%s-%s.html"%(wechatsubname,filename,runtime)

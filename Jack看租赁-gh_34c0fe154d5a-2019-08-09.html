@@ -1,0 +1,436 @@
+
+        <!doctype html>
+        <html>
+        <head>
+        <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+        <title></title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+        html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+        body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+        iframe { margin: auto; }
+        a.url { word-break: break-all; }
+        a:active, a:hover { outline: 0px; }
+        .in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+        #write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+        #write.first-line-indent p { text-indent: 2em; }
+        #write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+        #write.first-line-indent li { margin-left: 2em; }
+        .for-image #write { padding-left: 8px; padding-right: 8px; }
+        body.typora-export { padding-left: 30px; padding-right: 30px; }
+        .typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+        @media screen and (max-width: 500px) {
+          body.typora-export { padding-left: 0px; padding-right: 0px; }
+          #write { padding-left: 20px; padding-right: 20px; }
+          .CodeMirror-sizer { margin-left: 0px !important; }
+          .CodeMirror-gutters { display: none !important; }
+        }
+        #write li > figure:first-child { margin-top: -20px; }
+        #write ol, #write ul { position: relative; }
+        img { max-width: 100%; vertical-align: middle; }
+        button, input, select, textarea { color: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; }
+        input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+        *, ::after, ::before { box-sizing: border-box; }
+        #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+        #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+        h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
+        p { orphans: 4; }
+        h1 { font-size: 2rem; }
+        h2 { font-size: 1.8rem; }
+        h3 { font-size: 1.6rem; }
+        h4 { font-size: 1.4rem; }
+        h5 { font-size: 1.2rem; }
+        h6 { font-size: 1rem; }
+        .md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+        .hidden { display: none; }
+        .md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+        a { cursor: pointer; }
+        sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+        sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+        #write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+        figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+        figure > table { margin: 0px !important; }
+        tr { break-inside: avoid; break-after: auto; }
+        thead { display: table-header-group; }
+        table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+        table.md-table td { min-width: 32px; }
+        .CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+        .CodeMirror-linenumber { user-select: none; }
+        .CodeMirror { text-align: left; }
+        .CodeMirror-placeholder { opacity: 0.3; }
+        .CodeMirror pre { padding: 0px 4px; }
+        .CodeMirror-lines { padding: 0px; }
+        div.hr:focus { cursor: none; }
+        #write pre { white-space: pre-wrap; }
+        #write.fences-no-line-wrapping pre { white-space: pre; }
+        #write pre.ty-contain-cm { white-space: normal; }
+        .CodeMirror-gutters { margin-right: 4px; }
+        .md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+        .md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+        #write .md-fences.mock-cm { white-space: pre-wrap; }
+        .md-fences.md-fences-with-lineno { padding-left: 0px; }
+        #write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+        .md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+        .CodeMirror-line, twitterwidget { break-inside: avoid; }
+        .footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+        .footnotes + .footnotes { margin-top: 0px; }
+        .md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+        li div { padding-top: 0px; }
+        blockquote { margin: 1rem 0px; }
+        li .mathjax-block, li p { margin: 0.5rem 0px; }
+        li { margin: 0px; position: relative; }
+        blockquote > :last-child { margin-bottom: 0px; }
+        blockquote > :first-child, li > :first-child { margin-top: 0px; }
+        .footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+        #write .footnote-line { white-space: pre-wrap; }
+        @media print {
+          body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+          #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+          .typora-export * { -webkit-print-color-adjust: exact; }
+          html.blink-to-pdf { font-size: 13px; }
+          .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+          .typora-export #write::after { height: 0px; }
+          @page { margin: 20mm 0px; }
+        }
+        .footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+        a img, img a { cursor: pointer; }
+        pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+        p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+        p > .md-image:only-child { display: inline-block; width: 100%; }
+        #write .MathJax_Display { margin: 0.8em 0px 0px; }
+        .md-math-block { width: 100%; }
+        .md-math-block:not(:empty)::after { display: none; }
+        [contenteditable="true"]:active, [contenteditable="true"]:focus { outline: 0px; box-shadow: none; }
+        .md-task-list-item { position: relative; list-style-type: none; }
+        .task-list-item.md-task-list-item { padding-left: 0px; }
+        .md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+        .math { font-size: 1rem; }
+        .md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+        .md-toc-content { position: relative; margin-left: 0px; }
+        .md-toc-content::after, .md-toc::after { display: none; }
+        .md-toc-item { display: block; color: rgb(65, 131, 196); }
+        .md-toc-item a { text-decoration: none; }
+        .md-toc-inner:hover { text-decoration: underline; }
+        .md-toc-inner { display: inline-block; cursor: pointer; }
+        .md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+        .md-toc-h2 .md-toc-inner { margin-left: 2em; }
+        .md-toc-h3 .md-toc-inner { margin-left: 4em; }
+        .md-toc-h4 .md-toc-inner { margin-left: 6em; }
+        .md-toc-h5 .md-toc-inner { margin-left: 8em; }
+        .md-toc-h6 .md-toc-inner { margin-left: 10em; }
+        @media screen and (max-width: 48em) {
+          .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+          .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+          .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+          .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+        }
+        a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+        .footnote-line a:not(.reversefootnote) { color: inherit; }
+        .md-attr { display: none; }
+        .md-fn-count::after { content: "."; }
+        code, pre, samp, tt { font-family: var(--monospace); }
+        kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+        .md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+        code { text-align: left; vertical-align: initial; }
+        a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+        .md-inline-math .MathJax_SVG .noError { display: none !important; }
+        .html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+        .md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+        .MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+        .MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+        .MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+        .MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+        .MathJax_SVG * { transition: none; }
+        .MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; }
+        .os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+        .md-diagram-panel > svg { max-width: 100%; }
+        [lang="mermaid"] svg, [lang="flow"] svg { max-width: 100%; }
+        [lang="mermaid"] .node text { font-size: 1rem; }
+        table tr th { border-bottom: 0px; }
+        video { max-width: 100%; display: block; margin: 0px auto; }
+        iframe { max-width: 100%; width: 100%; border: none; }
+        .highlight td, .highlight tr { border: 0px; }
+        :root { --side-bar-bg-color: #fafafa; --control-text-color: #777; }
+        html { font-size: 16px; }
+        body { font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; color: rgb(51, 51, 51); line-height: 1.6; }
+        #write { max-width: 860px; margin: 0px auto; padding: 30px 30px 100px; }
+        #write > ul:first-child, #write > ol:first-child { margin-top: 30px; }
+        a { color: rgb(65, 131, 196); }
+        h1, h2, h3, h4, h5, h6 { position: relative; margin-top: 1rem; margin-bottom: 1rem; font-weight: bold; line-height: 1.4; cursor: text; }
+        h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor { text-decoration: none; }
+        h1 tt, h1 code { font-size: inherit; }
+        h2 tt, h2 code { font-size: inherit; }
+        h3 tt, h3 code { font-size: inherit; }
+        h4 tt, h4 code { font-size: inherit; }
+        h5 tt, h5 code { font-size: inherit; }
+        h6 tt, h6 code { font-size: inherit; }
+        h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom: 1px solid rgb(238, 238, 238); }
+        h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom: 1px solid rgb(238, 238, 238); }
+        h3 { font-size: 1.5em; line-height: 1.43; }
+        h4 { font-size: 1.25em; }
+        h5 { font-size: 1em; }
+        h6 { font-size: 1em; color: rgb(119, 119, 119); }
+        p, blockquote, ul, ol, dl, table { margin: 0.8em 0px; }
+        li > ol, li > ul { margin: 0px; }
+        hr { height: 2px; padding: 0px; margin: 16px 0px; background-color: rgb(231, 231, 231); border: 0px none; overflow: hidden; box-sizing: content-box; }
+        li p.first { display: inline-block; }
+        ul, ol { padding-left: 30px; }
+        ul:first-child, ol:first-child { margin-top: 0px; }
+        ul:last-child, ol:last-child { margin-bottom: 0px; }
+        blockquote { border-left: 4px solid rgb(223, 226, 229); padding: 0px 15px; color: rgb(119, 119, 119); }
+        blockquote blockquote { padding-right: 0px; }
+        table { padding: 0px; word-break: initial; }
+        table tr { border-top: 1px solid rgb(223, 226, 229); margin: 0px; padding: 0px; }
+        table tr:nth-child(2n), thead { background-color: rgb(248, 248, 248); }
+        table tr th { font-weight: bold; border-width: 1px 1px 0px; border-top-style: solid; border-right-style: solid; border-left-style: solid; border-top-color: rgb(223, 226, 229); border-right-color: rgb(223, 226, 229); border-left-color: rgb(223, 226, 229); border-image: initial; border-bottom-style: initial; border-bottom-color: initial; text-align: left; margin: 0px; padding: 6px 13px; }
+        table tr td { border: 1px solid rgb(223, 226, 229); text-align: left; margin: 0px; padding: 6px 13px; }
+        table tr th:first-child, table tr td:first-child { margin-top: 0px; }
+        table tr th:last-child, table tr td:last-child { margin-bottom: 0px; }
+        .CodeMirror-lines { padding-left: 4px; }
+        .code-tooltip { box-shadow: rgba(0, 28, 36, 0.3) 0px 1px 1px 0px; border-top: 1px solid rgb(238, 242, 242); }
+        .md-fences, code, tt { border: 1px solid rgb(231, 234, 237); background-color: rgb(248, 248, 248); border-radius: 3px; padding: 2px 4px 0px; font-size: 0.9em; }
+        code { background-color: rgb(243, 244, 244); padding: 0px 2px; }
+        .md-fences { margin-bottom: 15px; margin-top: 15px; padding-top: 8px; padding-bottom: 6px; }
+        .md-task-list-item > input { margin-left: -1.3em; }
+        @media print {
+          html { font-size: 13px; }
+          table, pre { break-inside: avoid; }
+          pre { word-wrap: break-word; }
+        }
+        .md-fences { background-color: rgb(248, 248, 248); }
+        #write pre.md-meta-block { padding: 1rem; font-size: 85%; line-height: 1.45; background-color: rgb(247, 247, 247); border: 0px; border-radius: 3px; color: rgb(119, 119, 119); margin-top: 0px !important; }
+        .mathjax-block > .code-tooltip { bottom: 0.375rem; }
+        .md-mathjax-midline { background: rgb(250, 250, 250); }
+        #write > h3.md-focus::before { left: -1.5625rem; top: 0.375rem; }
+        #write > h4.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
+        #write > h5.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
+        #write > h6.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
+        .md-image > .md-meta { border-radius: 3px; padding: 2px 0px 0px 4px; font-size: 0.9em; color: inherit; }
+        .md-tag { color: rgb(167, 167, 167); opacity: 1; }
+        .md-toc { margin-top: 20px; padding-bottom: 20px; }
+        .sidebar-tabs { border-bottom: none; }
+        #typora-quick-open { border: 1px solid rgb(221, 221, 221); background-color: rgb(248, 248, 248); }
+        #typora-quick-open-item { background-color: rgb(250, 250, 250); border-color: rgb(254, 254, 254) rgb(229, 229, 229) rgb(229, 229, 229) rgb(238, 238, 238); border-style: solid; border-width: 1px; }
+        .on-focus-mode blockquote { border-left-color: rgba(85, 85, 85, 0.12); }
+        header, .context-menu, .megamenu-content, footer { font-family: "Segoe UI", Arial, sans-serif; }
+        .file-node-content:hover .file-node-icon, .file-node-content:hover .file-node-open-state { visibility: visible; }
+        .mac-seamless-mode #typora-sidebar { background-color: var(--side-bar-bg-color); }
+        .md-lang { color: rgb(180, 101, 77); }
+        .html-for-mac .context-menu { --item-hover-bg-color: #E6F0FE; }
+        #md-notification .btn { border: 0px; }
+        .dropdown-menu .divider { border-color: rgb(229, 229, 229); }
+         .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
+        </style>
+        </head>
+        <body class='typora-export os-windows' >
+        <div  id='write'  class = 'is-node'>
+        <figure>
+        <table>
+        <thead><tr><th>微信公众号：Jack看租赁&emsp;&emsp;&emsp;&emsp;微信号：gh_34c0fe154d5a&emsp;&emsp;&emsp;&emsp;更新日期：2019-08-09&emsp;&emsp;&emsp;&emsp;<br>标签：租赁</th></tr></thead><tbody><tr><td>1&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247488073&idx=1&sn=9eaf5837450b95c1dc07bd71921de1e6&chksm=eaab8a80dddc039627e42f40c76d5b9a52bc9d862caf63c2756c96c617ff177cd48f609a3f4c#rd
+'>我们是一家全方位服务租赁公司的平台 | Jack看租赁</a></td></tr><tr><td>2&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247488068&idx=1&sn=6e72d17d70817447f2abbfe1ec3fbf6c&chksm=eaab8a8ddddc039bd32b74b128798ed25f592cf77bd0495748888b59370b476467dbe160d852#rd
+'>【8月16日】我们并没有想到，原来今年最火的课是这堂！3家头部商租、8家金租等参会！</a></td></tr><tr><td>3&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247488062&idx=1&sn=6a4dad6acec55775156c6d3c28569af7&chksm=eaab8af7dddc03e13cbad8715f039e4a1ca3935dd3b325fc6c3be1bb7f24f06290c916ecef90#rd
+'>爱情也需要点江湖义气</a></td></tr><tr><td>4&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247488057&idx=1&sn=f0f1ef5058c17c6d534e69155dcb9838&chksm=eaab8af0dddc03e6d10c4cd25498ce12b420e004762a9123db2c043043a4a797803332c8544a#rd
+'>租赁东南飞，信仰依旧在</a></td></tr><tr><td>5&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247488052&idx=1&sn=3b51c4624d27098a424b68d10ddccd44&chksm=eaab8afddddc03eb6228521a9b7cc69696e6eff954128a820fe09ca7d2565eecab5a6682d347#rd
+'>不展期不行，展了也没用</a></td></tr><tr><td>6&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247488046&idx=1&sn=1ca3c4ebb57e91dc48ce7e7485036359&chksm=eaab8ae7dddc03f1c6e20bc2457de7227b7b936975e40be75b7675b4fdbc5f049f89d3b43872#rd
+'>金融市场里最大的风险</a></td></tr><tr><td>7&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247488042&idx=1&sn=7ab81b55a3f8396f8873c8d10c0e6f62&chksm=eaab8ae3dddc03f5912d9b21c28248efd283a7860b639f914d7ae1bd4fc51d63835da6920267#rd
+'>租赁公司给你那么多钱，你都干嘛去啦​？</a></td></tr><tr><td>8&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247488036&idx=1&sn=6430377708aaf0f0e4e113bf50ee6825&chksm=eaab8aeddddc03fb3a4fd0a52390d8be846bf351152f14289f6f0b12cbe767f280a5ef41085b#rd
+'>项目违约了，知道了也不说</a></td></tr><tr><td>9&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247488030&idx=1&sn=6f0bd54cefc9eaadb32a2a919da68127&chksm=eaab8ad7dddc03c1a4db5890758306f365cafe42edec6ed1241cf208d3e0b3a74f15a4dabb96#rd
+'>职业经理人亲述：厂商系融资租赁公司的宿命</a></td></tr><tr><td>10&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247488030&idx=2&sn=d6469e227061955decda9a89d06a786e&chksm=eaab8ad7dddc03c1bdbd280edd20390ad2cada576c052691f7cb988da82b975faf349eb8bb06#rd
+'>租赁“老赖”，你就作吧，我再也不管你了……</a></td></tr><tr><td>11&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247488024&idx=1&sn=acbac100554fe150e574f24a64c5c9ec&chksm=eaab8ad1dddc03c7d70d07bf84e30e4fe8a38e3524ce648a3c67f12c786e6e58883d23efff16#rd
+'>张胜律师受邀讲授“商业保理的常见纠纷及司法实践”</a></td></tr><tr><td>12&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247488024&idx=2&sn=68d04a78c0f6ab502a6571a330be06d0&chksm=eaab8ad1dddc03c7f86ad8638da1aae434c60308785956214b0b32b3400db7d23af4d9a41175#rd
+'>又是20亿！九华经建投如期完成“16九华02”债券本息兑付</a></td></tr><tr><td>13&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247488024&idx=3&sn=27e5aa2f468248733e351cde2b561d7c&chksm=eaab8ad1dddc03c70c958363525556aaa2dbbadf7b7529b1c4eebf8543727bb74967f2fce965#rd
+'>一边违约，一边发债</a></td></tr><tr><td>14&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247488018&idx=1&sn=e4b1e6f785afd66df38324b7ebc5107c&chksm=eaab8adbdddc03cdd23eb6385e771210f434fe90f2490b3081e9164b3782a14e0f273c59b022#rd
+'>金融圈 | 有时候，时间并不能换来空间</a></td></tr><tr><td>15&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247488018&idx=2&sn=f594182e3793a5ba4e2a6ca4a048e9be&chksm=eaab8adbdddc03cd09aa95f577d04575646e6b0520b98355f94ddb207e652f81407366057fe9#rd
+'>租赁融资速览！手机上的融资信息查询平台</a></td></tr><tr><td>16&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247488018&idx=3&sn=e7f1551a3aacdc8fa14d697847b31d91&chksm=eaab8adbdddc03cde9abdab6a7d674ab5e380256196156164830545bcdaac509851c0624f854#rd
+'>【8月2日·北京】租赁企业绩效方案设计与租赁人才职业生涯规划</a></td></tr><tr><td>17&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247488004&idx=1&sn=478291c193cd0ce89bfdb6559b2e1e64&chksm=eaab8acddddc03db606125e5e935da98809d0ba3e8d65b6ee1c0fdf4b485d2544c92e66a8836#rd
+'>宋河粮液，喝倒了多少融资租赁公司！</a></td></tr><tr><td>18&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247488004&idx=2&sn=335ca8bc50bfd980f8f15d9d30b63b3c&chksm=eaab8acddddc03db0b2620a1d26422c61eed2d9839510d3ede69f118247d175a1fea151ee816#rd
+'>民企违约：当年的故事，今天的事故</a></td></tr><tr><td>19&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487995&idx=1&sn=c365da01a9560bca1d0595c4d8128b15&chksm=eaab8932dddc0024b42b308836aa5bf91d2b65658858fcd2f2b1202831ac95f3530b868fc4e5#rd
+'>如何适应环境变化，远东宏信年中会释放了哪些信号</a></td></tr><tr><td>20&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487990&idx=1&sn=4527c24bcc2c2700af2c388375dd5b47&chksm=eaab893fdddc002903501d23e91304407b420539282c21c48f7c566820ab3e8c89c71840f496#rd
+'>从近几年金租处罚案例看商租监管趋势</a></td></tr><tr><td>21&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487984&idx=1&sn=fcf0dd659e6952a5c74f9025681d0d15&chksm=eaab8939dddc002f39bc856aa782c8e39cf0b738324c78a68884699ab533d771b8d5bb4671cd#rd
+'>烟花三月！2019上半年政信租赁项目分析之扬州30笔</a></td></tr><tr><td>22&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487984&idx=2&sn=1b8f683ca8cdff64c2fcac952e97ffaa&chksm=eaab8939dddc002fe1d45eec7b1b2ee3e0beda3a2433751449aeb5967f38b6e5dcb6b8e57d09#rd
+'>茅台租赁与民生银行遵义分行举行战略合作签约暨首笔业务启动仪式</a></td></tr><tr><td>23&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487980&idx=1&sn=62bf7674f9678dd17c94b75fd4e4a44b&chksm=eaab8925dddc003312580b861c4dbaf807955000e55a64451c8bf5d830ee9d7b3d8e9d7bf10f#rd
+'>【8月16日】厂商租赁实战课重磅来袭！来自世界NO.1设备品牌！</a></td></tr><tr><td>24&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487980&idx=2&sn=57680fe03b172149072735877d77fcfb&chksm=eaab8925dddc003323e13c4e47ff5a5c38bc880b3cbffbf8bbb538c5ba7d3349970790a5cc27#rd
+'>中小企业重磅利好！通过融资租赁购买设备，最高可获100万补贴！</a></td></tr><tr><td>25&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487975&idx=1&sn=2ec95badb6367b54aecd78043ef1d293&chksm=eaab892edddc003863328ae03efca72e7f70913fc6d9891b7d8bd367d45864f36abe103ea186#rd
+'>中民投完成延期兑付，湘九华10亿中票成功发行</a></td></tr><tr><td>26&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487962&idx=1&sn=0f9e7eb256e8cf6db6b16afc30cb7e5d&chksm=eaab8913dddc0005fdb363a0309c47a63ae66cbea941a0dcfc4d33f26c1687ad0cba4ec7aa66#rd
+'>又一高管离开，细数汇通信诚租赁的黄金一代</a></td></tr><tr><td>27&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487962&idx=2&sn=efeac2a28179663d1b7d5e0a645fcee1&chksm=eaab8913dddc000598e31af2f02c499638dca8fb3ebf6f52343ea40271bd8414818ba6218440#rd
+'>25家科创板企业平均涨幅140%，这家租赁公司已提前介入</a></td></tr><tr><td>28&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487954&idx=1&sn=f284e3655d28da465038a59525aa9267&chksm=eaab891bdddc000debf6780baf141e7b4bb89231d15e8069edb54e0695c44b12ffeb4b139740#rd
+'>中诚信重磅金融科技产品·智象风控，全“心”启程！</a></td></tr><tr><td>29&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487947&idx=1&sn=2ca4291407033c956fb6fd9a29716163&chksm=eaab8902dddc0014ae7c87c51bb7a86a5c8242a729bedfd88d92b653dacfc0fcb20e96625b94#rd
+'>玉涛，有心了！</a></td></tr><tr><td>30&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487933&idx=1&sn=3220cd355f2073bf37a61510feb197e4&chksm=eaab8974dddc0062a562d75e292d3268df4a0bc82f59d7b008a8424bd8c6db503f3a60a16cb0#rd
+'>中铁建金租尝鲜银登中心，开启行业融资新通道！</a></td></tr><tr><td>31&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487929&idx=1&sn=c624a17523af896492d51f8ee411a058&chksm=eaab8970dddc0066ba78b569737af0e8bf21754b20822537b7681c20c61ac4f085af35a2884d#rd
+'>租赁十二时辰：哪有什么岁月静好，只不过是有人在替我们​负重前行</a></td></tr><tr><td>32&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487929&idx=2&sn=3b48da0e224d5acc11771208fdf004d4&chksm=eaab8970dddc0066a46049c9edfa5c0a60671d20e9faa16f9755bb4b5f162bce7d3f4afa52aa#rd
+'>行业迷茫期，租赁人该何去何从？</a></td></tr><tr><td>33&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487922&idx=1&sn=c95ac4101b5ba12a4de01e1b4e569585&chksm=eaab897bdddc006d16cdb41eec4f8273e320fe0c314d1009d998cd437724f9c77a3825cc78a5#rd
+'>德海租赁首架直升机成功交付</a></td></tr><tr><td>34&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487918&idx=1&sn=979bbb9d670b0272d4e852f710c58fe5&chksm=eaab8967dddc0071676baf43516d3abba8100ba200b3088410ec5fd2d7c6ba789b0ad1a61408#rd
+'>华宝租赁与中铝租赁签订战略合作框架协议</a></td></tr><tr><td>35&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487913&idx=1&sn=5f80a280f687818951209662179f5072&chksm=eaab8960dddc0076d904374dee72821c00e416d1cffeb3570f35e77e74921848df190aae1edf#rd
+'>从“承兴国际”事件看金融诈骗与防诈骗的猫鼠游戏</a></td></tr><tr><td>36&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487908&idx=1&sn=449d27001dd220d17f94274e917092cb&chksm=eaab896ddddc007b62706ea99dfb51f20dc500f15a5ba61d065ef32b1aaf296d5bee6d41bff2#rd
+'>两个实战案例 | 厂商租赁到底是一地鸡毛还是饕餮盛宴？</a></td></tr><tr><td>37&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487908&idx=2&sn=06b50fb5886a3ea9d1f5c88f0476bd98&chksm=eaab896ddddc007bb58885953de20d85faf60c8ba5d87cd5107e9fd79bf84f4c3117bf702c08#rd
+'>大汉租赁风云（九）：苏秦辞职</a></td></tr><tr><td>38&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487901&idx=1&sn=424fd1d01f8e980832455f2e4ce77c2f&chksm=eaab8954dddc004237f2a22754fa97ddfcc8e5b533443dc74a0e67f9206177a079cd81d31d6d#rd
+'>祁县人民医院融资违约，涉多家租赁公司，财政局曾出具按期偿还租金承诺函</a></td></tr><tr><td>39&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487897&idx=1&sn=63aff92c97f10389758ce9d3597c633e&chksm=eaab8950dddc0046fd5960c1ad1c49aea4a26dd4a737e10e43376a7cc96ef631e2a8aa69e1d7#rd
+'>不到1个小时的评审会，我们毙掉了“承兴国际”</a></td></tr><tr><td>40&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487892&idx=1&sn=3455d89453c7756ae078d1081a367b07&chksm=eaab895ddddc004b38261d290a899bf3f058af1b0664f4820d936d848f11737d8966fba4fd43#rd
+'>政信类资产评估商大放送，预评免费</a></td></tr><tr><td>41&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487892&idx=2&sn=3372f0a467d79854dcb50bbabd24a1a6&chksm=eaab895ddddc004b4c6eba73f21133207f8f1672de72ad717f7c271b3bbbbe5ac6a1510f5ff3#rd
+'>融资租赁成语新解：情同收租</a></td></tr><tr><td>42&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487888&idx=1&sn=a25244270d167b19cf7f2a193202929f&chksm=eaab8959dddc004f0b8b15db565ebb0576a10d750c417fe170abbb9109c990dd37a6e737fb08#rd
+'>信仰仍在！镇江上半年新增租赁27笔！</a></td></tr><tr><td>43&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487888&idx=2&sn=cfbe0ec92ebc54322b63c5909a8080d1&chksm=eaab8959dddc004fd660be664da27286dfffe7b5984f41725a28b97100dbe8e484eb0e85db87#rd
+'>作为一名租赁人，你想不想去乌鲁木齐做尽调？</a></td></tr><tr><td>44&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487879&idx=1&sn=e2f9cb19d66e198336cdd345c1466fb0&chksm=eaab894edddc00584b8622a1a1abed7f21dd5b2351f6790a81011eb9f7b860b6bfbd0e2242e6#rd
+'>承兴国际案除了诺亚租赁，还有......</a></td></tr><tr><td>45&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487879&idx=2&sn=f3785cb0fe52db77e8a38a9fe837f3b1&chksm=eaab894edddc00587c799f2f1f3f68b92105094281ad873f7f06d7a38af1485d36a103c7f2cc#rd
+'>融资租赁企业的财务预算和税收筹划该提上日程啦！</a></td></tr><tr><td>46&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487868&idx=1&sn=6aff80f299d2cb86140340cb8dd38cde&chksm=eaab89b5dddc00a3ef5a90898d061456d059fbe309726cb3fff8fe6920b6405e70d9cc91183e#rd
+'>荐读 | 康波萧条下的租赁市场策略</a></td></tr><tr><td>47&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487868&idx=2&sn=0e11a6a2134f77426bdd5ab34c3c5bdf&chksm=eaab89b5dddc00a338fb537b1be1f77204a9e5dc285df0a515f0f0d7e7d5cc6ec26f4155040a#rd
+'>城投业务还能做多久</a></td></tr><tr><td>48&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487868&idx=3&sn=8519daf3cd2ec627722920ca9efc6c43&chksm=eaab89b5dddc00a3ec6dd1bfb43a7f215fef27bec67d8bc2db1af0090dd8d2855e0b2e9f9b51#rd
+'>上半年23款政信产品违约清单：县级平台超7成</a></td></tr><tr><td>49&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487855&idx=1&sn=bf5af5c134f5b3968883f59fa465f7ba&chksm=eaab89a6dddc00b0db3dceab0e9738fd4eb010d37b28422f1e34588b5fc0344a2f01f9bf1813#rd
+'>平安银行一个月前就对新城下手，背后是什么神操作？</a></td></tr><tr><td>50&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487848&idx=1&sn=8d6e2ee73208991c963e4e5bc978eb7f&chksm=eaab89a1dddc00b738dbdf59bfc888670ad06d74a6d21c22e23c0e0a3bbdbce927d27aa07d8d#rd
+'>安森，多谢你！</a></td></tr><tr><td>51&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487841&idx=1&sn=bbeea9c7edc7943964e1b7a0b87ffcbf&chksm=eaab89a8dddc00bec01d23123b7f4f5f84e729dc6e0008a4bc38b014db4f8dd1676707a84158#rd
+'>愿你三冬暖，愿你春不寒</a></td></tr><tr><td>52&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487837&idx=1&sn=bf885ce792c3b6be1ad124a83b0b771d&chksm=eaab8994dddc0082ac3304a894f41db1012ae5ee6d910336996bc51793266acfd3c2d4da65cc#rd
+'>华谊兄弟牵手河北金租，4000万放映设备回租，电影大佬做担保</a></td></tr><tr><td>53&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487833&idx=1&sn=8b946bed072694def63c5e2e26880a04&chksm=eaab8990dddc00863e24b09b9f4e50311fa3a6a45e84dc9072b33f99124bbdda90f7f4483c26#rd
+'>大汉租赁风云（八）：铁娘子登场</a></td></tr><tr><td>54&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487832&idx=1&sn=71faaec74266a6f7d481252daadb1ac4&chksm=eaab8991dddc00871e5e9e6b5d6709a57553a02cdd75ffc16f3184774936d3c225eb55c500d4#rd
+'>垃圾要分类，承租人也要分类</a></td></tr><tr><td>55&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487816&idx=1&sn=c715fdc2188711bc34195bf55fb548be&chksm=eaab8981dddc0097a4f054086dfd22c9375cbcd1f4a0f65109246f81916ad06d054a0a57409b#rd
+'>如何做到3000亿？两部视频短片为你全景解读远东宏信</a></td></tr><tr><td>56&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487802&idx=1&sn=9995bc6713f5f21e93408cf20ee806c5&chksm=eaab89f3dddc00e5dcac6f3083dd155db07ffb028eac2af88c1a351833a348a917e48fc8c2a0#rd
+'>【7月5日】两家头部商租选择参加的风控课</a></td></tr><tr><td>57&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487802&idx=2&sn=24d7337759ad4843c80c3736f9332b4c&chksm=eaab89f3dddc00e52dfac282981c90c7f07ae64495cb0a464c41dfbc54b44c75f1fbbf3cca4e#rd
+'>银行怎么看融资租赁行业</a></td></tr><tr><td>58&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487800&idx=1&sn=39bcd9e4970ed0d5960f8c053bd6a7c6&chksm=eaab89f1dddc00e754562fc58012e544d0578e202c5d9d1b6ac8a5886bc9eccd6eb35b5bfb77#rd
+'>对贵州城投有种蜜汁自信</a></td></tr><tr><td>59&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487800&idx=2&sn=d9273db68d3662bcbec13a7c373d0ed1&chksm=eaab89f1dddc00e7affdcfc92de5308d4e212e1cefe506d3c510a7f0ddd1c8cd728fcf094a3f#rd
+'>2019上半年政信租赁项目分析之天津113笔</a></td></tr><tr><td>60&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487791&idx=1&sn=a47f47d1b7969107461b032c7b8409e0&chksm=eaab89e6dddc00f047735d5dc9100d21c75b464bcd2bc0abc79392d57105672f087ccc2f1667#rd
+'>“我是如何从沃特玛收回1亿租金的”</a></td></tr><tr><td>61&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487787&idx=1&sn=ae4714a03988f4154036e09aab02911c&chksm=eaab89e2dddc00f4290e352c2ee45c163f5e1c3022d890a38bf72580f3dd273aa39dd4ccc841#rd
+'>张胜律师专栏 | 出租人行使自物抵押权的争议何在？</a></td></tr><tr><td>62&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487787&idx=2&sn=2acc1a548ce2a201ad42ee58894075f4&chksm=eaab89e2dddc00f48d5cbdca07054f1fbca96f621e1bb0ee933207b451d6866b0c7c45799cb7#rd
+'>李总，租赁方案考虑的怎么样了？</a></td></tr><tr><td>63&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487777&idx=1&sn=209294bbf523937277f1d88ee9f311e7&chksm=eaab89e8dddc00fe2f9fc57c5f3c68ce748ec8a068dcdf7d91427816b5229915572b5168bb91#rd
+'>时间过半，任务未过半</a></td></tr><tr><td>64&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487777&idx=2&sn=9cec17322decce53797ea8c33e703320&chksm=eaab89e8dddc00feeea15c7ae71778af443e0f34420fd0175d443190ad6596e3c86eb5c4bc53#rd
+'>2019上半年政信租赁项目分析之浙江宁波51笔</a></td></tr><tr><td>65&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487769&idx=1&sn=5b4b02182454e2e6f5062573d781603a&chksm=eaab89d0dddc00c63ceb5c6c19c3c518af7acc5718b9be821c5db0c7b98525d76222e02cd1ba#rd
+'>一堂被金租总裁邀请的风控课</a></td></tr><tr><td>66&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487769&idx=2&sn=238207977d04cd39eb8034058555c36d&chksm=eaab89d0dddc00c67f3b5bbc71bc68ff6648404093f8ca4d7a0c4bea167e2081b0ad85c721b8#rd
+'>重磅！央行银保监首次发布中国小微企业金融服务白皮书（附报告完整版下载）​</a></td></tr><tr><td>67&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487757&idx=1&sn=c130f7e44247c46d88980a911ccbb2f3&chksm=eaab89c4dddc00d21d2bafca6fdb3491ae8a31dd67830c42d752067bcd428a59e80a157aab44#rd
+'>首届租赁和合论坛在广州成功举办，掀开产融结合新篇章！</a></td></tr><tr><td>68&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487757&idx=2&sn=ccdac9ad2e319ac9061adc497c298bcd&chksm=eaab89c4dddc00d2041f1405e295ec8f401eba99aec0ed20de0754575d3c92a78e75721f1933#rd
+'>越秀租赁、中航租赁、北银金租等20+机构确认参与，文旅租赁研讨会本周四举行！</a></td></tr><tr><td>69&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487757&idx=3&sn=6815b20e16100f460ab72fc38b3cf0ec&chksm=eaab89c4dddc00d297a09331cffd4c3df355e7bb219950b8f160123e8be6eca6cfd396af706f#rd
+'>租赁ABS尽调新规发布，中基协：基础资产50笔以内，需逐笔尽调</a></td></tr><tr><td>70&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487757&idx=4&sn=d68808bd1242fe37870a6e4a67e1fe1d&chksm=eaab89c4dddc00d2a8c99f20ee4fb8d9f09007609396c860fb8974cb4e2891043f2a38a3d25b#rd
+'>一家信托机构如果90%以上的业务是通道业务，那要这个机构做什么？</a></td></tr><tr><td>71&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487749&idx=2&sn=186ff71bd307f32503e07d8ee1c5aee7&chksm=eaab89ccdddc00dae997ca1972356a41f10b7eb115e3e5bfc9f56a1e659cc17d29e9e1f2f4ec#rd
+'>2019政信租赁项目分析之山东5月数据</a></td></tr><tr><td>72&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487741&idx=1&sn=85e8c0556c9c07ce6aedeb945075adfe&chksm=eaab8834dddc0122d8ae1aead77357c97aabaa672450107c4447f8579bdc5e5290712f0b4ed1#rd
+'>城投、过剩、国企、地产和民企</a></td></tr><tr><td>73&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487741&idx=2&sn=57e3974edc4d6c2111d527cebd26ac37&chksm=eaab8834dddc012206e6643017bbdc36d73760810406cdd4e5869c82068b32daf3a8123ea266#rd
+'>大汉租赁风云（七）：冰岛之行</a></td></tr><tr><td>74&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487734&idx=1&sn=1c1016318a64739fa8c724d68a0b0483&chksm=eaab883fdddc0129c18175b67bd7f44822ec3831ece4627927acddb7f254a2bf69da92c3eea7#rd
+'>远东宏信工业景气指数2019隆重发布！下半年基建将提速！！</a></td></tr><tr><td>75&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487730&idx=1&sn=437739952f01e81cc4b92c68180bc11f&chksm=eaab883bdddc012dee36cc48e2314278a85b0262087ccab6e52629ef6e9865e4a8b0b53664f4#rd
+'>融资租赁成为市场仅剩可规模化投放民营的“非标资金”</a></td></tr><tr><td>76&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487730&idx=2&sn=5b5b49603d2c5e7b7011f112bc7eb401&chksm=eaab883bdddc012d6b0c1f86c3b822b746e7be580296919ca3026eaf28b89ec8cbffdd4dd17f#rd
+'>越秀租赁、中航租赁、北银金租等10+机构确认参与，文旅租赁研讨会邀您参加</a></td></tr><tr><td>77&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487723&idx=1&sn=8b5effc4b57dcc4e5070c1748e118985&chksm=eaab8822dddc0134bc771542ff3561523e58db3bb735f3b6d5eb971ea7a39ab9505a0d92cba2#rd
+'>拨云不一定见日（六）：陈胜被带走</a></td></tr><tr><td>78&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487723&idx=2&sn=41132b7dda47ce6620e8f303468a28e0&chksm=eaab8822dddc01349a7fbf75c0bd9b77d949f5efd308edd007e8d06bfa7ded2e3110a3e09650#rd
+'>颠覆传统！企业预警通4.0全新上线</a></td></tr><tr><td>79&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487719&idx=1&sn=6c7cb16d84a1649b949bf5993f95b14c&chksm=eaab882edddc01380e6cb24f8007e26adb1efc4211b52a68ca740ba1d392a643d24f1f689330#rd
+'>渤海租赁2018人均薪酬163万，领跑金融业</a></td></tr><tr><td>80&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487719&idx=2&sn=c0d1c897923716e89cdd34a70ac2e150&chksm=eaab882edddc01384774413d8a927d473bd48217ab504c7715fe70bb90aef42b3b2bb16b2981#rd
+'>2019上半年政信租赁项目分析之浙江湖州97笔</a></td></tr><tr><td>81&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487708&idx=1&sn=cc128ab12ccd0caa2a5d11e4951a2842&chksm=eaab8815dddc010326a6f3d2b718b5e1c5277dcba9e07c96b51dd1b32e7501aacd31ab79a5ce#rd
+'>一家不做平台的金租</a></td></tr><tr><td>82&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487708&idx=2&sn=0bd3e893a9d003acc7e779d28f4e1f38&chksm=eaab8815dddc0103f5a6a249f7ca20831134bf95865eb6c5843100a32e83e2382fa704b92e60#rd
+'>2019上半年政信租赁项目分析之江苏盐城58笔</a></td></tr><tr><td>83&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487698&idx=1&sn=199e979fd2e2c731f446b14f702892cd&chksm=eaab881bdddc010d39001632918ca12eb39f1d6e33470f26d98f5a8fa2af42daedaec579381f#rd
+'>2019上半年政信租赁项目分析之江苏泰州66笔</a></td></tr><tr><td>84&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487698&idx=2&sn=e8b3562870242e34814c27e67d62e8c0&chksm=eaab881bdddc010d6edcbee50e494707948f277a0d0e0fa3c00ced4ca8aee58b90f1bd5c84ad#rd
+'>Jack看租赁济南社群6月交流会观点摘录（附26省市群主微信）</a></td></tr><tr><td>85&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487692&idx=1&sn=fd356099d530234005945f142b733962&chksm=eaab8805dddc0113d6730cb26643c9fa05fa1818bfdf755b7dce6a999ee2b8692ecb7462b069#rd
+'>爸爸说“愿你能遭受不公”，陪我度过人生艰难时刻</a></td></tr><tr><td>86&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487692&idx=2&sn=1201efb731a38fc09bd8c14eca1d5ffb&chksm=eaab8805dddc01130c18fd5d7ca137c4b2fcecbb99e39a784266d7fa5a7793e101eff190e2d7#rd
+'>拨云不一定见日（五）：和我在成都的街头走一走</a></td></tr><tr><td>87&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487659&idx=1&sn=6267ac05247cd0b37e2297d9366762bf&chksm=eaab8862dddc0174856b20bf4126c31eb63c549bd78baa2024784e944080a4f9a97b4137bf71#rd
+'>请珍惜来之不易的租赁资金</a></td></tr><tr><td>88&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487655&idx=1&sn=06f2bfb76f964a92df0992d75f4bb71a&chksm=eaab886edddc01780b7f4f4bd8108dbaca474a84d09289f754ae1d81d3c5f55e942744c45e62#rd
+'>一位风控昨晚深夜发圈：见谅</a></td></tr><tr><td>89&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487655&idx=2&sn=aee9c51fb44e6cf3798881052d16798d&chksm=eaab886edddc017858356b346cf5e71027b6aedd3dd3451043093300a5c1142e2ada64b1c827#rd
+'>庞大的影响</a></td></tr><tr><td>90&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487641&idx=1&sn=ec5531b67fe0605d83349d8d44836628&chksm=eaab8850dddc01463c1d2e58b97916cafa6d2b3072d6d29bd17188eda4e7c4d555e5dd3c5524#rd
+'>租赁业困局：扎堆做，到底发生了什么？</a></td></tr><tr><td>91&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487641&idx=2&sn=d2733bf0be6a1e067d82a4fca4688828&chksm=eaab8850dddc0146281872b6b1aaddfcdfc3c586e71e61da874cd52961bc5ab8c425533534d7#rd
+'>一键查询失信人、金融监管处罚、环保处罚和中介机构诚信信息</a></td></tr><tr><td>92&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487631&idx=1&sn=14754c9c5da90141cbae3ba7ead35925&chksm=eaab8846dddc0150d38e3dc60494a070a69d2deabdc12a89bb1ef1c99698fd5be1d3080af170#rd
+'>希望某些承租人认清形势，让irr回到正常的轨道上来！</a></td></tr><tr><td>93&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487631&idx=2&sn=5b0547276d1e27fbd3739209f4a56b76&chksm=eaab8846dddc015076eb99942273ebb7320a4f26d5d2367e677e8892c1bef54d2c2559154df4#rd
+'>谈石租赁 | 长安福特因违反反垄断法被罚款1.6亿人民币</a></td></tr><tr><td>94&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487624&idx=1&sn=59388d68f7094fd3f51fd35acdc26236&chksm=eaab8841dddc015785766383473e64b55e50fede6a66ca11a9bc9ef534f61e20211e0c93c3fd#rd
+'>论金融同业有个租赁朋友的重要性</a></td></tr><tr><td>95&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487624&idx=2&sn=bdfa2a10e13785dc5a4b284725961caa&chksm=eaab8841dddc0157c1efe13d517cae8bfda1695f9568819cb74b32299f7b7f3e1ac47e418031#rd
+'>文旅融合新时代，文旅租赁项目怎么做？</a></td></tr><tr><td>96&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487623&idx=1&sn=b7506cd20462a2ee41b15d1ba9122899&chksm=eaab884edddc0158b42a43ed349a67779bf0c856afa509b561a626e0d9599441bebabf09492b#rd
+'>很抱歉，你已错过了租赁就业的黄金年代</a></td></tr><tr><td>97&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487623&idx=2&sn=3e46e15cc9bd1a2524e59d26408a49b8&chksm=eaab884edddc01585799c1d3a622f96301779ee52fdfccdd89c879b0884f3eedee8e97c37690#rd
+'>【6月21日】二手车融资租赁实务与风控体系精品课</a></td></tr><tr><td>98&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487602&idx=1&sn=b892461551919aac141094a41e074ad8&chksm=eaab88bbdddc01ad0a7e9788e9993937c3ad9956a0cecf0b3cb558b0d123e0ba19c4d9ee624d#rd
+'>包商银行被接管后的最新进展</a></td></tr><tr><td>99&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487595&idx=1&sn=c371f44bc00cf44e4b291ca60adc7a21&chksm=eaab88a2dddc01b43212d61332bd95d467e6831c0aec4c6b6785b35602cabdd171cd2bce558d#rd
+'>又一百亿民营巨头破产重整！债务违约，许晴曾代言</a></td></tr><tr><td>100&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487591&idx=1&sn=5803f52261d10ee268fff6315fd7c1d5&chksm=eaab88aedddc01b8c27f24ba8abd563607b653304130b7aa3121452e683d05af5d990671dd29#rd
+'>志玲嫁了，对融资租赁行业的启示</a></td></tr><tr><td>101&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487577&idx=1&sn=c195c0d078fd7924c1b9e77126e365d8&chksm=eaab8890dddc01868646c74164ad235bdad84f7d88c82b8e365f82094e62246ed7d70e8087eb#rd
+'>万字长文 | 也论政信类融资租赁项目评估</a></td></tr><tr><td>102&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487577&idx=2&sn=b66555b0c97d107340b19078366df36d&chksm=eaab8890dddc018690b7216abc5f8a0ba072141215e72aa111a83ebd886018c2d688ca26bcbb#rd
+'>【广州】汽车融资租赁业务、风控和贷后实务操作研修班</a></td></tr><tr><td>103&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487568&idx=1&sn=be8816b155196de8734327d639aaaf99&chksm=eaab8899dddc018fa9881add846c939637e7e57697da2a0b369215946ed7a114df391a58289b#rd
+'>投稿 | 直面金融租赁公司的转型与创新</a></td></tr><tr><td>104&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487568&idx=2&sn=f000982ace5aee543fe3dd5ed0381676&chksm=eaab8899dddc018f592b9e42fb6d0f5a4ee476ad85bb8acd34f1aee0a50ce44235d7b35e962f#rd
+'>精品课 | 基础设施与医疗大健康产业融资租赁业务开拓与风险防范实务</a></td></tr><tr><td>105&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487568&idx=3&sn=cec87a79445af42d79102584b769ccaa&chksm=eaab8899dddc018f734088bcd43209632ab65a3e85f67a96e7cab68d4bd3063ca023a2c15334#rd
+'>租赁公司发行ABS，如何才能投买方“所好”？</a></td></tr><tr><td>106&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487559&idx=1&sn=514e65f4897d3d2c9b629b154a2d56ca&chksm=eaab888edddc0198ff274160a009742329e2a5f7a22dc2e76a96584992ae9d43849078a01ac5#rd
+'>18亿！金美租赁一次投放北京地铁！</a></td></tr><tr><td>107&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487559&idx=2&sn=6edfee2a351ffb4d2b976e617c94f30c&chksm=eaab888edddc01983175ecf18fb8c4aca000b4cb636c9b4401acdf159f8c78d87288b994d685#rd
+'>【7月5日精品课】融资租赁之类信贷业务风险审核要点</a></td></tr><tr><td>108&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487547&idx=1&sn=e56001888b611d09617e53cceeb291a6&chksm=eaab88f2dddc01e4f06e3d15d27d6500cbbb08468f456fec6656842c7ffa1616268f0315c6ef#rd
+'>业内重磅！海通恒信6月3日正式登陆港股主板上市</a></td></tr><tr><td>109&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487547&idx=2&sn=72fd826f929b2f4b5ffaf7205952ca6e&chksm=eaab88f2dddc01e4936111becee48f32b8f31aa5197e669b2c2b9e06116323ad66b955531603#rd
+'>《天津市地方金融监督管理条例》发布，对融资租赁公司开展业务做明确规定</a></td></tr><tr><td>110&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487538&idx=1&sn=cef77b577976e3c9c86f910f4550141f&chksm=eaab88fbdddc01edf3b83e2c233dac8b665a67ae1126cc6c3ba842c8bf295f7fee37b92a4cee#rd
+'>2500人已加入！全开放免费社群平台"融资租赁小红圈"来啦！</a></td></tr><tr><td>111&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487537&idx=1&sn=fcdb533dcc79958b10e20799513c9261&chksm=eaab88f8dddc01ee7672af5abbde59e666f9379ce955c1e047bb5e24f2c98dcad4b70cc6181a#rd
+'>拨云不一定见日（四）：8000万的直租</a></td></tr><tr><td>112&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487537&idx=2&sn=432c87c7f6440f14342460d9748e517a&chksm=eaab88f8dddc01ee2cceb75420c8cf864accd1ccbe7ad814a64746955b4a5dcf7747e10a1ec2#rd
+'>收藏 | AA以上主体信用评级及发行过ABS的租赁公司一览</a></td></tr><tr><td>113&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487531&idx=1&sn=725168bd00c9b7659df9f1d99479dfc2&chksm=eaab88e2dddc01f440457ee2fede61b48638a9fa300bf2c834f9b9ec996f52fbee75c69c95f8#rd
+'>平台类资产评估商大放送，预评免费</a></td></tr><tr><td>114&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487531&idx=2&sn=130b0d9fc9270fce82c6f5cfbca7ffbc&chksm=eaab88e2dddc01f4178304b6c3b8b3d91cb6622dbb1ac5a859c7c879fe4f9a17dab3017396b0#rd
+'>为什么选择融资租赁</a></td></tr><tr><td>115&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487522&idx=1&sn=e6bbacf836ba73eebe062fb39164e130&chksm=eaab88ebdddc01fd75a9d7f897bde815d315faeed993f6385832bcd78e60c3895f829e9430f9#rd
+'>华为也做融资租赁</a></td></tr><tr><td>116&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487522&idx=2&sn=665f386969ff711afbcfe2cf578f8461&chksm=eaab88ebdddc01fd1593d5aafd62561722ce4d19b71ab374a5941dcf1a153427578a80cd73a7#rd
+'>第三人抵押权与出租人所有权冲突了，怎么办？</a></td></tr><tr><td>117&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487516&idx=1&sn=34b87f4bbd7beb4ea8fc9c2957cb213c&chksm=eaab88d5dddc01c3b11ac80c11d0604fd22657c7c4ccbbaf6a346c5e7d37bce00ceb94b50ffb#rd
+'>租赁圈首支打榜单曲《徽银人》，99%的从业者听哭了</a></td></tr><tr><td>118&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487514&idx=1&sn=021d5a910608137738257dee2abc1f80&chksm=eaab88d3dddc01c5c70aa7baf4545807f97847c4cfc6ba30c5aa4052b38d8f0db20f2ae5fb08#rd
+'>远东客户经理：销售是一门靠近科学的艺术</a></td></tr><tr><td>119&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487514&idx=2&sn=6bbad41fcf9887591c29957cff219124&chksm=eaab88d3dddc01c50b91f6c449ad70efd5298997cfb3fb90dfb1baefcd0b2b1d6544d6c9bced#rd
+'>金租、央国企商租一大波职位火热来袭</a></td></tr><tr><td>120&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487510&idx=1&sn=e04fea956c9d6aa6cb5a113a54ee2a13&chksm=eaab88dfdddc01c9982af5fb4c09911ef00e0a0ab7629c5684f730bc334a7c940114dc664d26#rd
+'>前安邦后包商，人还在就无妨</a></td></tr><tr><td>121&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487510&idx=2&sn=29b317caf4cab7659d1451aff2def155&chksm=eaab88dfdddc01c9b9d589931e0f4dbcf374806758a4cc9716f49cf0919bfd52598657a2b08e#rd
+'>汽车融资租赁公司的四大门派</a></td></tr><tr><td>122&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487496&idx=1&sn=0da3573d04308e3e2cee12b02623b160&chksm=eaab88c1dddc01d7562ca12fdbd5707ed3721678dbc60625b0e7d691d08595b4f2c67548105c#rd
+'>租赁圈首部自传体小说：拨云不一定见日（三）</a></td></tr><tr><td>123&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487490&idx=1&sn=48eac1646034c231d499551633a7fb85&chksm=eaab88cbdddc01dd45f8c068cc49ab06fd386100a1e836c81ea9308ee1562d06b6c0557fa524#rd
+'>今夜无眠，”非银之友“包天哥的那一句：发我</a></td></tr><tr><td>124&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487483&idx=1&sn=a9426ccbad278b80c9091c45063bfdca&chksm=eaab9732dddc1e24296a6e82b4b9ebe0a008ff0c58a531956d078ec48ac1781c43474b9cbe12#rd
+'>金融圈：有一种项目叫做领导的项目</a></td></tr><tr><td>125&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487466&idx=1&sn=1ee09bf726b32ea9af77c318e0168ade&chksm=eaab9723dddc1e357a3ee5cb279e0d8c402d65a5abb22275d39e7b7bf38be621113735ea05f2#rd
+'>政信租赁也是租赁 | 凤梨说第1期</a></td></tr><tr><td>126&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487466&idx=2&sn=959c78436389fefe7ab315dc29ee92ab&chksm=eaab9723dddc1e35617e442e88e599bb3c65d40ad708a206a6d56492ff0024a61e9e99a77a47#rd
+'>二手车融资租赁，你怎么看？</a></td></tr><tr><td>127&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487461&idx=1&sn=54317eb556a841d007ee0e10b505e4b6&chksm=eaab972cdddc1e3a9eeb72a9390d17fe726b1b57b504f11b43602488dc8632b3bee679769e50#rd
+'>国内大型租赁公司海通恒信今日招股，预计6月3日港股主板挂牌</a></td></tr><tr><td>128&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487461&idx=2&sn=f626ff8518c17639b5f1fad686224e21&chksm=eaab972cdddc1e3a962c222665cfab3815e6bbb3013509f906ce59c4000964054edc3dca9adb#rd
+'>转监管之下，商用车融资租赁怎么看？</a></td></tr><tr><td>129&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487454&idx=1&sn=b8ad73ecf91ed38ea8b6b445defa415c&chksm=eaab9717dddc1e01fa90a315fdee5cb5132fc777243533a261881786c2fe8b1a16b082e8c080#rd
+'>树苗租赁，一审认定借贷</a></td></tr><tr><td>130&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487454&idx=2&sn=4e9b2e0e78ef6184adf32648ce8d3f5e&chksm=eaab9717dddc1e01cfa820f6a2434e277c2ad16a1652581136a1a3d84d8e23c69592ed82b046#rd
+'>欧力士集团业绩再创历史新高，全年营收超1500亿人民币</a></td></tr><tr><td>131&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487439&idx=1&sn=75a288debd4b63072cf9840c992500a0&chksm=eaab9706dddc1e1019e22f610b1f0023d4653bef353ef1c2e9a80e0a44ae1550f5ffe226ae03#rd
+'>萌</a></td></tr><tr><td>132&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487432&idx=1&sn=a021fc9d5505a1d7df29f0286c1b4a11&chksm=eaab9701dddc1e17cbf5a6ab6c9367f85e438ef76ce8452d60c5a50e45b2308018acf678bcb8#rd
+'>平安小微发来贺电，@仲利租赁怎么看</a></td></tr><tr><td>133&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487423&idx=1&sn=9f9db2abb8825a5811a9bdf880f979e4&chksm=eaab9776dddc1e608eed4737c762309b4780dc7f5de41b69e79342d38bb10c4b587b04da30c6#rd
+'>业内首笔50亿银租合作案签约，仲利租赁到底赢在哪里？</a></td></tr><tr><td>134&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487423&idx=2&sn=353de345290a40eb3ba11242d4764d31&chksm=eaab9776dddc1e60c2e5bc023e70c7bdd503adf9e0fea6863b757c47b1b867d17a4db87f6339#rd
+'>医疗租赁之痛：远程视界、蓝海之略模式是个什么鬼？</a></td></tr><tr><td>135&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487416&idx=1&sn=ac0f1761a9a13e1c71f77d8770192f74&chksm=eaab9771dddc1e67a982c83df37eb16c46e7fd0ccdfbc217ee6633072f8c185bc667bf463b2f#rd
+'>租赁圈首部自传体小说：拨云不一定见日（二）</a></td></tr><tr><td>136&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487403&idx=1&sn=33093d0579ad19356a6585abdab8e90b&chksm=eaab9762dddc1e74f17c2eb88d8989a821a8fad0929b26ed346bdfd2ba9470c40a1f66d9c785#rd
+'>新蓝海？！融资租赁资产评估的市场机会</a></td></tr><tr><td>137&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487403&idx=2&sn=c08510a30d826b9eb81abf6ae94706a1&chksm=eaab9762dddc1e74e5d776131d36e024648ba91ee4ad35704650b47cacf4dbc0af27e8875af1#rd
+'>收藏 | 远东平安等36家租赁公司企业愿景</a></td></tr><tr><td>138&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487394&idx=1&sn=98f4350ce38ace116db3a5db4045ff7e&chksm=eaab976bdddc1e7dd8bd149e470f05f0e6a7708a70cfbf4fa1ac36e69bded3a1f98ddbe07e5c#rd
+'>知乎高赞：租赁行业“黄埔军校”的校招情况？</a></td></tr><tr><td>139&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487390&idx=1&sn=edc898a6b3a96e29f5e3e0a0f801a230&chksm=eaab9757dddc1e41a5027ce676f2dffabf109930c8eed313dc071ef963c10dcd3fc970065a7f#rd
+'>中租控股陈凤龙董事长：多元创新，「做」出不一样的目标</a></td></tr><tr><td>140&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487390&idx=2&sn=f94b9288adfec00ede119547391624c6&chksm=eaab9757dddc1e41edb8560e257776f2f76fe085b2c78460e8928d1e4c5b339c417cfce5be29#rd
+'>收藏 | 2019年最新最全央企融资租赁公司名单</a></td></tr><tr><td>141&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487390&idx=3&sn=e052bb17a7e1739af4546461bdd8e957&chksm=eaab9757dddc1e41927b4056d4d63ee10604c70e5b51a959b4d46472899535e049db3dfdb843#rd
+'>【5月31日】二手车融资租赁实务与风控体系精品课</a></td></tr><tr><td>142&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487383&idx=1&sn=2b23883fd7ff1ac7b18cf49b5ce50c76&chksm=eaab975edddc1e48185a4cd2a425f6d5a54ffc5676d7d67bb55360917a42f7b48f27838e4812#rd
+'>母亲节快乐 | 租赁妈妈的开学第一天</a></td></tr><tr><td>143&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487379&idx=1&sn=de38a9ec5cad00083fe9feaa9aa36b9d&chksm=eaab975adddc1e4c7c949cf29355397f0923fd2172f5f98953c596e3656d33735e296a552997#rd
+'>租赁圈首部自传体小说：拨云不一定见日（一）</a></td></tr><tr><td>144&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487379&idx=2&sn=4f3ffa1e0a7c0ee66c221435ce6c2c1f&chksm=eaab975adddc1e4c2d900c1b9aaa1cf340c92add340383cfd87bbce27aa726e6e6d0978ce171#rd
+'>研讨会 | 融资租赁ABS基础资产挑选、产品设计暨信用风险分析</a></td></tr><tr><td>145&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487367&idx=1&sn=ffb776469c645be01a2c0e44be10920e&chksm=eaab974edddc1e5849c5b2573a00d094c1533e34d3c1ebc64e6205ebfb841c3e2ef3a0c2f54d#rd
+'>租赁如炒股，看好不可赌</a></td></tr><tr><td>146&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487367&idx=2&sn=630648b944335235ea415eedf2e7b31b&chksm=eaab974edddc1e58afbba5fd65a3bd20f80899ca21d849229d4e93719a66f2a295a6d1e99281#rd
+'>波音737MAX停飞分析以及给租赁行业带来的影响</a></td></tr><tr><td>147&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487367&idx=3&sn=9aeb75b6dc5701f2d56eca14eb6b3c3e&chksm=eaab974edddc1e582e84b63b2f97ffeef653731f132424ca5e564f06db6989d1118a0595348d#rd
+'>2018年银行业绩大比拼</a></td></tr><tr><td>148&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487351&idx=1&sn=ee865e941e395fd1be82bde447d43ccd&chksm=eaab97bedddc1ea899faa2dfe3d29ce31f76e86dec8cf873cfb4071302727ec65fad24e8c862#rd
+'>从租赁公司的视角浅谈优质城投企业的判断标准</a></td></tr><tr><td>149&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487351&idx=2&sn=9d5e0a57637f76d009e775e28a31f261&chksm=eaab97bedddc1ea85cccadae30a7f2451ee5cbb359e9b24e29ce31fc5def14795b1d6a6340d3#rd
+'>评级AAA的天津物产集团，会是下一个渤海钢铁吗？</a></td></tr><tr><td>150&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487351&idx=3&sn=f4c103bfe516f8aae8ec732e431fc1c2&chksm=eaab97bedddc1ea827faf5395a207e14e3b30354b197d2e57fc532b1255d92edc033368f5ffc#rd
+'>【5月24-25日】医疗融资租赁业务操作、风险管控与租后管理精品课</a></td></tr><tr><td>151&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487344&idx=1&sn=6e58b999f1cc0d1d5f51b9251021f4f9&chksm=eaab97b9dddc1eafdb9afe461c96cb6bad666ebcab611686af08397c4db365f8e3b32e142986#rd
+'>2018年上百家租赁公司业绩大比拼，远东平安领跑</a></td></tr><tr><td>152&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487344&idx=2&sn=7039fa93ccb4f605eca2c1fa5ec74fe4&chksm=eaab97b9dddc1eaf4385af58591476dd0bc18a7a18ebbd4eaf54ff33a154b81e9e08960bbcb0#rd
+'>走访租赁公司！融资租赁核心战略运营、团队培养与风控体系搭建总裁班</a></td></tr><tr><td>153&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487324&idx=1&sn=5debd250e66cf93768e07cdc0dc62fb2&chksm=eaab9795dddc1e83569757b084ba50a670e7f4d1e5758834ada671a7c26b52359d1a19391d3e#rd
+'>作为租赁从业人员，经常会被如下事情环绕</a></td></tr><tr><td>154&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487324&idx=2&sn=24e21703f67ecb49af3f6453ed46a717&chksm=eaab9795dddc1e83c7cab6cd226f46859776ab9aa730b4d0529ee9e91db797de142624010502#rd
+'>57家基金公司2018年度盈利能力排行榜</a></td></tr><tr><td>155&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487324&idx=3&sn=a2a8fec6749f1d5c00bd5034cdd5582c&chksm=eaab9795dddc1e833679a6c0972d20de6252708f5ebb9a9d1a8c387b9a81af80fc278b3c7b99#rd
+'>重磅！银保监会公布融资租赁企业监管新办法提上日程！</a></td></tr><tr><td>156&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487320&idx=1&sn=aa318c1f90ebe2eb9b0ae7cea1f71b5f&chksm=eaab9791dddc1e87bee4529564e39243637c27dd263308e9024217cfbce792da4ce4f518d3d5#rd
+'>《天津市商业保理试点管理办法（试行）》条文对照及解读</a></td></tr><tr><td>157&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487320&idx=2&sn=c9fc0fcc1c1752600a85c6f795a0abea&chksm=eaab9791dddc1e873a916eb38c039f4f2c76ae60e79d941b175a1907a9c89a97e0f497c3bc97#rd
+'>做租赁项目就像经历了一场恋爱、结婚和生子</a></td></tr><tr><td>158&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487287&idx=1&sn=37a485bd478a9fae26d42c230b660b40&chksm=eaab97fedddc1ee845f3179c7e5a862df710a38af0319fd2d41d5fe4ddbcb820db0fdf5360e0#rd
+'>五一特辑 | 中国融资租赁公司TOP100，金融租赁公司TOP70</a></td></tr><tr><td>159&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487277&idx=1&sn=df63777214f908ff86ad8b789cdc1d2a&chksm=eaab97e4dddc1ef2b4cf2e0a13ac4e262b2aa69e7f6da60604043b8efbf3c31946d33836c192#rd
+'>双跃猎头专栏 | 最新租赁公司业务、风控、资产、法务、企划、人力等热招岗位汇总</a></td></tr><tr><td>160&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487255&idx=1&sn=51cf36b276e99b2681be0e5fd7fd047a&chksm=eaab97dedddc1ec89397c8bb3a8371c586c532ab5954296bafadff3faf87e09330f98f8565a6#rd
+'>商业保理强监管开始！最高10倍杠杆、最低5000万实缴资本</a></td></tr><tr><td>161&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487255&idx=2&sn=b597400369d65e6b9867c85c041d9705&chksm=eaab97dedddc1ec8e51aeca23d5a44080a097c2436b7cb83ff836487f75f172cd9edce897182#rd
+'>【研讨会】飞机选型要点与全生命周期管理</a></td></tr><tr><td>162&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487237&idx=1&sn=23d195f8b03476ca52fdceebbe4af55d&chksm=eaab97ccdddc1eda9cd19a7adc3e327a39d4f7d008dc72ad9b044506e154eade2230be580a08#rd
+'>平台类资产评估怎么选</a></td></tr><tr><td>163&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487237&idx=2&sn=ee499f2d44eaaffb1724b615ae0ca463&chksm=eaab97ccdddc1eda82b5165e3a664a5adfa837cf7d6580ddb2c15f797f277e7cf0e588e60481#rd
+'>上海滩最靓的仔</a></td></tr><tr><td>164&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487226&idx=1&sn=6d0aec8a32bfe1529446d38e0dd46f4e&chksm=eaab9633dddc1f25bd87f41462343b8030087cd974c748701fe630d93b7bc008fbecb940d9cb#rd
+'>行业神文：没有故事，我金融界百姓怎么活？</a></td></tr><tr><td>165&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487222&idx=1&sn=d76f8d4619e482fc52b6a63a0464c511&chksm=eaab963fdddc1f2939d221cbfacf3a5d3cacfae91ad49010c3850ab5ce52b48d4b95a177c81f#rd
+'>2019，租赁能否保持高速增长？</a></td></tr><tr><td>166&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487217&idx=1&sn=88507615db604750ef497ec655706325&chksm=eaab9638dddc1f2ede3524b518d80d0a50bc88490e81fdc7761c54d147c13fa4bf6215570514#rd
+'>租赁“创新病”</a></td></tr><tr><td>167&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487217&idx=2&sn=4802c429ef120b735f025b280b77afbc&chksm=eaab9638dddc1f2e1b6e997b906086c4689456fdc18b6cb38fb0d3ab7eb46a95f0a8032f5fb0#rd
+'>某租赁公司公立医院项目准入标准</a></td></tr><tr><td>168&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487204&idx=1&sn=4184e7e18190e8e080d1d7d379d9b013&chksm=eaab962ddddc1f3b9c17c854143d07b6cd380d433e35e9b62742a3b484c34144338bb5f6b068#rd
+'>2019年海外游学活动——德国汽车金融与出行创新考察开始报名啦</a></td></tr><tr><td>169&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487200&idx=1&sn=840a9770de27c23c9a4216188842da37&chksm=eaab9629dddc1f3f728e8bc6830d9732b207978b45337c9a0e840363a882e9731a6af0a16ec6#rd
+'>从一起败诉案例看“形式回租”（下）</a></td></tr><tr><td>170&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487200&idx=2&sn=b870cd939e5208d3efb084cb0a677ca6&chksm=eaab9629dddc1f3fc56fa7be2a771688e4a9d6dfc333bf749242a3a577c6073557603438f16d#rd
+'>205与城投：郎有情妾有意</a></td></tr><tr><td>171&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487193&idx=1&sn=7b7e00cf05e518cb3815ad9ca2ea3483&chksm=eaab9610dddc1f067a99e33e9d5e381bf536c316215aad0600058890a7f01ee78ac838d560d7#rd
+'>新泺大街888号小李聊租赁</a></td></tr><tr><td>172&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487193&idx=2&sn=33bc90d781bb09611379b990e3f7b2fc&chksm=eaab9610dddc1f06b97b5e4e0db8464c2e2fb06886185004ae9768a7e78c77f3d16e061a9989#rd
+'>汽车金融服务费到底该不该收？</a></td></tr><tr><td>173&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487180&idx=1&sn=bb45d2309e41d428512bc7d6958b896d&chksm=eaab9605dddc1f13baebae6564bcae940cdc9aa671030be8e09e54cd61ad660dd012a37f4bc0#rd
+'>高瓴资本张磊：这个世界只有一条护城河</a></td></tr><tr><td>174&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487179&idx=1&sn=e0b96f38418f78b800bd032cc8274ea2&chksm=eaab9602dddc1f14ff7a4e27205a0c80222e279bfaeee19d2e6f9aed664fa66e16f449a16536#rd
+'>金融民工千万别想不开寻转型</a></td></tr><tr><td>175&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487155&idx=1&sn=2890c86484004303bd534f6ca9cec8b0&chksm=eaab967adddc1f6c29d36904812d2b5019ae4c7678dbf5d253d656482a007ddc9a6376e4e330#rd
+'>融资租赁企业如何实现去不良资产化</a></td></tr><tr><td>176&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487154&idx=1&sn=aa7312e4ca9da34a7a1029406128215d&chksm=eaab967bdddc1f6db4e1c186b2e9875fda734cc2c6c31ff793f1c41ee5a4dc37a0f75d2d6dfe#rd
+'>集结租赁圈超豪华阵容，超100亿授信</a></td></tr><tr><td>177&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487144&idx=1&sn=324b3c40d265cdc093cd7a8ecc338a2f&chksm=eaab9661dddc1f7714ef33506c0a96c5b1d808f59ac90931f4819b0d6eccaf6bc22518d5c5c3#rd
+'>论租赁人的自我修养</a></td></tr><tr><td>178&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487137&idx=1&sn=63151b4f784125dcfa2fcbc4f6bec00f&chksm=eaab9668dddc1f7e938f84bd06b9cae0c6d45d1704c577a0b37561a84915ce2e4fa1275dbf9d#rd
+'>一季度新能源汽车产销增速均超100%，融资租赁的机会在哪里？</a></td></tr><tr><td>179&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487132&idx=1&sn=396a57f4ddb894abe772dc6985642fba&chksm=eaab9655dddc1f430a4d634575ab02f09620608781d2b589b1e68118788ef417576e0ce61049#rd
+'>从一起败诉案例看“形式回租”（上）</a></td></tr><tr><td>180&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487124&idx=1&sn=60c82fe423035d493fcbda890853b594&chksm=eaab965ddddc1f4b11e7e6333cfe7662e4b11ead2b60813ab5e941df26a9f2235155f554ecff#rd
+'>某租赁公司授信政策公布：2019年只做长三角！</a></td></tr><tr><td>181&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487120&idx=1&sn=f22911c4c38b82d8a5d2124d5a458435&chksm=eaab9659dddc1f4f34d8283cd898979e9576a08b5ac224f8b609df4b9c3b843fc3ac797b4cbb#rd
+'>最新 | 银行债权人反对过半，辉山乳业资产重整草案被否</a></td></tr><tr><td>182&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487120&idx=2&sn=959a3deb9e40d71b49ef219715778d88&chksm=eaab9659dddc1f4fb13466d24ffe4156f5f1f072cd92e97fe5a2cb365b7e2df6dabb7cae312e#rd
+'>30+机构、40+嘉宾，基础设施融资租赁研讨会都讲了啥？</a></td></tr><tr><td>183&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487105&idx=1&sn=0bb6bb3fbc30acd0d78a4748e80bbbf9&chksm=eaab9648dddc1f5e7f9bb30eef5d99bd69293416c438a4ef772a267a2ebf50e81aab97cb3fac#rd
+'>一大波金租职位火热来袭</a></td></tr><tr><td>184&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487104&idx=1&sn=b16aa65c233409ba552bb4c72d8f7911&chksm=eaab9649dddc1f5f57944c35d5cc1a0c19ee00b283c51bd39d2b4160e22ac683c32cdf88c8a7#rd
+'>狮桥“滚雪球”</a></td></tr><tr><td>185&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487104&idx=2&sn=ab68143669f5f0ee5169b77790b8d919&chksm=eaab9649dddc1f5f73516f0d927adaec163ae0adc26fc4532b684620c45506faae6151e0c0ca#rd
+'>2019年第一季度银保监会罚单统计</a></td></tr><tr><td>186&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487090&idx=1&sn=f70bfd7845f01ed55e487f929af5987f&chksm=eaab96bbdddc1fad5b083ecb67f14ab0132913d2aae8485f720fb7a222373bbde27e360c7a93#rd
+'>你真的了解融资租赁手续费吗？</a></td></tr><tr><td>187&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487084&idx=1&sn=301ca8a592da9afcf77a8d8f163fde35&chksm=eaab96a5dddc1fb39cdf064952d1fedabd9b82e718b91708a00616c54a92bfb39dd43054515a#rd
+'>【4月9日】基础设施融资租赁研讨会，邦银金租、中航租赁、西藏金租等确认参会</a></td></tr><tr><td>188&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487084&idx=2&sn=5ba92b28c755b172ca18fed26c2e3af7&chksm=eaab96a5dddc1fb3e75cdc9f89ac7cbeb6640d79de9e7db6ea1044c0bcbb6214d451f539999a#rd
+'>【4月25日】新能源汽车融资租赁实务培训暨汽车金融资金对接沙龙</a></td></tr><tr><td>189&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487076&idx=1&sn=b4baa36524019e6d264c7cca15073b18&chksm=eaab96addddc1fbb2233cbe74806bd5ea0aa8eba13f05101e0a48855f69a83ce4b94113ea73a#rd
+'>【四万字雄文】如何做好信贷风险管理？</a></td></tr><tr><td>190&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487071&idx=1&sn=c335e2d2ef9389e1aedd36a60b105abd&chksm=eaab9696dddc1f80ffd732455828d3d536b57e9297625123d376df790d3c5f18c1a172a221e2#rd
+'>职待你来！台骏国际租赁有限公司招募英才</a></td></tr><tr><td>191&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487070&idx=1&sn=2a7af0bffa41bf5b1f2d4cf84695bfb0&chksm=eaab9697dddc1f81d661d98436078ec6bdff68f09f939ac00a674d888ef1d0b1442974d878c9#rd
+'>瑞幸抵押咖啡机等获4500万资金，背后是中国动产融资之王的神助攻</a></td></tr><tr><td>192&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487063&idx=1&sn=95beb5f2991272f0bdc628144315cfbe&chksm=eaab969edddc1f88175c512c8fe35b7bcbde20dfa27ea4a5d22db2d636d621bdcaacf00ba0dd#rd
+'>基础设施融资租赁，你怎么看？</a></td></tr><tr><td>193&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487055&idx=1&sn=9c0a6cf3bc93c9443f5abde746b48444&chksm=eaab9686dddc1f906d90e77cc20aae9670a518eefce61ec0fc582b06335cc1cd272cef8f06f6#rd
+'>张胜律师专栏 | 两院相争——首封法院与优先债权执行法院谁有处置权？</a></td></tr><tr><td>194&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487042&idx=1&sn=ed7a86d280ea3f43c80067cb288a2257&chksm=eaab968bdddc1f9d4310c3f700ef418b54a0e16fcd1569a4a0eb688fabf68af541fe08fcaff3#rd
+'>你要还钱</a></td></tr><tr><td>195&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487037&idx=1&sn=bfc588fab2d05a2fa59ab84c3a8b2432&chksm=eaab96f4dddc1fe29b0e39a37b4f96f0228a7395902cef74cb37620c9550f4a2376bbf4bea80#rd
+'>干货 | 如何快速获取企业的融资信息？</a></td></tr><tr><td>196&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487022&idx=1&sn=1b233a10ca3887f6768d819f032abcbb&chksm=eaab96e7dddc1ff11c48778913c0faa4123cdcb0f2c206bff9181d3b7e05a26c22e8c6fedf9e#rd
+'>南京建工60亿元交叉违约高悬头顶，评级下调至BBB</a></td></tr><tr><td>197&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487022&idx=2&sn=8a6079b609dde34e3502693e528d7631&chksm=eaab96e7dddc1ff1a4c5b43f15f6135fd00617542c2918a3f649f1105d03da6c01cfa97ff8f0#rd
+'>对不起，这位渠道大哥，我要把你拉黑了！</a></td></tr><tr><td>198&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487010&idx=1&sn=6bc584a2525b88b1e2c3cf091d1cb40e&chksm=eaab96ebdddc1ffd9478428054d3d96a586067a1baa5f5763b111606d568d86654d39746ea52#rd
+'>【机会难得】10多家租赁公司风控总率队参加，“防爆队”实战训练营3月29日即将开班</a></td></tr><tr><td>199&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487005&idx=1&sn=851fcad8fea885f30bd3143494e4237e&chksm=eaab96d4dddc1fc25652afcea9cdbd3d0a4709588fa847e4dc8121447059043b83ea70b8b567#rd
+'>张胜律师专栏 | 融资租赁常见交易结构及相关法律问题</a></td></tr><tr><td>200&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247487005&idx=2&sn=953c8247b272463589b28289665ba45f&chksm=eaab96d4dddc1fc22b6367e6047c378b3c9844a28c927883b31672d721423f180b7c4d87d01d#rd
+'>8家租赁公司年报抢先看：7增1降，头部公司或分化</a></td></tr><tr><td>201&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247486997&idx=1&sn=e7e62c8c93e401b74e498aaa442e74e9&chksm=eaab96dcdddc1fca9f5c3b29019025c4ba70435ad9e796e65d29b599fbf8efcce8590b0116c1#rd
+'>服务型风控：公子，请吃饼</a></td></tr><tr><td>202&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247486983&idx=1&sn=e919dff0172cd35a34e5f91116add38a&chksm=eaab96cedddc1fd8dec413a4d4374753f8d60adb4461713fa7db70127bc9864466681dba5c94#rd
+'>多年以后，投资经理老王一定会清醒地记得那个心情纠结的下午</a></td></tr><tr><td>203&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247486979&idx=1&sn=848fc8648925f1a0e45c5328e9e230cc&chksm=eaab96cadddc1fdc0118015e3649cad714e0c55aa9dd99f2ab131d98b6b3532c7685ed762317#rd
+'>远东宏信2018年业绩发布：资产规模逾2659亿，收入达253亿，持续稳健增长</a></td></tr><tr><td>204&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247486974&idx=1&sn=48e7772cb22189745eb65d22cd94e277&chksm=eaab9537dddc1c215b3361e9c06f904328fd0dfed0718a5b7de739228b4e1039ef76ca2d8e40#rd
+'>突发！某知名民企宣布旗下租赁公司业务停掉</a></td></tr><tr><td>205&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247486944&idx=1&sn=7f97d0dffe4fece6123de6b4286a8731&chksm=eaab9529dddc1c3f1a98b6071598f10c095fd7d5fa93113b86c3cc3182cd93a0c76823dd0fce#rd
+'>猪年必备！融资租赁万能符！！！</a></td></tr><tr><td>206&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247486944&idx=2&sn=68c778b623e1d76ab1db58de6ae0629c&chksm=eaab9529dddc1c3f401e91be7200550c290ac5fb51e07bc4eda6f98a34c7faccbd7c20a611b9#rd
+'>金融黑科技下，换一种方法来尽调</a></td></tr><tr><td>207&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247486931&idx=1&sn=552f2b20e76050bc9e37e8e00694d69b&chksm=eaab951adddc1c0c30adc22acf02c1f64e30c8cb65b46bf03758c0cbccbf9a802b9c7b671d30#rd
+'>【3月23日精品课】租赁新会计准则的全面解读和实务案例分析</a></td></tr><tr><td>208&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247486931&idx=2&sn=fe2f44ad067c8c2066a6975435c9c121&chksm=eaab951adddc1c0c262e8f90dce941f584a8a637202371d912b94463e665f082267fcf61c608#rd
+'>一位租赁老炮的行业思考：融资租赁公司能做多少年？</a></td></tr><tr><td>209&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzI2NDU1Njk2Ng==&mid=2247486921&idx=1&sn=0074f12fdf5075d039e421bec0cfcf58&chksm=eaab9500dddc1c16886cffbdcf62b3acdedbef59210f8cfe3cd8fbf9d3a88b71e8d2182a0dea#rd
+'>雷暴大年过后，浅谈租赁公司风控体系建设之信审实务</a></td></tr></tbody></html>
