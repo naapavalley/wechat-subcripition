@@ -1,0 +1,417 @@
+
+        <!doctype html>
+        <html>
+        <head>
+        <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+        <title></title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+        html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+        body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+        iframe { margin: auto; }
+        a.url { word-break: break-all; }
+        a:active, a:hover { outline: 0px; }
+        .in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+        #write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+        #write.first-line-indent p { text-indent: 2em; }
+        #write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+        #write.first-line-indent li { margin-left: 2em; }
+        .for-image #write { padding-left: 8px; padding-right: 8px; }
+        body.typora-export { padding-left: 30px; padding-right: 30px; }
+        .typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+        @media screen and (max-width: 500px) {
+          body.typora-export { padding-left: 0px; padding-right: 0px; }
+          #write { padding-left: 20px; padding-right: 20px; }
+          .CodeMirror-sizer { margin-left: 0px !important; }
+          .CodeMirror-gutters { display: none !important; }
+        }
+        #write li > figure:first-child { margin-top: -20px; }
+        #write ol, #write ul { position: relative; }
+        img { max-width: 100%; vertical-align: middle; }
+        button, input, select, textarea { color: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; }
+        input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+        *, ::after, ::before { box-sizing: border-box; }
+        #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+        #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+        h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
+        p { orphans: 4; }
+        h1 { font-size: 2rem; }
+        h2 { font-size: 1.8rem; }
+        h3 { font-size: 1.6rem; }
+        h4 { font-size: 1.4rem; }
+        h5 { font-size: 1.2rem; }
+        h6 { font-size: 1rem; }
+        .md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+        .hidden { display: none; }
+        .md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+        a { cursor: pointer; }
+        sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+        sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+        #write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+        figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+        figure > table { margin: 0px !important; }
+        tr { break-inside: avoid; break-after: auto; }
+        thead { display: table-header-group; }
+        table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+        table.md-table td { min-width: 32px; }
+        .CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+        .CodeMirror-linenumber { user-select: none; }
+        .CodeMirror { text-align: left; }
+        .CodeMirror-placeholder { opacity: 0.3; }
+        .CodeMirror pre { padding: 0px 4px; }
+        .CodeMirror-lines { padding: 0px; }
+        div.hr:focus { cursor: none; }
+        #write pre { white-space: pre-wrap; }
+        #write.fences-no-line-wrapping pre { white-space: pre; }
+        #write pre.ty-contain-cm { white-space: normal; }
+        .CodeMirror-gutters { margin-right: 4px; }
+        .md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+        .md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+        #write .md-fences.mock-cm { white-space: pre-wrap; }
+        .md-fences.md-fences-with-lineno { padding-left: 0px; }
+        #write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+        .md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+        .CodeMirror-line, twitterwidget { break-inside: avoid; }
+        .footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+        .footnotes + .footnotes { margin-top: 0px; }
+        .md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+        li div { padding-top: 0px; }
+        blockquote { margin: 1rem 0px; }
+        li .mathjax-block, li p { margin: 0.5rem 0px; }
+        li { margin: 0px; position: relative; }
+        blockquote > :last-child { margin-bottom: 0px; }
+        blockquote > :first-child, li > :first-child { margin-top: 0px; }
+        .footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+        #write .footnote-line { white-space: pre-wrap; }
+        @media print {
+          body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+          #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+          .typora-export * { -webkit-print-color-adjust: exact; }
+          html.blink-to-pdf { font-size: 13px; }
+          .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+          .typora-export #write::after { height: 0px; }
+          @page { margin: 20mm 0px; }
+        }
+        .footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+        a img, img a { cursor: pointer; }
+        pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+        p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+        p > .md-image:only-child { display: inline-block; width: 100%; }
+        #write .MathJax_Display { margin: 0.8em 0px 0px; }
+        .md-math-block { width: 100%; }
+        .md-math-block:not(:empty)::after { display: none; }
+        [contenteditable="true"]:active, [contenteditable="true"]:focus { outline: 0px; box-shadow: none; }
+        .md-task-list-item { position: relative; list-style-type: none; }
+        .task-list-item.md-task-list-item { padding-left: 0px; }
+        .md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+        .math { font-size: 1rem; }
+        .md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+        .md-toc-content { position: relative; margin-left: 0px; }
+        .md-toc-content::after, .md-toc::after { display: none; }
+        .md-toc-item { display: block; color: rgb(65, 131, 196); }
+        .md-toc-item a { text-decoration: none; }
+        .md-toc-inner:hover { text-decoration: underline; }
+        .md-toc-inner { display: inline-block; cursor: pointer; }
+        .md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+        .md-toc-h2 .md-toc-inner { margin-left: 2em; }
+        .md-toc-h3 .md-toc-inner { margin-left: 4em; }
+        .md-toc-h4 .md-toc-inner { margin-left: 6em; }
+        .md-toc-h5 .md-toc-inner { margin-left: 8em; }
+        .md-toc-h6 .md-toc-inner { margin-left: 10em; }
+        @media screen and (max-width: 48em) {
+          .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+          .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+          .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+          .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+        }
+        a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+        .footnote-line a:not(.reversefootnote) { color: inherit; }
+        .md-attr { display: none; }
+        .md-fn-count::after { content: "."; }
+        code, pre, samp, tt { font-family: var(--monospace); }
+        kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+        .md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+        code { text-align: left; vertical-align: initial; }
+        a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+        .md-inline-math .MathJax_SVG .noError { display: none !important; }
+        .html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+        .md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+        .MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+        .MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+        .MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+        .MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+        .MathJax_SVG * { transition: none; }
+        .MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; }
+        .os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+        .md-diagram-panel > svg { max-width: 100%; }
+        [lang="mermaid"] svg, [lang="flow"] svg { max-width: 100%; }
+        [lang="mermaid"] .node text { font-size: 1rem; }
+        table tr th { border-bottom: 0px; }
+        video { max-width: 100%; display: block; margin: 0px auto; }
+        iframe { max-width: 100%; width: 100%; border: none; }
+        .highlight td, .highlight tr { border: 0px; }
+        :root { --side-bar-bg-color: #fafafa; --control-text-color: #777; }
+        html { font-size: 16px; }
+        body { font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; color: rgb(51, 51, 51); line-height: 1.6; }
+        #write { max-width: 860px; margin: 0px auto; padding: 30px 30px 100px; }
+        #write > ul:first-child, #write > ol:first-child { margin-top: 30px; }
+        a { color: rgb(65, 131, 196); }
+        h1, h2, h3, h4, h5, h6 { position: relative; margin-top: 1rem; margin-bottom: 1rem; font-weight: bold; line-height: 1.4; cursor: text; }
+        h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor { text-decoration: none; }
+        h1 tt, h1 code { font-size: inherit; }
+        h2 tt, h2 code { font-size: inherit; }
+        h3 tt, h3 code { font-size: inherit; }
+        h4 tt, h4 code { font-size: inherit; }
+        h5 tt, h5 code { font-size: inherit; }
+        h6 tt, h6 code { font-size: inherit; }
+        h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom: 1px solid rgb(238, 238, 238); }
+        h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom: 1px solid rgb(238, 238, 238); }
+        h3 { font-size: 1.5em; line-height: 1.43; }
+        h4 { font-size: 1.25em; }
+        h5 { font-size: 1em; }
+        h6 { font-size: 1em; color: rgb(119, 119, 119); }
+        p, blockquote, ul, ol, dl, table { margin: 0.8em 0px; }
+        li > ol, li > ul { margin: 0px; }
+        hr { height: 2px; padding: 0px; margin: 16px 0px; background-color: rgb(231, 231, 231); border: 0px none; overflow: hidden; box-sizing: content-box; }
+        li p.first { display: inline-block; }
+        ul, ol { padding-left: 30px; }
+        ul:first-child, ol:first-child { margin-top: 0px; }
+        ul:last-child, ol:last-child { margin-bottom: 0px; }
+        blockquote { border-left: 4px solid rgb(223, 226, 229); padding: 0px 15px; color: rgb(119, 119, 119); }
+        blockquote blockquote { padding-right: 0px; }
+        table { padding: 0px; word-break: initial; }
+        table tr { border-top: 1px solid rgb(223, 226, 229); margin: 0px; padding: 0px; }
+        table tr:nth-child(2n), thead { background-color: rgb(248, 248, 248); }
+        table tr th { font-weight: bold; border-width: 1px 1px 0px; border-top-style: solid; border-right-style: solid; border-left-style: solid; border-top-color: rgb(223, 226, 229); border-right-color: rgb(223, 226, 229); border-left-color: rgb(223, 226, 229); border-image: initial; border-bottom-style: initial; border-bottom-color: initial; text-align: left; margin: 0px; padding: 6px 13px; }
+        table tr td { border: 1px solid rgb(223, 226, 229); text-align: left; margin: 0px; padding: 6px 13px; }
+        table tr th:first-child, table tr td:first-child { margin-top: 0px; }
+        table tr th:last-child, table tr td:last-child { margin-bottom: 0px; }
+        .CodeMirror-lines { padding-left: 4px; }
+        .code-tooltip { box-shadow: rgba(0, 28, 36, 0.3) 0px 1px 1px 0px; border-top: 1px solid rgb(238, 242, 242); }
+        .md-fences, code, tt { border: 1px solid rgb(231, 234, 237); background-color: rgb(248, 248, 248); border-radius: 3px; padding: 2px 4px 0px; font-size: 0.9em; }
+        code { background-color: rgb(243, 244, 244); padding: 0px 2px; }
+        .md-fences { margin-bottom: 15px; margin-top: 15px; padding-top: 8px; padding-bottom: 6px; }
+        .md-task-list-item > input { margin-left: -1.3em; }
+        @media print {
+          html { font-size: 13px; }
+          table, pre { break-inside: avoid; }
+          pre { word-wrap: break-word; }
+        }
+        .md-fences { background-color: rgb(248, 248, 248); }
+        #write pre.md-meta-block { padding: 1rem; font-size: 85%; line-height: 1.45; background-color: rgb(247, 247, 247); border: 0px; border-radius: 3px; color: rgb(119, 119, 119); margin-top: 0px !important; }
+        .mathjax-block > .code-tooltip { bottom: 0.375rem; }
+        .md-mathjax-midline { background: rgb(250, 250, 250); }
+        #write > h3.md-focus::before { left: -1.5625rem; top: 0.375rem; }
+        #write > h4.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
+        #write > h5.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
+        #write > h6.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
+        .md-image > .md-meta { border-radius: 3px; padding: 2px 0px 0px 4px; font-size: 0.9em; color: inherit; }
+        .md-tag { color: rgb(167, 167, 167); opacity: 1; }
+        .md-toc { margin-top: 20px; padding-bottom: 20px; }
+        .sidebar-tabs { border-bottom: none; }
+        #typora-quick-open { border: 1px solid rgb(221, 221, 221); background-color: rgb(248, 248, 248); }
+        #typora-quick-open-item { background-color: rgb(250, 250, 250); border-color: rgb(254, 254, 254) rgb(229, 229, 229) rgb(229, 229, 229) rgb(238, 238, 238); border-style: solid; border-width: 1px; }
+        .on-focus-mode blockquote { border-left-color: rgba(85, 85, 85, 0.12); }
+        header, .context-menu, .megamenu-content, footer { font-family: "Segoe UI", Arial, sans-serif; }
+        .file-node-content:hover .file-node-icon, .file-node-content:hover .file-node-open-state { visibility: visible; }
+        .mac-seamless-mode #typora-sidebar { background-color: var(--side-bar-bg-color); }
+        .md-lang { color: rgb(180, 101, 77); }
+        .html-for-mac .context-menu { --item-hover-bg-color: #E6F0FE; }
+        #md-notification .btn { border: 0px; }
+        .dropdown-menu .divider { border-color: rgb(229, 229, 229); }
+         .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
+        </style>
+        </head>
+        <body class='typora-export os-windows' >
+        <div  id='write'  class = 'is-node'>
+        <figure>
+        <table>
+        <thead><tr><th>微信公众号：产品菜鸟成长日记&emsp;&emsp;&emsp;&emsp;微信号：PMxiaocainiao&emsp;&emsp;&emsp;&emsp;更新日期：2019-08-11&emsp;&emsp;&emsp;&emsp;<br>标签：产品</th></tr></thead><tbody><tr><td>1&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047922&idx=1&sn=57a174d36c18a6b534816c9992a79fc5&chksm=8efad5a2b98d5cb4eb61c66f000c5a85f405505d9469c38a390d4f4bf69427caef0c1c9ec795#rd
+'>关于社群运营这里有一份不错的资料</a></td></tr><tr><td>2&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047910&idx=1&sn=02097a3e3087cdca9defa9a963996343&chksm=8efad5b6b98d5ca0a59acdfe9c69e1c9ec09b702d4e4053dcedb7767aa7f7b116beb9a4e09b9#rd
+'>生活指南1：商品价格查询</a></td></tr><tr><td>3&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047909&idx=1&sn=f728f156ae39ccd4324981cad514ac40&chksm=8efad5b5b98d5ca36f1e1d8894d7a0744e663dc45d75331f251a2a7f150ea144b04595b0e34a#rd
+'>福利：免费下Axure 8.0视频教程</a></td></tr><tr><td>4&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047908&idx=1&sn=2ea384f7836ae51c7f582658bfde72c2&chksm=8efad5b4b98d5ca2b30e7e92bb950a554e9def33c99f6540ae0e391542c908796016eda632e6#rd
+'>《有效训练你的研究能力》学习笔记第五篇</a></td></tr><tr><td>5&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047899&idx=1&sn=66ea085ef0c21724fa31fe85f95aad87&chksm=8efad58bb98d5c9d322f1e10acb536a3a0dae4f6e665ad412f1fa6ffa1e2bb80e459acb0f307#rd
+'>精进笔记6：如何培养所谓的“产品感”？</a></td></tr><tr><td>6&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047898&idx=1&sn=2461b1f3b1ed9b8eed2d2e9a786cd33c&chksm=8efad58ab98d5c9c2da4173ed518950fbd1917417df01abbb4647595308460098a615822b6dc#rd
+'>神器21：PDF转Word或PPT这个工具最好用！</a></td></tr><tr><td>7&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047871&idx=1&sn=836496afe9ea9e3a86955b6c6d51abe2&chksm=8efad56fb98d5c79a28e291173ed1ece78d6f6e755a2fe9525f5beb8c2c207bfd5ddea0b4cac#rd
+'>《有效训练你的研究能力》学习笔记第四篇</a></td></tr><tr><td>8&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047870&idx=1&sn=e8a1a4b45f37ef3ef100949442407afd&chksm=8efad56eb98d5c7874ec0c4916190c9957df560c146c05567dfcd850b7b968fd57a38f592d6b#rd
+'>神器20：超好用的百度文库免费导出工具</a></td></tr><tr><td>9&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047858&idx=1&sn=1e51ea4fc49cd12b5f2cbfe771deff5c&chksm=8efad562b98d5c74c0299b5505e87a442a915198d251009cfb70e4fc3b88dd08669a1c8292af#rd
+'>读书笔记NO.24：《高效能人士的七个习惯》</a></td></tr><tr><td>10&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047847&idx=1&sn=1bdef4e43e266430b63f016e4946b6e8&chksm=8efad577b98d5c6106da70127d39f286c04e9fbb3762088161ae3b363546f6596eb4638c2920#rd
+'>福利：免费送《快速转行做产品经理》教程</a></td></tr><tr><td>11&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047836&idx=1&sn=a478e9f6889aae7eb548cb2f63410c05&chksm=8efad54cb98d5c5a9db2447c714f30228501fb3004a30f77fcbbf481856cebd7456906364a1c#rd
+'>《有效训练你的研究能力》学习笔记第三篇</a></td></tr><tr><td>12&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047832&idx=1&sn=b5015beb7a4049f1813566d4e33021c2&chksm=8efad548b98d5c5ef74320fb708281efca71292a6220c77afc3e573b0b2ea8b4ff404fbda59c#rd
+'>《有效训练你的研究能力》学习笔记第二篇</a></td></tr><tr><td>13&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047827&idx=1&sn=2cdf14e05ee34dcbc8c35db3b8da9911&chksm=8efad543b98d5c5554e008c1225ce26f16fbff7a9c24fea64a213f5cedb4bcf99172a85b49a2#rd
+'>神器19：目前为止发现的最好用的文字识别工具</a></td></tr><tr><td>14&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047818&idx=1&sn=d1467f964e51dfce944f00e17c58fe8b&chksm=8efad55ab98d5c4c45ed06ffffea9c96789eb156d9abdf5ee29e45d3a3cf417eb21c9e8e0f79#rd
+'>福利：三套产品经理基础入门教程</a></td></tr><tr><td>15&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047810&idx=1&sn=24e3b2a5600ff545560a6ec5fd4033dd&chksm=8efad552b98d5c44a9c830dd8c19408504a0e78c27c8f74328b4540b2a2fced27e9ab7ba3eca#rd
+'>《有效训练你的研究能力》学习笔记第一篇</a></td></tr><tr><td>16&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047805&idx=1&sn=1d46ec9bacc752986011b08c2fca8b17&chksm=8efad52db98d5c3bd3d76f9633189674a8be7209f485e764561ad6cb2ccf877a623317d9ad85#rd
+'>APP把玩NO.17:搜云音乐</a></td></tr><tr><td>17&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047790&idx=1&sn=3c3ddc0b356725f28267e2c0183ee8ac&chksm=8efad53eb98d5c2804debbb7548b9cdc00e42327cbdeb8fb73b993d4e1af2293d4225d5e27af#rd
+'>分享图片</a></td></tr><tr><td>18&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047789&idx=1&sn=64e57bf79c63a9c4016a5de555ff73e7&chksm=8efad53db98d5c2bb576ea8fb309b46ddbfdb297e70d299a687b41add6f0ccf34fd7de26da03#rd
+'>APP把玩NO.16：看理想</a></td></tr><tr><td>19&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047775&idx=1&sn=781393a8052f2d7f4e1b4e9e2f7fc3b7&chksm=8efad50fb98d5c195429b56ed4ccc3632c4c137aab2849981d67345578df33186b27bf01d0e5#rd
+'>节目推荐：指导整理房间的真人秀Tidying Up</a></td></tr><tr><td>20&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047761&idx=1&sn=0d8ba5d26b663aa2604ac879fcae10d8&chksm=8efad501b98d5c17708097e77046cb294d3e18636c224a05b7a3fbd55a9568c7b514eec815fd#rd
+'>PDF转换成PPT哪个工具最好用？</a></td></tr><tr><td>21&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047747&idx=1&sn=9e4e9895d798cc7c7349d66fca81a593&chksm=8efad513b98d5c05f51c9e4d05c58d05b36b5211ab9390185d4e089667a280ce8ed08d8e1076#rd
+'>梁宁《产品思维30讲》听课笔记汇总</a></td></tr><tr><td>22&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047742&idx=1&sn=23748e5adff13ae78ff02b985bf99511&chksm=8efad4eeb98d5df8a0d452558c67348ca0fb1c89c43fa4846ac4317eb3269dbc9c81f1557d5d#rd
+'>听课笔记30：产品连接客观世界、过去与将来</a></td></tr><tr><td>23&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047735&idx=1&sn=9e075bc66d9194bc5bbb6cfb1caf5a23&chksm=8efad4e7b98d5df11bc210d914a4d8c1a7adad6756c2561024872221b30fa1304ec64ec8614d#rd
+'>精华资源免费下，喜欢就拿去吧！</a></td></tr><tr><td>24&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047722&idx=1&sn=69466dcc1a161d695e95d54e700c5ba6&chksm=8efad4fab98d5dec3c67a313d65bbeb68c9876238a0411eb0a03f9c132f572aed9f0b3a058ff#rd
+'>听课笔记29：人生逻辑大于商业逻辑</a></td></tr><tr><td>25&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047714&idx=1&sn=a3a4c94f0c34f9a2bc8e121a5a5b3696&chksm=8efad4f2b98d5de4fb3fb64e4bc175ec48580912327a4ed82c51d587ffab4d2554d852e7177d#rd
+'>《如何成为有效学习的高手》学习笔记</a></td></tr><tr><td>26&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047708&idx=1&sn=ed7607e680be8384cf8bd21deaf21b7b&chksm=8efad4ccb98d5dda50e323544014ba17f9cd99111c447a22c5ceb7bf16eb41f9070694ce07be#rd
+'>拖延有什么好的应对办法没有？</a></td></tr><tr><td>27&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047698&idx=1&sn=ed2b1e528824bde4496b9c9b7eb83a99&chksm=8efad4c2b98d5dd4e9a2eb29bf0b1bda6527dd84bf24f38fa0f459e006546d5d75246bfd1893#rd
+'>神器18：目前最好用的百度网盘下载器，可到10M/秒！</a></td></tr><tr><td>28&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047690&idx=1&sn=567073455925e7ef81fd7a207b530fe5&chksm=8efad4dab98d5dcc50fe20a3c76dc846585b7fbddd3b763e7a56caf2edd3a45f92d908d0bbe8#rd
+'>分享图片</a></td></tr><tr><td>29&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047689&idx=1&sn=b7f8c3eb3e6ea29a9d75e31470c9263e&chksm=8efad4d9b98d5dcf7c0bc3e395fa8bd162e965cad47a6eb1c833d50b34a9496d4bcec3bc9342#rd
+'>《邱岳的产品手记》笔记2：关于需求变更（下）</a></td></tr><tr><td>30&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047683&idx=1&sn=a246d25119927c11b29d5efe465a00da&chksm=8efad4d3b98d5dc5494eb769302f37e82a902841ae2171cd4bdba338e2c73d1f72c07d7b5a14#rd
+'>听课笔记28：看产品的微观、中观与宏观视角</a></td></tr><tr><td>31&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047671&idx=1&sn=dde486a16e4060c6d09b4adf7dcd3e89&chksm=8efad4a7b98d5db1b33b9169503eb1e1c607ba3c126122a710247aea5fb32bcf1d97a77c27ec#rd
+'>你好，2019</a></td></tr><tr><td>32&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047666&idx=1&sn=ed35530f8c59ca6514072c786f75ac38&chksm=8efad4a2b98d5db4e4c394353b6a2e4072f4b74e43b64d0a560eece40321808a1ed86a56e2c3#rd
+'>小姜同学的2018</a></td></tr><tr><td>33&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047648&idx=1&sn=ae11ce6dea9d3f05f6236e9f56979862&chksm=8efad4b0b98d5da6246bc0904bc17c35cbc7992a05c94c506d2f9a175cbec22744796cc7cf2b#rd
+'>福利：产品经理系统视频教程高清完整版</a></td></tr><tr><td>34&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047638&idx=1&sn=5e6628789394ff7ef8b6ef1ef7e91e86&chksm=8efad486b98d5d900ce1cdb446cf681c6b43db4fb965629ab9b58a91f0c3030c5e092590b6ba#rd
+'>听课笔记27：颠覆式创新-成败价值网</a></td></tr><tr><td>35&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047629&idx=1&sn=32f8ed697b69434b6ba4c8d87df63485&chksm=8efad49db98d5d8b76b456f96e70e68117833d410a2040e40a883a7769e7a2959fa0de7238ad#rd
+'>小程序把玩NO.9：漫游鲸</a></td></tr><tr><td>36&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047619&idx=1&sn=415a5b9d8a7881e02f0f5b5f498af5f6&chksm=8efad493b98d5d852ded8bc3c65fbb6ad658a917146ca96a0940eed024c8bf1fa65a91f97ebe#rd
+'>《邱岳的产品手记》笔记1：关于需求变更（上）</a></td></tr><tr><td>37&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047614&idx=1&sn=3a69ff90c009d36bfe742319df07e96f&chksm=8efad46eb98d5d7885eb29431409cfda8f9975e2b60bad99d51e5200c1d979159a5a407db880#rd
+'>听课笔记26：深度讲解互联网降维打击</a></td></tr><tr><td>38&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047605&idx=1&sn=8d8337d2352192d9916839670b193bc3&chksm=8efad465b98d5d73f53c1b49cbec28a0fe58226fe59bfad77c05072753d65c8dc94ca8b90f48#rd
+'>画APP原型这个灵感图库肯定能帮到你！</a></td></tr><tr><td>39&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047595&idx=1&sn=1586e9e7caa6cff03dde11448964ecfa&chksm=8efad47bb98d5d6d92d474734ce2a1fcdec874be3ffe52313037e3c0e374ce2cd44eb138a20a#rd
+'>需求管理解惑：需求池列多少个字段最为合适？</a></td></tr><tr><td>40&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047588&idx=1&sn=dc9d03d636422947b19bd50d3f3ac320&chksm=8efad474b98d5d6217900fd42acf164bd08c3b39b12b06583e643e812a8ae5561ea7c2eeadd4#rd
+'>精进笔记5：产品经理更应该关注哪些点？</a></td></tr><tr><td>41&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047583&idx=1&sn=a113aa63cfaa3e6e887ec5e774806c53&chksm=8efad44fb98d5d5906826b04e95a6edbc74031fadf9b2f40f9973a3ff9d6c5bff8a237868aab#rd
+'>APP把玩NO.15：盖得排行</a></td></tr><tr><td>42&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047561&idx=1&sn=1deff15adfdac93d544324b2abd234f2&chksm=8efad459b98d5d4f2035fecd467326719f3927ae9b815b91a1ae16522b43a204afcf55f67587#rd
+'>产品入门干货资料分享史上最全，信不信随你！</a></td></tr><tr><td>43&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047556&idx=1&sn=d5caf8fda63f349afa9bbe12c1bd616a&chksm=8efad454b98d5d42b4a658391beba36bc162f8d17fac2f6f1b40e6415e0a5fac60b71354f4cf#rd
+'>高级产品经理的27条工作原则</a></td></tr><tr><td>44&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047550&idx=1&sn=3ef1a3eec25cadb059311669a87ff38b&chksm=8efad42eb98d5d38e289c40a3db855a4880d7ea6fb7306f417cb8aff6c2bb4f273d2adaa09e2#rd
+'>听课笔记25：怎样从新要素到新物种</a></td></tr><tr><td>45&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047542&idx=1&sn=389c157d48221c4bddebfd90cf0a4a6f&chksm=8efad426b98d5d309b30891aa51d8afa72bfaccbd15111faac4dd3e656d8ee2e12989be1e711#rd
+'>小程序把玩NO.8：理论坞</a></td></tr><tr><td>46&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047531&idx=1&sn=64301a7664b8cf707fc0aca08977d9b7&chksm=8efad43bb98d5d2db80001825c5585436e0a27c859ffd07c8baf30b7a0f84cb6edc0bd8677ba#rd
+'>已经转行做产品经理了，怎么提升自己呢？</a></td></tr><tr><td>47&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047526&idx=1&sn=f0f9917872bd153dd79c03cc15a70ab9&chksm=8efad436b98d5d20297fb61598f285723c0afbef7ee0c6273bbd697b9026cd22bfd2e0bf900f#rd
+'>精进笔记4：产品经理必知的5大思维方式</a></td></tr><tr><td>48&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047521&idx=1&sn=f9cb31d2f33898ac20c938c1a843d70f&chksm=8efad431b98d5d2732d41b15300f58de7b3794efa9981dd94707f6b2c7fd9a4c76cd23d8030e#rd
+'>读书笔记NO.23：《产品经理方法论》</a></td></tr><tr><td>49&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047514&idx=1&sn=0d534bea22b1cd101af73c4cd9166d29&chksm=8efad40ab98d5d1cdb7fde11e7e9f3c2d6d56661c0aa138a5135fbe4588dee77315b4b72af94#rd
+'>产品经理收集信息必知的100个优质信息网站</a></td></tr><tr><td>50&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047502&idx=1&sn=117e1a1413f58980cc23fe5621e4b27e&chksm=8efad41eb98d5d08718be9203ec9962ddd63d242470a141806f95e9365f04a58871cc0fcc903#rd
+'>APP把玩NO.14：小独</a></td></tr><tr><td>51&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047492&idx=1&sn=22ebd6d71e475c4fa7dc422ac877c0e5&chksm=8efad414b98d5d0211a54ec598b41d202778ea355b7a9e61e0f47646c00b60c6163546cdcefb#rd
+'>精进笔记3：什么是产品经理的专业度？</a></td></tr><tr><td>52&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047487&idx=1&sn=57ff020fa45dba3cb44d09bd1242e217&chksm=8efad3efb98d5af9e61b8b2449a40544e35c389797a719ae2db1019ed9937e57e7eb1d8022b8#rd
+'>产品新人必读：画原型哪有模板可参考？</a></td></tr><tr><td>53&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047477&idx=1&sn=08065565090f0478757374e582423a3e&chksm=8efad3e5b98d5af366ffaedbecd3c4040d107c858e2084fab6dfc09e2db62df30cd81379236a#rd
+'>听课笔记24：用 “ 交叉视角 ” 跨界创新</a></td></tr><tr><td>54&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047469&idx=1&sn=338115eec346976fa7141df368b11d56&chksm=8efad3fdb98d5aebce11cadca19b4a7f99b8d7efa562a0ed624654dd312754657fbc2fe942db#rd
+'>小程序把玩NO.7：小睡眠</a></td></tr><tr><td>55&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047457&idx=1&sn=f3ac01a00300be2cb7ed71ea225b714d&chksm=8efad3f1b98d5ae783031604229b63fdae3746b6311d663fcda8979c0cc8d195fbac07215149#rd
+'>精进笔记2：产品经理应该如何评估需求？</a></td></tr><tr><td>56&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047451&idx=1&sn=165d7e2e600fd72f17e66d1e2f7ec421&chksm=8efad3cbb98d5add7980976510f4b79a24da8684b54e02a849b3c31f077479845ed910d476b7#rd
+'>神器17：有了它你离产品大牛又近了一步！</a></td></tr><tr><td>57&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047440&idx=1&sn=bc7e2faf040ab0531a8035f28ad0118f&chksm=8efad3c0b98d5ad60c235668564c489b901e1fe149fc6262ceaf6f60bac26dc8cfacb87da88e#rd
+'>产品新人必读：画原型找图标哪里最靠谱？</a></td></tr><tr><td>58&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047431&idx=1&sn=903d4a3be998b0d3d38d390f7f1b5280&chksm=8efad3d7b98d5ac115e4b3dbd50b28f8da577b31d013fc685ac03c531a667e803844f5d7c17c#rd
+'>听课笔记23：用 “ 用户价值公式 ” 衡量创新</a></td></tr><tr><td>59&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047422&idx=1&sn=19e5776ba39bee7fec2fe9bcdb29150b&chksm=8efad3aeb98d5ab85de987620e833c3e22bf08084aa279762ac3386194141aa912451c50ef86#rd
+'>精进笔记1：产品经理需要思考的问题</a></td></tr><tr><td>60&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047412&idx=1&sn=79502c925d36ede6a202eb33f5f4d3c5&chksm=8efad3a4b98d5ab2d574801a2ac194752ca22352171495253dc5bc9daf953236a3bcde6eff49#rd
+'>APP把玩NO.13：优灵</a></td></tr><tr><td>61&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047399&idx=1&sn=03b382bbf0dfc3c88058b3dac25e8231&chksm=8efad3b7b98d5aa16f62d9339148ff0d75f6439fdbf532749237d0882d4a4aa5b7bf2e938064#rd
+'>读书笔记NO.22：产品的视角</a></td></tr><tr><td>62&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047392&idx=1&sn=0b5dc9004e38422425599e41a951f229&chksm=8efad3b0b98d5aa6e77120241a9546b7748fbe46ea8b45dcb239784e369da774da06e49d499a#rd
+'>听课笔记22：名字是你的文化资产</a></td></tr><tr><td>63&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047390&idx=1&sn=09eac892606873a023cfc1075169b713&chksm=8efad38eb98d5a98fbbec58a45774e051d5c1b1d881965edbf6c8c56fd6dff0dedd4b428c03c#rd
+'>小程序把玩NO.6：基金</a></td></tr><tr><td>64&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047371&idx=1&sn=bcb53364f68c2c47aa72fed58d770fa1&chksm=8efad39bb98d5a8dc63f499ba5c72446dfafe0ff8d9f7c989c988347e7f7e22ae33d81403aed#rd
+'>神器16：一种全新的百度文库免费下载方法！</a></td></tr><tr><td>65&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047363&idx=1&sn=5f18e31f957a3c512b0ce58773219a99&chksm=8efad393b98d5a85c65c05012a01a4892dc83f0ad1b72b181c7403e8d9137e2b8887a6d41b7a#rd
+'>听课笔记21：上瘾机制（用户激励系统）</a></td></tr><tr><td>66&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047355&idx=1&sn=5c05c739f43614d1904e9a8cc6db266f&chksm=8efad36bb98d5a7d31115be8bc9f6bdcc4a4f7f9f6bf3ca828888ab8f5fee3913cf7bdd2c365#rd
+'>读书笔记NO.21：产品之旅</a></td></tr><tr><td>67&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047344&idx=1&sn=f19c325c9a392e13a46f8a43d5f35332&chksm=8efad360b98d5a7644dbf6fd891870d6163ad0ce45ea66f76216f6a770bd26d71aef3feb47a8#rd
+'>神器15：百度网盘资料下载不花钱还比VIP会员快！</a></td></tr><tr><td>68&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047339&idx=1&sn=e9fcc66014f8db8eddca86acc41482ee&chksm=8efad37bb98d5a6d7d542de20b3032fdd8bdfeefa2cd55578d294ec9869d17df1ebd35a7258a#rd
+'>听课笔记20：服务蓝图的要素 终值，峰值</a></td></tr><tr><td>69&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047331&idx=1&sn=15e480ee35a18659a4328984c4e1c02d&chksm=8efad373b98d5a65114c5e9960a1f0c5d41e4372a722421a8afa3d81f02981d4f6f6291d52c7#rd
+'>小程序把玩NO.5：表情家园</a></td></tr><tr><td>70&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047322&idx=1&sn=982b76526b7c5ef5b5c429307494ae9a&chksm=8efad34ab98d5a5c75fc41530ad3184f5875cd8cf0c85788733cb8fd64b319549e8ed879d472#rd
+'>福利：产品经理实战课程资料免费获取！</a></td></tr><tr><td>71&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047312&idx=1&sn=8507e03411e001dd259e59cffe7926ee&chksm=8efad340b98d5a56075802713197bde7893f725d9e078e9f425cbc5a8a5ef4659c6e5207da36#rd
+'>读书笔记NO.20：超级时间整理术</a></td></tr><tr><td>72&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047311&idx=1&sn=e222152ddd50a5c68ae2c7bf8579818b&chksm=8efad35fb98d5a4998a09663187334db385f18c1ae045a8f4793a1d76ba2dcabdb64dcc9480c#rd
+'>神器14：最适合产品经理的截图工具非它莫属</a></td></tr><tr><td>73&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047298&idx=1&sn=845eb62ff7bd262bcf1c883a633bfea5&chksm=8efad352b98d5a442c7b89b00cbbb52ac2fb955ea51e0dfa233396c406ebd17d2a739eb8f74d#rd
+'>听课笔记19：怎样绘制用户体验的地图</a></td></tr><tr><td>74&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047289&idx=1&sn=c6d84878d20b25f4168411dbab69e992&chksm=8efad329b98d5a3f8de6457c44c5290f2ed1eab99db28283424b496fee3e37e8eb18efcbdee1#rd
+'>【每周一书】增长黑客</a></td></tr><tr><td>75&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047283&idx=1&sn=b59bd872510350ca825880b31debef5c&chksm=8efad323b98d5a35a1823d391d350648e0e013fe905f255f144e92ce8f3dfb14257b5907eb65#rd
+'>神器13：下载今日头条的视频这个视频下载器最好！</a></td></tr><tr><td>76&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047277&idx=1&sn=e4ce350c2bd632b682e8099b08e5d433&chksm=8efad33db98d5a2b1ffbd5ace8afac563bf4637ce221264eb5a2ca3847311e0b66bbf00decde#rd
+'>软件工具的破解版哪里才能找到？</a></td></tr><tr><td>77&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047272&idx=1&sn=ba41363bef5dab8b9b08812a965cb6b8&chksm=8efad338b98d5a2e13e79bee85fed038b0c7ac1f0faebe79bc4d9efb4d820c4372414c79262c#rd
+'>听课笔记18：用户体验的五个层次</a></td></tr><tr><td>78&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047262&idx=1&sn=cf5036ebe9443f7d5f7ac950cd3e6f1f&chksm=8efad30eb98d5a18a2cb1d811e6c748a7120b756327dae80ef8007db11253b37673e6e10c98a#rd
+'>听课笔记17：猎豹和它的关键任务</a></td></tr><tr><td>79&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047254&idx=1&sn=248252e1cc410e4e0c22b7a2e219dbf4&chksm=8efad306b98d5a108b678b06c6cfd11b2086fa84f9478a630ecd86c8a37ca7be7499bd0abe67#rd
+'>百度文库资料免费下载其实很简单</a></td></tr><tr><td>80&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047247&idx=1&sn=7bede4b06748ca27eff7101876a47fe7&chksm=8efad31fb98d5a0964cd5aa846655399288e5c16cb51a151422bde854e5c0073188d020c89d7#rd
+'>产品新人拓展视野不妨从这里开始（下）</a></td></tr><tr><td>81&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047241&idx=1&sn=aa06cb918c325cdfd7b3bc52c756c14a&chksm=8efad319b98d5a0fbb5ab00b1ceadc7cd716ee6d033a54ebec55d93331673f832b4f96b462f1#rd
+'>听课笔记16：微信红包的意外与刻意</a></td></tr><tr><td>82&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047233&idx=1&sn=0237f18138d048c3edf9d37df62c5e81&chksm=8efad311b98d5a07230310200d10f4f7b4b0ce49a1f14400326e123c2ebd1eda8d11530c7716#rd
+'>【每周一书】解构产品经理（思维导图版）</a></td></tr><tr><td>83&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047227&idx=1&sn=8e5bcd5fe18c1dfe805cb3af5230d922&chksm=8efad2ebb98d5bfdc2f66540d3b587d911c3b462415aa8f26c5f8ae519c7e392c97558bfe830#rd
+'>听课笔记15：系统世界观（微信、米聊、陌陌）</a></td></tr><tr><td>84&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047219&idx=1&sn=c2d082f30cc957fce11c5a212a926d97&chksm=8efad2e3b98d5bf59876e4a6bd34e23d9d7fd0796445581e1c0a5af9bbe46146d17c87d39ea7#rd
+'>产品新人拓展视野不妨从这里开始</a></td></tr><tr><td>85&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047212&idx=1&sn=445e0eb3a6cc4be1a55d3f8ef1dc1838&chksm=8efad2fcb98d5bea08239f8a8ec6c61ede07bff272ddf9c30f35702c092c698fa30d18b1a63a#rd
+'>听课笔记14：小米的效率革命</a></td></tr><tr><td>86&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047204&idx=1&sn=fc3930d425f2f66d61f255e11df5ad0d&chksm=8efad2f4b98d5be2487a4f52062eb8282e8b0feb6115bad8fa6f5d9270bd8bbad0e69081bc48#rd
+'>【每周一书】破茧成蝶：用户体验设计师的成长之路</a></td></tr><tr><td>87&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047199&idx=1&sn=59b7fdcd15b5565a491157982166271c&chksm=8efad2cfb98d5bd911b34c1516a7d57ef33c75997e02e45392ee72edbffa9fb5d69c53b5f619#rd
+'>听课笔记13：怎样用系统能力给人提供确定性</a></td></tr><tr><td>88&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047190&idx=1&sn=b980c57836beb99e83f5ef0b1e0d063b&chksm=8efad2c6b98d5bd0abdf73439c73faf0c3207410767de3b4ae37e55ac29f587bbe0ed66b152a#rd
+'>福利：“产品家实战营”系列教程免费获取</a></td></tr><tr><td>89&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047173&idx=1&sn=0481021ce6109cd0b2386c1bebe6477b&chksm=8efad2d5b98d5bc3222569237d220afbeb0543d723ac9ecc96f49cbe13e3afd34a6bca4572e7#rd
+'>需求分析：只需三步，掌握业务流程绘制的方法</a></td></tr><tr><td>90&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047170&idx=1&sn=54af8c6f1b97f07b292e5cd56c979f67&chksm=8efad2d2b98d5bc4a58f1dd005157ea79ec0650b6ffded4d4588bd635bb170528d2b4d99a02f#rd
+'>听课笔记12：设计产品要包括产品的场景</a></td></tr><tr><td>91&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047163&idx=1&sn=dd9a6a1af5d28163dd6ea8d47ff7c020&chksm=8efad2abb98d5bbda73de2b4aa0929b64446cc872ac24bd72c4b6fb5de7bae7ceb4fc3c402b8#rd
+'>【每周一书】运营之光</a></td></tr><tr><td>92&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047158&idx=1&sn=7618bb553110d41e92da3fb117bffd3a&chksm=8efad2a6b98d5bb00e1e2749b7a35f53a78be93aa4aa4446c99240087b9a0e74075619052e11#rd
+'>需求分析：从实例中理解业务需求、用户需求、功能需求的转化</a></td></tr><tr><td>93&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047154&idx=1&sn=3fdcf86b5e564ee4638b78c79ac4c746&chksm=8efad2a2b98d5bb44059c8426ceeac95cd26845ff61e92128ae4b9ab2668c5f2a975a8ba47ac#rd
+'>小程序把玩NO.4:包你说（语音红包）</a></td></tr><tr><td>94&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047143&idx=1&sn=0f80aacf70bddd57ef320a21823422b9&chksm=8efad2b7b98d5ba1d6b22fe0a145ee6d70a079e22a318aca6018d94458ccee01163d39fa8419#rd
+'>听课笔记11：两套经典的用户画像</a></td></tr><tr><td>95&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047134&idx=1&sn=07de48ec6cf51460cbd313d8ccfa4f71&chksm=8efad28eb98d5b982b8a111af018c332079a0a51fcf268df5faf877f53250fe0a8bcb8993547#rd
+'>神器12：超牛逼的神器，我已想不到用什么词称赞它！</a></td></tr><tr><td>96&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047110&idx=1&sn=e2c619199e0c495d4f11a0c5450f1f9c&chksm=8efad296b98d5b802039b25ee22e607e3cac5bda0cdebde0e445f3fe509ebca408cfc22b9d74#rd
+'>听课笔记10：痛点、痒点、爽点都是产品机会</a></td></tr><tr><td>97&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047103&idx=1&sn=8f54edad8f08ac28b85ddcd0ca72ae61&chksm=8efad26fb98d5b794134692d8c50152223c15bf847c330e35e53c037a16efa652000e8daa88f#rd
+'>【每周一书】在你身边，为你设计</a></td></tr><tr><td>98&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047098&idx=1&sn=4028da1daeec2a479ea35a71fa54c67c&chksm=8efad26ab98d5b7c394261f9c753023c9628d6babf9ab457d245117cf8f6eec92d08ad37e519#rd
+'>听课笔记9：怎样找到有势能的趋势</a></td></tr><tr><td>99&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047089&idx=1&sn=2445fa1d941f5cba14bb441d4030a4d0&chksm=8efad261b98d5b77815c1072f5bdecc498395fec8067861a15b2f987f64ee35987313ce12b9b#rd
+'>小程序把玩NO.3：识花君</a></td></tr><tr><td>100&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047080&idx=1&sn=6bb559a4e6ec65651bcab9113e700060&chksm=8efad278b98d5b6e513fda47eb4228fd0de7b8559acf3d847df7224d4577777f714b43ac48e1#rd
+'>【每周一书】网易一千零一夜</a></td></tr><tr><td>101&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047075&idx=1&sn=7a8b34c887202885419268f1c7f002dc&chksm=8efad273b98d5b65bdafb6e9f1746ca31d2513e5557755a42a393d0fb20016612b3afdc61a7f#rd
+'>听课笔记8：点线面体的战略选择</a></td></tr><tr><td>102&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047064&idx=1&sn=fc7361184eb0c0ba726d1d07abe72867&chksm=8efad248b98d5b5eeffb9aa527e7fbe0b0490a4e5f1c01fdf5235c5f716d5c9b66de205e3d3d#rd
+'>读书笔记NO.19：《微习惯》</a></td></tr><tr><td>103&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047060&idx=1&sn=e90537036a455ad903c249d48837ddea&chksm=8efad244b98d5b52bf8d3e6e3052cf29f76edba450203b4b689642f420bc6648194c8a5dbebb#rd
+'>APP把玩NO.12：音乐狂</a></td></tr><tr><td>104&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047051&idx=1&sn=93e6f948c2058f6bec30ce0aba4ec945&chksm=8efad25bb98d5b4d0e770ab7c2148031fc2165c12912ee955243e9ed5752e3516f47cfa4aeb7#rd
+'>听课笔记7：自我和自律，哪一种更贴近产品精神？</a></td></tr><tr><td>105&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047043&idx=1&sn=704e967f6fa97064062bd1b4f962c8f7&chksm=8efad253b98d5b45cad9c06917a3f630f6580890c7082c76b448d1b2446d352e0b1fd0ba866d#rd
+'>【每周一书】启示录：打造用户喜爱的产品</a></td></tr><tr><td>106&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047037&idx=1&sn=e95c50557f5d0641516f12db6d780f16&chksm=8efad22db98d5b3bb850c62af567b588b889ca6bb13d2bd43522c6cc8a4f3bde8b2e36dbb4d3#rd
+'>听课笔记6：认清人的本性，理解角色化生存！</a></td></tr><tr><td>107&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047028&idx=1&sn=8ebc3189501448ce0e0b7cda1554fafd&chksm=8efad224b98d5b329019d5a88f19d1cdb53038d2dec637c90847e6bd590c45e9f41477e6f603#rd
+'>小程序把玩NO.2：车来了精准实时公交</a></td></tr><tr><td>108&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047024&idx=1&sn=568a00f5451c89f43281f05f6f817730&chksm=8efad220b98d5b3651c94a4d11f59e52d9bba3592ae682577a14afea247e13d0cd05b4439381#rd
+'>产品原型设计从哪里找灵感？（下篇）</a></td></tr><tr><td>109&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047021&idx=1&sn=3ff66cc2656a32f8d4b7726fb37e807c&chksm=8efad23db98d5b2b7ad9e392be08453fc17bbc9c6d59011210899c1f94c2e21dd3b4d872a0ad#rd
+'>100G的产品干货资料已分享，请注意查收！</a></td></tr><tr><td>110&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047018&idx=1&sn=09c527639fe0b837c92ee180cd2521be&chksm=8efad23ab98d5b2c066eb8ddd669905570695e4026dfddd01d5f138825b988275b146b312dd8#rd
+'>产品原型设计从哪里找灵感？（中篇）</a></td></tr><tr><td>111&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047015&idx=1&sn=af2f655760f54d3f22ff69bc1f688795&chksm=8efad237b98d5b213dd871baa6e55049a73e053d24ce890b17d31001ae2ed33279a6d48f9a2f#rd
+'>产品原型设计从哪里找灵感？（上篇）</a></td></tr><tr><td>112&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047011&idx=1&sn=ac3855a488d582606834412977360f10&chksm=8efad233b98d5b2514cfc91230ba7357c990624b8dfc7634304846221ef7b309b8befb37dfa9#rd
+'>听课笔记5：产品要顺应用户潜意识</a></td></tr><tr><td>113&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047003&idx=1&sn=5b36ba1e81e54204bc72b44da96ca94d&chksm=8efad20bb98d5b1df09b4c2519c79ef4bad0eee8dfdabbe6fd36153890e8050f71e25a0c7ef6#rd
+'>产品经理血泪史4：我的产品被人“接管”了！</a></td></tr><tr><td>114&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650047000&idx=1&sn=8787ecab5f5230e01e5028d4d37094d0&chksm=8efad208b98d5b1e7487c9fe5b4aecd5a02c043ce563ae9fac871a26d47a5a39625255017a47#rd
+'>产品经理画原型画到什么程度最好？</a></td></tr><tr><td>115&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046994&idx=1&sn=b561e63e911552e2a6f5e76c40d3f939&chksm=8efad202b98d5b1482ce180aa1cc5a0b8284a41b56ddcf1144bb06af7c5851ac4af46c4c115a#rd
+'>神器11：收藏公众号好文章其实很简单！</a></td></tr><tr><td>116&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046990&idx=1&sn=47a5ea15266688867379f96d64e36b0e&chksm=8efad21eb98d5b0891a1a01aa5cb422c08fe04a73598029c4a357b634b788b909d5c21ad6232#rd
+'>APP把玩NO.11：连咖啡（Coffee Box）</a></td></tr><tr><td>117&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046983&idx=1&sn=efcd2cb2fed0708f9598f890ffc7873b&chksm=8efad217b98d5b0131293f7959eced8959ad0c0f1ecd20ee2ed815444d4dc53e87b2dc6f1331#rd
+'>听课笔记4：怎么理解愤怒与恐惧</a></td></tr><tr><td>118&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046975&idx=1&sn=93911855b680f60722443d421a5d91fc&chksm=8efad1efb98d58f943ef0f5d933f145d9ae959ea5686812d18ecc6da4f3d33440eb795e8892c#rd
+'>听课笔记3：怎么理解愉悦与不爽</a></td></tr><tr><td>119&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046967&idx=1&sn=2f045131bd5a7c36692cb7e9970580de&chksm=8efad1e7b98d58f10827b4d1fbff1e3745b0c328a27bd64e600a7e8a7c49788dcaf704f68ae7#rd
+'>听课笔记2：用户体验与结婚教练</a></td></tr><tr><td>120&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046956&idx=1&sn=9c9e9e081e1d15aecc92609c2f8a13de&chksm=8efad1fcb98d58ea6bcff7c02cef1c71417aef4aa92f3a7f2c559f7059cb9a3de4c012f4680f#rd
+'>读书笔记NO.18：《如何有效阅读一本书》</a></td></tr><tr><td>121&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046950&idx=1&sn=b64f60bde9e809233aaffb73db43722d&chksm=8efad1f6b98d58e00b1aaeafa359b9e106f66bfd781e11b188271439c6479f81448e0b617213#rd
+'>小程序把玩NO.1：飞鸟听听</a></td></tr><tr><td>122&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046945&idx=1&sn=89e9c2e678e62af3dfb841b9fbf06747&chksm=8efad1f1b98d58e7f460150c4e329b0773ea1b6a31bbbb5c1b0fc6cc19e0c91ba2a11de13394#rd
+'>听课笔记1：产品能力是每一个人的底层能力</a></td></tr><tr><td>123&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046937&idx=1&sn=667aab70fba005374c9dc52d258f0451&chksm=8efad1c9b98d58dfa0b56fbddae6998ad67f4d654a4c301f8d123fe2ce7875a06f30d8f286b8#rd
+'>搞定需求调研就从这四方面着手！</a></td></tr><tr><td>124&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046933&idx=1&sn=10dfe3b368a89e947fb4d6562e03247f&chksm=8efad1c5b98d58d33d0409b0295e930bd72b9551ab579b13c66d2fa6a31dd450ab4cdf599bbd#rd
+'>读书笔记NO.17：《非暴力沟通》</a></td></tr><tr><td>125&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046929&idx=1&sn=34f9db0b76aa8a7761b3854577d20637&chksm=8efad1c1b98d58d76253d7bc9db8487f471c21f74ba5b5453dc49e902a10c833c74492cc8c9c#rd
+'>产品经理入门这些资料肯定能帮到你！</a></td></tr><tr><td>126&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046925&idx=1&sn=2e388c72b5bbe5a15c39ae57bdf1d1aa&chksm=8efad1ddb98d58cbb14f61bb1e7d491d7ad37c19392d55a7a542b53d76510945fa357ac74e0f#rd
+'>秘籍：知道这三方法你再也不用担心找资料啦！</a></td></tr><tr><td>127&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046921&idx=1&sn=d86461cc7f52fd1cf4368b561770397f&chksm=8efad1d9b98d58cf5bf4a1f172229ca17edef8962063440b31ba2b714a94c4daed4c78f0e865#rd
+'>APP把玩NO.10：极客时间</a></td></tr><tr><td>128&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046916&idx=1&sn=108a6b1a0f353e200bdb47b7787a851a&chksm=8efad1d4b98d58c220f7ba0179b56aeadca221f8ea042b1fd381f8c4ddfdc6d8357a55d6d183#rd
+'>读书笔记NO.16：谈话的力量</a></td></tr><tr><td>129&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046910&idx=1&sn=8a43edd4c18d8ede9305a9c6497f5408&chksm=8efad1aeb98d58b882fe7ecaa1f55665bb9174bfc6e3985275b12d22e48aeb3581b2a2f1c32f#rd
+'>你好，2018</a></td></tr><tr><td>130&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046906&idx=1&sn=bd67211eda48bc1e3452852a5322abb4&chksm=8efad1aab98d58bc9db94f64e78466e3b720338f2dc5880f50627b1f24759206196a5a13872f#rd
+'>小姜同学的2017</a></td></tr><tr><td>131&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046902&idx=1&sn=90a8f464b1321fb0c583432dd16714ad&chksm=8efad1a6b98d58b0649cee9f1628db81e434e6693f0c1bcd0187b9d39a2c1ff57ce5848fca08#rd
+'>APP把玩NO.9：藏书馆</a></td></tr><tr><td>132&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046897&idx=1&sn=a4034801327512a06a9de25436564fc2&chksm=8efad1a1b98d58b7989d7f56c97998a535e6c368053ec152990213fb3b4f674a73a693457ae9#rd
+'>神器10:办公各类神器一网打尽，超牛逼！</a></td></tr><tr><td>133&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046893&idx=1&sn=161bc5c13539ac7f45375e35e3b922e6&chksm=8efad1bdb98d58abeb6ef04d81f7cd5ff4cf335f9b28b87e2cf26283e3246912d5b2c6d4f4ef#rd
+'>这个“套路”产品经理一定要懂2</a></td></tr><tr><td>134&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046888&idx=1&sn=c59a846f43b17032b8115f12b776748e&chksm=8efad1b8b98d58ae29c4800d942a8a4d3e60e47e49e84edad707c512af099f7f2ad0bb3a75fb#rd
+'>这个“套路”产品经理一定要懂</a></td></tr><tr><td>135&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046883&idx=1&sn=b2dac4f0aa1a844f7f095e5566e9cfd8&chksm=8efad1b3b98d58a59d23e54cf5ec96c47efe7ed3eba29eed5727eb2cbde77a63da04797bdb0a#rd
+'>读书笔记NO.15：《小强升职记》</a></td></tr><tr><td>136&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046878&idx=1&sn=d663bbbe492af7123aa70613aacae885&chksm=8efad18eb98d58987b43317ffc07228a6704dc70d1112e7b99c1570c4fde3d1d0abc7113ff39#rd
+'>APP把玩NO.8：基金决策宝</a></td></tr><tr><td>137&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046864&idx=1&sn=3b020df32ab92c90f7e467a66f6ec432&chksm=8efad180b98d58967db622323763ba61e05331c0b9311440b6aef16e826f30f529355b6ea679#rd
+'>神器9：下载小视频最好的工具，没有之一！</a></td></tr><tr><td>138&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046854&idx=1&sn=7d0fbd35b22321bebdfbfedb1fd8cbf4&chksm=8efad196b98d588021c654fbad5c7e6d7795c4dd3a96d70c0c60fd592e5193e50c2306fa63ac#rd
+'>产品经理血泪史3：产品管理</a></td></tr><tr><td>139&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046849&idx=1&sn=6b12514d84a7cf521790eb436088be79&chksm=8efad191b98d5887f2916653bf5256fddc80cd7d1acd34753dadc9847eccd57989aa6c40374f#rd
+'>神器8：目前清理微信文件最好的工具，没有之一！</a></td></tr><tr><td>140&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046835&idx=1&sn=71a869215f8010e2a7845a6ebfda6363&chksm=8efad163b98d5875e47b826e15a32ce2824204933621bcd4b3da26c6b9fb12a0ffa7a2ddcad2#rd
+'>产品经理血泪史2：全局观念</a></td></tr><tr><td>141&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046830&idx=1&sn=650ab865556d1f81ab7f7ee0820ea9c6&chksm=8efad17eb98d586808637d1ac19e4e326d1a661f1c4b98bb00f3e571227bc1dd7131b1f7feec#rd
+'>文章目录</a></td></tr><tr><td>142&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046827&idx=1&sn=4d2b5d0774cf2707a1807322e7ba5517&chksm=8efad17bb98d586d2ff8d0a34766ad1ed77858b0f11d8987f0db9150754044c9180afae1dc77#rd
+'>APP把玩NO.7：饭团</a></td></tr><tr><td>143&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046816&idx=1&sn=397309396259a53c8f2138828f63db40&chksm=8efad170b98d586641b8efc6b1a42d902bc2760a7e77b5900365b48d83f248d0ee882ed5020f#rd
+'>读书笔记NO.14：《请停止无效努力》</a></td></tr><tr><td>144&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046811&idx=1&sn=7d0d5dfb3d4bc7e2318ea2fa47b76c7b&chksm=8efad14bb98d585d14d7ee01759566f55886f4aa3205e66ed8af004718e67c12b2e8efeb82ca#rd
+'>微信中的干货资料有没有办法一键收集？</a></td></tr><tr><td>145&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046798&idx=1&sn=738af27c13a10d247308d1270c0e2d6b&chksm=8efad15eb98d5848a730a58974df7bdd351283c46e0462e6f797bd078b285926e12ffdbb66ff#rd
+'>福利：产品经理进阶教程免费送</a></td></tr><tr><td>146&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046788&idx=1&sn=bf3f0e63b7b9a93b00195d97882cfe3e&chksm=8efad154b98d58422f941c73d49d4e54f56fba9f5d95768357e092a305665b0563d4d8973f17#rd
+'>PM做需求分析到底是要去分析什么？</a></td></tr><tr><td>147&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046784&idx=1&sn=fe9247c1ac87506c65c95dc7cf8b67eb&chksm=8efad150b98d5846ff542d90a61729ade6f0ba840c178ca5938ce05884d71cf38ec6772307f9#rd
+'>产品经理画原型最容易犯的三大致命错误</a></td></tr><tr><td>148&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046778&idx=1&sn=d111c50a463888279e3f0c535c66899f&chksm=8efad12ab98d583c3f3c7e7e496d79ee8d8d1656f1385c6af31364d3994f916560b6c18e5923#rd
+'>APP把玩NO.6：即刻</a></td></tr><tr><td>149&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046762&idx=1&sn=c1f9f9393896d3683c8efebb47bb7e0a&chksm=8efad13ab98d582cd33417e058d3406db5a73c6037e573f928cdd16279ee6cf6a84658df11a4#rd
+'>读书笔记NO.13：《刻意练习》</a></td></tr><tr><td>150&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046755&idx=1&sn=ad443c9b73d426b6d0c6bae13495eeb2&chksm=8efad133b98d5825055f9e5fd7f1a30c796b0e0a43764e36a0ca8d41b682bf3877654a9c1416#rd
+'>端午福利：Axure视频教程全集</a></td></tr><tr><td>151&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046745&idx=1&sn=712f020db8902e7cdf4d8701e627416b&chksm=8efad109b98d581fc258fd158927f9b0b297cdd1de8cd383bc702e8a1c4ba7292a26839de1b1#rd
+'>APP把玩NO.5：收趣</a></td></tr><tr><td>152&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046729&idx=1&sn=727312c370d3d822a881f9b16cbe0188&chksm=8efad119b98d580fbeafce3e1e95a97abb240f02cc83344b586bfe34f8069237630ac83a34c5#rd
+'>关于迭代回顾会，了解这些就够了！</a></td></tr><tr><td>153&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046723&idx=1&sn=399ddccde59620694f3aa17f5e3325bf&chksm=8efad113b98d580591fe3412f851173080c2083cc5e7d6c6ef5bdad306f0ec7a360c0c0176ba#rd
+'>读书笔记NO.12：《亲密关系》</a></td></tr><tr><td>154&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046716&idx=1&sn=a5bfd9463eba3c0bac4ea3a54c47d41f&chksm=8efad0ecb98d59fa34d7d123722014403ee268330d4ba3c0b8e4413391ebb10ccfe33d948ffa#rd
+'>设计医院管理系统教会我的那些事</a></td></tr><tr><td>155&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046710&idx=1&sn=d0488dbbe6632e703b27dace7e9a2c29&chksm=8efad0e6b98d59f05389325432b4bd17872d6be1040aedd138e59cb7722fa6464ef570f9b708#rd
+'>什么样的中小公司值得PM继续呆下去？</a></td></tr><tr><td>156&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046706&idx=1&sn=2a0053024fe3298d761de81fe94b57b5&chksm=8efad0e2b98d59f431f084b103ac26a90ba7c688bc32b579194943cc91812a964e7c5159dc70#rd
+'>产品经理拓展视野这5个网站最靠谱</a></td></tr><tr><td>157&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046695&idx=1&sn=6cc9ea46e2223a5c73e82da2d13e37d5&chksm=8efad0f7b98d59e1585b11927573551cdd2e4dd8582d56893d0f659cb2b946640958b5bcfc58#rd
+'>如何从0开始整体把控一个产品？</a></td></tr><tr><td>158&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046691&idx=1&sn=dff5193a26f6031a4569d76810e3398a&chksm=8efad0f3b98d59e519e38b140b118b1b30778ea7fae2048246a999742d9b1935aef462380dfe#rd
+'>APP把玩NO.4：网易蜗牛读书</a></td></tr><tr><td>159&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046677&idx=1&sn=7f07870008eeb29f7d8d0b4a78b1d190&chksm=8efad0c5b98d59d3e6ca23a6fa8f4d7c0956fd4823047bc3e99421e1f2cb9e700bdcf4f742f2#rd
+'>需求管理产品经理一定要注意这些点！</a></td></tr><tr><td>160&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046670&idx=1&sn=400cfbf44a8fbbf51731148bd78a72ee&chksm=8efad0deb98d59c8e555cbe583c12071a950206556def8e1f37a3ebd1ecc9fa6f5be7d64b50c#rd
+'>产品设计完必须要产品内部先评审吗？</a></td></tr><tr><td>161&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046663&idx=1&sn=ce69eb559fbecc99edf3765060408977&chksm=8efad0d7b98d59c12100cb34ddfeaddd447057c21154c48fb3093390eb5a3b16afe17d8cc78a#rd
+'>想了解大数据，这5个网站能帮你！</a></td></tr><tr><td>162&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046652&idx=1&sn=3dc5a5397d71b7e755e6a4aba9a7997e&chksm=8efad0acb98d59ba96ce28cf4c0b5be6d6c2175f5b718ef19542c18d5e706bfec02984c0fa46#rd
+'>信不信，这是初级产品经理最容易犯的三个错误？</a></td></tr><tr><td>163&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046648&idx=1&sn=6655c9eb9a5f61f1520b1eda3542791f&chksm=8efad0a8b98d59be705d33b020d798c26a1cbc71a508c3a8a79c8682eaa82edda786582cda5d#rd
+'>读书笔记NO.11:《好好学习》</a></td></tr><tr><td>164&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046641&idx=1&sn=5a279ea0548990129e7f3e8c47b085f3&chksm=8efad0a1b98d59b752bf1e64fb4669758dc0520e38119350f29e0e63c5ee7b69fe644bbea160#rd
+'>产品迭代演示会议这样开才完美</a></td></tr><tr><td>165&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046637&idx=1&sn=f7764549f048186973f005f4a1162bdc&chksm=8efad0bdb98d59ab956c6d6d05db5cfacf2cc9807b589f2f9abc8726222f741feff8b1400e8b#rd
+'>产品经理主导项目哪些是必备技能？</a></td></tr><tr><td>166&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046630&idx=1&sn=8523f1bbe62fa559b97d7e026a8d3427&chksm=8efad0b6b98d59a0070a6d97d343d8a2003adb4783f869e6e10d25b582822eaec9bb2565532b#rd
+'>PM需求调研这三个网站一定能帮你</a></td></tr><tr><td>167&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046621&idx=1&sn=dcdc10eafa9cb33961c8ef10484e3f31&chksm=8efad08db98d599b518244e251819509eb36536edc3dacb157aaf3a2200cfb620ecc82af98c9#rd
+'>APP把玩NO.3：财鱼管家</a></td></tr><tr><td>168&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046606&idx=1&sn=58ce9144a107c0172e82901f4bab45f9&chksm=8efad09eb98d5988bb85da3308577242b63d2e20681f5edf95e552fae212051e510a4376f6e9#rd
+'>一个产品经理找工作的心酸故事</a></td></tr><tr><td>169&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046601&idx=1&sn=64dfa6b6d3309c906df690b41f7512d6&chksm=8efad099b98d598ff871b5bcaec0ddbc26ded9433ed663da46fe1cf987bd020912d3f4575679#rd
+'>读书笔记NO.10：《高难度谈话》</a></td></tr><tr><td>170&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046593&idx=1&sn=8d6ce4321c851a0d3e30c8bc09f49bbe&chksm=8efad091b98d5987ac29ceb234e72b157f0e338f15c529ec3931613a65d54bc5c0e9486b4bb1#rd
+'>APP把玩NO.2：蜗牛睡眠</a></td></tr><tr><td>171&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046583&idx=1&sn=cdefac01e9570c27f49ba489fe296468&chksm=8efad067b98d59719eb7ce39975ac9551ee90101aa9a8bca8aa8fa4e84c243b3ca73fcedc8a5#rd
+'>产品经理血泪史1：产品把控篇</a></td></tr><tr><td>172&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046577&idx=1&sn=24865156f36563b7e727ef47b1d9d2f8&chksm=8efad061b98d5977d15e3fe0ea117b5666f38bc19d1de187a2e7705ad56205589536f032318b#rd
+'>产品经理开站立会议正确的姿势是什么样的？</a></td></tr><tr><td>173&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046573&idx=1&sn=d99f826d054fcf8a5f4d91222bbfcf86&chksm=8efad07db98d596b9326a216cf0cbd104b8ba5dd11e799431ca79309d7c008d236c4eeaaeecb#rd
+'>产品经理入门学习这5个公众号能帮你</a></td></tr><tr><td>174&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046562&idx=1&sn=331873e1999336839b24621b0bba3544&chksm=8efad072b98d596471edc64db911f0580205a6908a1009f8c3953416f09733dc706be57093ac#rd
+'>读书笔记N0.9：《把时间当做朋友》</a></td></tr><tr><td>175&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046557&idx=1&sn=bc6173c98bf29565ae911e36062b4612&chksm=8efad04db98d595b18ddf97ef10b785a6c6ec8986bc9983520f8e9fce3d6b5f82eb538577d40#rd
+'>产品经理求职锦囊，你或许用得上</a></td></tr><tr><td>176&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046549&idx=1&sn=cdf765c1a1eccb9177038e63848512e5&chksm=8efad045b98d5953ffa02aee5746b13836e344b1cf8761f9b24b4bc014cf23b654dfe82dae44#rd
+'>关于思维导图90%的人其实用错了</a></td></tr><tr><td>177&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046541&idx=1&sn=113f796f1c3614999accfd96194b81e6&chksm=8efad05db98d594b4a907762e3206dd84f396d165b3a848e0654730452d9a60a25fa0c8cd4cf#rd
+'>产品经理寻找设计灵感必知的5个网站</a></td></tr><tr><td>178&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046528&idx=1&sn=fe9edb0a20e49cbad78c6c6935c68528&chksm=8efad050b98d594634816c9af4fb9a7c876eccb97bf1f9940b14f16bfb2017357ff1c5a90199#rd
+'>产品经理读书笔记NO8：《暗时间》</a></td></tr><tr><td>179&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046520&idx=1&sn=106b085da077f32d65a283ec5d41326d&chksm=8efad028b98d593e8629fa071926f94216f04304f0b615954e681d420441bc84efbef5f92158#rd
+'>产品经理入门必知的10个网站</a></td></tr><tr><td>180&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046506&idx=1&sn=aeef7fb5f5eeb9347df007ecfbb44298&chksm=8efad03ab98d592caa738af9c1fbc70dab9d190a285f875fb036cec195fb199db3e717e2bd4e#rd
+'>新年福利：网易产品视频教程资料</a></td></tr><tr><td>181&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046493&idx=1&sn=f114ae0c0b9b3764ec778c65c91fb1f8&chksm=8efad00db98d591b025abcf0390be5f4991584c94ea1346e1f0ce0dee9401d48ed42f06f8a1c#rd
+'>产品经理入门教程大全集，你值得拥有！</a></td></tr><tr><td>182&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046482&idx=1&sn=52cb2c9bb507cf6a54d0a6ea6d0a0f02&chksm=8efad002b98d5914fa9a220f8e9bc7be9922c516cf044c574aa7afb607f875f63718d2b5f5f5#rd
+'>读书笔记NO7：关键对话</a></td></tr><tr><td>183&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046473&idx=1&sn=eb821e5233fcb69872e7e7efc740ab09&chksm=8efad019b98d590f0e2a489bf68cb792c61aacc9666eb100fbd70a44c183c3c4c782dd9b49f5#rd
+'>不花钱也能看好的电子书，信不信由你！</a></td></tr><tr><td>184&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046469&idx=1&sn=4fc1a9a6c5309dfa116c3313eed88b39&chksm=8efad015b98d5903eb6e1b751dd10dcb81b938ab4781445662c35dc04fcb5f42c2c6cd76b9ab#rd
+'>Behind Everyone Great Product</a></td></tr><tr><td>185&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046462&idx=1&sn=9a87a6c64241c3c86349b1fcca71e97a&chksm=8efa2feeb98da6f8e8eb47dfb362216c13c2acc4fddb6a336e5380dd6ceaacdede753efdf51f#rd
+'>什么是好的读书笔记？</a></td></tr><tr><td>186&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046455&idx=1&sn=462305c8b558f989ec765ba7b19620dc&chksm=8efa2fe7b98da6f1e10693973006bd4b9671f1651992eed12b05c37a4348821ba4105f7f3bfa#rd
+'>神器7：最好用的手机截图标注工具，没有之一！</a></td></tr><tr><td>187&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046452&idx=1&sn=af056ad26fd065131fee9e3537ad7de8&chksm=8efa2fe4b98da6f248f52278170944391405d5e68a6124b5df386ef62e4c64c78c9571190648#rd
+'>神器6：Listary-效率工具</a></td></tr><tr><td>188&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046449&idx=1&sn=434899ea834d01b9b29666c42c8333d4&chksm=8efa2fe1b98da6f742e39407da4287955c02f62640aaa7221200abc001e389bb19c3a0abdb10#rd
+'>读书笔记NO.6：产品经理20堂必修课</a></td></tr><tr><td>189&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046445&idx=1&sn=8022f57ece648724e7910f354a4f06a8&chksm=8efa2ffdb98da6eb65cf0e16bc38c6d00aa396df8b8e73efd6024cee34d7accb518f375c7e67#rd
+'>APP推荐NO.1：锤子便签</a></td></tr><tr><td>190&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIwMDU4MzU1MQ==&mid=2650046443&idx=1&sn=8160d6da0d2fa9bfdfe255840ce0c233&chksm=8efa2ffbb98da6ed0fe0001b593fb05f6c57878e1d3d1d98a360c6a237e975b1a38f921a7a32#rd
+'>神器5：坚果云-云同步工具</a></td></tr></tbody></html>

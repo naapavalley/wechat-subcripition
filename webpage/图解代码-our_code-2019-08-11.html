@@ -1,64 +1,4 @@
-import webbrowser
-import time
-import os
 
-# 设置要爬取的公众号
-wechatsubname = input("设置微信公众号中文名：")
-filename = input("请输入微信公众号ID: ")
-tag = input("请输入微信公众号标签： ")
-# 替换字符
-def repstring():
-    file1 = open('winex-sh.txt', 'r', encoding='utf-8') # 要去掉空行的文件
-    file2 = open('winex-sh.txt', 'w', encoding='utf-8') # 生成没有空行的文件
-    try:
-        for line in file1.readlines():
-            line.replace(' http', '$http')
-            file2.write(line)
-    finally:
-        file1.close()
-        file2.close()
-# 删除文件中的空行
-def clearBlankLine():
-    file1 = open('winex-sh.txt', 'r', encoding='utf-8') # 要去掉空行的文件
-    file2 = open('winex-sh.txt', 'w', encoding='utf-8') # 生成没有空行的文件
-    try:
-        for line in file1.readlines():
-            if line == '\n':
-                line = line.strip("\n")
-            file2.write(line)
-    finally:
-        file1.close()
-        file2.close()
-
-# 读取txt文件
-def read():
-    filepath = './spider/'+ filename + '.txt'
-    with open(filepath, encoding='utf-8') as f:
-        content = f.readlines()
-    return content
-
-# 生成tbody
-def gentbody():
-    content = read()
-    tbody = []
-    article_num = 1
-    for item in content:
-        content_title = item.split('$',1)[0]
-        content_link = item.split('$',1)[1]
-        tbody.append("<tr><td>" + str(article_num) + "&emsp;&emsp;<a href = '"+ content_link + "'>"+ content_title + "</a></td></tr>")
-        article_num += 1
-    return(tbody)
-
-# 拼接html全文
-def genhtml():
-    runtime = time.strftime('%Y-%m-%d', time.localtime())
-    thead = "<th>微信公众号：%s&emsp;&emsp;&emsp;&emsp;微信号：%s&emsp;&emsp;&emsp;&emsp;更新日期：%s&emsp;&emsp;&emsp;&emsp;<br>标签：%s</th>" % (wechatsubname, filename, runtime,tag)
-    tbody = gentbody()
-    # 命名生成的html
-    GEN_HTML = "%s-%s-%s.html"%(wechatsubname,filename,runtime)
-    # 打开文件，准备写入
-    f = open(GEN_HTML, 'w', encoding="utf-8")
-    template = """
         <!doctype html>
         <html>
         <head>
@@ -284,14 +224,66 @@ def genhtml():
         <div  id='write'  class = 'is-node'>
         <figure>
         <table>
-        <thead><tr>""" + thead + "</tr></thead><tbody>" + "".join(tbody) + "</tbody></html>"
-    # 写入文件
-    f.write(template)
-    # 关闭文件
-    f.close()
-    webbrowser.open(GEN_HTML, new=1)
-
-if __name__ == '__main__':
-    #repstring()
-    #clearBlankLine()
-    genhtml()
+        <thead><tr><th>微信公众号：图解代码&emsp;&emsp;&emsp;&emsp;微信号：our_code&emsp;&emsp;&emsp;&emsp;更新日期：2019-08-11&emsp;&emsp;&emsp;&emsp;<br>标签：编程</th></tr></thead><tbody><tr><td>1&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483938&idx=1&sn=534f907baa742120f9aa526488c50f71&chksm=fa1625fdcd61aceb750b689876397720867fadd8098b862320b2096a77a9676a7306affe4387#rd
+'>cli-maven-plugin:在maven项目中使用bash脚本辅助打包的插件</a></td></tr><tr><td>2&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483938&idx=2&sn=50d12dbfe208f23835dd18df509743ef&chksm=fa1625fdcd61aceb0e4888e6ca3f00e121cca6238bc116d34c03306e94e6ae9e6e1004b0f507#rd
+'>发布jar包到maven中央仓库教程</a></td></tr><tr><td>3&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483938&idx=3&sn=81070b2f6ad8dc9f4cfc0ad22052154b&chksm=fa1625fdcd61acebd9388fc3281e5b43532f7509e1f9e65cf4a36b5980104798bcf3303471c7#rd
+'>飞鸟集_19.mp3</a></td></tr><tr><td>4&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483930&idx=1&sn=8884ecb09888d35b47d254ee6ffef942&chksm=fa1625c5cd61acd371303b8f61fa31a628cd0052600909f89fc291c56e6adae7b8c9aedb49c1#rd
+'>看懂CMS GC日志</a></td></tr><tr><td>5&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483930&idx=2&sn=4a30a2e720c9e73930469c67f44face1&chksm=fa1625c5cd61acd31fa4a96b8f4dc2932fe5c9568e615d41b2c3b4bd3b9048a2045c73579237#rd
+'>飞鸟集_18.mp3</a></td></tr><tr><td>6&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483920&idx=1&sn=cdfbaefedccf5b453df16d1720dd0116&chksm=fa1625cfcd61acd97264b034677c8d85306e9692dc3c0c22b4ae86842af0356f583446470cbb#rd
+'>命令行分析Heap Dump大文件</a></td></tr><tr><td>7&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483920&idx=2&sn=20f7958db476789db968dfa4dc304bed&chksm=fa1625cfcd61acd9ffd6b4b819079b0a6dad711dd762b635c5e84a1d091c8b2ad5712851d5ea#rd
+'>飞鸟集_17.mp3</a></td></tr><tr><td>8&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483903&idx=1&sn=a3afce015ece0b157e69db7fabfa1fdf&chksm=fa162620cd61af36736d37027b038966147afcc9d461cb679aaca66356ca1c9d18ab864d6664#rd
+'>JDK各版本新特性</a></td></tr><tr><td>9&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483903&idx=2&sn=0845df8b7309fe3c5cabcf8e3b00ee5f&chksm=fa162620cd61af36053e5665aaba63c3a94da992df1e3eabd794b55ee1ddeac80af50d874371#rd
+'>飞鸟集_16.mp3</a></td></tr><tr><td>10&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483898&idx=1&sn=effd4ff56eedd256d47910abf3b78f7f&chksm=fa162625cd61af33caf65b0db4c153c8a3e949244432d714bfc9dc85aef30fddc5b210f79b64#rd
+'>IEEE二进制浮点数算术标准（IEEE 754）解读</a></td></tr><tr><td>11&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483898&idx=2&sn=aaf88f742ba970b59077600cd87d9656&chksm=fa162625cd61af33aad4466eb12104db89e5f7024daf207d3637425d70fea878d8b691eff118#rd
+'>飞鸟集_15.mp3</a></td></tr><tr><td>12&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483889&idx=1&sn=d98647400e83343c952fec96c85c9eb3&chksm=fa16262ecd61af38bb390339b09e3c661c451f3505786811bad13225908f0f01a0e10d3c934f#rd
+'>HttpClient fluent API使用小坑</a></td></tr><tr><td>13&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483889&idx=2&sn=e230718f931206828d903713c232ad71&chksm=fa16262ecd61af382b1dd25087038bcab5ae72698df143074f914f86bed71a533f66c109ae53#rd
+'>飞鸟集_14.mp3</a></td></tr><tr><td>14&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483873&idx=1&sn=0b12658ab4190fa6c66cb48f7c8c98a7&chksm=fa16263ecd61af284bf14c6b840131d9e499b6936751e3934d65c73217c71ef1723b67e6cc4a#rd
+'>软件的「向前兼容」和「向后兼容」如何区分？</a></td></tr><tr><td>15&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483868&idx=1&sn=16717fc4b16e651ec9eaa0ac9cfec9f4&chksm=fa162603cd61af15b9a95da3d8ea6c697055bfbbab89268f49e8f4001b837e3f70aa2acc649b#rd
+'>No FileSystem for scheme: hdfs异常</a></td></tr><tr><td>16&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483868&idx=2&sn=d11c632585009ab444d47761db983b05&chksm=fa162603cd61af154a082153db501df0509f3cedad9db7464d73980fdb3d895d298d100e7f3f#rd
+'>飞鸟集_13.mp3</a></td></tr><tr><td>17&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483857&idx=1&sn=dd9a028a93e66311d7d5a56f4aae0190&chksm=fa16260ecd61af18f7b1e9090c3833a364e7d324c69b7729d5a82e412022216a968749ed8e3a#rd
+'>【转】有赞大数据实践: 敏捷型数据仓库的构建及其应用</a></td></tr><tr><td>18&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483857&idx=2&sn=5eac395ae00714e05e2500c20c3e83b4&chksm=fa16260ecd61af18aa6a589d066e93f20e3cb8f16a7aa17bef56a0f68006a94d15d325c44cc4#rd
+'>大数据开发平台(Data Platform)在有赞的最佳实践</a></td></tr><tr><td>19&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483857&idx=3&sn=aae098a3cf8a7bbd2b244044b21b2e31&chksm=fa16260ecd61af18ef33e25627428132ba4414567e8cecf23264c2702d2bce736a9db108e5f6#rd
+'>有赞数据仓库元数据系统实践</a></td></tr><tr><td>20&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483857&idx=4&sn=6b8ad1922292c1ef156022584f7d3b23&chksm=fa16260ecd61af18a651140866e72449a2c78e0d811618ef3038a2ef06d2c424222239d387e2#rd
+'>有赞大数据平台安全建设实践</a></td></tr><tr><td>21&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483857&idx=5&sn=c17585dacc7c1a8598073c2a214310df&chksm=fa16260ecd61af189e0f6c0c83468addbf26417450e3aa387c1b3f9302a4d4c86b59d3227a61#rd
+'>SparkSQL 在有赞的实践</a></td></tr><tr><td>22&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483857&idx=6&sn=205bfd1b0fa219870cc783b486ac6732&chksm=fa16260ecd61af183ddf07bb0fc7d808341c3a30e27d9d5514557b55be8a73dd87af01ab5c21#rd
+'>苏宁大数据离线任务开发调度平台实践</a></td></tr><tr><td>23&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483857&idx=7&sn=80d58ec0283573ee9afa90cda5d5b01b&chksm=fa16260ecd61af181ad42593a7f5f2be298f4f9f3b15809af87fade2e845e830d9e24da8d529#rd
+'>苏宁大数据离线任务开发调度平台实践：任务调度模块架构设计</a></td></tr><tr><td>24&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483857&idx=8&sn=e9a463f214727709e19afb0a6da0180e&chksm=fa16260ecd61af18e2c83d53716162fba7af6a74ed83c780a1d62eeebcd57c2ecea9311e967b#rd
+'>【转】苏宁大数据离线任务开发调度平台实践：设计与开发过程中的要点</a></td></tr><tr><td>25&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483843&idx=1&sn=726ddd9d18eb987d9bea7afc9488b595&chksm=fa16261ccd61af0ac75886d408c707869edbeae6a2896bbf2c1531c392020afb4815f3e582f3#rd
+'>sqoop HCatalog使用</a></td></tr><tr><td>26&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483843&idx=2&sn=e2716c7f2c177920389fa1612857bed5&chksm=fa16261ccd61af0a4d10c4747048fe86b5b74f844c9f1c02829670935260c9fe1ce6266eb824#rd
+'>飞鸟集_12.mp3</a></td></tr><tr><td>27&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483837&idx=1&sn=17661c4a8646ce8818f33ffbfbdaa5a5&chksm=fa162662cd61af743a64d3d32bbe66a268f83a73af11d01832baad0c0bbdc7286f29a7468774#rd
+'>Shell编程笔记</a></td></tr><tr><td>28&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483837&idx=2&sn=0ad7a65cbb4b5b465d357c26523fc1ee&chksm=fa162662cd61af743adbbe171d33a3402ed4d31cfc5a0d5126c8feb1d95d95cc53856aa50961#rd
+'>飞鸟集_11.mp3</a></td></tr><tr><td>29&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483831&idx=1&sn=3e535a4d3a95b6c298b7fa74b68b6e3c&chksm=fa162668cd61af7eb070188f66154336ac612ad9b3d47f72e3a30f2a301aeff5b2637f37e00f#rd
+'>Maven使用总结</a></td></tr><tr><td>30&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483831&idx=2&sn=21ff6fb88917bde504370d324990167c&chksm=fa162668cd61af7e52d78b650d442f243607f5a7fb0cb860364d7b1eaa94c9f86f6d26cf7b7c#rd
+'>飞鸟集No.10</a></td></tr><tr><td>31&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483822&idx=1&sn=d6ff9aa023f6acee903bf47a1d1885b9&chksm=fa162671cd61af6760a44fd51d2f9d87418dd5d781542b3179be84796198fb2bc9bc9eb9d7d5#rd
+'>ZooKeeper实现分布式锁（翻译）</a></td></tr><tr><td>32&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483822&idx=2&sn=5f6444c9c6fe7475f7c437a73e1a95b5&chksm=fa162671cd61af67ef5cba686c150f806379c6229ba4bfa7ef9c7d025d30bca5ae575513f150#rd
+'>飞鸟集No.9</a></td></tr><tr><td>33&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483817&idx=1&sn=6e29df162650b1531e91d8b862b31bc2&chksm=fa162676cd61af600d4196d3276cc8486a8b1668bc2c5732f875b0f8dad9a133a12e4a0a4ffa#rd
+'>Zeppelin的pyspark使用趟坑记录</a></td></tr><tr><td>34&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483817&idx=2&sn=015acc499e49a96b5243d46f99b95a51&chksm=fa162676cd61af60e321544b8f64ef1a16c91e204c554c83360a97b21170ebe8efd396158da0#rd
+'>飞鸟集No.8</a></td></tr><tr><td>35&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483791&idx=1&sn=19af813710669d8a3fa90c9a872eae33&chksm=fa162650cd61af4640e7ff415e7d4df491099a6cfb3f015f2d3181232dd8a6979728f9191eca#rd
+'>16款笔记类app【Android】横向测评</a></td></tr><tr><td>36&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483779&idx=1&sn=fe9c7aa3cf884ada48ea31b5f6535d02&chksm=fa16265ccd61af4ac05e7ee32f0a1c1e99aa321f6f549e566690e9908deeeddfb3ddd2e67f3a#rd
+'>Redis实现分布式锁</a></td></tr><tr><td>37&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483779&idx=2&sn=093a5f93b1ffed2114e011b551b79d48&chksm=fa16265ccd61af4a60d74350ba052fb2ec57a5273306afe4da9cd0ab592f1f5719550ce40d92#rd
+'>飞鸟集No.7</a></td></tr><tr><td>38&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483773&idx=1&sn=25763594153bd89bda56444be22efe04&chksm=fa1626a2cd61afb4eb3d5826d7d471638b027961a090948a46ab65f93fe60d9c7aa772ed8718#rd
+'>SLF4J常见问题总结</a></td></tr><tr><td>39&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483773&idx=2&sn=b03d2d12ae5a4f31b5f0ea2be1a925e8&chksm=fa1626a2cd61afb40a4bfad1e2871eb193f26d967a1ee810a9d53ce39816bf5977b13863cde3#rd
+'>飞鸟集No.6</a></td></tr><tr><td>40&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483766&idx=1&sn=c737b7b32cebf2b9160df3644873ee04&chksm=fa1626a9cd61afbfa00cbadd17d997d828a11540081c67f16ef622b597aec369dff02da5679b#rd
+'>调试NoSuchMethodError问题的通用方法</a></td></tr><tr><td>41&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483766&idx=2&sn=1fdc7053644263dafdc1d7a073f3356f&chksm=fa1626a9cd61afbff2bce49334af136cd3cafaa8f97f7151a55700dc57ebee107b73d16b83dd#rd
+'>飞鸟集No.5</a></td></tr><tr><td>42&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483764&idx=1&sn=d221e1df62ebe9925d8316b0440a5880&chksm=fa1626abcd61afbd4d0a5156e4bf0851e48b3f0ee4c635a966b3fca81fdd4c34978a5c107366#rd
+'>调试NoSuchMethodError问题的通用方法</a></td></tr><tr><td>43&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483764&idx=2&sn=3c6318e572b47f7aa1a37ca041ad6ade&chksm=fa1626abcd61afbdb5464c1fd4a78a5813269b5d190ef41fc4ab1aedefb9404cd603a37092b7#rd
+'>飞鸟集No.5</a></td></tr><tr><td>44&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483762&idx=1&sn=6843ea4841caf0bc616ab749385f5144&chksm=fa1626adcd61afbbaa012d97817ac04783e2044fd257320c074c8bee879ac882ea7296a31f9c#rd
+'>Java ClassPath解惑</a></td></tr><tr><td>45&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483762&idx=2&sn=b025477479406edc9e74f06bf7411645&chksm=fa1626adcd61afbbc6e0935d6cd7d2c768cd3543e8782355561b0076620fc227bd7cab349df1#rd
+'>飞鸟集No.4</a></td></tr><tr><td>46&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483755&idx=1&sn=5e046bfc8fd5b0025b7a73ca87cfd431&chksm=fa1626b4cd61afa2917cb753881eba02c3bc97c87585f8844f975d484d4be841f87e0eefc123#rd
+'>改变不了世界就改变自己之——git svn使用小记</a></td></tr><tr><td>47&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483755&idx=2&sn=2a9262e5c2d0f2bad7d09a3fce2696f3&chksm=fa1626b4cd61afa2912716f7464a5660f4269776c2c2701b0a490c786675f0a31578f9b67b24#rd
+'>飞鸟集No.3</a></td></tr><tr><td>48&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483743&idx=1&sn=81310d668e36aa133e3b7740a80e2a74&chksm=fa162680cd61af965943365946934d5e5cd3a9b79668cbf036cfd6168430c221764801b2b7b3#rd
+'>茴香豆的茴有几种写法之：查看JVM参数</a></td></tr><tr><td>49&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483743&idx=2&sn=ff84bc760f38189e49635b4dfb037742&chksm=fa162680cd61af964144eac4d1437fe5d6b0870fc63a2d16889056d93bf696ffc38b4ccfaadd#rd
+'>飞鸟集No.2</a></td></tr><tr><td>50&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483738&idx=1&sn=47952e9e0113329cbc0380c716c18d36&chksm=fa162685cd61af93b1df207e28c7ed1aef6f8a84898a0696c4daf8245172d6deab5e26858ef1#rd
+'>飞鸟集No.1</a></td></tr><tr><td>51&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483731&idx=2&sn=928e3998b892c56976977ea45c17557b&chksm=fa16268ccd61af9a077e38c301ca4ac09a2a073df51b5c3fc72c6c1c92057921b8ec39130deb#rd
+'>【声优】:) the road not taken</a></td></tr><tr><td>52&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483731&idx=3&sn=8cb6e589e0ba644eadfd6dca3af91d83&chksm=fa16268ccd61af9ab1cdd2801849371fedf22c0fb6acf245b4c34b764d041393440b60b4f357#rd
+'>等待</a></td></tr><tr><td>53&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483720&idx=1&sn=48c5cf56db8ecb2822a2cd07639ee0c2&chksm=fa162697cd61af817117940bbe6cf9e9ba07e8a6961f762d2ff63228bef0e1b0ca80cd812073#rd
+'>Java内存模型</a></td></tr><tr><td>54&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483720&idx=2&sn=eda024ba40c8bcb3790557066fef0da1&chksm=fa162697cd61af81b5479a7300fb9550dee05c76d56c43f607f7f50b8c170ec28b6db6bc315a#rd
+'>常见JVM参数</a></td></tr><tr><td>55&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483720&idx=3&sn=4312b65ceb0a31fe219920d5b9b5b30b&chksm=fa162697cd61af81ed6b584df694b7a3e279dbee1c8e80faa3b9b33e4d3c642ddbe8f174bcf7#rd
+'>再谈引用</a></td></tr><tr><td>56&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483710&idx=1&sn=d21cdfedd683cb80cdeaefbb91216577&chksm=fa1626e1cd61aff78e4499c33da3526c14a6bb23d944db41f72cf7f06cf0352b2e6ab0d35b83#rd
+'>两年</a></td></tr><tr><td>57&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483706&idx=1&sn=884f1652c4a8ba0fc529430fb874bbd6&chksm=fa1626e5cd61aff33c66288567684f699230a2976aac9cea889b810a245dffbb8772f21611cb#rd
+'>vim的那些事</a></td></tr><tr><td>58&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483705&idx=1&sn=b494a83105f9bb393c269a31ad97f7c2&chksm=fa1626e6cd61aff0279735f1a1dc20e8409a7cbe81e65c00f21786d54d921f6d40a7fefc543b#rd
+'>fashion编辑器知多少？</a></td></tr><tr><td>59&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483705&idx=2&sn=ad5cb9b331704265775faad7beef33b0&chksm=fa1626e6cd61aff077351b4eb8ee8b12c30300bde10316b2f5956e338957df843eb14664df7a#rd
+'>EnumSet类</a></td></tr><tr><td>60&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483675&idx=1&sn=acb46703c0dcdfa385832086926194ad&chksm=fa1626c4cd61afd257a97711ae73a178f3f93f86808f8f2d0081a4197267ca47a551fca8da5c#rd
+'>java8之方法引用</a></td></tr><tr><td>61&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483675&idx=2&sn=a63e15a9f4e9b4efd3464f60b4869319&chksm=fa1626c4cd61afd27b0881e312510d4554778c0c96c5f3f0c71b7f8062b5dddab639e8f2b03e#rd
+'>用Python快速构建一个web服务器</a></td></tr><tr><td>62&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzUyNTg3Mzg0MA==&mid=2247483656&idx=1&sn=9625bb01a55cba3a68b69c944f99e54d&chksm=fa1626d7cd61afc1e230425fb3cf36d3d30ddd8b9f6860c85bc75c1227b70322f7213a4e34f1#rd
+'>维特的烦恼...</a></td></tr></tbody></html>

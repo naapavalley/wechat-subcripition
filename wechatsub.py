@@ -16,6 +16,7 @@ password = "anton826"
 gzlist = []
 gzlist.append(input("设置要爬取的公众号:"))
 
+# 登录微信
 def weChat_login():
     # 定义一个空的字典，存放cookies内容
     post = {}
@@ -60,8 +61,6 @@ def weChat_login():
     print("cookies信息已保存到本地")
 
 # 爬取微信公众号文章，并存在本地文本中
-
-
 def get_content(query):
     # query为要爬取的公众号名称
     # 公众号主页
@@ -162,6 +161,8 @@ def get_content(query):
         begin = int(begin)
         begin+=5
         time.sleep(2)
+
+# 获取文章和链接
 def get_txt():
     try:
         # 登录微信公众号，获取登录之后的cookies信息，并保存到本地文本中
