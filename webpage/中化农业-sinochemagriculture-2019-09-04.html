@@ -1,0 +1,451 @@
+
+        <!doctype html>
+        <html>
+        <head>
+        <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+        <title></title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+        html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+        body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+        iframe { margin: auto; }
+        a.url { word-break: break-all; }
+        a:active, a:hover { outline: 0px; }
+        .in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+        #write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+        #write.first-line-indent p { text-indent: 2em; }
+        #write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+        #write.first-line-indent li { margin-left: 2em; }
+        .for-image #write { padding-left: 8px; padding-right: 8px; }
+        body.typora-export { padding-left: 30px; padding-right: 30px; }
+        .typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+        @media screen and (max-width: 500px) {
+          body.typora-export { padding-left: 0px; padding-right: 0px; }
+          #write { padding-left: 20px; padding-right: 20px; }
+          .CodeMirror-sizer { margin-left: 0px !important; }
+          .CodeMirror-gutters { display: none !important; }
+        }
+        #write li > figure:first-child { margin-top: -20px; }
+        #write ol, #write ul { position: relative; }
+        img { max-width: 100%; vertical-align: middle; }
+        button, input, select, textarea { color: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; }
+        input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+        *, ::after, ::before { box-sizing: border-box; }
+        #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+        #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+        h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
+        p { orphans: 4; }
+        h1 { font-size: 2rem; }
+        h2 { font-size: 1.8rem; }
+        h3 { font-size: 1.6rem; }
+        h4 { font-size: 1.4rem; }
+        h5 { font-size: 1.2rem; }
+        h6 { font-size: 1rem; }
+        .md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+        .hidden { display: none; }
+        .md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+        a { cursor: pointer; }
+        sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+        sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+        #write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+        figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+        figure > table { margin: 0px !important; }
+        tr { break-inside: avoid; break-after: auto; }
+        thead { display: table-header-group; }
+        table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+        table.md-table td { min-width: 32px; }
+        .CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+        .CodeMirror-linenumber { user-select: none; }
+        .CodeMirror { text-align: left; }
+        .CodeMirror-placeholder { opacity: 0.3; }
+        .CodeMirror pre { padding: 0px 4px; }
+        .CodeMirror-lines { padding: 0px; }
+        div.hr:focus { cursor: none; }
+        #write pre { white-space: pre-wrap; }
+        #write.fences-no-line-wrapping pre { white-space: pre; }
+        #write pre.ty-contain-cm { white-space: normal; }
+        .CodeMirror-gutters { margin-right: 4px; }
+        .md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+        .md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+        #write .md-fences.mock-cm { white-space: pre-wrap; }
+        .md-fences.md-fences-with-lineno { padding-left: 0px; }
+        #write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+        .md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+        .CodeMirror-line, twitterwidget { break-inside: avoid; }
+        .footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+        .footnotes + .footnotes { margin-top: 0px; }
+        .md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+        li div { padding-top: 0px; }
+        blockquote { margin: 1rem 0px; }
+        li .mathjax-block, li p { margin: 0.5rem 0px; }
+        li { margin: 0px; position: relative; }
+        blockquote > :last-child { margin-bottom: 0px; }
+        blockquote > :first-child, li > :first-child { margin-top: 0px; }
+        .footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+        #write .footnote-line { white-space: pre-wrap; }
+        @media print {
+          body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+          #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+          .typora-export * { -webkit-print-color-adjust: exact; }
+          html.blink-to-pdf { font-size: 13px; }
+          .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+          .typora-export #write::after { height: 0px; }
+          @page { margin: 20mm 0px; }
+        }
+        .footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+        a img, img a { cursor: pointer; }
+        pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+        p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+        p > .md-image:only-child { display: inline-block; width: 100%; }
+        #write .MathJax_Display { margin: 0.8em 0px 0px; }
+        .md-math-block { width: 100%; }
+        .md-math-block:not(:empty)::after { display: none; }
+        [contenteditable="true"]:active, [contenteditable="true"]:focus { outline: 0px; box-shadow: none; }
+        .md-task-list-item { position: relative; list-style-type: none; }
+        .task-list-item.md-task-list-item { padding-left: 0px; }
+        .md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+        .math { font-size: 1rem; }
+        .md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+        .md-toc-content { position: relative; margin-left: 0px; }
+        .md-toc-content::after, .md-toc::after { display: none; }
+        .md-toc-item { display: block; color: rgb(65, 131, 196); }
+        .md-toc-item a { text-decoration: none; }
+        .md-toc-inner:hover { text-decoration: underline; }
+        .md-toc-inner { display: inline-block; cursor: pointer; }
+        .md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+        .md-toc-h2 .md-toc-inner { margin-left: 2em; }
+        .md-toc-h3 .md-toc-inner { margin-left: 4em; }
+        .md-toc-h4 .md-toc-inner { margin-left: 6em; }
+        .md-toc-h5 .md-toc-inner { margin-left: 8em; }
+        .md-toc-h6 .md-toc-inner { margin-left: 10em; }
+        @media screen and (max-width: 48em) {
+          .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+          .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+          .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+          .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+        }
+        a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+        .footnote-line a:not(.reversefootnote) { color: inherit; }
+        .md-attr { display: none; }
+        .md-fn-count::after { content: "."; }
+        code, pre, samp, tt { font-family: var(--monospace); }
+        kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+        .md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+        code { text-align: left; vertical-align: initial; }
+        a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+        .md-inline-math .MathJax_SVG .noError { display: none !important; }
+        .html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+        .md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+        .MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+        .MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+        .MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+        .MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+        .MathJax_SVG * { transition: none; }
+        .MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; }
+        .os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+        .md-diagram-panel > svg { max-width: 100%; }
+        [lang="mermaid"] svg, [lang="flow"] svg { max-width: 100%; }
+        [lang="mermaid"] .node text { font-size: 1rem; }
+        table tr th { border-bottom: 0px; }
+        video { max-width: 100%; display: block; margin: 0px auto; }
+        iframe { max-width: 100%; width: 100%; border: none; }
+        .highlight td, .highlight tr { border: 0px; }
+        :root { --side-bar-bg-color: #fafafa; --control-text-color: #777; }
+        html { font-size: 16px; }
+        body { font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; color: rgb(51, 51, 51); line-height: 1.6; }
+        #write { max-width: 860px; margin: 0px auto; padding: 30px 30px 100px; }
+        #write > ul:first-child, #write > ol:first-child { margin-top: 30px; }
+        a { color: rgb(65, 131, 196); }
+        h1, h2, h3, h4, h5, h6 { position: relative; margin-top: 1rem; margin-bottom: 1rem; font-weight: bold; line-height: 1.4; cursor: text; }
+        h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor { text-decoration: none; }
+        h1 tt, h1 code { font-size: inherit; }
+        h2 tt, h2 code { font-size: inherit; }
+        h3 tt, h3 code { font-size: inherit; }
+        h4 tt, h4 code { font-size: inherit; }
+        h5 tt, h5 code { font-size: inherit; }
+        h6 tt, h6 code { font-size: inherit; }
+        h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom: 1px solid rgb(238, 238, 238); }
+        h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom: 1px solid rgb(238, 238, 238); }
+        h3 { font-size: 1.5em; line-height: 1.43; }
+        h4 { font-size: 1.25em; }
+        h5 { font-size: 1em; }
+        h6 { font-size: 1em; color: rgb(119, 119, 119); }
+        p, blockquote, ul, ol, dl, table { margin: 0.8em 0px; }
+        li > ol, li > ul { margin: 0px; }
+        hr { height: 2px; padding: 0px; margin: 16px 0px; background-color: rgb(231, 231, 231); border: 0px none; overflow: hidden; box-sizing: content-box; }
+        li p.first { display: inline-block; }
+        ul, ol { padding-left: 30px; }
+        ul:first-child, ol:first-child { margin-top: 0px; }
+        ul:last-child, ol:last-child { margin-bottom: 0px; }
+        blockquote { border-left: 4px solid rgb(223, 226, 229); padding: 0px 15px; color: rgb(119, 119, 119); }
+        blockquote blockquote { padding-right: 0px; }
+        table { padding: 0px; word-break: initial; }
+        table tr { border-top: 1px solid rgb(223, 226, 229); margin: 0px; padding: 0px; }
+        table tr:nth-child(2n), thead { background-color: rgb(248, 248, 248); }
+        table tr th { font-weight: bold; border-width: 1px 1px 0px; border-top-style: solid; border-right-style: solid; border-left-style: solid; border-top-color: rgb(223, 226, 229); border-right-color: rgb(223, 226, 229); border-left-color: rgb(223, 226, 229); border-image: initial; border-bottom-style: initial; border-bottom-color: initial; text-align: left; margin: 0px; padding: 6px 13px; }
+        table tr td { border: 1px solid rgb(223, 226, 229); text-align: left; margin: 0px; padding: 6px 13px; }
+        table tr th:first-child, table tr td:first-child { margin-top: 0px; }
+        table tr th:last-child, table tr td:last-child { margin-bottom: 0px; }
+        .CodeMirror-lines { padding-left: 4px; }
+        .code-tooltip { box-shadow: rgba(0, 28, 36, 0.3) 0px 1px 1px 0px; border-top: 1px solid rgb(238, 242, 242); }
+        .md-fences, code, tt { border: 1px solid rgb(231, 234, 237); background-color: rgb(248, 248, 248); border-radius: 3px; padding: 2px 4px 0px; font-size: 0.9em; }
+        code { background-color: rgb(243, 244, 244); padding: 0px 2px; }
+        .md-fences { margin-bottom: 15px; margin-top: 15px; padding-top: 8px; padding-bottom: 6px; }
+        .md-task-list-item > input { margin-left: -1.3em; }
+        @media print {
+          html { font-size: 13px; }
+          table, pre { break-inside: avoid; }
+          pre { word-wrap: break-word; }
+        }
+        .md-fences { background-color: rgb(248, 248, 248); }
+        #write pre.md-meta-block { padding: 1rem; font-size: 85%; line-height: 1.45; background-color: rgb(247, 247, 247); border: 0px; border-radius: 3px; color: rgb(119, 119, 119); margin-top: 0px !important; }
+        .mathjax-block > .code-tooltip { bottom: 0.375rem; }
+        .md-mathjax-midline { background: rgb(250, 250, 250); }
+        #write > h3.md-focus::before { left: -1.5625rem; top: 0.375rem; }
+        #write > h4.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
+        #write > h5.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
+        #write > h6.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
+        .md-image > .md-meta { border-radius: 3px; padding: 2px 0px 0px 4px; font-size: 0.9em; color: inherit; }
+        .md-tag { color: rgb(167, 167, 167); opacity: 1; }
+        .md-toc { margin-top: 20px; padding-bottom: 20px; }
+        .sidebar-tabs { border-bottom: none; }
+        #typora-quick-open { border: 1px solid rgb(221, 221, 221); background-color: rgb(248, 248, 248); }
+        #typora-quick-open-item { background-color: rgb(250, 250, 250); border-color: rgb(254, 254, 254) rgb(229, 229, 229) rgb(229, 229, 229) rgb(238, 238, 238); border-style: solid; border-width: 1px; }
+        .on-focus-mode blockquote { border-left-color: rgba(85, 85, 85, 0.12); }
+        header, .context-menu, .megamenu-content, footer { font-family: "Segoe UI", Arial, sans-serif; }
+        .file-node-content:hover .file-node-icon, .file-node-content:hover .file-node-open-state { visibility: visible; }
+        .mac-seamless-mode #typora-sidebar { background-color: var(--side-bar-bg-color); }
+        .md-lang { color: rgb(180, 101, 77); }
+        .html-for-mac .context-menu { --item-hover-bg-color: #E6F0FE; }
+        #md-notification .btn { border: 0px; }
+        .dropdown-menu .divider { border-color: rgb(229, 229, 229); }
+         .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
+        </style>
+        </head>
+        <body class='typora-export os-windows' >
+        <div  id='write'  class = 'is-node'>
+        <figure>
+        <table>
+        <thead><tr><th>微信公众号：中化农业&emsp;&emsp;&emsp;&emsp;微信号：sinochemagriculture&emsp;&emsp;&emsp;&emsp;更新日期：2019-09-04&emsp;&emsp;&emsp;&emsp;<br>标签：农业</th></tr></thead><tbody><tr><td>1&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247492424&idx=1&sn=c7e8c6226ebdd400818811e40199f9e8&chksm=e8224736df55ce209b92ee8a54563bd20d4c5cae0b3db465573ed2ed27fbad000850c9b10157#rd
+'>今天上午九点半，中化菌动力直播有好礼！</a></td></tr><tr><td>2&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247492411&idx=1&sn=bcd8232095d43dc24ffbca006d35e88f&chksm=e8224745df55ce53565fcc192990f7fb3485cda31349947ec1f757ac32a9ff469eca41bab754#rd
+'>有竹香的稻子，是怎么种出来的？</a></td></tr><tr><td>3&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247492410&idx=1&sn=e1bb96f525a983758b6013bc1569d37a&chksm=e8224744df55ce52ac4f10361259a398e2d84958ec05e77de61091dd8153d1cd133e0152a749#rd
+'>全国农村产业融合发展联盟成立，中化农业出任联盟首届轮值理事长</a></td></tr><tr><td>4&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247492410&idx=2&sn=f82b8249f7b778684fbbf888f347d6f9&chksm=e8224744df55ce5297ec01bbffe009f6b59167c7b5a481c4850dfbe5ce2c9c4171ed342064bc#rd
+'>敢不敢点进来，一决高下？</a></td></tr><tr><td>5&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247492388&idx=1&sn=bba7bf5063f4c78c23dd063b1761164f&chksm=e822475adf55ce4ca2625e25966d8dc45b893eba93b117188bc9ef8d0f920d06cd5caa25ffac#rd
+'>MAP正蓝旗中心的这份秋收成绩单亮了！</a></td></tr><tr><td>6&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247492375&idx=1&sn=24eb2af747f7787f612d5521e117c541&chksm=e8224769df55ce7f636db0eceabb82cf99e7a94415e2068b52030756266b900a3896803c2ede#rd
+'>上线首日，中化农业肥易通物流平台“肥达达”完美通达！</a></td></tr><tr><td>7&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247492375&idx=2&sn=ff5a0b007ccec62054649673f333d287&chksm=e8224769df55ce7fff6046b87a592f87f73e83949096d7a64d6eb792f93bc73db471a253a990#rd
+'>简讯不简单</a></td></tr><tr><td>8&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247492329&idx=1&sn=0150c82e36a6881da6066640ac524f80&chksm=e8224697df55cf81a70e3e9bb61dc413e7209a18e816d5ba8cb51e1a9731da7e5ec1b8e6f950#rd
+'>中化农业与德勤中国携手开启“智力+公益”助农新航程</a></td></tr><tr><td>9&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247492316&idx=1&sn=75835cc1765dd11dc2531dfaef08e975&chksm=e82246a2df55cfb4388d6fca92fbc7bdeea32ddc7b778749bbe961ea6e76beeba77e0b34e0ea#rd
+'>同比持续增长！中化化肥发布上半年成绩单</a></td></tr><tr><td>10&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247492316&idx=2&sn=71e1fceea386086a3ce492d304a02a6f&chksm=e82246a2df55cfb4f532f293fda953e64f51591d5507b2ecd5930905a205cc3b0660e5b2c7a2#rd
+'>叮咚！你有万亩花海待签收</a></td></tr><tr><td>11&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247492203&idx=1&sn=d806100ba385f7982506c82ce1263197&chksm=e8224615df55cf038d477db06c48767c4f8ff71c913e0c01923f623425d5efdd28ce60e9bf53#rd
+'>中国农业现代化！MAP震撼超乎你想象</a></td></tr><tr><td>12&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247492173&idx=1&sn=c4c9ceed4c8e94c2de233f6491cd6d5a&chksm=e8224633df55cf257d7fd027e86cf02b708a3d940c388fb3fc736b3f98324d0d90525217fda5#rd
+'>老王家的麦子“凉”了！咋整？</a></td></tr><tr><td>13&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247492173&idx=2&sn=b7625b7b6cb4a534700fda764504b690&chksm=e8224633df55cf25b9090840fea794954c7be711ac7c19dbc4645bb92b42d96787523cccaf41#rd
+'>今日处暑</a></td></tr><tr><td>14&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247492092&idx=1&sn=fec3b0f644ef7d91560947e2cb2ff3ad&chksm=e8224582df55cc94fad86692a7473b91f3c2208aeee5605edc57377bf4a174af6ca57f0030a6#rd
+'>这个夏天，这群飞手燃爆了果树飞防圈</a></td></tr><tr><td>15&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247492002&idx=1&sn=cb7c6167729273d38113c0a87f6b3bae&chksm=e82245dcdf55cccaa6526d02f297985cfd2e4400db374fd41c18fb5ec37f14c995ff14bc8d1d#rd
+'>稻瘟病？MAP专家教你一招制“敌”！</a></td></tr><tr><td>16&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247492000&idx=1&sn=c91f0925d4f8fa875655612a715fbd69&chksm=e82245dedf55ccc8b3093fc75c452dce396d83c475b3e3f61ccd702c6655bc501706a8b3a1ff#rd
+'>加油站里买化肥！中化与中石油的合作新亮点</a></td></tr><tr><td>17&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491962&idx=1&sn=91085f78c1d2256f62ca578318fbb657&chksm=e8224504df55cc12c9f84f16676609089ff92a7469cf140e7ee282f476e34732a83a2d32193d#rd
+'>吉林省委书记巴音朝鲁、省长景俊海考察MAP合作农场</a></td></tr><tr><td>18&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491952&idx=1&sn=db5390df200847d6a8bc1f512780cf6a&chksm=e822450edf55cc180e703ee226b896c808a8697cf266f25f8e1e6266b98b2d0bc6c21c7eb131#rd
+'>超强台风里的Mapper身影</a></td></tr><tr><td>19&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491921&idx=1&sn=f91dc04aad8a8609f4b4749d2111ceb4&chksm=e822452fdf55cc39634ccbae41543eaf320e70278fdd00b475e1f2621a4d5ff4702bb694252c#rd
+'>MAP模式联动国家粮食局，启动“中国好粮油“阜南项目</a></td></tr><tr><td>20&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491894&idx=1&sn=e8af70f2a3ee12f446a5b987306d606b&chksm=e8224548df55cc5ebf72af45fe640a1cfc480d1b9d2e361c1ebf303fa56fd5ec260025bc6cc6#rd
+'>永兴会师，飞防首战！</a></td></tr><tr><td>21&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491841&idx=1&sn=1b6ac70c53b6038d8814a23b8a10bbf3&chksm=e822457fdf55cc69e12b7a0d0f252f7a25b89ab5e50a4e34626887ca8b020fa6f21d1b244565#rd
+'>今日立秋</a></td></tr><tr><td>22&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491829&idx=1&sn=dc4d26502e609b0d99539abe3619ec05&chksm=e822448bdf55cd9d5f01624e63bd8b3abe3d8edaafb5c2de3c015e692cd426a558026527721b#rd
+'>心中有爱，MAP常在</a></td></tr><tr><td>23&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491820&idx=1&sn=e64f3b94c371e8e525f75b5921ea0aaf&chksm=e8224492df55cd841c6aa2fd0c08f341dd782dd213df75066f2d2bd223e87e3da8311ad8b472#rd
+'>不忘初心，永远冲锋！中化农业召开年中工作会议</a></td></tr><tr><td>24&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491758&idx=1&sn=a1aaeedd465e0ab9dddb5631e93fd9b4&chksm=e82244d0df55cdc67872e7bd4ebf445d68996e9b6bf01fda4dde4f3840863c8a60bafc36ed7f#rd
+'>百舸争流千帆竞，中化MAP正冲锋</a></td></tr><tr><td>25&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491717&idx=1&sn=3f34ff0f8c524e7393a19e2287de2a04&chksm=e82244fbdf55cded14b027230df9c3fb4cf3b72ffd1bfe64560bba60f5673b6e1bcb055a00ce#rd
+'>向战而行，青春出征！MAP新兵来了</a></td></tr><tr><td>26&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491712&idx=1&sn=4cf675c2a245357b6da8e956802e6a88&chksm=e82244fedf55cde8d2021f32e319cc4213213adfbd537dcc4e931f4bfcc97e25f334557ea75a#rd
+'>一旦此刻拥有，三伏酷暑无忧！</a></td></tr><tr><td>27&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491686&idx=1&sn=544ae4b506646609ff6872193b5c4349&chksm=e8224418df55cd0eaa7c7182f45004404e296085c4fe8de977471637e0d9755ccafb88320a8e#rd
+'>作为农业领域国家队，中化一直在努力！</a></td></tr><tr><td>28&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491680&idx=1&sn=7af676a629d24409bbb2b9598b4194e3&chksm=e822441edf55cd080974a980a278dffd4560e92fcd4a58a05ca51910e6dfc442297cad534183#rd
+'>首家农机5S服务站揭牌！ 中化农业、约翰迪尔联手打造</a></td></tr><tr><td>29&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491659&idx=1&sn=2b2cad51f0659fe7d817c7bab27e0d40&chksm=e8224435df55cd233d4ed91e3f6fcc2c3bda23134ada33fb867ac91f5f9a6b5e632770a946aa#rd
+'>当MAP的火热，遇到天这么热</a></td></tr><tr><td>30&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491647&idx=1&sn=001a922f88a593f5f7b2bd7e21061d97&chksm=e8224441df55cd579821d562e06680355eb6b005565c3282fa2047355827409f60f57e1d70ac#rd
+'>今日大暑</a></td></tr><tr><td>31&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491641&idx=1&sn=c0ba1dae178b3240a4342d4ab03531ad&chksm=e8224447df55cd51c90bfb087d9d146e1e4a5ccaed9ac1e7a120ffbe8f47245ff6a7997eaf36#rd
+'>中化！世界500强最新排名第88名</a></td></tr><tr><td>32&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491641&idx=2&sn=c92d49c41210de9646f685d7c7a7283b&chksm=e8224447df55cd51a24317d70cfbb74a3bdab2be4f1a845020700a9eee443676b8ebcf94b770#rd
+'>害虫来了，如何识别及防治玉米螟？</a></td></tr><tr><td>33&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491627&idx=1&sn=13de2aaa9dd738ab31b72b1750eee9c8&chksm=e8224455df55cd43ff910a4736ef6cd44aa85651a4e802a8e83bb0a86929c5547cb94788ef37#rd
+'>孙文友：MAP是利国利民、大有前途的事业</a></td></tr><tr><td>34&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491613&idx=1&sn=a608cf99a6346cf1ccd4685ba5800a9e&chksm=e8224463df55cd75aa59d3fe2f98184ec69d176d3b6797e706bcb2d2db95b22a7525dd308bf4#rd
+'>前方有剧透！飞防王者神秘聚会，点此了解！</a></td></tr><tr><td>35&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491605&idx=1&sn=01ec06f8dcd9617eaf19677a440c6cf2&chksm=e822446bdf55cd7db30e1a1a8abd3b961d93c94ebaf0fb1b6006582485eb8633c5b94ac4d611#rd
+'>正是“江南”好风景，奋斗时节又逢君</a></td></tr><tr><td>36&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491601&idx=1&sn=c5bfa4367388e46f02bf259cc6a61cfc&chksm=e822446fdf55cd7930c04a86e239a1d464b9bd31d7b11a5a2f037745311549688a08fb2bf341#rd
+'>国家农业农村部刘天金调研宁夏贺兰MAP技术服务中心</a></td></tr><tr><td>37&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491597&idx=1&sn=0419e3fc4150bb793f8e031fef9668b0&chksm=e8224473df55cd65d1fef8eb67932dd6cba2b8bf1e7ed39184c549bd86b5daa369df611bd3c4#rd
+'>MAP智慧农业征名，大奖等你拿！</a></td></tr><tr><td>38&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491568&idx=1&sn=50b29951710b58b0d5c7f60f5ce48377&chksm=e821bb8edf56329804a18e9106fc9e92b56801bc957bdfba6a465fc50ac9cdb8a46d725e7507#rd
+'>中化中粮牵手，突然从地头传来一片掌声</a></td></tr><tr><td>39&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491552&idx=1&sn=f6f40068916bafe4b0ba7dd9796d3348&chksm=e821bb9edf56328895be7f09dfd8b33960f921f63ddd8d4ddb7e882dbe91249781e9258fb74e#rd
+'>这么脏的中化农业工服，咋回事</a></td></tr><tr><td>40&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491552&idx=2&sn=450c56a195d0a67e594ef17e29e0bd69&chksm=e821bb9edf563288fabc63585d95875be48d0a40d5325c222b4c386ca3a85aa1a5ddccbb4d1b#rd
+'>锡林郭勒盟行署盟长霍照良一行到访MAP正蓝旗技术服务中心</a></td></tr><tr><td>41&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491538&idx=1&sn=53a2f7b83255356eb3a2533476388b54&chksm=e821bbacdf5632ba803e3f06a9c1ff3f1ef19bc6a1da8870360dd58f4abcc03371395b83a7f0#rd
+'>“悄然改行”的他们如何帮到农民？</a></td></tr><tr><td>42&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491538&idx=2&sn=c3c311d6cf66f4e67ca93b5117ed0596&chksm=e821bbacdf5632baf2e875011f8b948bf996d312ca15f1369aa0811092a82aa1a5ef8bf07114#rd
+'>永兴县长到访中化农业</a></td></tr><tr><td>43&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491531&idx=1&sn=00ddd8a3fcbf71fda3118d0c568530b7&chksm=e821bbb5df5632a3fc94dd314d6048719a798c0bc1df11bd1f0ea15cddf5ad251c1744a51e69#rd
+'>水稻护蟹，蟹又肥田，如何种出优质蟹田稻？</a></td></tr><tr><td>44&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491530&idx=1&sn=d5df17bee01a99e9c9d4b63566211e93&chksm=e821bbb4df5632a2297f8549bfa82ca204cd42fde09fe23cec868b7a066c9b0c4880502a59fe#rd
+'>中化农业与北京农担结为战略合作伙伴</a></td></tr><tr><td>45&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491530&idx=2&sn=5fb19e7fcc9ab0d4d1572bb871d3bee7&chksm=e821bbb4df5632a22b2eb32fbac6f7fb0b9982cd7b3b4ce0274d877d25891bc7e1c20c5ab911#rd
+'>今日小暑</a></td></tr><tr><td>46&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491514&idx=1&sn=e6c81a4e9347e914edfd6fc4a2c32185&chksm=e821bbc4df5632d2eaced6eb6c850434fa86510ef3a9a112f7ca966c7da2bfd2fc8fdcd6a520#rd
+'>理论有自信，宝藏有光芒！中化农业“理论宝藏”来啦</a></td></tr><tr><td>47&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491514&idx=2&sn=103eaa53bb208696ee36f5c1dae4d396&chksm=e821bbc4df5632d2009f2648090e195bfd7256c81d4590654142462e23d1a9c27d7d31e95bd9#rd
+'>他们将联合成立“农业人工智能技术研发中心”</a></td></tr><tr><td>48&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491382&idx=1&sn=33a365e6628dfb77e2b08defe93e16c0&chksm=e821bb48df56325e67a0c29f40cfe85cd424de0034da537edabbb9a7c7ecac1432ca194b1510#rd
+'>刷爆朋友圈的肥易通，未来能否一统肥天下</a></td></tr><tr><td>49&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491359&idx=1&sn=5c9a3bdfb58d6bd17cdd8a4dd5f99f51&chksm=e821bb61df563277a24560c86534215826e53a9de23458b4027c67c80bdd2419eb2ef4f8eb14#rd
+'>今天是你的生日！越是懂你，越爱你</a></td></tr><tr><td>50&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491359&idx=2&sn=7f342cd7173e71fc9329fd4939894ef3&chksm=e821bb61df563277c6b519ffa9a07cd04ff5e62c1ff62090ebef8aa6a945c11a46f45e9529ad#rd
+'>把“科技”搬到田间！中央媒体给MAP正蓝旗服务中心点赞</a></td></tr><tr><td>51&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491270&idx=1&sn=e2f28760bae413d90a2c93987daa0638&chksm=e821bab8df5633aec3522bc68741923599ae3ab5945c3cbe085ded986a8e6346f2f71566eb7f#rd
+'>从全村的笑话，到村里的骄傲，我是如何一路逆袭的</a></td></tr><tr><td>52&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491244&idx=1&sn=d459ec50069f1a63d23332783c943163&chksm=e821bad2df5633c4571d8138dc7f01ef68b333d5cdf07a7c6ea1ed0b7d96e93743e1956fe8b9#rd
+'>“幺蛾子”有多“妖”？</a></td></tr><tr><td>53&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491244&idx=2&sn=aca3e5ef0aa81831748ec01b890e5afc&chksm=e821bad2df5633c45d347006a0310ab9e84eee8b067b6e160bcf7c0f23c3651be6102b2c58b6#rd
+'>智慧农业走进黑土地，与建三江一起迎接最早的太阳</a></td></tr><tr><td>54&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491241&idx=1&sn=faa6cd60d2612613301df7e440e7bd9b&chksm=e821bad7df5633c180fb7fd51ad45c109668710b3cf5b2b6aec357bcf0fdfced0e8b88c408c7#rd
+'>昨晚新闻联播有老覃！</a></td></tr><tr><td>55&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491241&idx=2&sn=921a75af654341ee252b52068644ee6a&chksm=e821bad7df5633c10a8c721a299c531945b34b0d3f5232ecd9d33b09b3e0fc9f8f19d580499c#rd
+'>今天高考分数能查询！</a></td></tr><tr><td>56&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491156&idx=1&sn=9abd73f6737c88128ca5f46237f7f3de&chksm=e821ba2adf56333cbbfa26cda657c1bfc079663f81f37d99489223cb4b7effca8c7f545b7cc9#rd
+'>今日夏至</a></td></tr><tr><td>57&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491076&idx=1&sn=8f4b57ebbc955679cfde34ccdbb3bff7&chksm=e821ba7adf56336c2574da1461e18e7ef2d8da10f685880796e13d9086ce0d2fede525876de9#rd
+'>从农村来，又回农村去的她，因何高兴？为何心疼？</a></td></tr><tr><td>58&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491023&idx=1&sn=92d7c9f6e44d098051d228afb9ccd305&chksm=e821b9b1df5630a7662c80728ec9f82d40a68da4ee225df55b87b2671f795d2fb0323901a2d7#rd
+'>飞防创战纪！首届全国“科技农服大赛”正式启动</a></td></tr><tr><td>59&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247491005&idx=1&sn=b6a53cbc743c9832122ac8053b365830&chksm=e821b9c3df5630d5fdee441dcca9270aefe79c719b5465ecd7056dd7a1d50668fcadc61a3126#rd
+'>痛心宜宾，万望平安！MAP宜宾江安中心前往震中慰问</a></td></tr><tr><td>60&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490998&idx=1&sn=172450de0b340e4712da3bde719d1f48&chksm=e821b9c8df5630de971837609d38d4a5e4bb06372da8d8f6808165aabcc9fedc6574ac02388b#rd
+'>中国的农业，曾经有你，未来有我！</a></td></tr><tr><td>61&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490971&idx=1&sn=c5438a97f883c05c3c1ab1a1751d30c7&chksm=e821b9e5df5630f309d53f565ccba454e92282aeda8c013c7b3c88033637946fd6efa8ba3792#rd
+'>中国共产党人的初心和使命，正是中化MAP战略出发点</a></td></tr><tr><td>62&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490962&idx=1&sn=1dcf8eefcdb1f651b83f32aeaa1f7a55&chksm=e821b9ecdf5630faecc6c47b6732012eb68dc0b295330619355d542c550502f838a83f449f1e#rd
+'>给足你夏天的清甜feel！来品MAP水果这四美</a></td></tr><tr><td>63&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490943&idx=1&sn=ad12a63f1a52681b498debed43568811&chksm=e821b901df5630178ac60371ec80bfd8660f77cb230364a9464a2cf268e9f92a9d84ee9e91ea#rd
+'>一棵好玉米，从精量播种开始！</a></td></tr><tr><td>64&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490913&idx=1&sn=145664f66149720b266ba87fc5596383&chksm=e821b91fdf5630090dec8184ceaec27826f9c17c80d08eab8c102121caee605a8dd86607a345#rd
+'>强强联合！中化农业牵手阿里巴巴集团旗下盒马鲜生</a></td></tr><tr><td>65&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490913&idx=2&sn=79c9d001a75fb2b48f38d0ba4f0b2ad8&chksm=e821b91fdf563009822c72eb39219146cc7184d37a005e6970e1d5eac27153dd5f1091720399#rd
+'>当端午遇上高考……</a></td></tr><tr><td>66&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490874&idx=1&sn=2afc228780a1e8fc961fbc30aca78949&chksm=e821b944df563052d4a97e973ee6c80484a07762af493a5a537c285fe03c56815fda6af3a743#rd
+'>不忘初心，牢记使命，MAP扎根“天府之国”！</a></td></tr><tr><td>67&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490873&idx=1&sn=5209871f4342bc060f57886299858ab0&chksm=e821b947df563051552319524ed96deb55704cd20b3ffd8567b85fdaeaea8be346a669056ff4#rd
+'>不忘初心，牢记使命，MAP扎根“天府之国”！</a></td></tr><tr><td>68&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490867&idx=1&sn=c48431194f0bc91ff8a7bd49ebabb935&chksm=e821b94ddf56305bce57c3cdc25a4f55161697cdf04b03a51992a541fa4bfe3f0c435ed5a629#rd
+'>中化农业与中石油昆仑好客结为战略合作伙伴！</a></td></tr><tr><td>69&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490867&idx=2&sn=a0a8c777667b5a502a0ff8287a59a943&chksm=e821b94ddf56305b87d1459351ebb6b14c703e3613ff50679fb878f1b86fe9b94ae017b86978#rd
+'>菜薯如何种植，请戳这里</a></td></tr><tr><td>70&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490866&idx=1&sn=875ba428eb00ddcabafac65fba4a67f2&chksm=e821b94cdf56305a9e969d922fa88ca3a7901e0b10cc6ee4ebe14e3168a573fffed054ceac0a#rd
+'>点击查看，儿童节的暖心打开方式</a></td></tr><tr><td>71&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490846&idx=1&sn=82a0a7632f2d3878123bcf93db5b3da4&chksm=e821b960df5630769f86fbe5367d1596af909b8acf012cc1cb958e26a7e335fb35b1163b08f0#rd
+'>先正达全球总裁Erik Fyrwald调研中化农业特作MAP</a></td></tr><tr><td>72&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490846&idx=2&sn=b8c609956d2675dc389098a6d6f1f2f2&chksm=e821b960df56307654354a6119337b56ce34a4bd10ce850f0fdcf542bb8cdcd61c27995c6dd3#rd
+'>五月，青春的活力与使命</a></td></tr><tr><td>73&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490819&idx=1&sn=7c7767e5b0f183463abbeeccb683175c&chksm=e821b97ddf56306bbfb4d61fb11f6246f11592edb54cc0b11a9f436875267399fc255ad665a2#rd
+'>真蓝军！真交锋！真成长！中化农业蓝军二期征召新兵</a></td></tr><tr><td>74&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490811&idx=1&sn=351fde2408bf575d143a1412dfb9608b&chksm=e821b885df5631934d9780616b4dbd63a5759ddc20953e3a01bb82520600f3d081d45edc008b#rd
+'>水稻移栽关键技术大揭秘！</a></td></tr><tr><td>75&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490803&idx=1&sn=e018ef31dd5e8fb5c64b6aafc411addf&chksm=e821b88ddf56319b724d044f38ccab6ca036f633bf04f9ec2b5d710b4d7b5ca6f6158ca9da15#rd
+'>什么战都吓不到我们，就这样一步一步坚定地、扎实地向前走！</a></td></tr><tr><td>76&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490779&idx=1&sn=3adeb3908856971f4f9820b06d137063&chksm=e821b8a5df5631b3f678b58256e0983916b24705f58611fc220986ea3ea0d22ab4c36a48aaf7#rd
+'>从任正非的担忧讲到现代农业，中化农业亮相国企公开课</a></td></tr><tr><td>77&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490748&idx=1&sn=0cfa9280e98bd2f8ebd982cb630dfba9&chksm=e821b8c2df5631d44e93f98c15913ab9345b01e25ae890ff777c703255ccf2456fa352ec9904#rd
+'>今日小满</a></td></tr><tr><td>78&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490739&idx=1&sn=482d2082b2fa6867f63d7fbecc2eeb96&chksm=e821b8cddf5631db32b9e5189fae97ed6d09f7585388b53b0f44f9d92eecda6f22e7d08c5bd4#rd
+'>今天上午，宁夏回族自治区政府主席视察贺兰MAP技术服务中心</a></td></tr><tr><td>79&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490734&idx=1&sn=b02ef6ba5bcb7f946bc042f931a1c6b2&chksm=e821b8d0df5631c69bc84c907c3aba2fc173842a609376c837c054e20f3824b2ca98e088ab6e#rd
+'>结果出来了！他们将代表中化农业去参赛</a></td></tr><tr><td>80&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490714&idx=1&sn=a422cc2ccbec71042cfe588fff5a4fa1&chksm=e821b8e4df5631f2dabdc74d0738c276850797c32a279c273a12a14590bba257df7961b316f7#rd
+'>习近平主席致信祝贺的这个大会，中化MAP有何表现？</a></td></tr><tr><td>81&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490688&idx=1&sn=2598e3cfdaec4da677e64c124b0461f0&chksm=e821b8fedf5631e875cd2d5d1e6c67b4dbdb61b035c30c853280b28a38c3948640655b4144b6#rd
+'>被国家领导人点赞，中化这个黑科技有何玄机?</a></td></tr><tr><td>82&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490684&idx=1&sn=42dca86bd892f10e224aa8701f6d2014&chksm=e821b802df56311457d5bc41f11a5ecbfa73d966ee74f942e1491691feca7056730214117bca#rd
+'>避免小麦“有千斤长相，没有千斤产量”，后期管理是关键！</a></td></tr><tr><td>83&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490663&idx=1&sn=8065d8896831df3b843c04c206e4c5c5&chksm=e821b819df56310f63d106f45bb7bc0e36847c0a683fb3d56b43eee8bf00927b691d768f5970#rd
+'>农民母亲</a></td></tr><tr><td>84&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490616&idx=1&sn=0bcf548b5958b1819e716fdaa481f3f6&chksm=e821b846df56315082922448e8bf2fc9be9fc4f594a6a3ad8e3df34e1a27a218be337ff99fde#rd
+'>科技驱动中国农业转型，这座国际一流农业研发中心在行动！</a></td></tr><tr><td>85&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490616&idx=2&sn=2c712e3117d48d7db6df0323f3b51b97&chksm=e821b846df5631504e8d39ef8fd27be5f6c0cd6992c0ce92ca04034bce825789fdc7684dcae0#rd
+'>土地持续降本增效，MAP特作供应链有“秘密武器”！</a></td></tr><tr><td>86&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490616&idx=3&sn=f621c81e144101022f3cdf18f3bb5e03&chksm=e821b846df563150a128202bd7de05c08ab60c7cceb4aed72eb3c07757d257eed5418683006a#rd
+'>农业农村部、财政部联合调研组赴中化农业平遥中心调研指导工作</a></td></tr><tr><td>87&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490587&idx=1&sn=9e97db74b769b6d9c0a5af27c05b90f9&chksm=e821b865df563173c36d05b4761cf5d81b18c48d99e598a577a4c427f0cb2706f5b69522ab40#rd
+'>中化农业在福建宁化开展赈灾捐助活动</a></td></tr><tr><td>88&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490559&idx=1&sn=f6174b8212c9a25979c03f767f1bcea0&chksm=e821bf81df563697cd30415dd2caf8912fadf9a52c39bf666e0f050656ae7580fc6cba1894ae#rd
+'>中化农业临沂研发中心投用仪式上，有哪些重要信息披露？</a></td></tr><tr><td>89&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490559&idx=2&sn=501551cd2bd27fb7007214dc0d3d07cc&chksm=e821bf81df563697a09cc19dec2dd8485bde566f2f5545717e510ffb11cf827ecc943c4b9b4a#rd
+'>今日立夏</a></td></tr><tr><td>90&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490518&idx=1&sn=e59ffe66b59b833ab42e17d4df1dae4b&chksm=e821bfa8df5636bef96a8c1714915856d3b0f9e658557d1b879499a138a8c3b360c95120cdfd#rd
+'>不负耕耘，不懈奋斗，不忘初心！中化农业向劳动者致敬</a></td></tr><tr><td>91&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490494&idx=1&sn=5ac8d596224846f8b70c431fcc89a36b&chksm=e821bfc0df5636d6b41585472afe6bdc5348a0bc5cea7aa3517e0b234d6813b2d2cdf8e6739a#rd
+'>春玉米种植，如何提高出苗率?</a></td></tr><tr><td>92&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490494&idx=2&sn=b782c2ac86739883fdbd3e196568737d&chksm=e821bfc0df5636d615d1177cc37be77a4dd3906d2f3464abbd94d508483687b536b45ff92704#rd
+'>林花谢了春红，美味的果子还远吗？</a></td></tr><tr><td>93&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490476&idx=1&sn=a9edfb43765783d84bf6fa93420f9fad&chksm=e821bfd2df5636c40cdde60290cba350a1fb2098e479b67edabdbac8cf8bdf70b2cbbc37b782#rd
+'>丁大嫂的“劳动”变了个样儿</a></td></tr><tr><td>94&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490470&idx=1&sn=d47edea24d217c412583de81d03d232f&chksm=e821bfd8df5636ce270fd73896d7e8dc19ddeaa0f6456d9169d4308b1f1d9abcabfa996dc58c#rd
+'>我们创造的，我们保护的</a></td></tr><tr><td>95&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490451&idx=1&sn=85f01c0d96423e880d29eb62a121b650&chksm=e821bfeddf5636fb785d06b21ba200d4a5ccbe2b90a49a9bb26d77d969a1d178ea436ac53960#rd
+'>你驰骋在万里海疆，我耕耘在希望的田野 | 庆祝海军70华诞</a></td></tr><tr><td>96&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490426&idx=1&sn=8d0194c035b3c3bc11858374481b30f8&chksm=e821bf04df563612a4ceb7ff60b4a6b0d618b5cbc866d83e3a44c40ededc75fd3c7270be2fd6#rd
+'>又双叒叕被瞩目！央媒记者揭秘中化MAP北美模式</a></td></tr><tr><td>97&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490415&idx=1&sn=416a827e6257b17d05eb713d48735191&chksm=e821bf11df56360776f76e5d3f46e0d2c945a1e5ebf21eb602dd19d073841b098d6524e07ae5#rd
+'>当洛川苹果遇上MAP</a></td></tr><tr><td>98&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490415&idx=2&sn=db01b7edccf0c9582ffb0e3ca3890b16&chksm=e821bf11df563607a18b54b3b1f3cbe8fc50510d0627e026c99a93ce2d3132cb812cef81a97d#rd
+'>今日谷雨</a></td></tr><tr><td>99&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490411&idx=1&sn=44392d2ce56f0d4bf2cc54e5e501ee24&chksm=e821bf15df5636039512206e01ff97c5516f87fbb36f5f982151e6492d8412b2ed896e599cb3#rd
+'>农业农村部新闻发布会，中化MAP作为发布重点之一引关注</a></td></tr><tr><td>100&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490382&idx=1&sn=20ffa527f99ca9147099900be85357ec&chksm=e821bf30df563626b9582a3e8892207632b76d1c5d4a77230cfc85e9236c3415201981458abe#rd
+'>塞尔维亚Elixir集团副总裁Nebojsa Micic一行到访中化农业</a></td></tr><tr><td>101&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490368&idx=1&sn=8bc4697a7d1646757e5d3bb889c1306f&chksm=e821bf3edf563628da2be4d83d9c6280909a679e142bde79cab2745e6f6e5271bc7d57ab1e35#rd
+'>让人民日报等15家媒体大开眼界的，正是MAP大展身手的！</a></td></tr><tr><td>102&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490368&idx=2&sn=78c1cf92f8f33fad20c2be1c6b72ff43&chksm=e821bf3edf56362854d6ff76684548a8785c2476575680420c1bda41932163489fa834aadcd4#rd
+'>如何养成美貌与智慧并存的边境美莓？</a></td></tr><tr><td>103&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490368&idx=3&sn=bbffff89095940913018fdffb941a70e&chksm=e821bf3edf563628af1e225acdbf7a84c33aaa32cd2c0851dd6aac3faa0e52fd0e1c5f1fcd44#rd
+'>春耕育秧期，东北水稻如何实现提质增效?</a></td></tr><tr><td>104&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490350&idx=1&sn=cd57d9167c692dd5b514003e907ab02b&chksm=e821bf50df5636461a0e82485c335a5b20fdc7fa6b8e4d77f0bdd3cb6bca777faaa279497580#rd
+'>中种公司泰丰优208获全国优质稻品种食味品质鉴评金奖</a></td></tr><tr><td>105&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490339&idx=1&sn=69e635c1eb9882edcd1046f05e05dee2&chksm=e821bf5ddf56364b8871dcfd14edd8428a051f9fc12d797bddc2d4fa5df580b354b32b1dfda4#rd
+'>MAP棉花战略圈粉新疆乌苏副市长</a></td></tr><tr><td>106&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490339&idx=2&sn=3266c8e214bbf7b9d93da7988aa808d9&chksm=e821bf5ddf56364b580dda467d7749b9e1dad8a6ebedf3da4c9474d24dc3da97c6e241bce9bb#rd
+'>MAP的签约教授郭天财，这一站去了哪？</a></td></tr><tr><td>107&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490317&idx=1&sn=4f4998395d8a50518894d0a358dec980&chksm=e821bf73df563665c612a91bf47a76f4bef33fed68afa3341b207c7e7c4c3a019cff8fba1d84#rd
+'>中化农业人，向习总书记说的心里话</a></td></tr><tr><td>108&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490317&idx=2&sn=c9e0be407b97593be41f78ea562520a6&chksm=e821bf73df563665d40661d448bd93a939f37417706f2b33fdd04b2f07767645d37c1e2bbd0c#rd
+'>都是麦子，凭啥大风刮不倒你MAP家的咧</a></td></tr><tr><td>109&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490266&idx=1&sn=d71fc0c7fa34c884148c5093838f44cf&chksm=e821bea4df5637b26e0e0e75dc91ef754f5fae605f2c5d5c2a8d21b5e60644fe3fe6ee2a66b1#rd
+'>安道麦全球首席信息官Sharon到访中化农业</a></td></tr><tr><td>110&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490258&idx=1&sn=119d2330e696373f5690887633d850a5&chksm=e821beacdf5637bab646e4b95f156772a218638db6167dc3277e9a11a7d97703499888fc0517#rd
+'>MAP赋能，全国首个种养结合标准化家庭牧场将落地河北柏乡</a></td></tr><tr><td>111&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490258&idx=2&sn=89664a1b65923cab1b82f699d04961b5&chksm=e821beacdf5637bae1a8fe741fd948a12c95717ef4997f6e3239f0c391113800fc5e477f563a#rd
+'>冯宝君为何这样潇洒？</a></td></tr><tr><td>112&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490181&idx=1&sn=1cc0d72e45cb14996b215d97d94027bd&chksm=e821befbdf5637edd8c8b6ae88f2530aa3ecef78260089c7eb70d6e332cb11615f7decc2d6d3#rd
+'>隔空致敬，是这些光芒点亮农耕星空</a></td></tr><tr><td>113&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490165&idx=1&sn=cb1e43212b5b882a64deea708e6f5f17&chksm=e821be0bdf56371dfc1260d532571509c373f05d82a39f361f5ea7439ee51c7aa1b2d57d72df#rd
+'>2019中国种子大会：MAP助力中国种业高质量发展</a></td></tr><tr><td>114&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490165&idx=2&sn=a24749f2d19428fdb9b81112730daebb&chksm=e821be0bdf56371d6a58e81c4dd1c0c31887439318ade9966c235e807b6909fc9530fd1c43c7#rd
+'>江淮地区小麦赤霉病防治技术</a></td></tr><tr><td>115&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490165&idx=3&sn=05ab9ea898904844d3c0ce338554807e&chksm=e821be0bdf56371d4b3ae572d5125968a6127d229d251caffed61043dfacd634731962543ff3#rd
+'>如何让黄辣椒“红”起来？</a></td></tr><tr><td>116&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490152&idx=1&sn=34792a4e5ab17c5b69e0068881dbb4d3&chksm=e821be16df5637000bd06290c93715a7dfe23077e57cbe8a073b443659b64cf9f25a24c4c915#rd
+'>中化化肥，交卷！</a></td></tr><tr><td>117&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490114&idx=1&sn=283574e78946e38c0ea6ab4407962971&chksm=e821be3cdf56372a2a4072b63e4545e583c5fedf3e97f2795a404b80ef8198d497e76d1e5cbd#rd
+'>中化农业受邀参加农业农村部专题研讨</a></td></tr><tr><td>118&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490114&idx=2&sn=5b1b1dcacc30a121a46945da57af188e&chksm=e821be3cdf56372afa9154c42093b7407ef797e070a7c12436ddc0e2cb847ca6106693dc0709#rd
+'>省钱省心？增产增收？金香玉？对，就是金香玉！</a></td></tr><tr><td>119&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490105&idx=1&sn=0ee84d70fb1d00b2721dd52a596d1d83&chksm=e821be47df563751603f8d8d1a4f241f33abc1bcbacdefb22984d12905f7764ba4ac2fa3c616#rd
+'>先正达植保研发团队与中化农业科创中心开启合作之旅</a></td></tr><tr><td>120&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490105&idx=2&sn=accf8a31fe1e1c489cbd9aa1d6bae8ec&chksm=e821be47df56375105ea8c2a996794bb9a599d2c56fec99e95aca7eb9785f7a62ff8e30ea65a#rd
+'>祝贺！中化农业(新疆)生物科技有限公司水溶肥生产线正式投产</a></td></tr><tr><td>121&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490086&idx=1&sn=9a47c13a66b38b6d0dfdc774f25a099b&chksm=e821be58df56374e2fa5247c66e4479adfd8f9671898368ea0ae83e1f4707272f8a5f0978c3e#rd
+'>MAP种植的五粮液酿酒小麦咋样了？农业农村部专家现场给出评价</a></td></tr><tr><td>122&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490086&idx=2&sn=ea6c41e091708921a4bca01fbe95362a&chksm=e821be58df56374ee8fb1a375b658838231fd610cb95c50e07162f47d0df38b1e3c1eec43136#rd
+'>一则好消息</a></td></tr><tr><td>123&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490060&idx=1&sn=e0d9e63e9d5958231c7867a36c57ab85&chksm=e821be72df563764a0bd7ece513ff62a4bac57c3a596d6e1db62c52270b6299c80f99e27f8e5#rd
+'>昨日春榜发布，明日唯此榜单</a></td></tr><tr><td>124&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490015&idx=1&sn=57bf21742a1664189793c941a99ae678&chksm=e821bda1df5634b7e2fc0884343032389f9b6f06cca444c083fbf2cd015101c2659a3e218bfa#rd
+'>今日春分，熊猫指南2019春榜将发布</a></td></tr><tr><td>125&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247490015&idx=2&sn=045643f09f5f17125e257a55f6c209e2&chksm=e821bda1df5634b72273ffe73d00d006d12dd8ac9bfa8f3cea5608275dca03079b73b5a93d14#rd
+'>中化农业与达拉特旗签署战略框架协议</a></td></tr><tr><td>126&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489963&idx=1&sn=43356b04831a859dd3e60ec2b0454329&chksm=e821bdd5df5634c3d2dc55ada1acf8245b669a6c501a4397ad72e33eac73d9ace71321fc6a36#rd
+'>一个功勋团队的修炼秘笈</a></td></tr><tr><td>127&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489963&idx=2&sn=0654a36c15394bf894a66fc0c1cb1f75&chksm=e821bdd5df5634c3f8fd3b89e86400441f89845e217357d80d38f608a9113b2aa36292f9d54f#rd
+'>这14个省区MAP业务牵头人去河北干啥了？</a></td></tr><tr><td>128&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489936&idx=1&sn=2ec250f72d03b66108ca75428b5c2792&chksm=e821bdeedf5634f875f734abf0f48c43dd36c19d9bffefc86b2a98eba026083c571863ac2659#rd
+'>农业农村部办公厅与中化集团联合发文</a></td></tr><tr><td>129&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489936&idx=2&sn=daa0a66ed1d2788d25d68f49fe3a45a9&chksm=e821bdeedf5634f8c72e6d89dc491c7d895a060d09271cbfc45303e4b59e6db46a807990bac9#rd
+'>种好虾稻的稻，来瞧瞧</a></td></tr><tr><td>130&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489936&idx=3&sn=c6257a1fdb133f83edeec68d6771acde&chksm=e821bdeedf5634f8a3d86ad91d3c7668b6bc6c3c3dd193e289935fd2fbaccfb2d6dd42dc1e31#rd
+'>水逆退散，我要美美哒</a></td></tr><tr><td>131&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489929&idx=1&sn=6f3d625db53f617e8aab6cf718ae8dc0&chksm=e821bdf7df5634e114358d3948c1ebd60ff174fd621a0ec6ad36d01801b036900fd6d8606568#rd
+'>影响力up！院士、专家齐聚武汉把脉中化农业种子研发</a></td></tr><tr><td>132&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489918&idx=1&sn=8bc4c813c21eb05cbdfd748dcd54ad30&chksm=e821bd00df563416f11c9d352c8417838a43134bd978c33973f1d3cd9821a5853cb5b9b0a58e#rd
+'>中国农科院院长唐华俊：我为什么看重中化农业?</a></td></tr><tr><td>133&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489905&idx=1&sn=7636384d0fccd7ad84d021adb71c93de&chksm=e821bd0fdf56341985d5dc5c2533aab8596d65dfb0687d838ef1be038573248d665fee531b8e#rd
+'>一直被模仿，从未被超越</a></td></tr><tr><td>134&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489851&idx=1&sn=dbab8f1850ef4b58988e1ecb65c822d4&chksm=e821bd45df5634538fe96259ed1798c4829ca6874267ea34d871921952eec2006c1c8abfe6c2#rd
+'>今年两会，宁高宁这样谈农业和科技创新</a></td></tr><tr><td>135&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489851&idx=2&sn=5165949a3a36eb3f5baf101d929604e0&chksm=e821bd45df563453162a4236beece8de242ae07b7468c5edb5e1c5cbdddf4916d29a62b37e19#rd
+'>中化农业与乌兰察布兴和县签署战略合作框架协议</a></td></tr><tr><td>136&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489851&idx=3&sn=98021a8081dc4b9b708fa1b8cc1a21e5&chksm=e821bd45df563453aa9ebce3417a95f022fc4aa16f2841996b75e8370dc0b6e530574b8633b7#rd
+'>悲痛！四名兄弟央企员工在埃航空难中不幸遇难</a></td></tr><tr><td>137&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489827&idx=1&sn=fb73b8ae6cc5de59564ef5424c1cf574&chksm=e821bd5ddf56344b6a2641697333537123fba3fb3312c8f06a004c6d93663f25f9db397d5542#rd
+'>边建队伍边打仗</a></td></tr><tr><td>138&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489814&idx=1&sn=7e9d4cbb3f3e5a01b5925b91d6fd545c&chksm=e821bd68df56347e9a85665cc607a7db69cd66da5cb75f521e30564615743f47f8b25a038c8b#rd
+'>这是谁呢？</a></td></tr><tr><td>139&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489814&idx=2&sn=2363d7a012fdbf13ce36919d04791103&chksm=e821bd68df56347e80f95ecffb789f826dd27d6036a9c853cf0d8c6499dbbbb096188eef7244#rd
+'>二月二，这有张海报！</a></td></tr><tr><td>140&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489778&idx=1&sn=9dd5563c6bb0483e4c0bc4f5d614b583&chksm=e821bc8cdf56359a1f9d76e7d2653e20a167f3693f7c96111eec2b856801725aaced5efa9dc0#rd
+'>送别褚老，致敬传奇</a></td></tr><tr><td>141&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489778&idx=2&sn=0aab19a62add9d1dd8047c13bc2c9224&chksm=e821bc8cdf56359acd3d9923b08c353fe0d06d7194198bf8ac6bcdfb6a076af4b7cc9516d8c9#rd
+'>今日惊蛰</a></td></tr><tr><td>142&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489743&idx=1&sn=6b8178b8e09a55dc430db92dac8a066f&chksm=e821bcb1df5635a7ae024112052dff546edd4217c1c2923d615241775f5a168c600116d55395#rd
+'>农业农村部小麦专家郭天财春耕开讲</a></td></tr><tr><td>143&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489743&idx=2&sn=559517138ef2778d0068d11f7a913849&chksm=e821bcb1df5635a7ecb8870dbed74631194b385d374fca9ffe36bd6eae0039d48b00197289b6#rd
+'>难伺候！这个有“公主病”的“网红”</a></td></tr><tr><td>144&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489733&idx=1&sn=b6f96610b834a222c09c8f2a5bef9af1&chksm=e821bcbbdf5635ad5eb2093c6e289cd7c71de2b0efeaa63201703795227fa51b2e45b5cad902#rd
+'>种出好品质？问他们就行</a></td></tr><tr><td>145&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489718&idx=1&sn=6880a19e20eb97e914a6f63b7342244d&chksm=e821bcc8df5635de1a6cf79531234a5e429d4413b3a6522ef1aa032971b73a0bb25ec85001ec#rd
+'>去年海南真很难！但他们赢了</a></td></tr><tr><td>146&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489718&idx=2&sn=bf09491d23051f8d5adc352b2766c174&chksm=e821bcc8df5635de8dac68ce77a83ffe2c2abecc49ef08b3722e48e0856ecd201c9e45a56847#rd
+'>用什么点亮农业？</a></td></tr><tr><td>147&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489690&idx=1&sn=913ab4e1fd181150c95962bc07a032d2&chksm=e821bce4df5635f2090bb4421defa50311116670a70e4b439abd70f09ca1aa5dba021e4654b6#rd
+'>这份调查很权威了！</a></td></tr><tr><td>148&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489685&idx=1&sn=dd4966981749ae37f9f8174fd2e4663f&chksm=e821bcebdf5635fd9f99589c3beea10cfbbab0aecb35a91c377cdc2086027fb6d737b275a4c6#rd
+'>宁高宁会见以色列农业与农村发展部总干事Ben Eliyahu一行</a></td></tr><tr><td>149&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489672&idx=1&sn=f935399905d2ced44023b33b3d64bb17&chksm=e821bcf6df5635e08fadb6ad705ce482546ec3e61eccaed9d2edf970fa91eaa329f5743aeaf2#rd
+'>先正达全球总裁Erik Fyrwald调研中化农业经作MAP</a></td></tr><tr><td>150&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489659&idx=1&sn=4d4bc1c10abf7df4dbdd20819778624d&chksm=e821bc05df563513d99328e3905d3a1b41d013b32e2d47006f1eecf142bea5707dfdb9718d32#rd
+'>胡春华副总理来到咱MAP技术服务中心</a></td></tr><tr><td>151&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489659&idx=2&sn=4ff038a7e82ede2a294a67c2082124e6&chksm=e821bc05df563513419aa466e76a1f379e4253ca8290780565af54a9c7ac87e88d70fd9f350f#rd
+'>韩长赋部长如何解读中央一号文件？MAP小编标注版</a></td></tr><tr><td>152&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489659&idx=3&sn=285f923bf9aa630945b7447be9710b8b&chksm=e821bc05df5635132a71ab85d7b7ceab00141fd2847a4beaec5dd2c81a78382e106c2153bff4#rd
+'>中央一号文件来了 这一领域将迎巨变</a></td></tr><tr><td>153&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489636&idx=1&sn=8350e08e35df98358e2b54d8fba5610a&chksm=e821bc1adf56350cceb0681a1662b1ba7860eddb9a31f7a0d82ff1df2a3f2166b67bef667fd5#rd
+'>有一种团圆甜过汤圆！</a></td></tr><tr><td>154&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489636&idx=2&sn=dbb04758fb40012158497d1284627208&chksm=e821bc1adf56350c000a82e14a6c1588cb5fa09aae5c80b3e933b5bb875a1bb64bf8c21ec6d2#rd
+'>CCTV惊叹这个团队照料出的水果，个顶个精贵！</a></td></tr><tr><td>155&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489625&idx=1&sn=34554473d60dfd29b0f379df8bfd81c4&chksm=e821bc27df5635311ade921f04d869da55a9bbca9f11b683143dfb8bbb11f750774c895ceadf#rd
+'>湖南MAP：春耕在即勤甄种</a></td></tr><tr><td>156&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489625&idx=2&sn=d10ad1736d3e12e3317c0ee4746fe9a9&chksm=e821bc27df563531e3127963d6109d2f44b87f3ab6d4f0fd65d10a7657df8b8b6123d7c6e9ee#rd
+'>海南MAP：芒果已经“芒”起来</a></td></tr><tr><td>157&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489624&idx=1&sn=7deae92fa50a0882aa3ae77147a22c4e&chksm=e821bc26df563530286584ace2fda73ad2d673a8b85a5a5a28a9c4955c629f8ac7d69f5c0bd6#rd
+'>流浪地球？不如击穿A区！</a></td></tr><tr><td>158&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489595&idx=1&sn=ad66baee6c58e32d8790e344f95d68f1&chksm=e821bc45df563553b9118f5e7886c0757201cc9edfedb774179d807f1151704bac89403d149d#rd
+'>盘点过年在岗，盘它新年挑战！</a></td></tr><tr><td>159&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489585&idx=1&sn=82cc87ed225f7142baa76cace52c3169&chksm=e821bc4fdf5635596c7ebcf98133e9172e92f7d92bf3f96a9c9186384762961c7f5e9624e874#rd
+'>过年在家，他们最靓！</a></td></tr><tr><td>160&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489563&idx=1&sn=eadefafb4507d20a8745dcdf145c7146&chksm=e821bc65df56357344c42e07e0a6ad635eeac2aa8f5124dc4ff8ef023204718fd03d79ff3dbc#rd
+'>@所有人：红包！MAP大红包</a></td></tr><tr><td>161&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489556&idx=1&sn=21d9c4c5b0828a9bc96d7f9243f96738&chksm=e821bc6adf56357c81dc75d2a2a316a20ffcf1629d1ac4c40539fcae0b46f3ed6e0df471616f#rd
+'>MAP新春贺词：以创业致敬创业，以创新接力创新</a></td></tr><tr><td>162&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489555&idx=1&sn=34b83fc6abf8ef056e718fde49e774ae&chksm=e821bc6ddf56357b8c9cdf1c42e01370aa23b99f8cfd5b0481e0eacc9629ae12c0a7d5a09b71#rd
+'>立春贺新春，蓬勃好收成！中化农业给您拜大年</a></td></tr><tr><td>163&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489545&idx=1&sn=0f808263b08756f2d572787eaa835382&chksm=e821bc77df563561182c5e37f82134c6242df9d9372650bf0981fea06774f5f6c5675f862a07#rd
+'>宁夏“立春”早，宁总都说好！</a></td></tr><tr><td>164&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489506&idx=1&sn=b80c1e0726f0ebec324de121a787ce5b&chksm=e821b39cdf563a8a22da3b5658483167e0f7641e268a5c0407dd05649fdebaabdd575bb54256#rd
+'>她们反向春运，千里奔波，只为和爸妈过一个团圆年</a></td></tr><tr><td>165&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489463&idx=1&sn=dbeb1dc3e60816a8735404574b869f90&chksm=e821b3c9df563adf4b0b4120f481da9240a9bb9261458fba43ed990834ae89353d4c34d770d1#rd
+'>宁总新春寄语：我们会变成全世界最强的农业公司</a></td></tr><tr><td>166&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489463&idx=2&sn=32da9bde456a82d7d793c141e765d802&chksm=e821b3c9df563adf0725d12dc67e3de92783dc1131ac682c92d17a3ab5448bf2bf3a5bae4538#rd
+'>回家的车票抢到没？MAP助你一臂之力！</a></td></tr><tr><td>167&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489445&idx=1&sn=f648fe2c7a6e5260a892a3b0645feeae&chksm=e821b3dbdf563acdc9c4fa560b6bfe47dc1f485bd824a0f3ecb720b617e621237524123af432#rd
+'>年会的5个短语，并列关系的！</a></td></tr><tr><td>168&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489422&idx=1&sn=e04360546d91fc149d3afec404bc5d7c&chksm=e821b3f0df563ae6bc4ea9e028baff38792793d6bfe916a20a2be2c5ff849e3751e80fec7b00#rd
+'>致敬MAP英雄！</a></td></tr><tr><td>169&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489422&idx=2&sn=c51e1da11b7a6ab6ecbaaed465eebf9c&chksm=e821b3f0df563ae650f0c77a1c8fe1bcb592f732f15aa02c34178b66c388f864d8bdde390560#rd
+'>《MAPPER》！中化农业年度大片，不容错过</a></td></tr><tr><td>170&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489422&idx=3&sn=77a0d90de00076254958be30a74e9f87&chksm=e821b3f0df563ae6bdaf854772a52d72a854608a773a67e8e77995bd5a1175c4255a8dacbb79#rd
+'>功勋奖杯是怎样炼成的</a></td></tr><tr><td>171&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489391&idx=1&sn=92644aea591e89f21164aa9e32b5433f&chksm=e821b311df563a074f6fc23582fe3fd3538de83d2501583ff0aa7281397474e12119bdaa9f19#rd
+'>与大师一起，为中国的农业干大事！</a></td></tr><tr><td>172&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489372&idx=1&sn=b6e3f23c826cbdb3b2ac5d378528e5a3&chksm=e821b322df563a34ba660f707bef40cca8744f8c81c37bfbb5b45e628bc0467634266e9a59b8#rd
+'>这片土地，让我把日子过成诗</a></td></tr><tr><td>173&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489372&idx=2&sn=1bf79ddcab1f042f49d18c6a4cb18cac&chksm=e821b322df563a34702091ff992fbb3264734fd9e201f91319ab14f10dfd0f1f8d3910f8ec62#rd
+'>海报！重要海报！</a></td></tr><tr><td>174&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489366&idx=1&sn=21827b3f761231f692ceb25719b9e26e&chksm=e821b328df563a3ed4c93f0a8d48ed47fd98ff64d6d5be50820b8f7036a7dbccbf2001353fc4#rd
+'>先正达全球首席信息官到中化农业MAP技术服务中心调研</a></td></tr><tr><td>175&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489353&idx=1&sn=761bb20d3f146440e9d4c84b02b853c0&chksm=e821b337df563a219106e1a3651d9552236ed4e503eda7163dcecd48acd6f2bf7722d83c7609#rd
+'>喜获3奖，中化智慧农业新年开门红！</a></td></tr><tr><td>176&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489322&idx=1&sn=76a608a2fcd6f6f9a647f814b7675ed0&chksm=e821b354df563a42cb3bf8dfc7c2314cc210bdf7aad17b17ffb5a5a60b8c6481d8f514c16a44#rd
+'>今天腊八了，过年回家么</a></td></tr><tr><td>177&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489308&idx=1&sn=cb2b3ac49699b9946d9d91f8381baa55&chksm=e821b362df563a74318ebfcdec1645ca13ef563fb1d08f6f2d9d00073caeca8fd99d93057740#rd
+'>他说：“中国的农业是一门大学问”</a></td></tr><tr><td>178&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489298&idx=1&sn=71a8a723161b22d152cfe7e3c977febc&chksm=e821b36cdf563a7a6ec59650d2b86563893fbe6217d466eedef5fdff279709b870b1a7efe9d3#rd
+'>新年开工首周末，奋斗的你走一波！</a></td></tr><tr><td>179&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489298&idx=2&sn=c83a75a588f11f178f53ac38304ca225&chksm=e821b36cdf563a7a0cbfb4e9fd8d559417a64b352fd01785814a863ed65e7e6c5e3839e0532f#rd
+'>小寒 | 那些温存，人间值得</a></td></tr><tr><td>180&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489275&idx=1&sn=19a86675e3a910fd0796c989ddb73c14&chksm=e821b285df563b9314b7b0120cb6acd312c449348f5f4086f4619a374c7ed72b115237027312#rd
+'>从这条朋友圈开始的新年开工第一天</a></td></tr><tr><td>181&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489275&idx=2&sn=1c7115f3d4ab36c144932256e50a7419&chksm=e821b285df563b93c55ac8c253b5fa1af0635d1f39afff32fb81de19c8f21155d52dcb2afafe#rd
+'>多地降雪，小麦防冻应关注</a></td></tr><tr><td>182&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489275&idx=3&sn=c120494dad532f7d6b9a31650b41134c&chksm=e821b285df563b93bd890166a77e148bf7fc24a3602cf6c3bba9359ffc6d3316a21596f4f7bc#rd
+'>持续降温，北方经作应知晓</a></td></tr><tr><td>183&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489259&idx=1&sn=12220788c13adbc6c948547d1b174d15&chksm=e821b295df563b832591065bd494280c1a056967dfd547c408c9af23c9f921065fea3e5a4a26#rd
+'>新年献词 | 没有什么比科学更激越人心</a></td></tr><tr><td>184&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489243&idx=1&sn=c52f2229ded2cae1fb747956628a814e&chksm=e821b2a5df563bb3345c453e644e7949550292471e13695d9cce43a29491c4e28e20c7521537#rd
+'>2018，手机里那些不愿删的图片</a></td></tr><tr><td>185&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489243&idx=2&sn=210d3612e275ff32ed7ca8ee1ad1510d&chksm=e821b2a5df563bb3594b5f944ce275b3eed850e3833c5eccccdb0ac3a7b431482451f4d98c25#rd
+'>“大数据”看中化智慧农业这一年</a></td></tr><tr><td>186&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489210&idx=1&sn=360fb943a1d28aaf79ad08a51cde0606&chksm=e821b2c4df563bd21a5db88705db8149de4b6f702521d3c6e45ea6e8bc43d08d8654443a7bac#rd
+'>风雨里等你，千万里为你！这一场冬雨中的演出走心了</a></td></tr><tr><td>187&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489197&idx=1&sn=127a83d882735d1b93756d9986f05930&chksm=e821b2d3df563bc561a38bd4dbe44871b3537b6520a69ec72b6e9b786d7d2c50bbc6877ce850#rd
+'>中化农业应用技术（武汉）综合试验站成立</a></td></tr><tr><td>188&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489197&idx=2&sn=b16a08240dbbe749be625e73ae43eb3c&chksm=e821b2d3df563bc5666da89b78068521f89cf17f625386382a67fa5d3d9c0275e7d965a43ed2#rd
+'>冬前小麦弱小怎么办？</a></td></tr><tr><td>189&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489197&idx=3&sn=82d3423bcaa75c8d134c2c7238b84952&chksm=e821b2d3df563bc53a636d316b4787cbe4cffd59d54007f0608bf21cff1b6e184c23d904a22c#rd
+'>冬季的C位水果是什么？</a></td></tr><tr><td>190&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489190&idx=1&sn=fa2cc0334e4ca65a0217ff0f0d14a42f&chksm=e821b2d8df563bce44bfe6f97e2990da929d82c70df48713d6892e302ab24dd634301ce88d04#rd
+'>官宣！中化现代农业正式成为荃银高科第一大股东</a></td></tr><tr><td>191&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489176&idx=1&sn=fdd477e380b9828491e5464dc8b03c5f&chksm=e821b2e6df563bf05309ddbfdf0fe57e3304e64971bc13c22b08c60f11cf43f2712f3a770718#rd
+'>冬至 | 这一生一世，这人间冬至</a></td></tr><tr><td>192&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489153&idx=1&sn=625fd2d30d7c903ce5ab22b72afcccaa&chksm=e821b2ffdf563be98c1f759bb5b7875aac4f0b12b1d3b8620fea6951b1fbe4077839f910832d#rd
+'>中化“虾稻宝”荣获创新先锋品牌</a></td></tr><tr><td>193&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489138&idx=1&sn=7c342863dddf3bd19d53f141d2b73052&chksm=e821b20cdf563b1aae795dad7a18e94b7ca924bb30cd5a6dc2649cba6d67c2ce84cabc5bc690#rd
+'>我是MAPPER张青，我比改革开放小5岁</a></td></tr><tr><td>194&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489135&idx=1&sn=abdd0ed287bc6e580b3073e6e84b5307&chksm=e821b211df563b0789cb6489427a1b389ccdffcab5acaf4c2c37bc2fedcb7c3aacb58dea31de#rd
+'>MAP特别策划 | 为今天上午庆祝改革开放40周年大会预热</a></td></tr><tr><td>195&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489135&idx=2&sn=27fb4924b917d182ae7a8ec9a7837673&chksm=e821b211df563b07c4acddf792038218c782f847b7e12908774f4c834cd159e1dec481316112#rd
+'>优质麦安全越冬管理</a></td></tr><tr><td>196&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489127&idx=1&sn=d3f9ca0556b4506eb2e932d39d7bc3f1&chksm=e821b219df563b0f48f3791646652bd5124cf1817f683ba955770c541aab027d862eec391f26#rd
+'>“豪华评审团”见证中化农业首届“农技大咖”加冕！</a></td></tr><tr><td>197&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489108&idx=1&sn=92c3b47243653bf1bdf63e11755a17a0&chksm=e821b22adf563b3c6069871df76e3c960de89ab0ffddcd78566c924e65fd7c97630686bf0324#rd
+'>合规护航美好农业</a></td></tr><tr><td>198&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489108&idx=2&sn=115c402036c08754e0fb7ace85d8e3f1&chksm=e821b22adf563b3c5d6f43e833fea2e8b2aaefb308dc4b08047f9e9afd56c3f5716d9cec1ada#rd
+'>高效合规采购 助力MAP前行</a></td></tr><tr><td>199&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489087&idx=1&sn=f09dae793b1fd057fe446bb3cc5189dc&chksm=e821b241df563b578fe881ea225deb9256ecf991f6e4c16f0b3fa35335144ddf43cbd547123a#rd
+'>MAP贺兰馥郁，贺兰进京签约</a></td></tr><tr><td>200&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489081&idx=1&sn=16e20a3b6a635def22c9669f7a1d65e9&chksm=e821b247df563b515fe6c5aca89baf4b3b1c9dc8fb0a46bbb570b7e8329b039fe47aa94bf778#rd
+'>覃衡德在武汉会见先正达首席执行官</a></td></tr><tr><td>201&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489081&idx=2&sn=cf9e230b77b763c6984ee9ae01766410&chksm=e821b247df563b51687c38d5687807559ed3ec818d5e3c062bc626691ca4896cea4f4c548483#rd
+'>调研全国产区，这份农业农村部小麦专家的丰产秘籍发您了！</a></td></tr><tr><td>202&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489081&idx=3&sn=da564b200ec8a1b75b06fabfc5ff5199&chksm=e821b247df563b5181e57f826162d137912cbaff9414baea209234c1be09c98423a6e810dfab#rd
+'>冬天，果农们都在哪里？</a></td></tr><tr><td>203&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489064&idx=1&sn=203729e9d31bfc0019c5415556c3e5ed&chksm=e821b256df563b40444ad2addd1b52c83720157744757ffc567b95c8c75d5ed56ab3b772f86e#rd
+'>冷冷冷！你都穿棉裤了，它们怎么办？</a></td></tr><tr><td>204&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489064&idx=2&sn=99a881dd2e2fd4bb3da23f25cc22a1e6&chksm=e821b256df563b40153af67e580a3d3c903f4db1ba12193591c05cdf3f85b9b2a1fb3a2209ec#rd
+'>今日大雪 | “熊猫”伴你驱冬寒</a></td></tr><tr><td>205&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489038&idx=1&sn=b87fcf20c5b38162de35b8157183950c&chksm=e821b270df563b668e3a4a86215baf55c8152dc4cfd225b2efd47228c497c835b9b01eb7ffcb#rd
+'>示范田里说丰年，听取赞声一片</a></td></tr><tr><td>206&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489024&idx=1&sn=f3d0292d86e6ff209d35a9848cb803e0&chksm=e821b27edf563b687c7011a983037c2b79ba8bda546e7fdd2199aab5d4f9864f71b63d69a56e#rd
+'>这两样东港好东西，MAP助力来升级！</a></td></tr><tr><td>207&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489017&idx=1&sn=5f30344a59661dd34e30251a4c9fd8c5&chksm=e821b187df5638919e34b7decfc72d938a35ee9ba27943ead9c056b9cb246eb0a873c000a47f#rd
+'>别人家的蜜蜂总是很勤劳！</a></td></tr><tr><td>208&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489017&idx=2&sn=089e83a4accad2ad45f3b8132fc90bf4&chksm=e821b187df563891b4f152c341d6d5170353824d1baaf14510c0119f0b330a830e34061e3a69#rd
+'>因地制宜抓好小麦冬前管理</a></td></tr><tr><td>209&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247489010&idx=1&sn=1781daf87db104722dd032c1059ac4ec&chksm=e821b18cdf56389a3f4cbef4a766ba3acbb307f1a48d137cf5c664aee0816443604c087b49f9#rd
+'>小站稻，大不同！</a></td></tr><tr><td>210&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247488994&idx=1&sn=8fac41054a275a3243ea1cb95fd139ba&chksm=e821b19cdf56388af2bffe9670ffc5a59069f14802bf579516ecedbca3ef44763f3bd797c12c#rd
+'>您里边儿请。</a></td></tr><tr><td>211&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247488981&idx=1&sn=81a03b9b06d4d8568edca1eccc8da397&chksm=e821b1abdf5638bd8651c6cbca960d4fcc6746b9e94f90bc042e155f2ddc96bdb839055cd1b1#rd
+'>为“褚橙”插上智慧农业的翅膀！</a></td></tr><tr><td>212&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247488969&idx=1&sn=83f2881ec080b7a5a86e8d541aaeba91&chksm=e821b1b7df5638a1538c73da4c405d6cd6070456b32903b762ca0744dd6cbd55c308a67c1ff0#rd
+'>一睹为快！中国农机泰斗级专家寄厚望于MAP</a></td></tr><tr><td>213&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247488961&idx=1&sn=6b9fd4369b2cf131e8d65b9cc2440662&chksm=e821b1bfdf5638a94d056aa8c8c70cfef1c5bfa91951dabeec1d0f7ac46c76ed465af6e22934#rd
+'>1小时达成25个战略合作协议，这效率！</a></td></tr><tr><td>214&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247488959&idx=1&sn=36610e21a3dde94629b588e0457eb741&chksm=e821b1c1df5638d71cfe884b8750bb241ac6e548dcc27abb02258b0145bc76317ec1c291969f#rd
+'>小麦安全越冬，不可不看…</a></td></tr><tr><td>215&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247488959&idx=2&sn=6b7d85b3d4649316a5f434ba1359e71a&chksm=e821b1c1df5638d7f25fe9270d80a19b270fe9a4b22841ee096aa81b2d27c927ffb0c55fce0b#rd
+'>在北纬35°的黄土高坡，MAP种出了这样的苹果</a></td></tr><tr><td>216&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247488935&idx=1&sn=c93b674b5f1102f1e7f59efd940d2e4b&chksm=e821b1d9df5638cf2578ce468974ee0e724d1e6ae16431032cda19590373e7621820f6cbdafa#rd
+'>副市长悄悄往前挪凳子</a></td></tr><tr><td>217&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247488916&idx=1&sn=d978a20ec312d5ecfb9c666a80de1e41&chksm=e821b1eadf5638fc1cc4c44ae93ca2a8e8e82238e6635ee512b13a4bdcf145180a32c1ed5393#rd
+'>这几对CP的感恩节告白，绝对值得看！</a></td></tr><tr><td>218&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247488916&idx=2&sn=24f8bfeabd66f0339bc8af2aaf442d6f&chksm=e821b1eadf5638fcfb849bc0e7f38124a074f42bc46aa5b0919003527dee745ede49aa18909c#rd
+'>节气 | 清寒小雪前，农忙冬藏后</a></td></tr><tr><td>219&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247488857&idx=1&sn=52eafca1e2dc385a129b6075bb202a26&chksm=e821b127df563831e0a17b1460ad59b545cfc2cc3f1262ec0159fba7ff723f86a10c5608d457#rd
+'>37年研究蜜柚，他把点赞放在了这！</a></td></tr><tr><td>220&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247488857&idx=2&sn=f1952d994a73e7d9dbe68b480a540c60&chksm=e821b127df5638313347ff4570ed9a97e53adf1fd724c782eb39fc5fa36b69b9b02d897cf79b#rd
+'>樱桃好吃树难栽，MAP帮你来</a></td></tr><tr><td>221&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247488855&idx=1&sn=45d4772f259a579c4cddbbf6364eb2c4&chksm=e821b129df56383fae143f59f76d9a326cc2bb401b4faff52a466e451e6ce1e5b0ab72721ae9#rd
+'>中化集团农业事业部 & 中国化工农化总公司 →</a></td></tr><tr><td>222&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247488826&idx=1&sn=721d6d64fdf2518dfb16e58ba34fd373&chksm=e821b144df56385273ce53c78f7e070a81687dae52c10c93f4bf0a524fb0935f6910662e0836#rd
+'>她的笑容比“妃子笑”还要甜！</a></td></tr><tr><td>223&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247488826&idx=2&sn=d5d3f7c1e89bb89bad195e7d36bf69ea&chksm=e821b144df563852c2e1fdd6b8c2eb87aa889a391fe2a11bffddd9c87c6a16917f8ba5f306e1#rd
+'>MAP支招冬前麦田管理</a></td></tr><tr><td>224&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzIyMzI2MTk2OQ==&mid=2247488819&idx=1&sn=1023a32d8c3272ce9ca866acce367dc4&chksm=e821b14ddf56385bd5ae6ed282b039592959d1f3e76f6e69eeb5d8cf67d885cc5d984ac5c3fb#rd
+'>最强中国农机手诞生！“MAP农机手5S服务站”独家发布！</a></td></tr></tbody></html>
