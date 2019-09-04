@@ -1,0 +1,387 @@
+
+        <!doctype html>
+        <html>
+        <head>
+        <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+        <title></title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+        html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+        body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+        iframe { margin: auto; }
+        a.url { word-break: break-all; }
+        a:active, a:hover { outline: 0px; }
+        .in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+        #write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+        #write.first-line-indent p { text-indent: 2em; }
+        #write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+        #write.first-line-indent li { margin-left: 2em; }
+        .for-image #write { padding-left: 8px; padding-right: 8px; }
+        body.typora-export { padding-left: 30px; padding-right: 30px; }
+        .typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+        @media screen and (max-width: 500px) {
+          body.typora-export { padding-left: 0px; padding-right: 0px; }
+          #write { padding-left: 20px; padding-right: 20px; }
+          .CodeMirror-sizer { margin-left: 0px !important; }
+          .CodeMirror-gutters { display: none !important; }
+        }
+        #write li > figure:first-child { margin-top: -20px; }
+        #write ol, #write ul { position: relative; }
+        img { max-width: 100%; vertical-align: middle; }
+        button, input, select, textarea { color: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; }
+        input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+        *, ::after, ::before { box-sizing: border-box; }
+        #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+        #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+        h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
+        p { orphans: 4; }
+        h1 { font-size: 2rem; }
+        h2 { font-size: 1.8rem; }
+        h3 { font-size: 1.6rem; }
+        h4 { font-size: 1.4rem; }
+        h5 { font-size: 1.2rem; }
+        h6 { font-size: 1rem; }
+        .md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+        .hidden { display: none; }
+        .md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+        a { cursor: pointer; }
+        sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+        sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+        #write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+        figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+        figure > table { margin: 0px !important; }
+        tr { break-inside: avoid; break-after: auto; }
+        thead { display: table-header-group; }
+        table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+        table.md-table td { min-width: 32px; }
+        .CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+        .CodeMirror-linenumber { user-select: none; }
+        .CodeMirror { text-align: left; }
+        .CodeMirror-placeholder { opacity: 0.3; }
+        .CodeMirror pre { padding: 0px 4px; }
+        .CodeMirror-lines { padding: 0px; }
+        div.hr:focus { cursor: none; }
+        #write pre { white-space: pre-wrap; }
+        #write.fences-no-line-wrapping pre { white-space: pre; }
+        #write pre.ty-contain-cm { white-space: normal; }
+        .CodeMirror-gutters { margin-right: 4px; }
+        .md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+        .md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+        #write .md-fences.mock-cm { white-space: pre-wrap; }
+        .md-fences.md-fences-with-lineno { padding-left: 0px; }
+        #write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+        .md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+        .CodeMirror-line, twitterwidget { break-inside: avoid; }
+        .footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+        .footnotes + .footnotes { margin-top: 0px; }
+        .md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+        li div { padding-top: 0px; }
+        blockquote { margin: 1rem 0px; }
+        li .mathjax-block, li p { margin: 0.5rem 0px; }
+        li { margin: 0px; position: relative; }
+        blockquote > :last-child { margin-bottom: 0px; }
+        blockquote > :first-child, li > :first-child { margin-top: 0px; }
+        .footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+        #write .footnote-line { white-space: pre-wrap; }
+        @media print {
+          body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+          #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+          .typora-export * { -webkit-print-color-adjust: exact; }
+          html.blink-to-pdf { font-size: 13px; }
+          .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+          .typora-export #write::after { height: 0px; }
+          @page { margin: 20mm 0px; }
+        }
+        .footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+        a img, img a { cursor: pointer; }
+        pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+        p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+        p > .md-image:only-child { display: inline-block; width: 100%; }
+        #write .MathJax_Display { margin: 0.8em 0px 0px; }
+        .md-math-block { width: 100%; }
+        .md-math-block:not(:empty)::after { display: none; }
+        [contenteditable="true"]:active, [contenteditable="true"]:focus { outline: 0px; box-shadow: none; }
+        .md-task-list-item { position: relative; list-style-type: none; }
+        .task-list-item.md-task-list-item { padding-left: 0px; }
+        .md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+        .math { font-size: 1rem; }
+        .md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+        .md-toc-content { position: relative; margin-left: 0px; }
+        .md-toc-content::after, .md-toc::after { display: none; }
+        .md-toc-item { display: block; color: rgb(65, 131, 196); }
+        .md-toc-item a { text-decoration: none; }
+        .md-toc-inner:hover { text-decoration: underline; }
+        .md-toc-inner { display: inline-block; cursor: pointer; }
+        .md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+        .md-toc-h2 .md-toc-inner { margin-left: 2em; }
+        .md-toc-h3 .md-toc-inner { margin-left: 4em; }
+        .md-toc-h4 .md-toc-inner { margin-left: 6em; }
+        .md-toc-h5 .md-toc-inner { margin-left: 8em; }
+        .md-toc-h6 .md-toc-inner { margin-left: 10em; }
+        @media screen and (max-width: 48em) {
+          .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+          .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+          .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+          .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+        }
+        a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+        .footnote-line a:not(.reversefootnote) { color: inherit; }
+        .md-attr { display: none; }
+        .md-fn-count::after { content: "."; }
+        code, pre, samp, tt { font-family: var(--monospace); }
+        kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+        .md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+        code { text-align: left; vertical-align: initial; }
+        a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+        .md-inline-math .MathJax_SVG .noError { display: none !important; }
+        .html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+        .md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+        .MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+        .MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+        .MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+        .MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+        .MathJax_SVG * { transition: none; }
+        .MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; }
+        .os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+        .md-diagram-panel > svg { max-width: 100%; }
+        [lang="mermaid"] svg, [lang="flow"] svg { max-width: 100%; }
+        [lang="mermaid"] .node text { font-size: 1rem; }
+        table tr th { border-bottom: 0px; }
+        video { max-width: 100%; display: block; margin: 0px auto; }
+        iframe { max-width: 100%; width: 100%; border: none; }
+        .highlight td, .highlight tr { border: 0px; }
+        :root { --side-bar-bg-color: #fafafa; --control-text-color: #777; }
+        html { font-size: 16px; }
+        body { font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; color: rgb(51, 51, 51); line-height: 1.6; }
+        #write { max-width: 860px; margin: 0px auto; padding: 30px 30px 100px; }
+        #write > ul:first-child, #write > ol:first-child { margin-top: 30px; }
+        a { color: rgb(65, 131, 196); }
+        h1, h2, h3, h4, h5, h6 { position: relative; margin-top: 1rem; margin-bottom: 1rem; font-weight: bold; line-height: 1.4; cursor: text; }
+        h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor { text-decoration: none; }
+        h1 tt, h1 code { font-size: inherit; }
+        h2 tt, h2 code { font-size: inherit; }
+        h3 tt, h3 code { font-size: inherit; }
+        h4 tt, h4 code { font-size: inherit; }
+        h5 tt, h5 code { font-size: inherit; }
+        h6 tt, h6 code { font-size: inherit; }
+        h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom: 1px solid rgb(238, 238, 238); }
+        h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom: 1px solid rgb(238, 238, 238); }
+        h3 { font-size: 1.5em; line-height: 1.43; }
+        h4 { font-size: 1.25em; }
+        h5 { font-size: 1em; }
+        h6 { font-size: 1em; color: rgb(119, 119, 119); }
+        p, blockquote, ul, ol, dl, table { margin: 0.8em 0px; }
+        li > ol, li > ul { margin: 0px; }
+        hr { height: 2px; padding: 0px; margin: 16px 0px; background-color: rgb(231, 231, 231); border: 0px none; overflow: hidden; box-sizing: content-box; }
+        li p.first { display: inline-block; }
+        ul, ol { padding-left: 30px; }
+        ul:first-child, ol:first-child { margin-top: 0px; }
+        ul:last-child, ol:last-child { margin-bottom: 0px; }
+        blockquote { border-left: 4px solid rgb(223, 226, 229); padding: 0px 15px; color: rgb(119, 119, 119); }
+        blockquote blockquote { padding-right: 0px; }
+        table { padding: 0px; word-break: initial; }
+        table tr { border-top: 1px solid rgb(223, 226, 229); margin: 0px; padding: 0px; }
+        table tr:nth-child(2n), thead { background-color: rgb(248, 248, 248); }
+        table tr th { font-weight: bold; border-width: 1px 1px 0px; border-top-style: solid; border-right-style: solid; border-left-style: solid; border-top-color: rgb(223, 226, 229); border-right-color: rgb(223, 226, 229); border-left-color: rgb(223, 226, 229); border-image: initial; border-bottom-style: initial; border-bottom-color: initial; text-align: left; margin: 0px; padding: 6px 13px; }
+        table tr td { border: 1px solid rgb(223, 226, 229); text-align: left; margin: 0px; padding: 6px 13px; }
+        table tr th:first-child, table tr td:first-child { margin-top: 0px; }
+        table tr th:last-child, table tr td:last-child { margin-bottom: 0px; }
+        .CodeMirror-lines { padding-left: 4px; }
+        .code-tooltip { box-shadow: rgba(0, 28, 36, 0.3) 0px 1px 1px 0px; border-top: 1px solid rgb(238, 242, 242); }
+        .md-fences, code, tt { border: 1px solid rgb(231, 234, 237); background-color: rgb(248, 248, 248); border-radius: 3px; padding: 2px 4px 0px; font-size: 0.9em; }
+        code { background-color: rgb(243, 244, 244); padding: 0px 2px; }
+        .md-fences { margin-bottom: 15px; margin-top: 15px; padding-top: 8px; padding-bottom: 6px; }
+        .md-task-list-item > input { margin-left: -1.3em; }
+        @media print {
+          html { font-size: 13px; }
+          table, pre { break-inside: avoid; }
+          pre { word-wrap: break-word; }
+        }
+        .md-fences { background-color: rgb(248, 248, 248); }
+        #write pre.md-meta-block { padding: 1rem; font-size: 85%; line-height: 1.45; background-color: rgb(247, 247, 247); border: 0px; border-radius: 3px; color: rgb(119, 119, 119); margin-top: 0px !important; }
+        .mathjax-block > .code-tooltip { bottom: 0.375rem; }
+        .md-mathjax-midline { background: rgb(250, 250, 250); }
+        #write > h3.md-focus::before { left: -1.5625rem; top: 0.375rem; }
+        #write > h4.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
+        #write > h5.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
+        #write > h6.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
+        .md-image > .md-meta { border-radius: 3px; padding: 2px 0px 0px 4px; font-size: 0.9em; color: inherit; }
+        .md-tag { color: rgb(167, 167, 167); opacity: 1; }
+        .md-toc { margin-top: 20px; padding-bottom: 20px; }
+        .sidebar-tabs { border-bottom: none; }
+        #typora-quick-open { border: 1px solid rgb(221, 221, 221); background-color: rgb(248, 248, 248); }
+        #typora-quick-open-item { background-color: rgb(250, 250, 250); border-color: rgb(254, 254, 254) rgb(229, 229, 229) rgb(229, 229, 229) rgb(238, 238, 238); border-style: solid; border-width: 1px; }
+        .on-focus-mode blockquote { border-left-color: rgba(85, 85, 85, 0.12); }
+        header, .context-menu, .megamenu-content, footer { font-family: "Segoe UI", Arial, sans-serif; }
+        .file-node-content:hover .file-node-icon, .file-node-content:hover .file-node-open-state { visibility: visible; }
+        .mac-seamless-mode #typora-sidebar { background-color: var(--side-bar-bg-color); }
+        .md-lang { color: rgb(180, 101, 77); }
+        .html-for-mac .context-menu { --item-hover-bg-color: #E6F0FE; }
+        #md-notification .btn { border: 0px; }
+        .dropdown-menu .divider { border-color: rgb(229, 229, 229); }
+         .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
+        </style>
+        </head>
+        <body class='typora-export os-windows' >
+        <div  id='write'  class = 'is-node'>
+        <figure>
+        <table>
+        <thead><tr><th>微信公众号：计算机视觉联盟&emsp;&emsp;&emsp;&emsp;微信号：CVLianMeng&emsp;&emsp;&emsp;&emsp;更新日期：2019-09-04&emsp;&emsp;&emsp;&emsp;<br>标签：CS</th></tr></thead><tbody><tr><td>1&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486633&idx=1&sn=10c89284902d5de7a2cec0a261b08e4d&chksm=fcb71016cbc0990016184bb0537fdb812b794722ff34abfe73c8138dccfadd81c1c86c3664cc#rd
+'>拿不到offer全额退款|第一期人工智能基础课招生</a></td></tr><tr><td>2&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486633&idx=2&sn=00b5cd1c66682d1fde65a19e534dcd5c&chksm=fcb71016cbc0990073885b8d9fa51ee644113a1fb609d6d5d60e14686c352d7d820234418275#rd
+'>首届清华智班30人名单公布：清华第一批AI本科生！</a></td></tr><tr><td>3&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486627&idx=1&sn=744e5153188e565883e416ef90c7928c&chksm=fcb7101ccbc0990a383c6b822eee888928829e15d35e247a8133f5f6497d883dba727ba233de#rd
+'>学习机器学习过程中都走过哪些弯路，怎样避免走弯路？</a></td></tr><tr><td>4&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486621&idx=1&sn=569555f9bcb71934141059f490435874&chksm=fcb71022cbc099343ae2181c6ef113e205a1ff875a2e63a00f647283c291bd45010a4567326f#rd
+'>好书荐读：阿里达摩院算法专家领衔《深度学习与图像识别：原理与实践》</a></td></tr><tr><td>5&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486606&idx=1&sn=4c43b26ef8c92aa3bb9411f20ec2ca1c&chksm=fcb71031cbc09927dcbfc31843e41f82565fb55815e56fca9cab95dbf400f4c7258e9fc868fc#rd
+'>重磅！GitHub：计算机视觉最全资料集锦（含实验室、算法及AI会议）</a></td></tr><tr><td>6&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486567&idx=1&sn=8c9ae31bc184054e83340e74c6792331&chksm=fcb710d8cbc099cec1eda3a2abeb1df598ebe851a5a64785a9ffa23f380010358e792d89bb85#rd
+'>全网首发！2020年AI、CV、NLP顶会最全时间表！</a></td></tr><tr><td>7&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486539&idx=1&sn=11b572c81bef12c6da7951d0f058aba7&chksm=fcb710f4cbc099e2f2c9a0de1ee7f7b22fa234973b494d5d1064eb23d91e7d931d2dbf5862e3#rd
+'>Python必备收藏！博士大佬总结的Pycharm 常用快捷键思维导图！</a></td></tr><tr><td>8&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486539&idx=2&sn=53a1ff6f2b9caa44e1bea65d0c4651cf&chksm=fcb710f4cbc099e2a9b2fea1f730b02433f59186fcf42bf0133b752e3a086b3df5e5553e551d#rd
+'>面试时怎样自我介绍会打动面试官？</a></td></tr><tr><td>9&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486534&idx=1&sn=354f81a68b074bab372882b044278278&chksm=fcb710f9cbc099ef0c5c526754161034c3fde3cfff8a647951639e1341c80371cd55d6bb63b5#rd
+'>如何看待 2020 届校招算法岗「爆炸」的情况？英雄所见略同</a></td></tr><tr><td>10&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486523&idx=2&sn=bf473c58e6cef5f79b047bcc30cb9ec0&chksm=fcb71084cbc099920be13770635b0adbbce681a8b04c5c1c3f91b1e877634713c664e396316f#rd
+'>商汤研究院（杭州）招聘计算机视觉实习生和研究员！（有机会参与投顶会）</a></td></tr><tr><td>11&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486510&idx=1&sn=0198fa1b32f1b3e949598af2c393c9d3&chksm=fcb71091cbc09987fb3e3c1a28892f54d7585fbd8df1ea3593fa4d4b5c5c27bb5fbf5b5b6e8f#rd
+'>知乎热议：如何成长为一个高情商的人？</a></td></tr><tr><td>12&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486510&idx=2&sn=0eebf5f15be9c135de6096425be23f08&chksm=fcb71091cbc09987e227da412379ba9d139ecbf9c3e8ab0ef066f0f20bc3052d67c7c4594247#rd
+'>收藏！手把手教你如何使用深度学习对图像边缘和轮廓进行提取？</a></td></tr><tr><td>13&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486500&idx=1&sn=d55b64c5d9bd322b16e3a05c19450463&chksm=fcb7109bcbc0998d7a4b03eab45acca4e3acba11eb83089b9dc1fb04e36388f3b7cae4f20a50#rd
+'>惊叹！阿里达摩院发布2019十大科技趋势！未来无限可期！</a></td></tr><tr><td>14&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486500&idx=2&sn=feb7d33d46d92cbfaf906a8b555d7a86&chksm=fcb7109bcbc0998dff5b262c471ebb5dbd17744e7a5988c90aaf90488a6a86d4b00079bc329a#rd
+'>4折优惠！当当网开学购书钜惠！附优惠码</a></td></tr><tr><td>15&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486492&idx=1&sn=a6a1d2bcc8e72eb92e86e46f19cbc0e3&chksm=fcb710a3cbc099b5c053e4788e8815adca26d1593fc42362aab4eea2d71a88dc3bd942241689#rd
+'>收藏！AI算法工程师推荐的人工智能必读书单！</a></td></tr><tr><td>16&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486477&idx=1&sn=ce7c8907c6a5b90ec60ca43ce8a510f7&chksm=fcb710b2cbc099a4b219472919fdf34946880c2531b7fd70629bc3d64d813e4da631c1f7648b#rd
+'>收藏！最全深度学习视觉目标检测技术综述！</a></td></tr><tr><td>17&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486471&idx=1&sn=77cc71680e27fa34f9070dd8b6b1b722&chksm=fcb710b8cbc099ae4b0f22414a9bc78bcbb7af0cc98c36a007732c7dee8bcee04cec1e2dfe15#rd
+'>最新！华为2012实验室重磅开启2020届勇敢星招聘！</a></td></tr><tr><td>18&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486471&idx=2&sn=8da152e9953ecf198397519a1aa87f95&chksm=fcb710b8cbc099ae4e60aaef4c83b704465ea7829604da089c069d7f7328decd3231eec87ed5#rd
+'>【深度学习文本分类概览】《Deep Learning Techniques for Text Classification》</a></td></tr><tr><td>19&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486463&idx=1&sn=ace1b1f3dc11b09a3ab04b71c9b83de3&chksm=fcb71740cbc09e563895fa4287b3c3218b52a0c57b4f94053df430c7f23200b1656c98c1e082#rd
+'>2020 年校招，最值得加入的互联网公司有哪些？</a></td></tr><tr><td>20&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486463&idx=2&sn=7f1bf391a9223e817cdcc1ccab94a888&chksm=fcb71740cbc09e5624c3d1fefaa68a6e365953d086d86a21605b26444f410d10479b2d8d5a4b#rd
+'>2020阿里云智能应届生校园招聘开启（含内推福利！）</a></td></tr><tr><td>21&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486460&idx=1&sn=4d72c8bdbca832b6487971cccc24435f&chksm=fcb71743cbc09e55e2228a25e640538f7a7f8dd7dc4e3de89cf6d1c82b0f851fa308da569059#rd
+'>收藏！最强行人检测算法思维导图</a></td></tr><tr><td>22&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486460&idx=2&sn=19279c4330f2a877c4a1b6a012a06aba&chksm=fcb71743cbc09e55b32e82ca2977256d71a3b627e56055cb604ad85890a6aa6059b59cd2fa1d#rd
+'>最新《美国二十年AI研究路线》，附112页报告！</a></td></tr><tr><td>23&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486379&idx=1&sn=c7f3bbc848f06d47f51ace406938f485&chksm=fcb71714cbc09e02bc820be9b28ed4ba5e962191b17423e5cbc0db9b60ba687ddc5128fc317c#rd
+'>2019软科世界大学学术排名--浙大、上交挺进全球前100！</a></td></tr><tr><td>24&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486379&idx=2&sn=6c45dad32fc659962d8dd706fe12be34&chksm=fcb71714cbc09e0271e9d34de2f70b61196dd40bf445d56faf5cfbf8b79867520e15ec842f4a#rd
+'>收藏！最新深度学习的选择性综述--A Selective Overview of Deep Learning</a></td></tr><tr><td>25&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486334&idx=1&sn=d03a283584c8a50f9add04586cdd24b5&chksm=fcb717c1cbc09ed7a809c8721f9e2ab0121d86ce97760d6647ec59ad0a911e2d14ff3f886a13#rd
+'>职场画大饼实录，谨防入坑！</a></td></tr><tr><td>26&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486334&idx=2&sn=602870f105e7b54acf8ef41ec74b3ed5&chksm=fcb717c1cbc09ed7a4219c623ca37489a335278e1d4f2f07c600825e48e5a83ff3c650eb954a#rd
+'>收藏！深度学习计算机视觉模型解析！</a></td></tr><tr><td>27&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486307&idx=1&sn=6570be5057cc0cb762eb392a78a9021f&chksm=fcb717dccbc09ecab4426619b5493267590936d21f859a7fd0d4be98da3dd555043aaa26190c#rd
+'>为什么拼了命也要上名校？看看清华北大毕业生的去向</a></td></tr><tr><td>28&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486307&idx=2&sn=0e9f877e803f598a767f054600b6bd5c&chksm=fcb717dccbc09eca6754564c09d96124090f7fd5915cf431fb5dde3fc96ef232108fbd0e1ad0#rd
+'>深兰科技北京AI研发中心招计算机视觉研究员/实习/应届，薪水上不封顶！</a></td></tr><tr><td>29&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486295&idx=1&sn=fb1a0bd6dca7a79a708f365007793e4e&chksm=fcb717e8cbc09efef7084a475b96a2fc62ea3c3caba711fcba83c307e35a4913515a8be30a83#rd
+'>难受，学历真的那么重要吗？有些公司简历关都不给过</a></td></tr><tr><td>30&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486295&idx=2&sn=338b618383fbf1cd0db64e360d43970f&chksm=fcb717e8cbc09efe6b5f09684868f30f9dd7aa393e0f0753c516c5aac433cd4bdabb21a47ea6#rd
+'>百度数据研发部招聘机器学习/数据挖掘工程师 （附内推邮箱）</a></td></tr><tr><td>31&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486286&idx=1&sn=696de0f6f2f6a1f56450cba3968826d3&chksm=fcb717f1cbc09ee76d9a797316e338fa03e88dce09b29e45cf506b6e2ee14118f89edec8e281#rd
+'>深度学习大牛李沐博士的开挂人生</a></td></tr><tr><td>32&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486286&idx=2&sn=e2839fbdbd7baf97dfa2c05ddf46963f&chksm=fcb717f1cbc09ee70cec44c0608a6746b7ad9239f9cb95e95736c045fc6593198cde372fba37#rd
+'>任正非签发最新电邮：5G只是小儿科，人工智能才是大产业</a></td></tr><tr><td>33&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486271&idx=1&sn=d02bb83ff41503d830cbd2c8f42321a6&chksm=fcb71780cbc09e96daaead1ad6229f83a7620eca14ccfb7f36bffc80a3e0bf1c70c07fc31d60#rd
+'>中科院和本硕博985在读博士的AI进阶之路</a></td></tr><tr><td>34&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486271&idx=2&sn=bc96e0ac6fd6502f986397a845c61e9e&chksm=fcb71780cbc09e96b12521783e9d6ef83e85e7bdf9bc60fdc7907aca814a0cf8066edd546095#rd
+'>【LeetCode刷题记录】LeetCode经典题目数组求和及哈希表的使用！</a></td></tr><tr><td>35&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486266&idx=1&sn=95c4aa3a6fd5a886fb3dd52a49e68796&chksm=fcb71785cbc09e93023af1e1a18fe148d1eb0cd22e0c2a9adbda6aea8a6d0a6c56286863ff24#rd
+'>收藏！从十篇顶会论文解读计算机视觉的未来之路！</a></td></tr><tr><td>36&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486266&idx=2&sn=5080279cd2eac346530e9ad08c6b9f33&chksm=fcb71785cbc09e935d7f3056ec4eaa6bd6946c0a78129bd1269aaefae8b7c22abf39f21ce88b#rd
+'>阿里实现视频物体分割算法！可在视频里任意抠图？</a></td></tr><tr><td>37&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486251&idx=1&sn=c634c3af546c216bfce3f2ee45e2269d&chksm=fcb71794cbc09e826b5a0bd81aefa722070047f677187fe556ae37fae0a9c98b5d68e39e7789#rd
+'>收藏！牛津大学博士给你一些读博的建议！</a></td></tr><tr><td>38&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486251&idx=2&sn=7cf361adbc5d465cadab25885f946885&chksm=fcb71794cbc09e822ce224315d0a1c37a7543881197b80812366ea2aafabe9f61bb2024047f5#rd
+'>最新公告！华为面向全世界招募天才少年！</a></td></tr><tr><td>39&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486235&idx=1&sn=60774f6e71af3c1df5fcdaf37407c1ce&chksm=fcb717a4cbc09eb2915aa8504be858f681e5cc4ea95cc091335f021b30b566f2f16e03ae0739#rd
+'>收藏！博士大佬的《机器学习》西瓜书手推笔记！</a></td></tr><tr><td>40&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486219&idx=1&sn=cc310964d052925cf88a4d947db04c8b&chksm=fcb717b4cbc09ea2b3cf64cec7314d20a6c8c22c63e0f34d51a3a5c6dc5baa57524081e3dc05#rd
+'>知乎热榜：2019 年 8 月 9 日召开的华为开发者大会会有哪些令人期待的技术和产品发布？</a></td></tr><tr><td>41&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486210&idx=1&sn=4a706cdeacd8296c9c955034b75e9510&chksm=fcb717bdcbc09eab9012e3877fee6f3b066c46b021131c9de1dfff61b121b1ab111a9538eb97#rd
+'>重磅！华为今日发布全球产业展望2025十大趋势！</a></td></tr><tr><td>42&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486210&idx=2&sn=cbdfc5a055f8578dea918ab47a2eb32c&chksm=fcb717bdcbc09eaba5dc59fd4b3b4c4c59a14d700b6ee1c9d62551efedbb1586ea8a09c3885a#rd
+'>七夕节，微博各高校也来集体表白！最美中文情话刷屏了</a></td></tr><tr><td>43&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486195&idx=1&sn=ef4ea21e6ba2ac08c3d719b0d6e43666&chksm=fcb7164ccbc09f5acfd66f1668b559499b867a488a37ac95869ce05d3dff2a229fb801e9c50d#rd
+'>我们做了一个这样的决定——【LeetCode刷题记录专栏】</a></td></tr><tr><td>44&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486195&idx=2&sn=afbfb800bb1ebe86fa0fe937bde8da19&chksm=fcb7164ccbc09f5a7979609b02eefbfc7448b299d9ce998c71021540905945dbc512f396563d#rd
+'>TensorFlow零基础入门指南——计算模型、数据模型、运行模型！</a></td></tr><tr><td>45&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486194&idx=2&sn=b2318a82c39cb7ff35e9531473a83155&chksm=fcb7164dcbc09f5b61c3a2326ae2fb8f088ee311fbcb132706a97abd392f78952753def8d163#rd
+'>【收藏】深度学习在计算机视觉领域的应用一览！超全总结！</a></td></tr><tr><td>46&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486185&idx=1&sn=8ab760c06d35e86025fdfbb98981223d&chksm=fcb71656cbc09f403bc6597d07c0603469e4c6a72ab9e0f7f2bb6354b2d6a0fe3277ff4383f4#rd
+'>重磅！Google学术发布2019年最有影响力的7篇论文！</a></td></tr><tr><td>47&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486166&idx=1&sn=dc1f3aeebdbeb13b18f1c5e48d9b2614&chksm=fcb71669cbc09f7fc821b073cabde609a0285d05bb7b90456e257e933e2a01b27e6aa270035d#rd
+'>手把手教你安装配置最新2019Pycharm，亲测有效！</a></td></tr><tr><td>48&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486140&idx=1&sn=62f7ee4c6e387bce4effbce94b4b2ac9&chksm=fcb71603cbc09f151aaee0839775c878d6c7c5dd53165ee14f4d253fe9769bddf53c8eaa5e5d#rd
+'>重磅！2019年中国科学院院士增选初步候选人名单公布！</a></td></tr><tr><td>49&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486135&idx=1&sn=37071349486b1d9341ddeef3372ceca2&chksm=fcb71608cbc09f1ebc956e99c81e5f832d78896d090c63f504154505804a7bb8b0aeacc5cf77#rd
+'>国际顶级人工智能专家--颜水成老师水平有多高？</a></td></tr><tr><td>50&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486130&idx=1&sn=ac84ba4cb41afb8846101c6e4a7ce288&chksm=fcb7160dcbc09f1b4e881f53f2f0a9596ca0bb64f5ab7cac02629ea0b70b4d4c08114010b753#rd
+'>拿到华为200万年薪的8个人到底是何方神圣？为什么有人反而不屑？</a></td></tr><tr><td>51&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486107&idx=1&sn=4461f34f7938e1eb3cb3d42b87c88e14&chksm=fcb71624cbc09f32e91f6d841b7beefdbcb1500964ab7efbe8620e8baa3405f91bce467b2c63#rd
+'>重磅！任正非签发通知：华为8位天才博士年薪百万！（好好学习真的很有用！）</a></td></tr><tr><td>52&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486101&idx=1&sn=0d10e88dd3228ff2d61113aaef54f9c3&chksm=fcb7162acbc09f3c425d3438a1e33c0a727d70dfc8a17af47655291c023d3ce71da1ccee3906#rd
+'>华为2020届应届生招聘正式开启！</a></td></tr><tr><td>53&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486097&idx=1&sn=6b57f7df2819e67fccb18518434e62f8&chksm=fcb7162ecbc09f38abe3b6539895e1e4bb936aae56aae48d81a81f2508713721a100d6a253d0#rd
+'>陈天奇回忆--机器学习科研的十年</a></td></tr><tr><td>54&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486092&idx=1&sn=cf1412d6b673aac36617c9572caa3ad9&chksm=fcb71633cbc09f25738b6cef604cecc787f1066edf6a5e53be83bd154b97997b660aad744be9#rd
+'>头条研发岗2020校招研发岗提前批！（附内推邮箱）</a></td></tr><tr><td>55&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486092&idx=2&sn=510207bffa83ce47edf4f284826095f5&chksm=fcb71633cbc09f2523959452685d9f8967e1a6ce6f2fa516a62ca4d20742d5c367947ebf1c94#rd
+'>图像分类时训练数据不足会带来什么问题？如何缓解数据量不足带来的问题？</a></td></tr><tr><td>56&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486082&idx=1&sn=d59f7ccb13024b3ccebea7f9c8c78d73&chksm=fcb7163dcbc09f2bbd6afc843acb38a380b4f4a261ebccd0b41782d2677f7cb0f8a8d4b181f8#rd
+'>旷视2020届秋招计算机视觉、深度学习算法研究员（附内推邮箱！）</a></td></tr><tr><td>57&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486082&idx=2&sn=906f2ee99f44928cb24d7a70b390d2b2&chksm=fcb7163dcbc09f2bcfdabaa92825505c347b8763a09d486325bbf2d162928946d35357b16c35#rd
+'>一文理解图像处理之HOG特征</a></td></tr><tr><td>58&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486060&idx=1&sn=264837ec5f1a2cf8a59a065663ecd776&chksm=fcb716d3cbc09fc5796dc2f179461535842edf04b90e548988943c9d9bf230a1a3800bd6f7b1#rd
+'>OPPO2020计算机视觉与机器学习算法校招共100人（硕士学历及以上）！</a></td></tr><tr><td>59&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486059&idx=1&sn=f04296378a7486c0eb85f5d9cc4b4f3a&chksm=fcb716d4cbc09fc278edc25fff4c53daa4f14c5d08217ac79e2d24cda163813cb45a4cc41d7f#rd
+'>盘点阿里、百度、腾讯、奥迪、奔驰、宝马、福特、丰田等8家公司自动驾驶战略</a></td></tr><tr><td>60&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486059&idx=2&sn=86b3e2ce687184834de84b9bb5406ee1&chksm=fcb716d4cbc09fc2ccb402367e4aba54b71f53c94c6f8ada58e747d43090f23333887f23ce6d#rd
+'>字节跳动机器学习算法实习生招聘</a></td></tr><tr><td>61&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486055&idx=1&sn=27fdfc91fc044f81e138ebf4d33ff0a4&chksm=fcb716d8cbc09fce381d7f555278ddeb18bbe9c8953319906d0e3a3b800e5e53d7b4b96504e1#rd
+'>亲身经历2019年校招8个大厂心得体会，纯干货分享（大疆、百度、阿里、腾讯...）</a></td></tr><tr><td>62&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486050&idx=1&sn=aa9262b3caf4bc3d29207a29b0510317&chksm=fcb716ddcbc09fcb5873aa3aeb8e92e0496bb082e1c9424137fb5c990659021a4e82db570211#rd
+'>中科院大佬Github开源目标检测顶会论文学习笔记（近五年CVPR、ECCV、NIPS、ICCV分会议总结）</a></td></tr><tr><td>63&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486050&idx=2&sn=ec19d3d8073f4807dd773a08ec016ee1&chksm=fcb716ddcbc09fcb5214f95709c00031e843f7f42533c42acdd1a468079a30976028cc373685#rd
+'>蔚来NPI软件开发实习（300-400元/天 有转正机会）</a></td></tr><tr><td>64&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486036&idx=1&sn=5cc3e8eba1c022e3335089bfa6c2cb83&chksm=fcb716ebcbc09ffdbeea4c66f9978e99c0cd34f5bc06d571a36ef86261ec1282eb5bac75a806#rd
+'>本硕985非科班渣硕2020腾讯计算机视觉算法实习面经（已获Offer）</a></td></tr><tr><td>65&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486028&idx=1&sn=d2dc4dbe21e17da34c1ab8882564c606&chksm=fcb716f3cbc09fe550c512d0ea0a8b0eb2dcf7415c65a6721ee9df8842d541a1362043bcd281#rd
+'>程序员常识~你知道1988年第二版C语言这本书被翻译成多少种语言吗？</a></td></tr><tr><td>66&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486028&idx=2&sn=bd2ff7ab64ea4a2732efde747cc2abd2&chksm=fcb716f3cbc09fe5233df5c8d467f35a204076fd60758ae72d5790eed9b4a3c7739f44461b06#rd
+'>旷视多岗位招聘（含AI+深度学习岗位）</a></td></tr><tr><td>67&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486016&idx=1&sn=4b0ed3a31f1995095d9f52649832f00b&chksm=fcb716ffcbc09fe96dcb64d598d74f06cc7eac3a9949804f121656aaf3e7fcc694dbd96bf3b2#rd
+'>中国科学院大学第二届本科毕业生再创辉煌！（87%继续深造：含MIT等名校）</a></td></tr><tr><td>68&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486016&idx=2&sn=9f58bc2c5e18c57bb78ea4bf92f6dfe3&chksm=fcb716ffcbc09fe96440f4bae1e4d87f4c28368c77cfa0f1d8eb1acfc5ad40bf630f1e03057d#rd
+'>GitHub使用指南——建立仓库、建立文件夹、上传图片详细教程</a></td></tr><tr><td>69&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247486012&idx=1&sn=8cb1256be823607c3b014ba85841fa1c&chksm=fcb71683cbc09f95db7dadbc86bc0963d030fb87b9d79864e387f9f99580536c623c3873710e#rd
+'>一方面SCIENCE劝退博士，一方面清华发公告，拟对2名博士生退学处理！</a></td></tr><tr><td>70&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485993&idx=1&sn=3735f45ee370eba985ef70d998f72f5d&chksm=fcb71696cbc09f804637d3712ccabe3fa537667c995a6bf2939f3c286d8e2fc723cebfdc5df9#rd
+'>21位清华、20位北大，22位国科大、43位中科大..入选中科院计算所暑期学校！录取率只有18%！</a></td></tr><tr><td>71&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485963&idx=1&sn=3225afa66fe28a441d7dd8c08f7e1ea6&chksm=fcb716b4cbc09fa20e5ae6e2399abb8a2ce5b7f34b2c7b3f6406c827c20555e82d42a705ae63#rd
+'>【快手】深度学习/计算机视觉实习生招聘（提供租房补助）</a></td></tr><tr><td>72&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485945&idx=1&sn=0b010ca537424967cf888ea775971ec4&chksm=fcb71546cbc09c50a64d6e6286045aa0da96363ec33b51745838ff8272f15a775cc2d262e03e#rd
+'>小米-北京地区招计算机视觉算法实习生（视频面试，免笔试）</a></td></tr><tr><td>73&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485940&idx=1&sn=77163697e12589a05a8fceab80789da8&chksm=fcb7154bcbc09c5d2dec360e33546a889fb1a1e2c1272d7d96e5be015b498057f62d54131be2#rd
+'>重磅突破！我国自主研发的首款基于“龙芯”国产域名服务器发布！在解决底层技术的问题上又前进了一步！</a></td></tr><tr><td>74&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485940&idx=2&sn=b09df7dcc43e0236c4b9298db5f1e425&chksm=fcb7154bcbc09c5d3518cd47634c9c84fc8603293a40c41b92abe0ee13ab29d12e0b6254156b#rd
+'>京东计算机视觉深度学习算法工程师（可转正）</a></td></tr><tr><td>75&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485925&idx=1&sn=88fbabefc7ce59dd3764777a33fe7438&chksm=fcb7155acbc09c4caed26b0ad5132c5b5ea090e21560f5020129f2ccbb8c9e57d121c4846f70#rd
+'>一位博士对人工智能学习历程的建议</a></td></tr><tr><td>76&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485925&idx=2&sn=d1812555f64ed48e6177b4292db099ac&chksm=fcb7155acbc09c4c0efc1397ad2f4a4d0cc1d824c1a7fda8de239a6333aed63d600f6bbd6829#rd
+'>大疆计算机视觉+机器学习算法工程师招聘！</a></td></tr><tr><td>77&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485897&idx=1&sn=877538879d07ae00275dc846d63e2ccd&chksm=fcb71576cbc09c60a7e34a080e3a5b61a6ef0aa5b7b6d1f88d1be9da97af377583ad40d23935#rd
+'>深度学习基础：如何从代数的角度对卷积神经网络（CNN）进行浅显易懂的解析</a></td></tr><tr><td>78&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485897&idx=2&sn=8f08721ebed036fd1990e80e8ede2524&chksm=fcb71576cbc09c6080c2394334c6a0d775301b01f88cc70386abb462b21c7b011282b63ff23a#rd
+'>高德计算机视觉算法工程师实习生招聘（可转正）</a></td></tr><tr><td>79&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485895&idx=1&sn=e7457a68d1655870bd945991002a0e59&chksm=fcb71578cbc09c6e7c395cfef393bf410028e3078ea441654f7d4b0f97b8ba5bd9091f167e64#rd
+'>重磅！中国人工智能学会2019年度优秀博士学位论文终评名单公示</a></td></tr><tr><td>80&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485895&idx=2&sn=28ac2cb797df135e19685c29a6507cee&chksm=fcb71578cbc09c6ea17c00d568a5a3d38c749bd6ee87e5d0493e71675051605e797930b5e4c7#rd
+'>商汤科技-计算机视觉-算法实习生招聘</a></td></tr><tr><td>81&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485869&idx=1&sn=13d529558290aa07a391b41b10a0bf99&chksm=fcb71512cbc09c04616092b51cb9316bd3c624c042af36153ffa1fe1c779b3d958f16390ef21#rd
+'>上海交通大学“土味”招生视频~闪瞎双眼--让你笑出猪叫...</a></td></tr><tr><td>82&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485869&idx=2&sn=9c286a2483a1775d9c4fc605840ad87b&chksm=fcb71512cbc09c040dc68e0811fb84b42e8f95d8d484cd0b3c405f2665d9c52dc74ceb9b5456#rd
+'>新鲜出炉：美的提前批Python数据挖掘工程师一面面经</a></td></tr><tr><td>83&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485849&idx=1&sn=8a78e4610a795d1f818630af901d09de&chksm=fcb71526cbc09c30ec6bae23c44d02e8412f3def957ffd188fc4f85e9a7eacf13b2956e212f7#rd
+'>人工智能领域的黄埔军校--中国科学技术大学！（科大讯飞、商汤、寒武纪、云从科技...）</a></td></tr><tr><td>84&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485849&idx=2&sn=bf2cec973934106e8ad31a954354044f&chksm=fcb71526cbc09c30468183c789a03ae0ddb0eae08551d0ca51cd5da44edbb7761963d2eac253#rd
+'>顺丰科技有限公司计算机视觉全职|实习招聘</a></td></tr><tr><td>85&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485842&idx=1&sn=11c992da8427336c291011336a70df01&chksm=fcb7152dcbc09c3b372b06fec7856634e7a4db8e90559da939b2718acf095eca5f70ad212e1a#rd
+'>CVPR 33篇：腾讯AI Lab实验室带你解读六大前沿方向！</a></td></tr><tr><td>86&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485838&idx=1&sn=776eae1c9ba3edc921354fe1122469ab&chksm=fcb71531cbc09c27c910ee8a2cfbfaf9b3f5e6cc485b87e44673eef5858533ca3cc76a6c822d#rd
+'>「AI集结号」度小满（原百度金融）2019技术开放日博士专场邀你来聚！</a></td></tr><tr><td>87&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485838&idx=2&sn=ccf6567cd3c59247650e360b57ffcdbe&chksm=fcb71531cbc09c277376e94c208b9739edae2915e18b4ceeddf4022c5070892651b7db9b2757#rd
+'>CVPR27篇：展现华为诺亚方舟实验室计算机视觉布局</a></td></tr><tr><td>88&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485818&idx=1&sn=230f40334abaf61ba2a218841d436188&chksm=fcb715c5cbc09cd335f51757fb975fadab66268066ec6c580b0b428e5fb46c5cf5855ef1ddd8#rd
+'>【收藏】深度学习模型大合集-GitHub标星5K+趋势榜第一</a></td></tr><tr><td>89&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485801&idx=1&sn=6c95facdb0519071eae6d09521e6ade6&chksm=fcb715d6cbc09cc0aeba1cbd652013e3a9c69682a42e4097224aedb4c7a4eba86e2176e576e8#rd
+'>5G到底有多快？北邮学生测试校园5G网速刷爆网络</a></td></tr><tr><td>90&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485796&idx=1&sn=7580a0ea922e2bf994093ff289c8e857&chksm=fcb715dbcbc09ccd6cf0c22249f4041c79b55ef73a7f303c6d3a4c11beec01f49a1e4490dbb9#rd
+'>重磅！中国工程院2019年院士增选进入第二轮评审的候选人名单公布</a></td></tr><tr><td>91&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485790&idx=1&sn=dc026f5e95bad3f3306f06dfec6a3b4c&chksm=fcb715e1cbc09cf7c30436450c6fca30406f0a0ed00dcb00ee773f5492ef3b0dc70b59357eb5#rd
+'>中国人民大学高瓴人工智能学院协议薪酬120-180万，住房补贴400万刷屏！解决住房和上人大附小！</a></td></tr><tr><td>92&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485784&idx=1&sn=e1f448e8ce5465cd64c8b0a9f8f1e95f&chksm=fcb715e7cbc09cf1dea4cf689acade00ac3d963ca9762dde568088d424ccfdb3d3809d77d6dc#rd
+'>爱奇艺AI图像算法、国网AI算法、京东机器学习实习生招聘</a></td></tr><tr><td>93&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485776&idx=1&sn=da02936c9aba628afa586b5c0138fe25&chksm=fcb715efcbc09cf95b097640c7126a6fa8b2dbb4258e68fa816dd7232a6df1f1f2986ecf8e24#rd
+'>众望所归：IEEE解除对编辑和同行评审活动的限制</a></td></tr><tr><td>94&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485768&idx=1&sn=556e3ea3bc9eb99bff64f43bc32e7e6f&chksm=fcb715f7cbc09ce10391110bc04adc6a2abaaeea79000efd20d5c0756535de304a7204867ddf#rd
+'>乌克兰专家Andrew：Python适合AI/机器学习的八个理由</a></td></tr><tr><td>95&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485743&idx=1&sn=43af521d6cd4c5e93224c3a8076ae6e0&chksm=fcb71590cbc09c86395677aeb61647c2f0626d2b267c7b1dbccdfe54d0a5fee5a2a1c7984cf9#rd
+'>中国国际电视台主播刘欣与FOX主播约辩内容全程盘点</a></td></tr><tr><td>96&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485729&idx=1&sn=7df9e271fc7533b6e1e9451ca59bb122&chksm=fcb7159ecbc09c88bdb393bd3b30cab2f7c7c96f2756b726df00870441817db8c9fde2d8aed9#rd
+'>科学无国界？IEEE被曝对华为说不！下令清理华为系审稿人！</a></td></tr><tr><td>97&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485707&idx=1&sn=271eda7bbc0d7af1bf673871cbbdfd6d&chksm=fcb715b4cbc09ca26fc14b5c9ab392a72203865694dd458ff7e18375a30b612178aeb2ec7d05#rd
+'>阿里、百度、字节跳动、京东、地平线等计算机视觉实习生面试经历分析，已成功上岸！</a></td></tr><tr><td>98&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485707&idx=2&sn=0797e6b4ade6d77cefc85c7a85524351&chksm=fcb715b4cbc09ca2e6e4b2e132cb39073c913684caf1153056212d437dd8fa36478088071cc8#rd
+'>vivo2020校园招聘提前批，斩获Offer的好机会！！！</a></td></tr><tr><td>99&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485666&idx=1&sn=32353dd920d0b4bc6e6cc33729d68c36&chksm=fcb7145dcbc09d4b08a47116db1434b7df795f048f878d711467848cb0979778074b35c764f2#rd
+'>华为海思员工在知乎上的回答：海思在中国芯片界是什么样的存在？</a></td></tr><tr><td>100&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485655&idx=1&sn=bb2861f66154123e3f73e0fc532a8bb0&chksm=fcb71468cbc09d7ec9189c83f95cc26dd39289b4a3fa5f7349efe9b572fd65a1a972360900bd#rd
+'>【收藏】计算机视觉领域全球顶级高校研究所团队总结</a></td></tr><tr><td>101&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485639&idx=1&sn=bdf19e2194e5ccbc6d619659ce007f7a&chksm=fcb71478cbc09d6ef1ca3b290469bfca3dfa2c095a20367e1ad46221f7131d5b18daa9b28d16#rd
+'>无人驾驶公司-文远知行招聘地图与定位SLAM算法实习生</a></td></tr><tr><td>102&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485634&idx=1&sn=bd53abc48c2226906bf5663b2b127a79&chksm=fcb7147dcbc09d6b41b131e4d8c4b0807a8333508ea1f57c20a3eb34c01363fc67a54d61b8f0#rd
+'>清华本、国防科大硕、原阿里工程师《AI 算法工程师手册》笔记开源！</a></td></tr><tr><td>103&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485620&idx=1&sn=f5b2a41ece92366d1a49c7c2b7e13038&chksm=fcb7140bcbc09d1dcfb52f89a1128483cda388584d415ce0fedf0295e72453b506efa163dc99#rd
+'>2019计算机视觉暑期实习面试感想以及实习建议</a></td></tr><tr><td>104&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485609&idx=1&sn=e5bd0d695961ca04d5aa56d06bc49ce7&chksm=fcb71416cbc09d002fb1185283cf31ae45643b9ea15d512fdb75e44d3b083cc13eec02cce342#rd
+'>Google GAN之父Ian Goodfellow ICLR 2019演讲：对抗机器学习的进展与挑战</a></td></tr><tr><td>105&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485555&idx=1&sn=a369ef845b5dd2ef1a850302b5d9b698&chksm=fcb714cccbc09dda49727c3627eb54c468a604f49c0c06bbf8fda69daf3555766608236bb188#rd
+'>商汤科技、微软小冰招聘深度学习算法实习生！</a></td></tr><tr><td>106&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485548&idx=2&sn=952d18646c2331b5b90129a2758b1efd&chksm=fcb714d3cbc09dc5cd682e2b0548073da266650276d4fce5cb235821c1856d60d08a0aeeac9e#rd
+'>南京地平线机器人无人驾驶算法面经--已获offer！</a></td></tr><tr><td>107&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485541&idx=1&sn=270e703781ccb28539205bbfe2034658&chksm=fcb714dacbc09dcccd5069159389ebc0fc8bb42a6c3e7796fb50e89fb0b5cc192ea310b368f9#rd
+'>IBM China实验室招聘AI算法工程师（如签约北京协助解决户口）</a></td></tr><tr><td>108&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485532&idx=1&sn=5383b316f6e082e4fdc93b13886b02a0&chksm=fcb714e3cbc09df5a97612b9bcf1ceac83b0d013467db843838f76a0e7435290006ce5729a82#rd
+'>【收藏】GitHub标星2000+的Python机器学习教程，含运行代码！</a></td></tr><tr><td>109&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485514&idx=1&sn=8bf77e1b55ae10cd7a376a3c2207f0d4&chksm=fcb714f5cbc09de38fdfdbefcd1d92e8ba70f02196270160ae18d5d321353158bdc42dd86012#rd
+'>PyTorch和TensorFlow，应该使用哪个？谁最受欢迎？</a></td></tr><tr><td>110&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485504&idx=1&sn=62c7eb36abbf9a01b02338379cfad314&chksm=fcb714ffcbc09de9bcbd8e5da687ae7f2bffdfda02f527e595ee9695195d7c01c439763819f8#rd
+'>资源推荐！Python算法实现大全，附源代码！</a></td></tr><tr><td>111&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485502&idx=1&sn=e9a8fd0419a85300ba455f0b88131f2b&chksm=fcb71481cbc09d97c2b0307702758cb2cf30142b319a7c8435ddde69251a40b18df8bc3422c6#rd
+'>资源推荐！顶级程序员必刷宝典！LeetCode中文解题思路重磅问世！</a></td></tr><tr><td>112&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485500&idx=1&sn=84e468bfde22b7d2d00f773e52a4eec2&chksm=fcb71483cbc09d95eb6d98a056cc385d617af88f117ac4f7089985c65f1b5475b0fef90fd252#rd
+'>收藏！最全TensorFlow模型实现开源库，手把手教你实现各种模型！</a></td></tr><tr><td>113&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485490&idx=1&sn=687309cd937755b52a91d9ad3739e096&chksm=fcb7148dcbc09d9bfe8a0d89e14aa9ee9d2b232b8fda3372f003490df7ff0e0afdbf76da74ab#rd
+'>基于Python的神经网络可视化工具</a></td></tr><tr><td>114&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485483&idx=1&sn=00180c7390c3f450f6fe16b4f9dbafd9&chksm=fcb71494cbc09d82137f9899a70c5b0c33e48a12a54b92f4f52afb4c0891a98683b1c8d6f6fa#rd
+'>重磅 | 完备的 AI 学习路线，最详细的资源整理！</a></td></tr><tr><td>115&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485467&idx=1&sn=d34c9c59e50bdcc105dd0a499224c54c&chksm=fcb714a4cbc09db22fcfa213c7d59a4d2ae3ff9277b36056629484feacaf2f6326c2cdb1b55e#rd
+'>2019年中国工程院院士增选有效候选人名单公布，附全名单！</a></td></tr><tr><td>116&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485457&idx=1&sn=9374c84225fd37a258d4ed0c85c53bb3&chksm=fcb714aecbc09db8600c4465d2d43d55126af9d3f536ea9d6c1c66c3efd19aff805a5a03319b#rd
+'>CVPR2019目标分割论文推荐（附论文及代码链接）</a></td></tr><tr><td>117&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485456&idx=1&sn=91ae9b7fc18864955177a534d80104ed&chksm=fcb714afcbc09db938540488ebb92915abb8115614a3bb943390e7cee9dcf11a61e185072fde#rd
+'>阿里&格林深瞳计算机视觉岗实习面经</a></td></tr><tr><td>118&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485440&idx=1&sn=18a7b64e74af8d441f5dda095ec2422a&chksm=fcb714bfcbc09da9271e3fa57dddb60693ac6da808309f5c2b2fd3aa7ef06e51362f4a02c8ac#rd
+'>快手AI实验室招聘深度学习/计算机视觉实习生</a></td></tr><tr><td>119&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485433&idx=1&sn=eef922d49f733a10ec0214d1ffe32c83&chksm=fcb71b46cbc09250cb7a25e16747173c00061516ff8246d0f9bae24a7c0c710d7360408322df#rd
+'>谷歌CVPR最新成果！采用数据驱动方法通过YouTube视频生成深度图（效果最先进！）</a></td></tr><tr><td>120&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485413&idx=1&sn=d0f14d63f39598e149b05eed405290ef&chksm=fcb71b5acbc0924c95e483e046a5273a103643678b498fb983b092148fe56353f9f02cdc3878#rd
+'>招聘！微软亚洲研究院MSAR实习生计划！（包含机器学习、深度学习、视觉计算、自然语言...）</a></td></tr><tr><td>121&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485408&idx=1&sn=89f26f734711afdbe8a25ade297ac6a1&chksm=fcb71b5fcbc09249e4da7de2d0facbdf3de581808e096c2cb0aaea96b9d70904f35e2ffa7c9a#rd
+'>百度计算机视觉暑期实习面经（成功上岸！已拿offer）</a></td></tr><tr><td>122&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485402&idx=1&sn=5401788bc222955f59d3471d0aa01dfa&chksm=fcb71b65cbc092733bd97d93be6f9c740d499bc5fa8f8aaa04956d58a5f9281e4f09024cc2d3#rd
+'>【收藏】GitHub标星6000+的PyTorch资源大列表！</a></td></tr><tr><td>123&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485389&idx=1&sn=4b369cd3c952196af5f1d89a42371cfc&chksm=fcb71b72cbc09264949cd518192cc449e3a79b16993bfca65d1b10a4a107606110f09a917e53#rd
+'>CVPR2019 Oral！伯克利、麻省理工GAN图像合成最新成果（附开源代码）！</a></td></tr><tr><td>124&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485377&idx=1&sn=f94168c3af328b2276e4690dd431c03a&chksm=fcb71b7ecbc092680c0118536473bb92628f3ad04778a3a2470b6f70989d2e87e14466f6999b#rd
+'>腾讯优图2019CVPR文章解读-基于自适应空间加权相关滤波的视觉跟踪研究</a></td></tr><tr><td>125&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485354&idx=1&sn=90051db1c7f81ddf9c085992d5db1aab&chksm=fcb71b15cbc092039ad45246ce588c8ad8051448e154aa3bfa6a9305f78fc2090ea375322680#rd
+'>CVPR2019北大最新成果！基于语义解析转换的无监督人图像生成</a></td></tr><tr><td>126&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485342&idx=1&sn=33d1f8943f7728ad162934c3a8bc31e8&chksm=fcb71b21cbc09237deb62faad0a650f71bdbd508245386cf56627724d3228dd71f5ef0bc3c24#rd
+'>CVPR2019| 中科院VIPL实验室11篇CVPR解读：弱监督学习、视频分割、目标检测</a></td></tr><tr><td>127&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485338&idx=1&sn=f8d6879ed5479e52031e6f372b71eb22&chksm=fcb71b25cbc092330dfc91046c962f086e43819c60e59cb2f3f7250c1319b6c4d0af50808946#rd
+'>Google CVPR 2019最新成果！NAS-FPN：可扩展特征金字塔结构用于目标检测</a></td></tr><tr><td>128&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485321&idx=1&sn=6643451d42493a53de079aebe9843732&chksm=fcb71b36cbc09220b7ff95ab1bd949ed2e1b52c665222e054cec8147ae7467fdc5aff0091756#rd
+'>“图灵奖得主”Yoshua Bengio在Quora上回答机器学习55个问题及答案</a></td></tr><tr><td>129&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485315&idx=1&sn=5e57fc497b03ea8b5e76c19fbf618add&chksm=fcb71b3ccbc0922a8e677f9df227a1e7528b4d384fa638a1f38521f66694972f9707779f2edc#rd
+'>资源下载 | 复旦大学邱锡鹏教授中文版《神经网络与深度学习》，配备代码和章节练习</a></td></tr><tr><td>130&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485311&idx=1&sn=71a67348879e1db74a8993bdb2d06e3d&chksm=fcb71bc0cbc092d62f9b829c6b81a1938ce50eb99132a7b666af4020d985f11aad4dc900964c#rd
+'>一文详解数据科学顶级竞赛！除了Kaggle、天池、KDD...你还知道哪些？</a></td></tr><tr><td>131&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485307&idx=1&sn=3aa9c7d7578e6d3a33cca34bb7e9c7f0&chksm=fcb71bc4cbc092d299e47d1c4d3004935afabef241e4ca7f23e0da1137c37a010ed0065a5cc4#rd
+'>CVPR2019最新论文！刷新两项世界纪录的人脸检测算法DSFD开源了！</a></td></tr><tr><td>132&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485301&idx=1&sn=7e7d2d27ad430d1d707cf69fcf70c17f&chksm=fcb71bcacbc092dceef3b2e886e0c391328daf2a195ca0e5a893bbaa15e1eb208c5bcdd814d3#rd
+'>收藏！基于深度学习的目标检测算法近5年发展历史综述</a></td></tr><tr><td>133&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485294&idx=1&sn=24c865c2804acbf91cb2f7b4de826836&chksm=fcb71bd1cbc092c774009a76d281bcb9223367a6e2e30443a735d99d4fc30d8aba3c2b42c40a#rd
+'>最新！Element 2019AI报告-顶级研究基本被美、中、英垄断</a></td></tr><tr><td>134&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485290&idx=1&sn=d44e4b93d3d70670763763f2d12cc2a2&chksm=fcb71bd5cbc092c3abc505cb7f17ce3423eedce88e897cee2456297735544a873f0e7ee012b7#rd
+'>AI能带来的职业机会有哪些？？</a></td></tr><tr><td>135&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485286&idx=1&sn=30a56786f3448395d1b5c964ff29ec6e&chksm=fcb71bd9cbc092cfd647127d11d6543e1ab67d1311d79eb121d590de5fca884eb1840d77071d#rd
+'>【资源】台大李宏毅对抗生成网络(GAN)2018国语课程</a></td></tr><tr><td>136&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485277&idx=1&sn=a2d9541e72158e653e1ad59a27d4722d&chksm=fcb71be2cbc092f44ab59c08df2695024291d96191ca03cef44a0fda2d6281b6ebf8462d2349#rd
+'>【下载】吴恩达《Machine Learning Yearning》中文版</a></td></tr><tr><td>137&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485268&idx=1&sn=938e84cd610e04ad7ed16498ac15f8fe&chksm=fcb71bebcbc092fdf5c8ba13f24f0cc8206feb9a6026f377034ec3767e4dc81c14822bc7f5a9#rd
+'>【收藏】高赞的GitHub机器学习成长指南</a></td></tr><tr><td>138&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485264&idx=1&sn=7e03e72de1670be0bbfa1097974f0d5f&chksm=fcb71befcbc092f93003ffdb5a777bc2d457aac041ef0359242ee7bb3c2a7c4043d8585c5a68#rd
+'>一周AI事迹盘点，不容错过！</a></td></tr><tr><td>139&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485257&idx=1&sn=15ad2d4c1ca38d772d732f184c126ad4&chksm=fcb71bf6cbc092e0273c516eb5a1ffd286bcf9c1ebe15d05e25705ad92ce916ca3c2fff2c63c#rd
+'>不再遥不可及！盘点独角兽自动驾驶战略</a></td></tr><tr><td>140&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485241&idx=1&sn=e5fbf21338692a5efafe3739b3574ece&chksm=fcb71b86cbc09290c3c9eb8470d185909bb5f7ed4e970bfe45e9ef200a8a27cf0fc01b66f4e7#rd
+'>收藏！国内外顶尖的人工智能AI实验室推荐及入职建议！</a></td></tr><tr><td>141&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485212&idx=1&sn=d9da64a3e3840acec6050201bc8fe5b2&chksm=fcb71ba3cbc092b547309d191775006a5de421b29df6bdb9cda297946b60b7f7fb7c150c2c61#rd
+'>重磅！前腾讯AI Lab主任张潼博士加盟创新工场！携手港科大建立联合实验室！</a></td></tr><tr><td>142&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485208&idx=1&sn=1fa85cf1cd2d0b4522c9edcc5fae38d3&chksm=fcb71ba7cbc092b1b6be7dc93c66522076cdb750db1c7fe3181c23dc1329dfd5c4f6d4289411#rd
+'>30万奖金的AI城市挑战赛，等你来拿！</a></td></tr><tr><td>143&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485204&idx=1&sn=cad80583f246ab83dc35e7d0e089f20d&chksm=fcb71babcbc092bdbbba177e6dbb9acfab4d1202678561e809ca40e775c6fbbb4ca64a0d1f11#rd
+'>收藏！38所设有人工智能学院高校表单！</a></td></tr><tr><td>144&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485195&idx=1&sn=94f972ad889d28ec1b82c92f0d1e8fcf&chksm=fcb71bb4cbc092a2812de2cfbfc3c70e927c622661147b03c8fabd18f84ad3adf19aff6f95e3#rd
+'>【资源】中文课程—李宏毅2019机器学习公开课！</a></td></tr><tr><td>145&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485188&idx=1&sn=20d48fca91a514033aac6c72e4619caa&chksm=fcb71bbbcbc092ada3f17ab9cd432a5966dfde8e3d3415bed11685726133894ace336fd63721#rd
+'>联盟一周（10-16）成果总结，重要成果不容错过！</a></td></tr><tr><td>146&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485181&idx=1&sn=c895608c52cd874a0152ebfc7bf43c39&chksm=fcb71a42cbc093544c5be426c020e807bedc7cb0967ef1d8d53cbff1aae6968a6a0635d4b56b#rd
+'>吴恩达新上线“Al for Everyone”课程笔记，收藏！</a></td></tr><tr><td>147&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485168&idx=1&sn=115282053ed0285ccadb2ddf9bea8a82&chksm=fcb71a4fcbc0935914b845d6aee419f72bc04d86002b7e161b3f439c17f244d66b924db09441#rd
+'>CVPR2019| 新成果—MirrorGAN：文本图像生成</a></td></tr><tr><td>148&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485168&idx=2&sn=45c158f6a5ae6691d011ac196f5a48ba&chksm=fcb71a4fcbc093590db88b6b7fd5155a227da5c59bcfcb4f35e4f8df851f6573e5aae44bf519#rd
+'>百度总裁张亚勤退休！百度提携8090后进入管理层！</a></td></tr><tr><td>149&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485143&idx=1&sn=e6f6f3593f514753e03ed186683fb3b2&chksm=fcb71a68cbc0937e9cff7ad9980dddb6544304995143591031b0b565408542712bfc619941a0#rd
+'>CVPR2019| 最新CVPR2019论文：含目标检测、分割、深度学习、GAN等领域</a></td></tr><tr><td>150&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485117&idx=1&sn=21dee44f332fae62297aaf52c8ae10a4&chksm=fcb71a02cbc093144a76fed3e719802b578df342f6582ca7bc728bf0c982f25959f610d5080e#rd
+'>CVPR2019| 亚洲微软研究院、阿德莱德论文：结构知识蒸馏应用语义分割</a></td></tr><tr><td>151&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485101&idx=1&sn=b1a261a89629347b77db907c705f4bd4&chksm=fcb71a12cbc093047ef8f4bf1ea98531b1603198a2312dee427454a5a4523447e9f8efcb9d92#rd
+'>【收藏】机器学习面试题总结，快来学习吧！</a></td></tr><tr><td>152&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485095&idx=1&sn=2cce4921a6adecd061179bce23c9ec32&chksm=fcb71a18cbc0930e7712f25996ce5d4d3864a61b39f49f9c41b05ce46ef02ff7a6a98133dc05#rd
+'>CVPR2019| 最新CVPR2019论文抢先看！</a></td></tr><tr><td>153&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485095&idx=2&sn=815e40222b9944ce793c4b34209766f5&chksm=fcb71a18cbc0930e9027de5b9d2544ff8da680de0b4ca041ce00889ece4879f77d21b059b034#rd
+'>10分钟了解人工智能的三生三世</a></td></tr><tr><td>154&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485039&idx=1&sn=e147fb9530c899f7e60ac516ee004185&chksm=fcb71ad0cbc093c6f299b56b50a31bc0c5ac4f3aee35bd8b69ce15f89354c0fc0f6d5433868c#rd
+'>联盟一周成果总结，重要成果不容错过！</a></td></tr><tr><td>155&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247485020&idx=1&sn=c66cbdf307d603e4c6c8916227d85234&chksm=fcb71ae3cbc093f52505be3af123ecc885d3e168a1035596d362c0e67b56be2fefabceee948e#rd
+'>CVPR2019| ADCrowdNet: 用于人群理解的可变形卷积网络</a></td></tr><tr><td>156&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247484990&idx=1&sn=6c1c360ade25e4ef5eb4805c8a7f3b90&chksm=fcb71a81cbc09397e38d69cee3d9802854a0c04fbb30ae9c340ebcf51ac311f2460ff3fc0190#rd
+'>CVPR2019| 腾讯优图25篇CVPR解读：视觉对抗学习、视频深度理解等</a></td></tr><tr><td>157&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247484990&idx=2&sn=50191189dd0284e211e3c5ddac36d046&chksm=fcb71a81cbc09397374894f0d83a478f9192238399d70437a5bbdfacc2f1084ee16976cb3eb6#rd
+'>【收藏】2月份GitHub上最热门的开源项目</a></td></tr><tr><td>158&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247484990&idx=3&sn=3e2ce65c2a05417f2d2b103e88ea227a&chksm=fcb71a81cbc0939725689fc5bb4bf395235b28c586fe32dec0bb0b62028e00657cdf3635e540#rd
+'>CVPR 2019 | 惊艳的SiamMask：开源快速同时进行目标跟踪与分割算法</a></td></tr><tr><td>159&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247484975&idx=1&sn=c11020b28c5e1ac9d5d25315ea3d6af9&chksm=fcb71a90cbc0938646acc75f25c535d59abf4ae99bbf278bb02469b8fe77d7ddcc50a10e7478#rd
+'>CVPR2019接收论文| 深度迁移学习用于多类新颖性检测</a></td></tr><tr><td>160&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=MzU2NTc5MjIwOA==&mid=2247484960&idx=1&sn=c0e33b9c2fabc173fd49344af713cfaf&chksm=fcb71a9fcbc09389fafda13d30552d2e8c908aa5fad2a2f83e17596698bda36ba65d0d6fb968#rd
+'>盘点IT中最热门的岗位，有你工作的岗位吗？</a></td></tr></tbody></html>
