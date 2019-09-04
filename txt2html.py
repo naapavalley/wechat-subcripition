@@ -290,6 +290,7 @@ def genhtml():
     # 关闭文件
     f.close()
     webbrowser.open(GEN_HTML, new=1)
+
 if __name__ == '__main__':
     #repstring()
     #clearBlankLine()

@@ -1,0 +1,405 @@
+
+        <!doctype html>
+        <html>
+        <head>
+        <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+        <title></title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+        html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+        body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+        iframe { margin: auto; }
+        a.url { word-break: break-all; }
+        a:active, a:hover { outline: 0px; }
+        .in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+        #write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+        #write.first-line-indent p { text-indent: 2em; }
+        #write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+        #write.first-line-indent li { margin-left: 2em; }
+        .for-image #write { padding-left: 8px; padding-right: 8px; }
+        body.typora-export { padding-left: 30px; padding-right: 30px; }
+        .typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+        @media screen and (max-width: 500px) {
+          body.typora-export { padding-left: 0px; padding-right: 0px; }
+          #write { padding-left: 20px; padding-right: 20px; }
+          .CodeMirror-sizer { margin-left: 0px !important; }
+          .CodeMirror-gutters { display: none !important; }
+        }
+        #write li > figure:first-child { margin-top: -20px; }
+        #write ol, #write ul { position: relative; }
+        img { max-width: 100%; vertical-align: middle; }
+        button, input, select, textarea { color: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; }
+        input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+        *, ::after, ::before { box-sizing: border-box; }
+        #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+        #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+        h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
+        p { orphans: 4; }
+        h1 { font-size: 2rem; }
+        h2 { font-size: 1.8rem; }
+        h3 { font-size: 1.6rem; }
+        h4 { font-size: 1.4rem; }
+        h5 { font-size: 1.2rem; }
+        h6 { font-size: 1rem; }
+        .md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+        .hidden { display: none; }
+        .md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+        a { cursor: pointer; }
+        sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+        sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+        #write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+        figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+        figure > table { margin: 0px !important; }
+        tr { break-inside: avoid; break-after: auto; }
+        thead { display: table-header-group; }
+        table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+        table.md-table td { min-width: 32px; }
+        .CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+        .CodeMirror-linenumber { user-select: none; }
+        .CodeMirror { text-align: left; }
+        .CodeMirror-placeholder { opacity: 0.3; }
+        .CodeMirror pre { padding: 0px 4px; }
+        .CodeMirror-lines { padding: 0px; }
+        div.hr:focus { cursor: none; }
+        #write pre { white-space: pre-wrap; }
+        #write.fences-no-line-wrapping pre { white-space: pre; }
+        #write pre.ty-contain-cm { white-space: normal; }
+        .CodeMirror-gutters { margin-right: 4px; }
+        .md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+        .md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+        #write .md-fences.mock-cm { white-space: pre-wrap; }
+        .md-fences.md-fences-with-lineno { padding-left: 0px; }
+        #write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+        .md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+        .CodeMirror-line, twitterwidget { break-inside: avoid; }
+        .footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+        .footnotes + .footnotes { margin-top: 0px; }
+        .md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+        li div { padding-top: 0px; }
+        blockquote { margin: 1rem 0px; }
+        li .mathjax-block, li p { margin: 0.5rem 0px; }
+        li { margin: 0px; position: relative; }
+        blockquote > :last-child { margin-bottom: 0px; }
+        blockquote > :first-child, li > :first-child { margin-top: 0px; }
+        .footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+        #write .footnote-line { white-space: pre-wrap; }
+        @media print {
+          body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+          #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+          .typora-export * { -webkit-print-color-adjust: exact; }
+          html.blink-to-pdf { font-size: 13px; }
+          .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+          .typora-export #write::after { height: 0px; }
+          @page { margin: 20mm 0px; }
+        }
+        .footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+        a img, img a { cursor: pointer; }
+        pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+        p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+        p > .md-image:only-child { display: inline-block; width: 100%; }
+        #write .MathJax_Display { margin: 0.8em 0px 0px; }
+        .md-math-block { width: 100%; }
+        .md-math-block:not(:empty)::after { display: none; }
+        [contenteditable="true"]:active, [contenteditable="true"]:focus { outline: 0px; box-shadow: none; }
+        .md-task-list-item { position: relative; list-style-type: none; }
+        .task-list-item.md-task-list-item { padding-left: 0px; }
+        .md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+        .math { font-size: 1rem; }
+        .md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+        .md-toc-content { position: relative; margin-left: 0px; }
+        .md-toc-content::after, .md-toc::after { display: none; }
+        .md-toc-item { display: block; color: rgb(65, 131, 196); }
+        .md-toc-item a { text-decoration: none; }
+        .md-toc-inner:hover { text-decoration: underline; }
+        .md-toc-inner { display: inline-block; cursor: pointer; }
+        .md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+        .md-toc-h2 .md-toc-inner { margin-left: 2em; }
+        .md-toc-h3 .md-toc-inner { margin-left: 4em; }
+        .md-toc-h4 .md-toc-inner { margin-left: 6em; }
+        .md-toc-h5 .md-toc-inner { margin-left: 8em; }
+        .md-toc-h6 .md-toc-inner { margin-left: 10em; }
+        @media screen and (max-width: 48em) {
+          .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+          .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+          .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+          .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+        }
+        a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+        .footnote-line a:not(.reversefootnote) { color: inherit; }
+        .md-attr { display: none; }
+        .md-fn-count::after { content: "."; }
+        code, pre, samp, tt { font-family: var(--monospace); }
+        kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+        .md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+        code { text-align: left; vertical-align: initial; }
+        a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+        .md-inline-math .MathJax_SVG .noError { display: none !important; }
+        .html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+        .md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+        .MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+        .MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+        .MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+        .MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+        .MathJax_SVG * { transition: none; }
+        .MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; }
+        .os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+        .md-diagram-panel > svg { max-width: 100%; }
+        [lang="mermaid"] svg, [lang="flow"] svg { max-width: 100%; }
+        [lang="mermaid"] .node text { font-size: 1rem; }
+        table tr th { border-bottom: 0px; }
+        video { max-width: 100%; display: block; margin: 0px auto; }
+        iframe { max-width: 100%; width: 100%; border: none; }
+        .highlight td, .highlight tr { border: 0px; }
+        :root { --side-bar-bg-color: #fafafa; --control-text-color: #777; }
+        html { font-size: 16px; }
+        body { font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; color: rgb(51, 51, 51); line-height: 1.6; }
+        #write { max-width: 860px; margin: 0px auto; padding: 30px 30px 100px; }
+        #write > ul:first-child, #write > ol:first-child { margin-top: 30px; }
+        a { color: rgb(65, 131, 196); }
+        h1, h2, h3, h4, h5, h6 { position: relative; margin-top: 1rem; margin-bottom: 1rem; font-weight: bold; line-height: 1.4; cursor: text; }
+        h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor { text-decoration: none; }
+        h1 tt, h1 code { font-size: inherit; }
+        h2 tt, h2 code { font-size: inherit; }
+        h3 tt, h3 code { font-size: inherit; }
+        h4 tt, h4 code { font-size: inherit; }
+        h5 tt, h5 code { font-size: inherit; }
+        h6 tt, h6 code { font-size: inherit; }
+        h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom: 1px solid rgb(238, 238, 238); }
+        h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom: 1px solid rgb(238, 238, 238); }
+        h3 { font-size: 1.5em; line-height: 1.43; }
+        h4 { font-size: 1.25em; }
+        h5 { font-size: 1em; }
+        h6 { font-size: 1em; color: rgb(119, 119, 119); }
+        p, blockquote, ul, ol, dl, table { margin: 0.8em 0px; }
+        li > ol, li > ul { margin: 0px; }
+        hr { height: 2px; padding: 0px; margin: 16px 0px; background-color: rgb(231, 231, 231); border: 0px none; overflow: hidden; box-sizing: content-box; }
+        li p.first { display: inline-block; }
+        ul, ol { padding-left: 30px; }
+        ul:first-child, ol:first-child { margin-top: 0px; }
+        ul:last-child, ol:last-child { margin-bottom: 0px; }
+        blockquote { border-left: 4px solid rgb(223, 226, 229); padding: 0px 15px; color: rgb(119, 119, 119); }
+        blockquote blockquote { padding-right: 0px; }
+        table { padding: 0px; word-break: initial; }
+        table tr { border-top: 1px solid rgb(223, 226, 229); margin: 0px; padding: 0px; }
+        table tr:nth-child(2n), thead { background-color: rgb(248, 248, 248); }
+        table tr th { font-weight: bold; border-width: 1px 1px 0px; border-top-style: solid; border-right-style: solid; border-left-style: solid; border-top-color: rgb(223, 226, 229); border-right-color: rgb(223, 226, 229); border-left-color: rgb(223, 226, 229); border-image: initial; border-bottom-style: initial; border-bottom-color: initial; text-align: left; margin: 0px; padding: 6px 13px; }
+        table tr td { border: 1px solid rgb(223, 226, 229); text-align: left; margin: 0px; padding: 6px 13px; }
+        table tr th:first-child, table tr td:first-child { margin-top: 0px; }
+        table tr th:last-child, table tr td:last-child { margin-bottom: 0px; }
+        .CodeMirror-lines { padding-left: 4px; }
+        .code-tooltip { box-shadow: rgba(0, 28, 36, 0.3) 0px 1px 1px 0px; border-top: 1px solid rgb(238, 242, 242); }
+        .md-fences, code, tt { border: 1px solid rgb(231, 234, 237); background-color: rgb(248, 248, 248); border-radius: 3px; padding: 2px 4px 0px; font-size: 0.9em; }
+        code { background-color: rgb(243, 244, 244); padding: 0px 2px; }
+        .md-fences { margin-bottom: 15px; margin-top: 15px; padding-top: 8px; padding-bottom: 6px; }
+        .md-task-list-item > input { margin-left: -1.3em; }
+        @media print {
+          html { font-size: 13px; }
+          table, pre { break-inside: avoid; }
+          pre { word-wrap: break-word; }
+        }
+        .md-fences { background-color: rgb(248, 248, 248); }
+        #write pre.md-meta-block { padding: 1rem; font-size: 85%; line-height: 1.45; background-color: rgb(247, 247, 247); border: 0px; border-radius: 3px; color: rgb(119, 119, 119); margin-top: 0px !important; }
+        .mathjax-block > .code-tooltip { bottom: 0.375rem; }
+        .md-mathjax-midline { background: rgb(250, 250, 250); }
+        #write > h3.md-focus::before { left: -1.5625rem; top: 0.375rem; }
+        #write > h4.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
+        #write > h5.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
+        #write > h6.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
+        .md-image > .md-meta { border-radius: 3px; padding: 2px 0px 0px 4px; font-size: 0.9em; color: inherit; }
+        .md-tag { color: rgb(167, 167, 167); opacity: 1; }
+        .md-toc { margin-top: 20px; padding-bottom: 20px; }
+        .sidebar-tabs { border-bottom: none; }
+        #typora-quick-open { border: 1px solid rgb(221, 221, 221); background-color: rgb(248, 248, 248); }
+        #typora-quick-open-item { background-color: rgb(250, 250, 250); border-color: rgb(254, 254, 254) rgb(229, 229, 229) rgb(229, 229, 229) rgb(238, 238, 238); border-style: solid; border-width: 1px; }
+        .on-focus-mode blockquote { border-left-color: rgba(85, 85, 85, 0.12); }
+        header, .context-menu, .megamenu-content, footer { font-family: "Segoe UI", Arial, sans-serif; }
+        .file-node-content:hover .file-node-icon, .file-node-content:hover .file-node-open-state { visibility: visible; }
+        .mac-seamless-mode #typora-sidebar { background-color: var(--side-bar-bg-color); }
+        .md-lang { color: rgb(180, 101, 77); }
+        .html-for-mac .context-menu { --item-hover-bg-color: #E6F0FE; }
+        #md-notification .btn { border: 0px; }
+        .dropdown-menu .divider { border-color: rgb(229, 229, 229); }
+         .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
+        </style>
+        </head>
+        <body class='typora-export os-windows' >
+        <div  id='write'  class = 'is-node'>
+        <figure>
+        <table>
+        <thead><tr><th>微信公众号：LaTeX工作室&emsp;&emsp;&emsp;&emsp;微信号：gh_c62339796a18&emsp;&emsp;&emsp;&emsp;更新日期：2019-08-12&emsp;&emsp;&emsp;&emsp;<br>标签：LaTeX</th></tr></thead><tbody><tr><td>1&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247485183&idx=1&sn=d91b839acdb797861b5492c407afcf7d&chksm=cf4d3054f83ab9428c10689f8544a73dc0bdd1674677b05a9307b16532dcad3d6eefbfcebafb#rd
+'>如何在 MS-word 中使用 bib 文件</a></td></tr><tr><td>2&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247485178&idx=1&sn=03d27ca830d232551256176f13d16284&chksm=cf4d3051f83ab9473fd9b7d46f5e53d41a956b4bc713ae0cd4e238500b73e38ec4bd7f90c858#rd
+'>L 教你拯救国内期刊老旧的 CCT 模板</a></td></tr><tr><td>3&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247485173&idx=1&sn=60e6ac94a491957751a8ee4dc613c16c&chksm=cf4d305ef83ab948f9f8eb2d001b55329c7732cddf0d31768db3e6ad3f9d8e99107ea668c862#rd
+'>一个问题可以学习这么多知识，造起来！~</a></td></tr><tr><td>4&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247485168&idx=1&sn=005237563649e5a1b6b17e08f472d3bf&chksm=cf4d305bf83ab94d72d18cea6a0e8d406a258e359d56bfb5b1abe514368101564b8a727ecd2c#rd
+'>LaTeX 排版的 微观经济学初等笔记</a></td></tr><tr><td>5&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247485163&idx=1&sn=9ad544291e1bfff41c37f3fcfb19d89c&chksm=cf4d3040f83ab9569fa52e27e12fc01f53d51824f572de4c0b8f5fb713e6e923f0bc0b332dff#rd
+'>LaTeX 有问题吗，赶紧来吧，大牛们都等不及了</a></td></tr><tr><td>6&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247485158&idx=1&sn=d993c82a4742ed1d454cfed1c0dff637&chksm=cf4d304df83ab95b125a7a5d7b0b65b844c587389231f0653a58764e9b59c4ee745acb8832d7#rd
+'>用户投稿 - LaTeX 排版的大数据平台搭建实验手册</a></td></tr><tr><td>7&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247485153&idx=1&sn=7f0611d024e0776d5d9ea8e8a5d4bb5f&chksm=cf4d304af83ab95c5d9338a4e3da24a62f7b6b511779338fea642b9c5a8af99ca4ac7c1bd1b7#rd
+'>大神排版的书稿样例，让你百般受益</a></td></tr><tr><td>8&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247485148&idx=1&sn=51d0a98f6e7c77924da2872be9a31b14&chksm=cf4d3077f83ab96122f493737a3545db0a2178d4d37014d9a560dab703bacae47905d20b4a3d#rd
+'>Elsevier 新版 LaTeX 模板使用样例说明</a></td></tr><tr><td>9&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247485140&idx=1&sn=80874e0ee8f1c31785c42ae460deabbd&chksm=cf4d307ff83ab969aee81bf4236e6b497a5d6688fe399f2106908ddd442ca53092b62780517a#rd
+'>LaTeX 字体福利网站，再也不为找字体烦恼了</a></td></tr><tr><td>10&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247485135&idx=1&sn=ca48af0368c81d00c7000e518d14e616&chksm=cf4d3064f83ab972d8fd1395e8042bf3aa6e60e985046ae7c3c2f234a84ffd564a226b90fc53#rd
+'>一版使用XeLaTeX整理過的精排版的微積溯源</a></td></tr><tr><td>11&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247485130&idx=1&sn=cb6302df6e03f0a37ba4857481a0463b&chksm=cf4d3061f83ab97720f1d9ccfcd91eb70b72bade3a805eb5a9895d0a5dc34fd69e511f6301cb#rd
+'>LaTeX 网站全面更新上线了</a></td></tr><tr><td>12&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247485125&idx=1&sn=09b1f43674347e39518f572129431379&chksm=cf4d306ef83ab978299e976058bc8c816ed2e3fa699baac519a15f283938edb763b601e47275#rd
+'>耿老师教你用 PDF 做批注的妙招</a></td></tr><tr><td>13&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247485120&idx=1&sn=0e1687cff758485e8fedf7d213d8f641&chksm=cf4d306bf83ab97d674832b6199c4ea9bc92d20ee74f5aa07ca9e27ab1c3d3dad90820e9edec#rd
+'>蔡炎龙老师 LaTeX 研习投影片 - 精心制作只为你便捷入门</a></td></tr><tr><td>14&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247485115&idx=1&sn=4a7f483138b323eda58610c9aaf02b38&chksm=cf4d3010f83ab9060e6673c41052e233c53f2fddc9cd6299d7f24e0b8eab54071f8ef5502c56#rd
+'>莲枝简历模板帅，排出来就是美</a></td></tr><tr><td>15&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247485110&idx=1&sn=7df255da032009f6f8d5338b65810bda&chksm=cf4d301df83ab90b3a981c7743f3ed2158842efeca501f15915b45fbe9f39c72d053e76851f2#rd
+'>我们能想到的章节样式这个包都想到了 – chapterx</a></td></tr><tr><td>16&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247485099&idx=1&sn=c1f20507c964d621b678e037bd967022&chksm=cf4d3000f83ab916a0a7bdd7a0c62da307da171ce839ab7c2da9de43d511f21bfed7e6520deb#rd
+'>回「LaTeX 的罪与罚」</a></td></tr><tr><td>17&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247485093&idx=1&sn=11b4902e1abca6bf8ad9f947b1aa836f&chksm=cf4d300ef83ab9181794e3f58a4581e18ffba42c5fbdff73decee80729a185a2602d68d7dbdb#rd
+'>世界知名出版社书稿模板合集 - 走到世界前列</a></td></tr><tr><td>18&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247485088&idx=1&sn=9d97ce9d3b1bfc17bb76d8224bd019c9&chksm=cf4d300bf83ab91d9d432710f1f8498322cd5afc2bd9defd60da543b0f167ee75fd8214059a7#rd
+'>LaTeX 工作室历年定制模板精选一</a></td></tr><tr><td>19&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247485083&idx=1&sn=9eb8ea413b539e0607526b85d91331c0&chksm=cf4d3030f83ab9262fef4f2c366d86c03f07c2aef99180d8673ca64f25911273f7317b9bbbe6#rd
+'>刚出炉的一套设计精致的 LaTeX 模板</a></td></tr><tr><td>20&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247485083&idx=2&sn=dcc93253486ca79f1d63468b6fe53d2c&chksm=cf4d3030f83ab9266a5dab625a542aca902c5c75a4be3725ea051a308c9f8364cc5a4e013d61#rd
+'>File `l3backend-xdvipdfmx.def' not found.</a></td></tr><tr><td>21&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247485076&idx=1&sn=bed98137df826a14d91b1353c1a53c5e&chksm=cf4d303ff83ab929bf4a19d2056bf28feb8262cd70333bf30049c62e590fbca0863e12f17a4e#rd
+'>华东师范大学 LaTeX 讲义合集 - 入门就这样轻松</a></td></tr><tr><td>22&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247485068&idx=1&sn=d546809bbcd8e64f1065cd2cc6048866&chksm=cf4d3027f83ab9319d89abf4fdb3e1d3a335bbdf8481b592ab4123520c28efe2373d386f1d72#rd
+'>Beamer v3.0 Guide 中文翻译 - 读了 beamer 基本入门</a></td></tr><tr><td>23&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247485068&idx=2&sn=ffea12ed22f7e479c6d4b78c13182765&chksm=cf4d3027f83ab931906653a5f6d44f7eb40100af4aac8b75f60d9dbad61e24264df9bc36873f#rd
+'>Springer 数学百科全书 - 轻松获取 LaTeX 源码</a></td></tr><tr><td>24&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247485058&idx=1&sn=d08ea2c1a4a96fb862a2cc21270558a4&chksm=cf4d3029f83ab93f64db3fc1cc1fb4f8169804136c0075e7403ccaffab720378ce5d50df1474#rd
+'>吕老师的 LaTeX 排版教程 - 看了入门就是快</a></td></tr><tr><td>25&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247485053&idx=1&sn=1a283e7f72b5c18b4ab22768abbf3717&chksm=cf4d30d6f83ab9c020f74497b9f4f17c2283a193a61b00fbc17323ce0883d1a5c73c917fb081#rd
+'>博士论文这样排版才够有味道，精致优雅</a></td></tr><tr><td>26&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247485048&idx=1&sn=6b3dcadf054ad409803e8bf2aff6026f&chksm=cf4d30d3f83ab9c500c977003327b737525d251a16cb2c67fbc6ddea5072acddeeb0f541dbf0#rd
+'>西安交通大学 LaTeX 讲座讲义 - 早读早入门</a></td></tr><tr><td>27&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247485043&idx=1&sn=c66e96177f7fcad96bda92fa7a5ba568&chksm=cf4d30d8f83ab9ceacebfb4cebd241e9970429a921d33f58b1664fde095cbea3e861ce75b520#rd
+'>牛津的 beamer  您值得拥有一套</a></td></tr><tr><td>28&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247485031&idx=1&sn=1c61108738c4be8edbf16bb256b276de&chksm=cf4d30ccf83ab9da5d3d0560cbf512dcb14157e3c5d21a9b13793e5db8d7914ab27f2e502fdd#rd
+'>非常用心的博士论文模板 - 代码可移植性好</a></td></tr><tr><td>29&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247485026&idx=1&sn=6d0b4baa744b22130f5b65043b015ed2&chksm=cf4d30c9f83ab9df35e4780775f9f400a806124420a6c75da55f964aba7d44283e307675895a#rd
+'>公众号推什么文章，由您说了算</a></td></tr><tr><td>30&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247485021&idx=1&sn=720a93d3ede22ead027cbaf25f3b7868&chksm=cf4d30f6f83ab9e02c4e27c2c387c2ecd8f60ec1d541bfc810fa712f9699071e7ada2932ccec#rd
+'>tikzcd 基于 TikZ 的交换图包 - 向老师翻译</a></td></tr><tr><td>31&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247485021&idx=2&sn=349950fb01bcab8a0dd76d8394c9ef9a&chksm=cf4d30f6f83ab9e0f60a2c66eda2ec6e0729cde7912a36ca15e1eca6848e95ebe1444c0f7bf5#rd
+'>用 LaTeX 制作源代码输出与书籍一样的效果</a></td></tr><tr><td>32&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247485011&idx=1&sn=1e4957bc0dc77c7e3f211681531d88e1&chksm=cf4d30f8f83ab9ee4c1a78e6124568dd314f18f2d5de447577e381e1815e8c03534d906c4691#rd
+'>向老师带着你用 TiKZ 制作漂亮的书籍封面</a></td></tr><tr><td>33&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247485005&idx=1&sn=b34b01a4e9f4470ca1050e10955fd12d&chksm=cf4d30e6f83ab9f0f93b55f1e40f4bf9db1bc34abe5d16e619ec77e47d4c4f2c9231265383a1#rd
+'>开箱即用的 beamer 主题合集</a></td></tr><tr><td>34&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484997&idx=1&sn=5d99a1a16cb4ca42a3e130ef6fbd4fb3&chksm=cf4d30eef83ab9f8aecdfc3c33f0bc307d346dfd4447fff9f349e80ecea43b6bf8878b411a2d#rd
+'>美美哒书籍 LaTeX 模板 - 舍不得发，值得珍藏</a></td></tr><tr><td>35&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484992&idx=1&sn=ce40ed4eb2f690f38e713a7d09c527ff&chksm=cf4d30ebf83ab9fda3bdba22fc603672804111e66803c6ad108cf750e22ade6aa982a148d6c0#rd
+'>LaTeX 插入多媒体视频文件</a></td></tr><tr><td>36&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484992&idx=2&sn=96ec28fbdb2d4792b34652990b5b396d&chksm=cf4d30ebf83ab9fd1f645c16b0473c217cb69fdccf500f0411c8fb16c51e0021a387dcc61e22#rd
+'>这个 LaTeX 简历模板用了都说好</a></td></tr><tr><td>37&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484985&idx=1&sn=6caceb27a60b7435e2e9fb6647b46fe5&chksm=cf4d3092f83ab9848306d04315b5cf8300ca8e1f7f37773c9114ed8bf5e963717b5411c6e030#rd
+'>论文快人一步- 利用 LaTeX 撰写学术论文 课件分享</a></td></tr><tr><td>38&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484971&idx=1&sn=c79afcb06e48f7685dc4000db44b39d6&chksm=cf4d3080f83ab996495d56cf1a90ddbf8295a9b1a1a7e14d7b4eb8f3ea1a8fa32c520fa8f7ea#rd
+'>如何查找期刊所提供的 LaTeX 模板</a></td></tr><tr><td>39&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484966&idx=1&sn=b7321f85c88e0aa7cfdf0a5de057d3a8&chksm=cf4d308df83ab99b8222c07536fc0f2dbd38c8a6ba7f0f5448a97d526638f453a3ca626c9460#rd
+'>30 年精选 LaTeX 高质量视频 - 入门必备，免费下载</a></td></tr><tr><td>40&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484959&idx=1&sn=db23c217ad9b70b8891bcacc308057fa&chksm=cf4d30b4f83ab9a2bae3d35730917136a10ebb032fe3e01d0846211dee32ccf7b217eb3ffecf#rd
+'>输出中国高校矢量校徽的 LaTeX 宏包</a></td></tr><tr><td>41&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484950&idx=1&sn=15d57e4e8356a9cded5e432f5ff0cccd&chksm=cf4d30bdf83ab9abeeb5785abd5fb5ae6149fdcb59f546720c73af37da1fe05c87c656a603b2#rd
+'>如何拯救国内那些老旧期刊 LaTeX 模板</a></td></tr><tr><td>42&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484932&idx=1&sn=bba56a31c9579c478d862a1c65c2b9fa&chksm=cf4d30aff83ab9b9fb25d12e5eea20fc44903b06e10b81b241fb1e5003adfd7f7c189e0a3a91#rd
+'>全国大学生建模模板正确打开姿势</a></td></tr><tr><td>43&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484923&idx=1&sn=1d98fe0c4718fff1a0232b019df7054a&chksm=cf4d3350f83aba46b134cf017dfbbc7bd7c8ade5970f061655993bff5571f7897448cee16c72#rd
+'>LaTeX 入门应该读哪些书，一键获取，从此无忧！</a></td></tr><tr><td>44&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484917&idx=1&sn=b50d5f9fb90705acaa95e065e8e1a31e&chksm=cf4d335ef83aba485125989fd717398ca659b5d68f6f39d536a52255e3821fa6f001ea60ec97#rd
+'>LaTeX排版的《Think Python 2e》</a></td></tr><tr><td>45&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484899&idx=1&sn=ca682598736f8d739127c9b289628aae&chksm=cf4d3348f83aba5ee34de99a3139a113e8dec88fdcd9b9b5c85c7f02ecdaccb0bb6a0c00ab6b#rd
+'>一套精致的 LaTeX 科技书籍模板</a></td></tr><tr><td>46&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484884&idx=1&sn=ac25fefc84620b45ff31a9cd336b067b&chksm=cf4d337ff83aba6937e7dc5adceb86fae47b2c693ef1f56b61b0983427f4567bd7d5a8db4dd6#rd
+'>开箱即用中文 beamer 主题合集，耿老师倾情制作</a></td></tr><tr><td>47&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484884&idx=2&sn=5de94e54c9b060314a8a79a4a18f3d13&chksm=cf4d337ff83aba69f426351a3e01b54442815e6294d577332e0f5fea93313de1a3ca743d21b1#rd
+'>下一期预告：LaTeX 入门经典资料合集下载</a></td></tr><tr><td>48&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484868&idx=1&sn=b92a6ad8dba7548991386125b656b06d&chksm=cf4d336ff83aba7903c97a1a6e0dc28f078e03062b9b192ea1defc3b7c3111bd834ac241015e#rd
+'>经典入门教程 《LaTeX and Friends》- M.R.C. van Dongen</a></td></tr><tr><td>49&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484868&idx=2&sn=4c4f8563e89ac317d162cf3f83b5d36e&chksm=cf4d336ff83aba795a1d7ba2098dd5fbf9e74c332e639693856e2d12521a77f767333a0a06e5#rd
+'>数学建模 LaTeX 专题内容在路上</a></td></tr><tr><td>50&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484848&idx=1&sn=7ea71196167458c1a26361a70164d052&chksm=cf4d331bf83aba0d5c9da13330f1971562a22c2f79a2cd5383d39502a3a186b773d3a67f478c#rd
+'>如果有志于于为中国学术做些事情，联系我们</a></td></tr><tr><td>51&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484845&idx=1&sn=9348b21b36341e62bf4c215b84f6fd71&chksm=cf4d3306f83aba1078bc3301849efe3e456531f1c0aaf0a8a41d298f11ff64ba3207dec6ca05#rd
+'>Beamer 快速入门 - 中译本 黄旭华老师翻译</a></td></tr><tr><td>52&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484839&idx=1&sn=4ce8348dfce7a3c3ab0d754edd2a69b3&chksm=cf4d330cf83aba1a8629f24722266a73ac3f7cf801bec627348e40aab00e0619737309ef6278#rd
+'>广州大学报告的 LaTeX 模板</a></td></tr><tr><td>53&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484830&idx=1&sn=6b15e086a8e23e7a0a27ee6f9a48851c&chksm=cf4d3335f83aba23675f93374038165c390562a246276356f4f009661fc435c3b81312c191ba#rd
+'>Beamer 3.0 指南中译本 - 快速入门就读这个</a></td></tr><tr><td>54&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484815&idx=1&sn=18e9ea3971cdf2964f237b26bb317ef4&chksm=cf4d3324f83aba322daabdcb9e037b3c4b26acada7409028d71db141b1aaf3a2c5516bff28b4#rd
+'>LaTeX 小妙招 - 如何获得直立的偏微分号？</a></td></tr><tr><td>55&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484810&idx=1&sn=815943473f196c3cc71c45e40d2a1a13&chksm=cf4d3321f83aba3773eefcfc2453c5bdc67c956ca7adf52a647aec2e31e1d4a457ff28b42853#rd
+'>TiKZ 学习笔记新版发布 - 全中文笔记快速入门</a></td></tr><tr><td>56&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484797&idx=1&sn=c2f788aeae32820bcb54084e2baa9b9f&chksm=cf4d33d6f83abac0adae242b8a284d5b77471773443c02a68d46863f1c3967019d7ae9a6a113#rd
+'>很多小妙招让你爱上 LaTeX 《LaTeX CookBook》</a></td></tr><tr><td>57&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484783&idx=1&sn=f993ebec43a03d4c17b714b8c047e1b4&chksm=cf4d33c4f83abad2c78d052c390b752b2b5cc2c1a0dac17ce43f4b0c2f623102ff3b6489595b#rd
+'>排版精致的 LaTeX 入门书 - beginlatex</a></td></tr><tr><td>58&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484771&idx=1&sn=ce8495cd91cbd36ac8bb8340cc037643&chksm=cf4d33c8f83abade4fbf4715287d244d3af79264d718f2fe4eabafb18e63f64616ceec27378e#rd
+'>用黑板制作的 beamer 主题 - 更新</a></td></tr><tr><td>59&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484758&idx=1&sn=36a539ea6941c8b63f29120f6f5d9d4d&chksm=cf4d33fdf83abaeb653e74c044593d4a3f39cd6ce81ed5802fc30a8a1a8245cb4d76cfb664cc#rd
+'>给过大的 arXiv 投稿文件“瘦身”</a></td></tr><tr><td>60&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484753&idx=1&sn=3a767031a8c200357c33a3a4c26b3139&chksm=cf4d33faf83abaec1281a4ad64222a399e95b2d452fdc0f2f7d502a5c6d00d407df12fe1fbc8#rd
+'>手持教育技术与中学数学教学改革年会发言 beamer</a></td></tr><tr><td>61&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484741&idx=1&sn=9eae4369ece37f95a9d68c4bd7175d45&chksm=cf4d33eef83abaf80bbd67e18e76dd9d9f443401b8cf28b93a57bc6c84389a434226e6188bef#rd
+'>LaTeX 秘籍：一个命令改变全文表格字号</a></td></tr><tr><td>62&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484736&idx=1&sn=4dd96e5956fcec110407913d7332271a&chksm=cf4d33ebf83abafd5ad87843e7394a8c40fa3d7b38e685a49ab11882410fb1411239c218b84a#rd
+'>黄正华老师的精品课件 beamer 分享</a></td></tr><tr><td>63&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484727&idx=1&sn=335e96c048d31f0d211f661560ba84d8&chksm=cf4d339cf83aba8ae2784f68ae6e01eb6fe92d950426e1e74bf78d39699f44b65bdce9468468#rd
+'>这样的论文排版更有品质，更有品味</a></td></tr><tr><td>64&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484712&idx=1&sn=524f15c727b9f7fc6534001ab146db41&chksm=cf4d3383f83aba95fbbc4d2465803bcd8fa1b410198aba8e460b0dc67da2580f09e2732d1848#rd
+'>WinEdt 三招让你使用效率提升大大的！</a></td></tr><tr><td>65&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484696&idx=1&sn=1ccc2d60c694952b9fd5f213654f0370&chksm=cf4d33b3f83abaa5d2c418ef5064d6db6917b44028f5e7742ebf4044a369dc86eb8db46e794f#rd
+'>漂亮的中文  LaTeX 书籍模板</a></td></tr><tr><td>66&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484683&idx=1&sn=885a47de39b79e27d70f8c363ca404fb&chksm=cf4d33a0f83abab690e59229e8859ec19dccf2dd615a8342caf67b9318f7ed8a34a83df5ea6a#rd
+'>扁平扁平的 beamer 主题 - 美美哒</a></td></tr><tr><td>67&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484677&idx=1&sn=bb0ba8e2c81fea1faec0c84cfcc88f00&chksm=cf4d33aef83abab88b38f7ae559b9df4a933c5e2686218ac55efb3a227a6c956221027d44689#rd
+'>怎么看都很美的 beamer 主题 - 中英文都有</a></td></tr><tr><td>68&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484658&idx=1&sn=00df3e702deb30b63a4b8e58be99bc6d&chksm=cf4d3259f83abb4fba788411e4ce9c90e58013bd2e5b3e749e2da79e7b3d80162323efd9fbfc#rd
+'>用 LaTeX 排版的相册书</a></td></tr><tr><td>69&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484647&idx=1&sn=2aa2f91a84e650b33ef8aa185e0d3ce8&chksm=cf4d324cf83abb5ac3fe8978a786f7eb86514e9884c68df7b2958b8a373d0ce6595f20075372#rd
+'>参考文献数据库(*.bib)简单教程 - 耿楠老师</a></td></tr><tr><td>70&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484631&idx=1&sn=2110191ca331c36db004bf4205fccce5&chksm=cf4d327cf83abb6a3baee3e210ba7f2222147650d913c674c1b9ff56b9f303f89f51908a23e9#rd
+'>LaTeX 排版的《经典力学》讲义</a></td></tr><tr><td>71&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484616&idx=1&sn=8a5ca6b49c3486e702499e0a82f131d9&chksm=cf4d3263f83abb75998ec9df9effd0a37a386cf9fef355edc1583e35769360e946a2ddd3f810#rd
+'>数学分析重排 LaTeX 模板 - 李清制作</a></td></tr><tr><td>72&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484605&idx=1&sn=350d9d7d9276d843b0428e22c0f8008e&chksm=cf4d3216f83abb004c786be866fccee6aac2174338064a24eb3cc56217157e785d01f22cadc9#rd
+'>LaTeX 排版抽象代数：理论与应用</a></td></tr><tr><td>73&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484605&idx=2&sn=27cb90ee9c97b5ea379621b425e4c53d&chksm=cf4d3216f83abb0079f10624f6cdfe597f5d2147d0043056a8097c38d89df6f29c11d97c2920#rd
+'>招聘了，招聘了</a></td></tr><tr><td>74&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484592&idx=1&sn=d1310d8652739aa57e1feae8d3dce0e2&chksm=cf4d321bf83abb0d177e25bdb26d83369483e022521492a10ce5e19504be7cdd632654951a72#rd
+'>LaTeX 学习笔记 - 含源代码</a></td></tr><tr><td>75&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484592&idx=2&sn=b786a1559035bbc49c8c8de9c3c63664&chksm=cf4d321bf83abb0d1862417fb9c7d19fcb763e74126708691ddeda346da2ad0ac08028d5a71d#rd
+'>文献引用 [1, 2] 如何变成 [1-2]</a></td></tr><tr><td>76&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484578&idx=1&sn=830c007ee38d77f673080e8d9de34ec0&chksm=cf4d3209f83abb1f0c56360eaea48f290c3765bec736938461bd50f693d663fb078c06a96ee7#rd
+'>LaTeX 排版开源微积分巨著《APEX Calculus》</a></td></tr><tr><td>77&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484562&idx=1&sn=e814649ae5f2a53fb72b33d5fae17130&chksm=cf4d3239f83abb2feeaf8c0ccb08343d9b1b6b81e3c6f1a4dc1e9f8dd595b1745d8831faac96#rd
+'>ElegantBook 书籍模板 v3.08 更新发布</a></td></tr><tr><td>78&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484557&idx=1&sn=37b3fe38ffb9f957f5d987012fcb31d8&chksm=cf4d3226f83abb30b29d4a7d1a21f0fb952eb81a8134c500304c555995f98f96c11fc8392041#rd
+'>LaTeX 排版费曼的《物理学讲义》</a></td></tr><tr><td>79&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484545&idx=1&sn=feb99e8602d1fa02c74224268edf47a5&chksm=cf4d322af83abb3c76380061bc3528c76c101e103d168c404f4f15a4b5ad3dc9a227d6fc382b#rd
+'>一份 TeXLive2019 的简单安装说明 - 耿楠老师</a></td></tr><tr><td>80&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484533&idx=1&sn=c8f4a79909ebb7f5880b1d690a5ccb79&chksm=cf4d32def83abbc80e77aadeebf2c0792380918f27bb24e3577090f7b0b394338bb40739bc47#rd
+'>LaTeX 排版的《生物信息学 Perl 语言入门》</a></td></tr><tr><td>81&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484524&idx=1&sn=2ec2938f52dcf53ae5fe69422de72f5a&chksm=cf4d32c7f83abbd1f4d771f7d7843e9441491dd81e8ce2a36e40ea89d77ba58e74e865fc15c4#rd
+'>天生丽质 LaTeX 只需略施脂粉就可摄人心魄</a></td></tr><tr><td>82&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484524&idx=2&sn=9237b4c1f186361e6418e6b1e1c71b98&chksm=cf4d32c7f83abbd1ecc73efb6be54cc03c3bbb418753893eba670a1bed7a294745b2af12b012#rd
+'>一个论文 LaTeX 排版样例 美得一塌糊涂</a></td></tr><tr><td>83&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484501&idx=1&sn=10470d9a57fedc95731a4c17a569bf38&chksm=cf4d32fef83abbe82fa45d6bffca7f90436e5a40c072ba435f93008c6c57486ef124b50ad313#rd
+'>让人爱不释手的博士论文排版样例</a></td></tr><tr><td>84&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484478&idx=1&sn=3d2e4fc0cd9a3777e5c393db4aaac9e7&chksm=cf4d3295f83abb830be6654434cef91aae72fa1061db21d6a73530386c681b88bf6457b0a9ed#rd
+'>LaTeX 排版的《神经网络与深度学习》-中译本</a></td></tr><tr><td>85&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484466&idx=1&sn=175fcdd587e44b915508ff83cc266c29&chksm=cf4d3299f83abb8f46744713d8b1e2eba649d7109d964e988ca77ba292f520830976662da1fe#rd
+'>一个用 LaTeX 排版非常惊艳的书籍</a></td></tr><tr><td>86&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484455&idx=1&sn=39b6ce3513c07e2a79a5c220e48e899c&chksm=cf4d328cf83abb9af6769de8edccf752379c3a7dbfdd64a0ac007d57d5bf612aa05121b9c8f5#rd
+'>amsmath 宏包用户说明中译本 - 精品推送</a></td></tr><tr><td>87&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484444&idx=1&sn=969c1f324ba901d6d2415dd7e3d38d5f&chksm=cf4d32b7f83abba13cee86e1aa4558d4c97c5d0d9cfaa7de3dc15b54e94cdeceaac4ba1c6781#rd
+'>美美哒书籍 LaTeX 模板汉化版</a></td></tr><tr><td>88&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484434&idx=1&sn=5de0ea3ccfe7581a38926709b392ebdb&chksm=cf4d32b9f83abbaf04ec84e9f1633fc08a7e0faaaee573854317e975a3ee7fc085a50cf6aa44#rd
+'>美美书籍 LaTeX 模板 - 不可方物</a></td></tr><tr><td>89&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484434&idx=2&sn=111c2f78a88f6d1c202343cc682a0e3b&chksm=cf4d32b9f83abbafe3ce8ff34c0598cec4f331a8689cc02b70fcd2b48a031ec5861260e9c45b#rd
+'>LaTeX 排版的《哥德尔、艾舍尔、巴赫》</a></td></tr><tr><td>90&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484406&idx=1&sn=dc722f1feccf805a99bbc7dc0aff46f4&chksm=cf4d355df83abc4b0e8fa833f0b16fd6a79ce6f1b6a06f3cf90227ab3f7e9d7e79f35777667b#rd
+'>设计超级棒的书籍 LaTeX 模板 - 不美不推荐</a></td></tr><tr><td>91&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484391&idx=1&sn=3ff5b3a7c2aca66d7a4f4a92af0b53de&chksm=cf4d354cf83abc5ae86c1f064e050cdb54f57639f52025ab2b559c00457fdf827b4259c0ba8e#rd
+'>中文期刊 LaTeX 模板框架 - 期待更多人参与</a></td></tr><tr><td>92&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484391&idx=2&sn=cad479b96969ab50bd09aba990d21dcc&chksm=cf4d354cf83abc5a4a5949451fd58e3373622934ce77f37402bdb43a076fcba9983d7bc1b75b#rd
+'>LaTeX 排版的《经典力学讲义》</a></td></tr><tr><td>93&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484382&idx=1&sn=f1a9f54668228d9460442f91aca73c08&chksm=cf4d3575f83abc63bd87c3d1d3f0a3d64de14c4d8341e58743248e19467aa113fd976b26a2f6#rd
+'>LaTeX 排版的开源中文书「TensorFlow 内核剖析」</a></td></tr><tr><td>94&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484371&idx=1&sn=82e2408856d69965f9571f7d7c4c974e&chksm=cf4d3578f83abc6e9fefd1d49729a267d8220f6341acc694c54759e51a9d6c979795337743a5#rd
+'>定制章节样式的万用包 - titlesec 中译本</a></td></tr><tr><td>95&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484371&idx=2&sn=d4aca582c49923ca4d1049bc7600bbf5&chksm=cf4d3578f83abc6e31992f86227958a2d85e267ac7820009545490d332d393daf38d67d676f4#rd
+'>LaTeX 排版的信号与系统研究生入学考试真题</a></td></tr><tr><td>96&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484357&idx=1&sn=2f4287b165a5132dab9c755c26b4caee&chksm=cf4d356ef83abc7800cd1eca2bfcd27adb65e8df87d70018dc0234d6a6d409b932c61820ed73#rd
+'>LaTeX 毕业论文排版简介 - 耿老师倾情制作</a></td></tr><tr><td>97&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484344&idx=1&sn=0e308b403c588d2fdf5807c5f319c89d&chksm=cf4d3513f83abc053b9c751ff13e375e1c4d32b36efcf7bf661a16c8fac90ef565f5663fb7fd#rd
+'>geometry 宏包中文说明 - 一看就懂，一用就会</a></td></tr><tr><td>98&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484344&idx=2&sn=ed1b6795e2d688ff457e1b65668529d0&chksm=cf4d3513f83abc051b816b6963ab7e9c5184fb8df693da8822ee6aa97ce8b3456b73d9b7ee79#rd
+'>科研神器 找文件效率提升100% - Everthing</a></td></tr><tr><td>99&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484326&idx=1&sn=a343f9cbaa15281120791f57118067ce&chksm=cf4d350df83abc1b96b2f66a11bf57d30118e30a022cff943250b5d82f80f8acae0f273162b0#rd
+'>两本经典书籍免费下载，让你爱上 LaTeX</a></td></tr><tr><td>100&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484318&idx=1&sn=aa0653559056297b361a50bb34a7bdac&chksm=cf4d3535f83abc23bc8baf5c7cb067efe2dc2fc9d27f9cda1aca6ebdf95db8d8f36f445de0a3#rd
+'>现代 LaTeX 入门讲座 - 曾祥东</a></td></tr><tr><td>101&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484318&idx=2&sn=4a4da514bd7a768855ba6ac1d544b9eb&chksm=cf4d3535f83abc23fcd10af2d43d9960b6cd708e4ca67d79b1f8b5b12654ba634c2005fbc838#rd
+'>每日一问一答：如何让括号随内容变大小？</a></td></tr><tr><td>102&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484302&idx=1&sn=ce3658d5333096ff53fe96928bf60131&chksm=cf4d3525f83abc33891e72c606c688aa51134ad466947f2776d020e7053dffd083cf493d9806#rd
+'>手写秒变 LaTeX 不再愁 - 截图神速转为 LaTeX 代码</a></td></tr><tr><td>103&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484296&idx=1&sn=9b7a46637109ae63a7cf436d755565ba&chksm=cf4d3523f83abc35d0d2f4c02adc339d6d031d66827d8c68efc027d98c31e7e836c728a385a1#rd
+'>南京大学学位论文(本科/硕士/博士) LaTeX 模板</a></td></tr><tr><td>104&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484296&idx=2&sn=7604185113504ec07faea616595ffacf&chksm=cf4d3523f83abc350b01f32f7ab6cef85aad81325e4de4c7e54291b15cee9994d2889cbfae9e#rd
+'>华东师范大学本科毕业论文 LaTeX 模板</a></td></tr><tr><td>105&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484277&idx=1&sn=ed03d2b74f3ea58a9d576ebff3903455&chksm=cf4d35def83abcc8127d9500456b64373d11c472e7e1e454af560475de2c12e9ebd6b43a1003#rd
+'>Elsevier 投稿 LaTeX 模板说明-中译版重磅发布</a></td></tr><tr><td>106&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484267&idx=1&sn=55577d76dd0463d7238a9e2db8bb31e1&chksm=cf4d35c0f83abcd6cab2750928be1e5a8dd251fe4cbd00d7703316474b58730a6a45b4bb5a4f#rd
+'>漂亮的 LaTeX 简历从不缺席</a></td></tr><tr><td>107&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484267&idx=2&sn=2681da8673d39e930e0252da8aa316ad&chksm=cf4d35c0f83abcd6cd6cec20f5f1ea431260edce38b81490708ae49b6db9d41df0d2ed9ee020#rd
+'>用户自制的 TiKZ 绘图样例分享</a></td></tr><tr><td>108&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484241&idx=1&sn=125b83e82a3c69cdefeac1531ae12286&chksm=cf4d35faf83abcec838484ecd5f54c8687ebaebfac4c1d909854810ed7de0b8fb109d60e427c#rd
+'>经典入门教程 LaTeX Notes v2.56 发布了</a></td></tr><tr><td>109&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484223&idx=1&sn=2ce4c068a79156b26d2123a31234e610&chksm=cf4d3594f83abc82d43f1daab90a65ec1ab1e5f9a6a5f50b149c4adafeab55a23a3e98ee4c34#rd
+'>TiKZ 中文视频教程 合集下载</a></td></tr><tr><td>110&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484223&idx=2&sn=3051f9030ea4a6d7a30fa1bcd135271c&chksm=cf4d3594f83abc82464267bd53d002abfded665fd322b766bbe7cdb3e11d738c07ec861562ef#rd
+'>TKZ-Euclide 平面几何绘图视频教程合集下载</a></td></tr><tr><td>111&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484213&idx=1&sn=d4c38c60f0cda936da4bfd606be1bd26&chksm=cf4d359ef83abc88925ad109191ef1670e2112b9c3d96153116286613d460ecae980d856ac31#rd
+'>用 LaTeX 排版编程技术书籍的一些个人经验</a></td></tr><tr><td>112&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484200&idx=1&sn=17c066bde74d7ccf00d096cf8ef81374&chksm=cf4d3583f83abc9559d222cdca42f6799dfad94431fd3f6782645b151c98463efe9fe38a3be1#rd
+'>中南大学本科毕业论文 LaTeX 模板（非官方）</a></td></tr><tr><td>113&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484189&idx=1&sn=c0bda5f18fbcb34d0bddc0208ad7e345&chksm=cf4d35b6f83abca043d5f844efd72a35fac9adaa3a1cf1ca04f44664765ef2f657908103c0df#rd
+'>TeX Live 2019 发布了</a></td></tr><tr><td>114&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484184&idx=1&sn=cd70492e2222c29955d0ef0d949df284&chksm=cf4d35b3f83abca5bad32ad4eef8035af8e927903ed1fa73ad09f83c4d11ee2fff037fb650ae#rd
+'>用于植物标本标签排版的 LaTeX 宏包</a></td></tr><tr><td>115&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484175&idx=1&sn=0a503ab7569a91dc39d1c41919e82b8e&chksm=cf4d35a4f83abcb20923a27f81c9aeefc6c093a5b62c072136d7d0bb7a7c989035f1789d7916#rd
+'>LaTeX 排版的毕业论文查重乱码怎么办？</a></td></tr><tr><td>116&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484170&idx=1&sn=651e8b26eda595b3334fc22f5890bc65&chksm=cf4d35a1f83abcb7c12bf24e2fa5f49164e711be37007417f3f52e9a208a1a59a74b16d80607#rd
+'>哈尔滨工业大学-南方科技大学联培 LaTeX 论文模板</a></td></tr><tr><td>117&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484158&idx=1&sn=93826aff800e2b08ddd2859296ca8313&chksm=cf4d3455f83abd43bb3cd3818274c9c7c5d6a90f2f4650489c678c81810f44040bf141f486e6#rd
+'>使用 TikZ 绘制带有透明阴影效果的文本框</a></td></tr><tr><td>118&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484158&idx=2&sn=6ad5b3818cfbacc26f4dd175ef9cba2d&chksm=cf4d3455f83abd4356d77525084aaefe7f308ff38c52e51ec41dbec1bbc77e6418f7a68f2471#rd
+'>例学 TiKZ&PGF - pgfmanual 封面设计源码分析</a></td></tr><tr><td>119&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484143&idx=1&sn=d77b3102a567ac9301e3e45c21097279&chksm=cf4d3444f83abd523da6c95cee14f8e447e038dee6df55d1afb5d6e99bc69bbf33b3cc1d3b0a#rd
+'>兰州大学本科生学位论文 LaTeX 模板</a></td></tr><tr><td>120&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484143&idx=2&sn=c29ec9b4a4c84cef0a58ad80132855b0&chksm=cf4d3444f83abd52ad2cd2b2dcf6f378a98ba5c29ee3299eb13b5fc932aa621fa68000fc7925#rd
+'>丹麦语免费教程《LaTeX 简介》</a></td></tr><tr><td>121&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484124&idx=1&sn=a6a01ed4dc280cab31d852a0d000f449&chksm=cf4d3477f83abd613761f32b8da0fe2ecf9e437e6a3e6da123222d52e7c683e75bfaedf94fad#rd
+'>这样的 LaTeX 简历看上去心情好多了</a></td></tr><tr><td>122&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484124&idx=2&sn=d406cf2058c1ac8ef9bb063bb57f1184&chksm=cf4d3477f83abd61c08b002675841a006d4a9a9f4b72e001972c130833418729fb946e06727c#rd
+'>南开大学毕业论文 LaTeX 模板 2019</a></td></tr><tr><td>123&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484105&idx=1&sn=5b541f4a2d9918191145ec84aaca9bb1&chksm=cf4d3462f83abd74beef4e4fb913c1691400178f0996c31d5771084e5f5cf96066568869c277#rd
+'>两个讲义让你全面领略 LaTeX 自带绘图环境的魅力</a></td></tr><tr><td>124&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484088&idx=1&sn=21a6ccc1901855ec5b52efa41729053c&chksm=cf4d3413f83abd05dcc5f0729c326fac9a373706f2768ea3243d1ff6cccb2b66607ac45ac9b4#rd
+'>LaTeX 常见发行版与安装建议</a></td></tr><tr><td>125&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484077&idx=1&sn=a4dd9ff4f515cedc892642fde9b81fce&chksm=cf4d3406f83abd100681a60fef8f8473c6044c9eb353f21bc47b4c762f9ff25268fa2e6362ad#rd
+'>用LaTeX排版的高等数学等课程课件</a></td></tr><tr><td>126&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484077&idx=2&sn=baf477011c6661cb1ddb0b1a5a332653&chksm=cf4d3406f83abd10de2a2a730e015df0165493b8a2960a9bd75fc2cd566178691c7814e8f691#rd
+'>用 Xy-pic 绘制数学交换图</a></td></tr><tr><td>127&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484077&idx=3&sn=4af104388a2d5bf330ad91a47ca2d12d&chksm=cf4d3406f83abd10618d301d88c5c41701aacf021c2ca3bb757913346339e0382bdb771bfbdb#rd
+'>LaTeX专用问答区上线了</a></td></tr><tr><td>128&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484061&idx=1&sn=73b91b7a32fc69df324722029859c6e7&chksm=cf4d3436f83abd204879066514c98aeda949b0859c8f2a52b42d9e36492679463025727f6f83#rd
+'>一个不止于精致的 LaTeX 书籍模板</a></td></tr><tr><td>129&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484050&idx=1&sn=064f83fafb777078e45ffd1fd65ec313&chksm=cf4d3439f83abd2fadefaac3990ca918f0b5aeeb2cb558eb3f5d3745a18e6a45a74d5ec2c323#rd
+'>LaTeX 技巧 953：带圈数字字体在 LaTaX 中的使用</a></td></tr><tr><td>130&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484044&idx=1&sn=125de98ae82fb835da0020d8a3f09d67&chksm=cf4d3427f83abd314067b0937537562e7b4c0fb91a7e87e4e7fc4821927cb39a097c9536a6b4#rd
+'>中南大学学位论文 LaTeX 模版</a></td></tr><tr><td>131&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484033&idx=1&sn=cb96c5976e8c878b12b06f85ea612b06&chksm=cf4d342af83abd3c2fc8bb94810008418bfd5455329d59caaf2d6efd4c81d80e9bb27393f81c#rd
+'>ElegantBook 书籍模板更新（v3.07）</a></td></tr><tr><td>132&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484025&idx=1&sn=e14430515dfe472e38eec0cb74d7cb29&chksm=cf4d34d2f83abdc48d51dd15ca89452a553f39405513066d292ab40997907021ad8a8cbec998#rd
+'>LaTeX专用问答区上线了，小伙伴来提问吧！</a></td></tr><tr><td>133&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484021&idx=1&sn=05a839dba497d6b34a0bf30be97eda23&chksm=cf4d34def83abdc821d872ae4d47e38c2f1e152225059f1ed773808a84152544b49b09dd0048#rd
+'>通过 CSV 文件实现 LaTeX 表格的制作</a></td></tr><tr><td>134&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484012&idx=1&sn=e1323d9abb7fe3324dd88237c22df4ca&chksm=cf4d34c7f83abdd1c8f2bf82249ce22a6fdca6c6567b47ed0b4cea0e5b873182176e01fbada9#rd
+'>长安大学研究生学位论文 LaTeX 模板</a></td></tr><tr><td>135&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484002&idx=1&sn=7f1e92c779ccfe5365dd11f1b1369f00&chksm=cf4d34c9f83abddfcbf7ffa6c46c4d7d974612e52e16b5dd80f2599bcf4a4f6a67c95da2112e#rd
+'>北京邮电大学博士论文 LaTeX 模板</a></td></tr><tr><td>136&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247484002&idx=2&sn=1a19cee79d66c126eed0e4d54475beff&chksm=cf4d34c9f83abddf9de91f05dc3a92327b9c7b2b70daef865878bffa63cc7cd239ec94115d48#rd
+'>LaTeX专用问答区上线了，小伙伴来提问吧！</a></td></tr><tr><td>137&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483989&idx=1&sn=ad6496051ecf578522833d342690dbde&chksm=cf4d34fef83abde8c74e2fca4b779f808a18619c7333df856c1a773d0b7e487bb72e83ddf1f5#rd
+'>LaTeX专用问答区上线了，小伙伴来提问吧！</a></td></tr><tr><td>138&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483989&idx=2&sn=80fde16d7173a4246f3d5cd0b765be17&chksm=cf4d34fef83abde8dac3f1ef61b760ba93cb148e3bc3300f92a24cc97048b57ffddde94b05a9#rd
+'>漂亮的论文 LaTeX 模板从不缺席</a></td></tr><tr><td>139&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483976&idx=1&sn=433c744b5c3a1748d5550caa31204c2e&chksm=cf4d34e3f83abdf54dc38546dc5c8abe2303391dc8b7962c6a09084a15d2c4968f6d0c855f49#rd
+'>一大波试卷 LaTeX 排版样例扑面而来</a></td></tr><tr><td>140&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483969&idx=1&sn=82aee6515e666933d73f0ec366b53655&chksm=cf4d34eaf83abdfc6e8acf9cff4ff2e05a541a2a77c2e47a9967aa58a80d660b3d876bacd664#rd
+'>精致漂亮的 LaTeX 模板，不美不推荐</a></td></tr><tr><td>141&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483957&idx=1&sn=3eadae6a761a4cb36283a1af7fde899e&chksm=cf4d349ef83abd886b0ed031095816bb970b156ea7ee3709b00f88e7ee94834bcf49be2e4789#rd
+'>LaTeX 每天一分钟，学习更轻松之十八</a></td></tr><tr><td>142&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483951&idx=1&sn=c302b4383efcc1a9cf5fad6840369310&chksm=cf4d3484f83abd924c92c81f900d4ea5f0dcda3b3ffa54992606a0d3e13dcb634fb8287a5d1e#rd
+'>一个更优异的学术海报模板 - betterposter</a></td></tr><tr><td>143&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483946&idx=1&sn=cc22b1c166b0bad31aa30036ca85cb0d&chksm=cf4d3481f83abd9790eb58b49f7b0b261143a2d73336d4ed9c6ad8684c09d338a6490fb5e142#rd
+'>openSUSE beamer 主题样式分享</a></td></tr><tr><td>144&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483938&idx=1&sn=43fd731bd24df9c70a50800cca3279ba&chksm=cf4d3489f83abd9f70168448234005abe09320c19b578493016e27002f9121b2bf39793c6e73#rd
+'>pgfornament - 一个给你花样装饰的宏包,中文说明文档</a></td></tr><tr><td>145&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483938&idx=2&sn=419adba31b5cce48ddc6be92cff6e223&chksm=cf4d3489f83abd9f33c650cd82daea90ad64ce867fa553aadc64462acd47e6e1a4629900d5c3#rd
+'>山东大学（威海）本科生毕业论文 LaTeX 模版</a></td></tr><tr><td>146&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483924&idx=1&sn=df487b7409020a0ee3d9c42f0ce429e0&chksm=cf4d34bff83abda9ca9b979b909c56224a66710900c2b614542823fbcb3fa60faf83bfc27c59#rd
+'>万圣节女巫主题数学公式符号 - halloweenmath</a></td></tr><tr><td>147&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483910&idx=1&sn=90ae1777178d7cb50f21aaa1d00e7bc9&chksm=cf4d34adf83abdbb5ed574f06aa0c2fd13031f32a0f1d685c6959a248be32730e5585457fe6c#rd
+'>ElegantPaper 工作论文模板更新（v0.07）</a></td></tr><tr><td>148&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483904&idx=1&sn=c1beae702cf6ffa0ef079978806584dd&chksm=cf4d34abf83abdbd66803eb390d2865cc0a310790bef923f99b413db50d3f0db1e7e25346594#rd
+'>LaTeX 制作的中英文简历分享</a></td></tr><tr><td>149&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483896&idx=1&sn=c2630bf56e5c9a239e202b8480b0251c&chksm=cf4d3753f83abe45a044e055f771a2d34e899009b73c34229b1b38024a1a0798eb18c451bb47#rd
+'>排版精致的 LaTeX 入门书 - beginlatex</a></td></tr><tr><td>150&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483884&idx=1&sn=ec9c981c133915cbb9573d4664c17ab9&chksm=cf4d3747f83abe51d60ec61d6d03b16bbafc16f4272723ed56585f240195728d9914d70c8a58#rd
+'>设计新颖的书籍 LaTeX 模板</a></td></tr><tr><td>151&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483872&idx=1&sn=72f49b3007309be818ebb80012446dde&chksm=cf4d374bf83abe5d92c8540b83d488a34cef42a72ac0810c6279b61dab14374e366a30cb9931#rd
+'>LaTeX 技巧 950：LaTeX 攻略之脚注常用技巧</a></td></tr><tr><td>152&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483867&idx=1&sn=ef9da1c717721474aa91b7591eb782b5&chksm=cf4d3770f83abe66b726d58863dc2a9d7f07440c2ee13c94c66faaaaf18ce029a268a496854d#rd
+'>TiKZ 初学者绘制的基本数学图形</a></td></tr><tr><td>153&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483858&idx=1&sn=e169107d386c9f557d49b3a799601090&chksm=cf4d3779f83abe6f9e523c94d821682e5e0c077bf84c40dd874da856313669d0afa7d260cdcb#rd
+'>用 tcolorbox 制作皮卡丘框架的盒子</a></td></tr><tr><td>154&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483853&idx=1&sn=8d169b351ad0abe7c07c960c357c2f57&chksm=cf4d3766f83abe70187a27e6aeabb754bf748155a18aaa84f8a404ace82e6e1c727f65f370bf#rd
+'>上海理工大学毕业设计（论文）LaTeX 文档类</a></td></tr><tr><td>155&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483845&idx=1&sn=4914a81f72ad153f18bfd502833cd9d2&chksm=cf4d376ef83abe78b8a8433a3cd921412cca22426bd4d501817a234c5da38db9ab37343c6d23#rd
+'>TiKZ 的 node 之略观</a></td></tr><tr><td>156&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483833&idx=1&sn=9613bfeab33e6ffee665bce260cb8d4c&chksm=cf4d3712f83abe04d53ed105c9ed18fcb8bccc7431e390e2d7d61b3eb727238666285cb0cc08#rd
+'>成都理工大学本科生实验报告 LaTeX 模板</a></td></tr><tr><td>157&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483823&idx=1&sn=076fe8a9b8243ae2975fbe7b6c28114a&chksm=cf4d3704f83abe12a8650d186b7a3d3e545400b96ade435f7415811bbaf7e894cf59d403e230#rd
+'>在数学课上用 LaTeX + Vim 运笔如飞地做笔记</a></td></tr><tr><td>158&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483815&idx=1&sn=a59c6d2282f7542d24bb18127abe6779&chksm=cf4d370cf83abe1ac8b0fe213ec3bfafa61f79cc72e6fdf1ef544264a393113bcb7fffdc45e4#rd
+'>好看的 LaTeX 简历从来不千篇一律</a></td></tr><tr><td>159&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483807&idx=1&sn=e66a49fc8a6f84129f7312aa63f39831&chksm=cf4d3734f83abe22f119cc9848161978ec9bacf4e92401221dfde695e4a21bb5f845b555df23#rd
+'>QQ群开放进驻</a></td></tr><tr><td>160&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483804&idx=1&sn=50636b2666447fbb5e91d5544c4f96b0&chksm=cf4d3737f83abe21499cf39704f93a35ffee578b1a3c2b2a8ccc90bea777e90391790a358830#rd
+'>LaTeX 技巧 947： 玩转 fbox，排版再不难</a></td></tr><tr><td>161&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483797&idx=1&sn=c00c88e4c24237fc80c84b90fe963980&chksm=cf4d373ef83abe28e60b5ab482c785962689ca4e5af548810fc93ebc81b15955eaa52c63904c#rd
+'>不仅好看还好用的 LaTeX 简历模板</a></td></tr><tr><td>162&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483797&idx=2&sn=0bc2c1621cac33be978e0fce2045b730&chksm=cf4d373ef83abe2843bd1c910cff46eba92150b3babdd7036cd140d640361e56cdd4cc921d04#rd
+'>欢迎优秀的你加入我们</a></td></tr><tr><td>163&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483789&idx=1&sn=9067ec940b8ca25ca36e1b64a94d073a&chksm=cf4d3726f83abe30859631468b9a6b12e2bcf51a84d4f13566b42461cf500f1241c61570f8c6#rd
+'>LaTeX 入门交流 beamer 课件 - 李泽魁老师制作</a></td></tr><tr><td>164&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483776&idx=1&sn=3cd5d2497f3a176ad3970401ff1cd3ce&chksm=cf4d372bf83abe3d03fcd6dc79d1cb824a16c0c7fa4e9c95d1d036184fbe87a8052317c11148#rd
+'>TiKZ 坐标和节点的连接 - 简单明了一学就会</a></td></tr><tr><td>165&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483767&idx=1&sn=eff67aad084fc4b9b2019009aa7c9c7e&chksm=cf4d37dcf83abeca8fb37b8722feabe1a14b275975b2edeec71f7663029f6a6d8722a2490a90#rd
+'>LaTeX 软件常用标识输入宏包 - bxtexlogo</a></td></tr><tr><td>166&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483762&idx=1&sn=2bcf45f5673c312ad5cdea1c904102ed&chksm=cf4d37d9f83abecfe19121114f66ac9904bcb0c9e6537b467bbcf85af92278721c9cb41f5178#rd
+'>西北农林科技大学学位论文 LaTeX 模板</a></td></tr><tr><td>167&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483762&idx=2&sn=5e172f4022923e4d4b287d1f7bb7c064&chksm=cf4d37d9f83abecfcbc815fb175f0af6eff2d64798b3ee53f341bb9c2c98172414ca711de422#rd
+'>招聘 LaTeX 排版人员</a></td></tr><tr><td>168&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483750&idx=1&sn=2f09e633b448b1d2aa57149e0192f265&chksm=cf4d37cdf83abedbdecc539cc99b81cbbf5a042742f14f7b1766df4864bba293e871b213411a#rd
+'>字体快递：Alegreya 支持 LaTeX 直接使用</a></td></tr><tr><td>169&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483737&idx=1&sn=8b53c58882fbf39a428ad78f2354ba6f&chksm=cf4d37f2f83abee418470fd4e599cfc54212d125b1d8a45bae66bba22e7835a8c51ad5bfaacf#rd
+'>延安大学本科毕业论文 LaTeX 模板2019</a></td></tr><tr><td>170&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483737&idx=2&sn=95393e072b2c14c37a70ec17b44f2690&chksm=cf4d37f2f83abee45526a4cef4a92137ec401763e9eaced4b4ff3ce5e08b9ca7f33530b6f856#rd
+'>毕业论文常用学术搜索18站，转发收藏！</a></td></tr><tr><td>171&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483717&idx=1&sn=2a39033a73c8672f62c781885e1f0bde&chksm=cf4d37eef83abef85853961b63bc5636cd9969cbadabafd22a96145e7ab5196f65c69e14ba43#rd
+'>用户自定制的 beamer 主题与排版样例</a></td></tr><tr><td>172&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483707&idx=1&sn=3a9bed72bc343e3e52e18ed74cff38a6&chksm=cf4d3790f83abe869096c2989314c8d5f3366066d32556d45d42cbe3d80242d57ac6c3b339cd#rd
+'>东北大学博士学位论文 LaTeX 模板</a></td></tr><tr><td>173&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483696&idx=1&sn=a7d75da8c72897f2392dd1db236cd3d7&chksm=cf4d379bf83abe8dc04af0f87a9c2c84281fbe3868312f11bf03899e64b7520c6952ee64dfc6#rd
+'>上海理工大学本科毕业设计(论文) LaTeX 文档类</a></td></tr><tr><td>174&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483687&idx=1&sn=8e28b0eed68f877b17f445b1d8cdf59c&chksm=cf4d378cf83abe9a235ac13a30d3f8f693d8a9d921400eac9c22a725c6f9d147d4adca886ec2#rd
+'>康涅狄格大学仿 PowerPoint 的 beamer 主题</a></td></tr><tr><td>175&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483676&idx=1&sn=21c3567c0b336a5f632a0d4cd1e4bba6&chksm=cf4d37b7f83abea1aa43526c479121563060f97a7dbc03e0cd72cfbe83b739eddd69655982be#rd
+'>设计精美优雅的LaTeX模板分享</a></td></tr><tr><td>176&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483671&idx=1&sn=8f2c0a3ddc11d28d1ceddb4cbb1278cf&chksm=cf4d37bcf83abeaa88a7e115dc76dff83e01333e0b2e276dbfe9a21d5fd15eaf1f1160c49226#rd
+'>浙江传媒大学 beamer 主题样式分享</a></td></tr><tr><td>177&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483666&idx=1&sn=132ef3029a6d86418d837eba3700d42e&chksm=cf4d37b9f83abeaf810a2edb3d000d7ccad79c5b49a0bc28d9a6ea6cf52ca9940590fcf9ec74#rd
+'>ElegantBook 书籍模板更新（v3.06）</a></td></tr><tr><td>178&emsp;&emsp;<a href = 'http://mp.weixin.qq.com/s?__biz=Mzg4MzEwNjc1Ng==&mid=2247483661&idx=1&sn=c09b64fd9bcefb9252865d361fb0ff67&chksm=cf4d37a6f83abeb07deaa246972d433d189f560b02a7ba6b9fc3837635a48bb9e192c1d9a636#rd
+'>电子科技大学毕业论文 LaTeX 模板</a></td></tr></tbody></html>
