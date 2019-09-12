@@ -10,9 +10,9 @@ import random
 # 登录微信公众号，获取登录之后的cookies信息，并保存到本地文本中
 
 # 微信公众号账号
-user = "2869928788@qq.com"
+user = "***********"
 # 公众号密码
-password = "anton826"
+password = "*******"
 # 设置要爬取的公众号列表
 gzlist = []
 gzlist.append(input("设置要爬取的公众号:"))
