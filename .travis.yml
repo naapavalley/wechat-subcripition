@@ -1,0 +1,17 @@
+language: generic
+sudo: false
+env:
+  - HABITICA_UUID =true
+  - HABITICA_TOKEN =true
+
+
+branches:
+  only:
+    - master
+    # 这里可以添加你要监控哪些branch
+
+before_install:
+ - git clone https://github.com/naapavalley/habash
+
+script:
+- ./habash/habash up "e1cb9a6e-f6e7-4a71-ae32-f40fef358b7f"
