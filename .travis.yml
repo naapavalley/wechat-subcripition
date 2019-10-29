@@ -14,4 +14,4 @@ before_install:
  - git clone https://github.com/naapavalley/habash
 
 script:
-- ./habash/habash up "e1cb9a6e-f6e7-4a71-ae32-f40fef358b7f"
+- ./habash/habash up "D632468C-1DCA-4178-B44F-BC1DACBC4500"
