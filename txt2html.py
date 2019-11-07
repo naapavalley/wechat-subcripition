@@ -32,7 +32,7 @@ def clearBlankLine():
 
 # 读取txt文件
 def read():
-    filepath = './spider/'+ filename + '.txt'
+    filepath = filename + '.txt'
     with open(filepath, encoding='utf-8') as f:
         content = f.readlines()
     return content
@@ -43,10 +43,16 @@ def gentbody():
     tbody = []
     article_num = 1
     for item in content:
-        content_title = item.split('$',1)[0]
-        content_link = item.split('$',1)[1]
-        tbody.append("<tr><td>" + str(article_num) + "&emsp;&emsp;<a href = '"+ content_link + "'>"+ content_title + "</a></td></tr>")
-        article_num += 1
+        try:
+            content_title = item.split('$',1)[0]
+            content_link = item.split('$',1)[1]
+            tbody.append("<tr><td>" + str(article_num) + "&emsp;&emsp;<a href = '"+ content_link + "'>"+ content_title + "</a></td></tr>")
+            article_num += 1
+        except:
+            content_title = 'Null'
+            content_link = 'Null'
+            tbody.append("<tr><td>" + str(article_num) + "&emsp;&emsp;<a href = '" + content_link + "'>" + content_title + "</a></td></tr>")
+            article_num += 1
     return(tbody)
 
 # 拼接html全文

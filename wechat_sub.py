@@ -10,9 +10,9 @@ import random
 # 登录微信公众号，获取登录之后的cookies信息，并保存到本地文本中
 
 # 微信公众号账号
-user = "***********"
+user = "2869928788@qq.com"
 # 公众号密码
-password = "*******"
+password = "anton826"
 # 设置要爬取的公众号列表
 gzlist = []
 gzlist.append(input("设置要爬取的公众号:"))
@@ -24,7 +24,7 @@ def weChat_login():
 
     # 用webdriver启动谷歌浏览器
     print("启动浏览器，打开微信公众号登录界面")
-    driver = webdriver.Chrome()
+    driver = webdriver.Firefox()
     # 打开微信公众号登录页面
     driver.get('https://mp.weixin.qq.com/')
     # 等待5秒钟
