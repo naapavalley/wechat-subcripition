@@ -10,12 +10,10 @@ import random
 # 登录微信公众号，获取登录之后的cookies信息，并保存到本地文本中
 
 # 微信公众号账号
-user = "2869928788@qq.com"
-# 公众号密码
-password = "anton826"
-# 设置要爬取的公众号列表
-gzlist = []
-gzlist.append(input("设置要爬取的公众号:"))
+usr_info = {
+    "user" : "2869928788@qq.com",
+    "password" : "anton826"
+}
 
 # 登录微信
 def weChat_login():
@@ -33,9 +31,9 @@ def weChat_login():
     # 清空账号框中的内容
     driver.find_element_by_xpath("./*//input[@name='account']").clear()
     # 自动填入登录用户名
-    driver.find_element_by_xpath("./*//input[@name='account']").send_keys(user)
+    driver.find_element_by_xpath("./*//input[@name='account']").send_keys(usr_info['user'])
     # 清空密码框中的内容
-    driver.find_element_by_xpath("./*//input[@name='password']").send_keys(password)
+    driver.find_element_by_xpath("./*//input[@name='password']").send_keys(usr_info['password'])
 
     # 在自动输完密码之后需要手动点一下记住我
     print("请在登录界面点击:记住账号")
@@ -59,6 +57,9 @@ def weChat_login():
         f.write(cookie_str)
     print("cookies信息已保存到本地")
 
+# 设置要爬取的公众号列表
+gzlist = []
+gzlist.append(input("设置要爬取的公众号:"))
 # 爬取微信公众号文章，并存在本地文本中
 def get_content(query):
     # query为要爬取的公众号名称
@@ -147,9 +148,8 @@ def get_content(query):
         query_fakeid_response = requests.get(appmsg_url, cookies=cookies, headers=header, params=query_id_data)
         fakeid_list = query_fakeid_response.json().get('app_msg_list')
         for item in fakeid_list:
-            # 文章链接
+            # 文章链接和标题
             content_link=item.get('link')
-            # 文章标题
             content_title=item.get('title')
             # 写入文章标题和文章链接
             fileName = query + '.txt'
@@ -166,7 +166,6 @@ def get_content(query):
 def get_txt():
     try:
         # 登录微信公众号，获取登录之后的cookies信息，并保存到本地文本中
-        # weChat_login()
         # 登录之后，通过微信公众号后台提供的微信公众号文章接口爬取文章
         for query in gzlist:
             # 爬取微信公众号文章，并存在本地文本中
@@ -175,5 +174,8 @@ def get_txt():
             print("爬取完成")
     except Exception as e:
         print(str(e))
+
+    shutil.move(filename)
 if __name__ == '__main__':
-    get_txt()
+    weChat_login()
+    #get_txt()
