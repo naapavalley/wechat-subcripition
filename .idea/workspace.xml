@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a1629e1-2018-4af5-953d-ceae7c299e20" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cookie.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cookie.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/txt2html.py" beforeDir="false" afterPath="$PROJECT_DIR$/txt2html.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/geckodriver.log" beforeDir="false" afterPath="$PROJECT_DIR$/geckodriver.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wechat_sub.py" beforeDir="false" afterPath="$PROJECT_DIR$/wechat_sub.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wechat_sub_in_one.py" beforeDir="false" afterPath="$PROJECT_DIR$/wechat_sub_in_one.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -100,6 +102,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1SsDMxifNG3cRTXPCsqVtfQl5Km" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
@@ -108,7 +113,7 @@
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs.protractor.protractor_package" value="" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.toDoOptions" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -132,7 +137,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.txt2html">
+  <component name="RunManager" selected="Python.wechat_sub">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="wechatsub" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -199,10 +204,38 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="wechat_sub_in_one" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="wechatsub" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="C:\Users\gogosushi\Anaconda3\pkgs\python-2.7.17-h930f6bb_0\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/wechat_sub_in_one.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.txt2html" />
       <item itemvalue="Python.wechat_sub" />
+      <item itemvalue="Python.wechat_sub_in_one" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.wechat_sub_in_one" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",SHOW_INHERITED" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -293,15 +326,6 @@
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="58671000" />
   </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
@@ -333,6 +357,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="1.chromedriver.exe(73)&#10;2.CFLeasing.txt(壹零租赁智库)" />
     <MESSAGE value="完成txt到网页的自动转化" />
     <MESSAGE value="2019-9-4 09:17:51&#10;1、产品菜鸟成长日记&#10;2、图解代码&#10;3、杨帅英语口语&#10;4、深擎科技&#10;5、latex工作室" />
@@ -341,6 +366,22 @@
     <MESSAGE value="2019-9-6 19:10:21&#10;1、Linux中国&#10;2、可可英语&#10;3、Behance&#10;4、姜茶茶&#10;5、IT桔子" />
     <MESSAGE value="2019年10月29日18:51:11" />
     <option name="LAST_COMMIT_MESSAGE" value="2019年10月29日18:51:11" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/wechat_sub_in_one.py</url>
+          <line>73</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/wechat_sub.py</url>
+          <line>80</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/wechatsub$data_cleaning.coverage" NAME="data_cleaning Coverage Results" MODIFIED="1562223728662" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

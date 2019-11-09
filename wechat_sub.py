@@ -35,8 +35,6 @@ def weChat_login():
     # 自动填入登录用户名
     driver.find_element_by_xpath("./*//input[@name='account']").send_keys(user)
     # 清空密码框中的内容
-    driver.find_element_by_xpath("./*//input[@name='password']").clear()
-    # 自动填入登录密码
     driver.find_element_by_xpath("./*//input[@name='password']").send_keys(password)
 
     # 在自动输完密码之后需要手动点一下记住我
@@ -79,6 +77,7 @@ def get_content(query):
 
     # 登录之后的微信公众号首页url变化为：https://mp.weixin.qq.com/cgi-bin/home?t=home/index&lang=zh_CN&token=1849751598，从这里获取token信息
     response = requests.get(url=url, cookies=cookies)
+    print(str(response.url))
     token = re.findall(r'token=(\d+)', str(response.url))[0]
 
     # 搜索微信公众号的接口地址
@@ -167,7 +166,7 @@ def get_content(query):
 def get_txt():
     try:
         # 登录微信公众号，获取登录之后的cookies信息，并保存到本地文本中
-        weChat_login()
+        # weChat_login()
         # 登录之后，通过微信公众号后台提供的微信公众号文章接口爬取文章
         for query in gzlist:
             # 爬取微信公众号文章，并存在本地文本中
@@ -176,6 +175,5 @@ def get_txt():
             print("爬取完成")
     except Exception as e:
         print(str(e))
-
 if __name__ == '__main__':
     get_txt()
