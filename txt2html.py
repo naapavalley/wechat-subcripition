@@ -3,6 +3,7 @@ import time
 import os
 
 # 设置要爬取的公众号
+
 wechatsubname = input("设置微信公众号中文名：")
 filename = input("请输入微信公众号ID: ")
 tag = input("请输入微信公众号标签： ")
@@ -32,7 +33,7 @@ def clearBlankLine():
 
 # 读取txt文件
 def read():
-    filepath = filename + '.txt'
+    filepath = './spider/' + filename + '.txt'
     with open(filepath, encoding='utf-8') as f:
         content = f.readlines()
     return content
@@ -69,7 +70,29 @@ def genhtml():
         <html>
         <head>
         <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-        <title></title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+        <title></title>
+        <script src="../lib/utils.js"></script>
+        <script src="../lib/keyboard_utils.js"></script>
+        <script src="../lib/dom_utils.js"></script>
+        <script src="../lib/rect.js"></script>
+        <script src="../lib/handler_stack.js"></script>
+        <script src="../lib/settings.js"></script>
+        <script src="../lib/find_mode_history.js"></script>
+        <script src="../content_scripts/mode.js"></script>
+        <script src="../content_scripts/ui_component.js"></script>
+        <script src="../content_scripts/link_hints.js"></script>
+        <script src="../content_scripts/vomnibar.js"></script>
+        <script src="../content_scripts/scroller.js"></script>
+        <script src="../content_scripts/marks.js"></script>
+        <script src="../content_scripts/mode_insert.js"></script>
+        <script src="../content_scripts/mode_find.js"></script>
+        <script src="../content_scripts/mode_key_handler.js"></script>
+        <script src="../content_scripts/mode_visual.js"></script>
+        <script src="../content_scripts/hud.js"></script>
+        <script src="../content_scripts/mode_normal.js"></script>
+        <script src="../content_scripts/vimium_frontend.js"></script>
+        <link rel="stylesheet" type="text/css" href="../content_scripts/vimium.css" />
+        <link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
         html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
         body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
         iframe { margin: auto; }

@@ -175,7 +175,6 @@ def get_txt():
     except Exception as e:
         print(str(e))
 
-    shutil.move(filename)
 if __name__ == '__main__':
-    weChat_login()
-    #get_txt()
+    # weChat_login()
+    get_txt()
