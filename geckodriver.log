@@ -1,0 +1,87 @@
+1613277589684	geckodriver	INFO	Listening on 127.0.0.1:59122
+1613277590687	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/8r/m8jpgqbx5pq4sb2zsvb8wp100000gn/T/rust_mozprofileiqgogt"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1613277594238	Marionette	INFO	Listening on port 59129
+1613277594316	Marionette	WARN	TLS certificate errors will be ignored for this session
+1613277594352	Marionette	ERROR	[19] No reply from Marionette:Register
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+1613278639849	Marionette	INFO	Stopped listening on port 59129
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1617910603616	geckodriver	INFO	Listening on 127.0.0.1:49889
+1617910604625	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/8r/m8jpgqbx5pq4sb2zsvb8wp100000gn/T/rust_mozprofileeRgKYD"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1617910611109	Marionette	INFO	Listening on port 49900
+1617910611201	Marionette	WARN	TLS certificate errors will be ignored for this session
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+1617910753632	geckodriver	INFO	Listening on 127.0.0.1:50237
+1617910753646	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/8r/m8jpgqbx5pq4sb2zsvb8wp100000gn/T/rust_mozprofile2S6Xqt"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1617910759543	Marionette	INFO	Listening on port 50246
+1617910759656	Marionette	WARN	TLS certificate errors will be ignored for this session
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+1617910912186	geckodriver	INFO	Listening on 127.0.0.1:50676
+1617910913198	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/8r/m8jpgqbx5pq4sb2zsvb8wp100000gn/T/rust_mozprofileGEbTvL"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1617910919325	Marionette	INFO	Stopped listening on port 50246
+1617910919347	Marionette	INFO	Listening on port 50687
+1617910919435	Marionette	WARN	TLS certificate errors will be ignored for this session
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+1617911195805	geckodriver	INFO	Listening on 127.0.0.1:50877
+1617911195816	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/8r/m8jpgqbx5pq4sb2zsvb8wp100000gn/T/rust_mozprofileuPfbtT"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1617911198903	Marionette	INFO	Listening on port 50886
+1617911198954	Marionette	WARN	TLS certificate errors will be ignored for this session
+1617911248151	geckodriver	INFO	Listening on 127.0.0.1:51013
+1617911249155	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/8r/m8jpgqbx5pq4sb2zsvb8wp100000gn/T/rust_mozprofile2WOen1"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1617911252308	Marionette	INFO	Listening on port 51024
+1617911252396	Marionette	WARN	TLS certificate errors will be ignored for this session
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+1617911392226	geckodriver	INFO	Listening on 127.0.0.1:51187
+1617911393239	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/8r/m8jpgqbx5pq4sb2zsvb8wp100000gn/T/rust_mozprofilexKPIXK"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1617911396020	Marionette	INFO	Listening on port 51200
+1617911396051	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+1617911466794	Marionette	INFO	Stopped listening on port 51200
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1617911532569	Marionette	INFO	Stopped listening on port 50687
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1617911535467	Marionette	INFO	Stopped listening on port 50886
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1617911538173	Marionette	INFO	Stopped listening on port 51024
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1617911541713	geckodriver	INFO	Listening on 127.0.0.1:51347
+1617911542718	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/8r/m8jpgqbx5pq4sb2zsvb8wp100000gn/T/rust_mozprofilegKIhi2"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1617911545456	Marionette	INFO	Listening on port 51354
+1617911545525	Marionette	WARN	TLS certificate errors will be ignored for this session
+1617911567916	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+1617912569959	geckodriver	INFO	Listening on 127.0.0.1:51717
+1617912570972	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/8r/m8jpgqbx5pq4sb2zsvb8wp100000gn/T/rust_mozprofileyQ7c0F"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1617912574493	Marionette	INFO	Listening on port 51728
+1617912574594	Marionette	WARN	TLS certificate errors will be ignored for this session
+_RegisterApplication(), FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL.
+1617912756811	Marionette	INFO	Stopped listening on port 51354
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1617912764063	Marionette	INFO	Stopped listening on port 49900
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+

@@ -8,8 +8,8 @@ filename = input("请输入微信公众号ID: ")
 tag = input("请输入微信公众号标签： ")
 # 替换字符
 def repstring():
-    file1 = open('winex-sh.txt', 'r', encoding='utf-8') # 要去掉空行的文件
-    file2 = open('winex-sh.txt', 'w', encoding='utf-8') # 生成没有空行的文件
+    file1 = open('Datalaus.txt', 'r', encoding='utf-8') # 要去掉空行的文件
+    file2 = open('Datalaus.txt', 'w', encoding='utf-8') # 生成没有空行的文件
     try:
         for line in file1.readlines():
             line.replace(' http', '$http')
@@ -32,7 +32,7 @@ def clearBlankLine():
 
 # 读取txt文件
 def read():
-    filepath = './spider/'+ filename + '.txt'
+    filepath = filename + '.txt'
     with open(filepath, encoding='utf-8') as f:
         content = f.readlines()
     return content
@@ -101,7 +101,7 @@ def genhtml():
         h6 { font-size: 1rem; }
         .md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
         .hidden { display: none; }
-        .md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+        .md-blockmeta { color: rgb(204, 204, 204); font-weight: 1080; font-style: italic; }
         a { cursor: pointer; }
         sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
         sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }

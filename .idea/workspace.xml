@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5a1629e1-2018-4af5-953d-ceae7c299e20" name="Default Changelist" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="5a1629e1-2018-4af5-953d-ceae7c299e20" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/bigdata-Datalaus-2021-02-14.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chanpinliu880.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/geckodriver.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hanpinliu-chanpinliu880-2021-04-09.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5935e713-c562-4608-b73a-b858911a696c.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5935e713-c562-4608-b73a-b858911a696c/storage_v2/_src_/schema/new_schema.IHWLKw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6c5919fe-463f-4acd-a5d2-274c7384dcd4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8efbe601-002b-42b3-91de-cf2831ace3a6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/edb81f10-df4a-47dd-8f97-d266bb816a9c.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cookie.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cookie.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/txt2html.py" beforeDir="false" afterPath="$PROJECT_DIR$/txt2html.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wechat_sub.py" beforeDir="false" afterPath="$PROJECT_DIR$/wechat_sub.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -95,8 +111,16 @@
     </option>
   </component>
   <component name="ProjectId" id="1SsDMxifNG3cRTXPCsqVtfQl5Km" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
-    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql&#10;oracle" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.console.LAST_STATE" value="false" />
@@ -114,19 +138,7 @@
       <recent name="C:\Users\Administrator.DESKTOP-5EK0S85\PycharmProjects\wechatsub" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Python.txt2html">
+  <component name="RunManager" selected="Python.wechatsub">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="wechatsub" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -184,7 +196,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\gogosushi\PycharmProjects\wechat-subcripition\wechat_sub.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/wechat_sub.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -198,6 +210,7 @@
       <item itemvalue="Python.wechatsub" />
     </list>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -217,6 +230,13 @@
       <workItem from="1564124250021" duration="19018000" />
       <workItem from="1564992088619" duration="10317000" />
       <workItem from="1565319446845" duration="38000" />
+      <workItem from="1613277201875" duration="1661000" />
+      <workItem from="1613469908327" duration="17000" />
+      <workItem from="1616152661983" duration="3591000" />
+      <workItem from="1617586380043" duration="137000" />
+      <workItem from="1617586539386" duration="60000" />
+      <workItem from="1617907458043" duration="584000" />
+      <workItem from="1617910266643" duration="2527000" />
     </task>
     <task id="LOCAL-00001" summary="1.chromedriver.exe(73)&#10;2.CFLeasing.txt(壹零租赁智库)">
       <created>1562208294675</created>
@@ -297,16 +317,14 @@
     </todo-panel>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -325,8 +343,10 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="1.chromedriver.exe(73)&#10;2.CFLeasing.txt(壹零租赁智库)" />
     <MESSAGE value="完成txt到网页的自动转化" />
     <MESSAGE value="2019-9-4 09:17:51&#10;1、产品菜鸟成长日记&#10;2、图解代码&#10;3、杨帅英语口语&#10;4、深擎科技&#10;5、latex工作室" />
@@ -337,9 +357,11 @@
     <option name="LAST_COMMIT_MESSAGE" value="2019年10月29日18:51:11" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/wechatsub$data_cleaning.coverage" NAME="data_cleaning Coverage Results" MODIFIED="1562223728662" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/wechat_subcripition$wechatsub.coverage" NAME="wechatsub Coverage Results" MODIFIED="1617912569287" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/wechatsub$txt2html.coverage" NAME="txt2html Coverage Results" MODIFIED="1565318757110" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/wechatsub$wechatsub.coverage" NAME="wechatsub Coverage Results" MODIFIED="1565319248114" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/wechatsub$html_test.coverage" NAME="html_test Coverage Results" MODIFIED="1564855123552" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/wechat_subcripition$txt2html.coverage" NAME="txt2html Coverage Results" MODIFIED="1617912558088" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/wechatsub$data_cleaning.coverage" NAME="data_cleaning Coverage Results" MODIFIED="1562223728662" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
